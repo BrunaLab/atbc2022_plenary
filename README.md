@@ -1,5 +1,4 @@
-# atbc2022_plenary
-data, code, and other materials used for EB's 2022 ATBC Plenary Talk
+# data, code, and other materials from EB's Plenary Talk at ATBC2022
 
 ## Data
 
