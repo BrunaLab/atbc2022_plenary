@@ -1,0 +1,5 @@
+@_fa,@seq,author-url,authid,authname,surname,given-name,initials,afid.@_fa,afid.$,entry_number
+true,1,https://api.elsevier.com/content/author/author_id/7202293887,7202293887,Jordan M.,Jordan,M. J.,M.J.,true,60119141,1
+true,1,https://api.elsevier.com/content/author/author_id/24519357000,24519357000,Perkins M.A.,Perkins,M. A.,M.A.,true,60014439,2
+true,2,https://api.elsevier.com/content/author/author_id/7103000934,7103000934,Goldman C.R.,Goldman,C. R.,C.R.,true,60014439,2
+true,3,https://api.elsevier.com/content/author/author_id/57216242800,57216242800,Leonard R.L.,Leonard,R. L.,R.L.,true,60014439,2

@@ -1,0 +1,59 @@
+entry_number,@_fa,affiliation-url,afid,affilname,affiliation-city,affiliation-country
+2,NA,NA,NA,NA,NA,NA
+3,NA,NA,NA,NA,NA,NA
+4,NA,NA,NA,NA,NA,NA
+5,NA,NA,NA,NA,NA,NA
+6,NA,NA,NA,NA,NA,NA
+7,NA,NA,NA,NA,NA,NA
+8,NA,NA,NA,NA,NA,NA
+9,NA,NA,NA,NA,NA,NA
+10,NA,NA,NA,NA,NA,NA
+11,NA,NA,NA,NA,NA,NA
+11,true,https://api.elsevier.com/content/affiliation/affiliation_id/60012708,60012708,Stanford University,Palo Alto,United States
+12,true,https://api.elsevier.com/content/affiliation/affiliation_id/60029747,60029747,University of Georgia,Athens,United States
+14,NA,NA,NA,NA,NA,NA
+14,true,https://api.elsevier.com/content/affiliation/affiliation_id/60019578,60019578,Monash University,Melbourne,Australia
+15,true,https://api.elsevier.com/content/affiliation/affiliation_id/60015481,60015481,University of Washington,Seattle,United States
+17,NA,NA,NA,NA,NA,NA
+17,true,https://api.elsevier.com/content/affiliation/affiliation_id/60003269,60003269,Princeton University,Princeton,United States
+18,true,https://api.elsevier.com/content/affiliation/affiliation_id/60027550,60027550,"University of California, Los Angeles",Los Angeles,United States
+19,true,https://api.elsevier.com/content/affiliation/affiliation_id/60003342,60003342,USDA Forest Service,"Washington, D.C.",United States
+20,true,https://api.elsevier.com/content/affiliation/affiliation_id/60017366,60017366,IBM Thomas J. Watson Research Center,Yorktown Heights,United States
+22,NA,NA,NA,NA,NA,NA
+23,NA,NA,NA,NA,NA,NA
+23,true,https://api.elsevier.com/content/affiliation/affiliation_id/60003915,60003915,Vanderbilt University,Nashville,United States
+24,true,https://api.elsevier.com/content/affiliation/affiliation_id/60003044,60003044,Universidad de la Laguna,San Cristobal de La Laguna,Spain
+26,NA,NA,NA,NA,NA,NA
+27,NA,NA,NA,NA,NA,NA
+28,NA,NA,NA,NA,NA,NA
+29,NA,NA,NA,NA,NA,NA
+30,NA,NA,NA,NA,NA,NA
+31,NA,NA,NA,NA,NA,NA
+32,NA,NA,NA,NA,NA,NA
+33,NA,NA,NA,NA,NA,NA
+34,NA,NA,NA,NA,NA,NA
+35,NA,NA,NA,NA,NA,NA
+36,NA,NA,NA,NA,NA,NA
+37,NA,NA,NA,NA,NA,NA
+38,NA,NA,NA,NA,NA,NA
+39,NA,NA,NA,NA,NA,NA
+40,NA,NA,NA,NA,NA,NA
+41,NA,NA,NA,NA,NA,NA
+42,NA,NA,NA,NA,NA,NA
+43,NA,NA,NA,NA,NA,NA
+43,true,https://api.elsevier.com/content/affiliation/affiliation_id/60016302,60016302,New Zealand Department of Scientific and Industrial Research,NA,New Zealand
+44,true,https://api.elsevier.com/content/affiliation/affiliation_id/60013959,60013959,University of Florida,Gainesville,United States
+46,NA,NA,NA,NA,NA,NA
+47,NA,NA,NA,NA,NA,NA
+48,NA,NA,NA,NA,NA,NA
+49,NA,NA,NA,NA,NA,NA
+50,NA,NA,NA,NA,NA,NA
+51,NA,NA,NA,NA,NA,NA
+52,NA,NA,NA,NA,NA,NA
+53,NA,NA,NA,NA,NA,NA
+54,NA,NA,NA,NA,NA,NA
+55,NA,NA,NA,NA,NA,NA
+56,NA,NA,NA,NA,NA,NA
+57,NA,NA,NA,NA,NA,NA
+58,NA,NA,NA,NA,NA,NA
+59,NA,NA,NA,NA,NA,NA

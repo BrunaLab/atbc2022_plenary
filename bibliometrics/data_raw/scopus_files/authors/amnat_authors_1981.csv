@@ -1,0 +1,5 @@
+@_fa,@seq,author-url,authid,authname,surname,given-name,initials,afid.@_fa,afid.$,entry_number
+true,1,https://api.elsevier.com/content/author/author_id/7004178807,7004178807,Pyke G.,Pyke,Graham H.,G.H.,true,60025709,1
+true,1,https://api.elsevier.com/content/author/author_id/55934323500,55934323500,Taylor W.D.,Taylor,William D.,W.D.,true,60014171,2
+true,2,https://api.elsevier.com/content/author/author_id/57207496625,57207496625,Shuter B.J.,Shuter,Brian J.,B.J.,true,60014171,2
+true,1,https://api.elsevier.com/content/author/author_id/7102166369,7102166369,Axelrod D.,Axelrod,D. I.,D.I.,true,60014439,3

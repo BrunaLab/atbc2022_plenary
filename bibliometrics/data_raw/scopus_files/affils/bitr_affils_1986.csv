@@ -1,0 +1,14 @@
+@_fa,affiliation-url,afid,affilname,affiliation-city,affiliation-country,entry_number
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60030522,60030522,Smithsonian Tropical Research Institute,"Washington, D.C.",United States,1
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60019333,60019333,Instituto de Biología de la UNAM,Mexico City,Mexico,2
+true,https://api.elsevier.com/content/affiliation/affiliation_id/111115111,111115111,Rutgers,Piscataway,United States,3
+true,https://api.elsevier.com/content/affiliation/affiliation_id/100375187,100375187,Inst. of Tropical Forestry,Las Piedras,United States,4
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60031975,60031975,Illinois State University,Chicago,United States,5
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60029251,60029251,University of Miami,Coral Gables,United States,6
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60000745,60000745,University of Illinois Urbana-Champaign,Urbana,United States,7
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60019176,60019176,Instituto Politécnico Nacional,Mexico City,Mexico,8
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60028244,60028244,Ball State University,Muncie,United States,9
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60015881,60015881,University of Guelph,Guelph,Canada,10
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60013372,60013372,The University of Texas at Austin,Austin,United States,11
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60012709,60012709,School of Biological Sciences,Lincoln,United States,12
+NA,NA,NA,NA,NA,NA,14

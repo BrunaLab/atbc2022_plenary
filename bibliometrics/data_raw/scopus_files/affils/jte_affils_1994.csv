@@ -1,0 +1,69 @@
+@_fa,affiliation-url,afid,affilname,affiliation-city,affiliation-country,entry_number
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60031101,60031101,University of Cambridge,Cambridge,United Kingdom,1
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60017161,60017161,National University of Singapore,Singapore City,Singapore,1
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60008134,60008134,CNRS Centre National de la Recherche Scientifique,Paris,France,2
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60084130,60084130,Escola Superior de Agricultura de Lavras,Lavras,Brazil,3
+true,https://api.elsevier.com/content/affiliation/affiliation_id/100793871,100793871,Departamento de Ciências Florestais,Lavras,Brazil,3
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60031101,60031101,University of Cambridge,Cambridge,United Kingdom,4
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60017161,60017161,National University of Singapore,Singapore City,Singapore,4
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60007866,60007866,Instituto Venezolano de Investigaciones Cientificas,Caracas,Venezuela,5
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60030622,60030622,Jawaharlal Nehru University,New Delhi,India,6
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60026093,60026093,Kerala Forest Research Institute,Peechi,India,6
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60027272,60027272,The University of Edinburgh,Edinburgh,United Kingdom,7
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60010795,60010795,Conservation Science Program,"Washington, D.C.",United States,8
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60008734,60008734,Vrije Universiteit Amsterdam,Amsterdam,Netherlands,9
+true,https://api.elsevier.com/content/affiliation/affiliation_id/116745326,116745326,Zoutkeetsgracht 290,Amsterdam,Netherlands,9
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60032442,60032442,Universidad Nacional Autónoma de México,Ciudad de México,Mexico,10
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60003858,60003858,Uppsala Universitet,Uppsala,Sweden,10
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60001881,60001881,The University of Sheffield,Sheffield,United Kingdom,10
+NA,NA,NA,NA,NA,NA,12
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60025200,60025200,University of Stirling,Stirling,United Kingdom,12
+true,https://api.elsevier.com/content/affiliation/affiliation_id/116946506,116946506,State University Foundation,NA,Brazil,13
+true,https://api.elsevier.com/content/affiliation/affiliation_id/101913354,101913354,Federal University of Paran,NA,Brazil,13
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60071768,60071768,Sultan Qaboos University,Muscat,Oman,14
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60017980,60017980,University of Benin,Benin,Nigeria,14
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60012113,60012113,The Open University,Milton Keynes,United Kingdom,15
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60015150,60015150,Imperial College London,London,United Kingdom,16
+true,https://api.elsevier.com/content/affiliation/affiliation_id/101605021,101605021,Universidade Federal de Viqosa,NA,Brazil,16
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60021902,60021902,University of Pretoria,Pretoria,South Africa,17
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60021221,60021221,University of Botswana,Gaborone,Botswana,17
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60029616,60029616,Aarhus Universitet,Aarhus,Denmark,18
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60002483,60002483,Universiteit van Amsterdam,Amsterdam,Netherlands,19
+true,https://api.elsevier.com/content/affiliation/affiliation_id/116408997,116408997,Tropenbos-Colombia Programme,NA,Colombia,19
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60017317,60017317,University of Sussex,Brighton,United Kingdom,20
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60006448,60006448,University of Lagos,Lagos,Nigeria,20
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60007989,60007989,Universiteit Utrecht,Utrecht,Netherlands,21
+true,https://api.elsevier.com/content/affiliation/affiliation_id/116409831,116409831,The Tropenbos Programme,Georgetown,Guyana,21
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60015150,60015150,Imperial College London,London,United Kingdom,22
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60026851,60026851,University of Oxford,Oxford,United Kingdom,23
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60011520,60011520,King's College London,London,United Kingdom,23
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60012937,60012937,Universiteit Antwerpen,Antwerpen,Belgium,24
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60029570,60029570,Universidade Estadual de Campinas,Campinas,Brazil,25
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60012070,60012070,University of Leeds,Leeds,United Kingdom,26
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60008177,60008177,Conservation Commission of the Northern Territory,Canberra,Australia,27
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60004156,60004156,Wageningen University &amp; Research,Wageningen,Netherlands,28
+true,https://api.elsevier.com/content/affiliation/affiliation_id/116409301,116409301,Balai Penelitian Kehutanan,NA,Indonesia,28
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60022132,60022132,University of St Andrews,St Andrews,United Kingdom,29
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60015104,60015104,Universidade Federal de Uberlândia,Uberlandia,Brazil,29
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60025200,60025200,University of Stirling,Stirling,United Kingdom,30
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60024989,60024989,Universidade de Brasília,Brasilia,Brazil,30
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60029157,60029157,Universiti Malaya,Kuala Lumpur,Malaysia,31
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60003661,60003661,Natural Resources Institute,Chatham,United Kingdom,32
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60003269,60003269,Princeton University,Princeton,United States,33
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60072694,60072694,Desert Ecological Research Unit of Namibia,Swakopmund,Namibia,34
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60027272,60027272,The University of Edinburgh,Edinburgh,United Kingdom,35
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60008091,60008091,Wildlife Institute of India,Dehradun,India,36
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60069419,60069419,Satya Wacana Christian University,Salatiga,Indonesia,37
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60008734,60008734,Vrije Universiteit Amsterdam,Amsterdam,Netherlands,37
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60004156,60004156,Wageningen University &amp; Research,Wageningen,Netherlands,38
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60019909,60019909,University of Wisconsin-Milwaukee,Milwaukee,United States,39
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60009982,60009982,Harvard University,Cambridge,United States,40
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60021182,60021182,Sun Yat-Sen University,Guangzhou,China,41
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60005816,60005816,South China Normal University,Guangzhou,China,41
+NA,NA,NA,NA,NA,NA,43
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60022132,60022132,University of St Andrews,St Andrews,United Kingdom,43
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60030074,60030074,Universidade Federal de Minas Gerais,Belo Horizonte,Brazil,44
+true,https://api.elsevier.com/content/affiliation/affiliation_id/116743826,116743826,CARE Ecuador,Atlanta,United States,44
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60006541,60006541,The University of Hong Kong,Pokfulam,Hong Kong,45
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60015875,60015875,University of Aberdeen,Aberdeen,United Kingdom,46
+true,https://api.elsevier.com/content/affiliation/affiliation_id/60011484,60011484,Rosenstiel School of Marine and Atmospheric Science,Miami,United States,47

@@ -1,0 +1,6 @@
+@_fa,@seq,author-url,authid,authname,surname,given-name,initials,afid.@_fa,afid.$,entry_number
+true,1,https://api.elsevier.com/content/author/author_id/7103280186,7103280186,Christiansen F.,Christiansen,F. B.,F.B.,true,60012708,1
+true,1,https://api.elsevier.com/content/author/author_id/7201601704,7201601704,Warner R.,Warner,R. R.,R.R.,true,60023018,2
+true,1,https://api.elsevier.com/content/author/author_id/7005509133,7005509133,Carson H.,Carson,H. L.,H.L.,true,60013791,3
+true,1,https://api.elsevier.com/content/author/author_id/7102293163,7102293163,Snyder G.,Snyder,G. K.,G.K.,true,60029526,4
+true,2,https://api.elsevier.com/content/author/author_id/7004046348,7004046348,Weathers W.,Weathers,W. W.,W.W.,true,60029526,4

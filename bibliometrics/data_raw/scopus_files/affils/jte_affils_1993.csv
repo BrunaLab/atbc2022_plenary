@@ -1,0 +1,66 @@
+entry_number,@_fa,affiliation-url,afid,affilname,affiliation-city,affiliation-country
+2,NA,NA,NA,NA,NA,NA
+2,true,https://api.elsevier.com/content/affiliation/affiliation_id/60029159,60029159,Instituto Nacional de Pesquisas Da Amazonia,Manaus,Brazil
+2,true,https://api.elsevier.com/content/affiliation/affiliation_id/60024989,60024989,Universidade de Brasília,Brasilia,Brazil
+3,true,https://api.elsevier.com/content/affiliation/affiliation_id/115753623,115753623,Hobart and William Smith Colleges,Geneve,Switzerland
+4,true,https://api.elsevier.com/content/affiliation/affiliation_id/116743018,116743018,Museu de Biologia Mello Leitão,Santa Teresa,Brazil
+5,true,https://api.elsevier.com/content/affiliation/affiliation_id/60032442,60032442,Universidad Nacional Autónoma de México,Ciudad de México,Mexico
+6,true,https://api.elsevier.com/content/affiliation/affiliation_id/60008134,60008134,CNRS Centre National de la Recherche Scientifique,Paris,France
+6,true,https://api.elsevier.com/content/affiliation/affiliation_id/60001422,60001422,Sorbonne Universite,Paris,France
+7,true,https://api.elsevier.com/content/affiliation/affiliation_id/60072021,60072021,Centre International de Recherches Medicales de Franceville,Franceville,Gabon
+7,true,https://api.elsevier.com/content/affiliation/affiliation_id/60025200,60025200,University of Stirling,Stirling,United Kingdom
+8,true,https://api.elsevier.com/content/affiliation/affiliation_id/60026851,60026851,University of Oxford,Oxford,United Kingdom
+9,true,https://api.elsevier.com/content/affiliation/affiliation_id/116743261,116743261,r. Antonio F. Gandra 182,Sao Vicente,Brazil
+10,true,https://api.elsevier.com/content/affiliation/affiliation_id/60019333,60019333,Instituto de Biología de la UNAM,Mexico City,Mexico
+10,true,https://api.elsevier.com/content/affiliation/affiliation_id/100354744,100354744,Lincoln Park Zoological Gardens,Chicago,United States
+11,true,https://api.elsevier.com/content/affiliation/affiliation_id/60006270,60006270,University of Ibadan,Ibadan,Nigeria
+12,true,https://api.elsevier.com/content/affiliation/affiliation_id/109983839,109983839,Universidade Federal de Pernambuco,Philadelphia,United States
+13,true,https://api.elsevier.com/content/affiliation/affiliation_id/60000179,60000179,École Normale Supérieure,Paris,France
+14,true,https://api.elsevier.com/content/affiliation/affiliation_id/60026851,60026851,University of Oxford,Oxford,United Kingdom
+14,true,https://api.elsevier.com/content/affiliation/affiliation_id/60015875,60015875,University of Aberdeen,Aberdeen,United Kingdom
+15,true,https://api.elsevier.com/content/affiliation/affiliation_id/60021221,60021221,University of Botswana,Gaborone,Botswana
+15,true,https://api.elsevier.com/content/affiliation/affiliation_id/60011520,60011520,King's College London,London,United Kingdom
+15,true,https://api.elsevier.com/content/affiliation/affiliation_id/60008734,60008734,Vrije Universiteit Amsterdam,Amsterdam,Netherlands
+16,true,https://api.elsevier.com/content/affiliation/affiliation_id/60071082,60071082,University of Peradeniya,Peradeniya,Sri Lanka
+17,true,https://api.elsevier.com/content/affiliation/affiliation_id/60013029,60013029,"Institute of Entomology, Biology Centre of the Academy of Sciences of the Czech Republic",Ceske Budejovice,Czech Republic
+18,true,https://api.elsevier.com/content/affiliation/affiliation_id/60033420,60033420,York University,Toronto,Canada
+19,true,https://api.elsevier.com/content/affiliation/affiliation_id/60032673,60032673,CSIRO Sustainable Ecosystems,Canberra,Australia
+19,true,https://api.elsevier.com/content/affiliation/affiliation_id/60008950,60008950,The Australian National University,Canberra,Australia
+20,true,https://api.elsevier.com/content/affiliation/affiliation_id/60028311,60028311,Museum National d'Histoire Naturelle,Paris,France
+21,true,https://api.elsevier.com/content/affiliation/affiliation_id/60015104,60015104,Universidade Federal de Uberlândia,Uberlandia,Brazil
+21,true,https://api.elsevier.com/content/affiliation/affiliation_id/60009625,60009625,Empresa Brasileira de Pesquisa Agropecuária - Embrapa,Brasilia,Brazil
+22,true,https://api.elsevier.com/content/affiliation/affiliation_id/60019870,60019870,James Cook University,Townsville,Australia
+23,true,https://api.elsevier.com/content/affiliation/affiliation_id/60024712,60024712,"Instituto de Ecología, A.C.",Xalapa,Mexico
+24,true,https://api.elsevier.com/content/affiliation/affiliation_id/60024712,60024712,"Instituto de Ecología, A.C.",Xalapa,Mexico
+24,true,https://api.elsevier.com/content/affiliation/affiliation_id/60019333,60019333,Instituto de Biología de la UNAM,Mexico City,Mexico
+24,true,https://api.elsevier.com/content/affiliation/affiliation_id/100354744,100354744,Lincoln Park Zoological Gardens,Chicago,United States
+25,true,https://api.elsevier.com/content/affiliation/affiliation_id/60026851,60026851,University of Oxford,Oxford,United Kingdom
+26,true,https://api.elsevier.com/content/affiliation/affiliation_id/60031101,60031101,University of Cambridge,Cambridge,United Kingdom
+27,true,https://api.elsevier.com/content/affiliation/affiliation_id/60032987,60032987,Griffith University,Brisbane,Australia
+27,true,https://api.elsevier.com/content/affiliation/affiliation_id/60014439,60014439,"University of California, Davis",Davis,United States
+27,true,https://api.elsevier.com/content/affiliation/affiliation_id/60008950,60008950,The Australian National University,Canberra,Australia
+28,true,https://api.elsevier.com/content/affiliation/affiliation_id/60071768,60071768,Sultan Qaboos University,Muscat,Oman
+29,true,https://api.elsevier.com/content/affiliation/affiliation_id/60012718,60012718,Mahidol University,Nakhon Pathom,Thailand
+30,true,https://api.elsevier.com/content/affiliation/affiliation_id/60024989,60024989,Universidade de Brasília,Brasilia,Brazil
+30,true,https://api.elsevier.com/content/affiliation/affiliation_id/60006437,60006437,Instituto Brasileiro de Geografia e Estatistica,NA,Brazil
+30,true,https://api.elsevier.com/content/affiliation/affiliation_id/100418353,100418353,Instituto Brasileiro do Meio Ambiente (IBAMA),Brasilia,Brazil
+31,true,https://api.elsevier.com/content/affiliation/affiliation_id/60071503,60071503,Universidad de Puerto Rico,San Juan,Puerto Rico
+31,true,https://api.elsevier.com/content/affiliation/affiliation_id/60003342,60003342,USDA Forest Service,"Washington, D.C.",United States
+32,true,https://api.elsevier.com/content/affiliation/affiliation_id/60026851,60026851,University of Oxford,Oxford,United Kingdom
+33,true,https://api.elsevier.com/content/affiliation/affiliation_id/60025038,60025038,"University of California, Berkeley",Berkeley,United States
+33,true,https://api.elsevier.com/content/affiliation/affiliation_id/60007776,60007776,Cornell University,Ithaca,United States
+34,true,https://api.elsevier.com/content/affiliation/affiliation_id/60019870,60019870,James Cook University,Townsville,Australia
+35,true,https://api.elsevier.com/content/affiliation/affiliation_id/60028333,60028333,UNSW Sydney,Sydney,Australia
+36,true,https://api.elsevier.com/content/affiliation/affiliation_id/60071925,60071925,Organization for Tropical Studies Costa Rica,San Pedro de Poas,Costa Rica
+36,true,https://api.elsevier.com/content/affiliation/affiliation_id/60015457,60015457,University of Kansas,Lawrence,United States
+36,true,https://api.elsevier.com/content/affiliation/affiliation_id/60015206,60015206,Florida International University,Miami,United States
+37,true,https://api.elsevier.com/content/affiliation/affiliation_id/60025200,60025200,University of Stirling,Stirling,United Kingdom
+38,true,https://api.elsevier.com/content/affiliation/affiliation_id/60025352,60025352,"The Natural History Museum, London",London,United Kingdom
+40,NA,NA,NA,NA,NA,NA
+40,true,https://api.elsevier.com/content/affiliation/affiliation_id/60019526,60019526,Mount Holyoke College,South Hadley,United States
+40,true,https://api.elsevier.com/content/affiliation/affiliation_id/60009500,60009500,University of Vermont,Burlington,United States
+41,true,https://api.elsevier.com/content/affiliation/affiliation_id/60030622,60030622,Jawaharlal Nehru University,New Delhi,India
+42,true,https://api.elsevier.com/content/affiliation/affiliation_id/60004156,60004156,Wageningen University &amp; Research,Wageningen,Netherlands
+43,true,https://api.elsevier.com/content/affiliation/affiliation_id/60006541,60006541,The University of Hong Kong,Pokfulam,Hong Kong
+44,true,https://api.elsevier.com/content/affiliation/affiliation_id/60029570,60029570,Universidade Estadual de Campinas,Campinas,Brazil
+45,true,https://api.elsevier.com/content/affiliation/affiliation_id/60015574,60015574,"The University of Tennessee, Knoxville",Knoxville,United States

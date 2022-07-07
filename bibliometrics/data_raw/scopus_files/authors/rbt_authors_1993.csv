@@ -1,0 +1,52 @@
+@_fa,@seq,author-url,authid,authname,surname,given-name,initials,afid.@_fa,afid.$,entry_number
+true,1,https://api.elsevier.com/content/author/author_id/6506836193,6506836193,Incio Ruiz R.,Incio Ruiz,R.,R.,true,60105282,1
+true,2,https://api.elsevier.com/content/author/author_id/6504261890,6504261890,Incio Ruiz L.,Incio Ruiz,L.,L.,true,60105282,1
+true,3,https://api.elsevier.com/content/author/author_id/6507211065,6507211065,Martínez-Vargas A.,Martínez-Vargas,A. Z.,A.Z.,true,60105282,1
+true,4,https://api.elsevier.com/content/author/author_id/7801555559,7801555559,Salas Arruz M.,Salas Arruz,M.,M.,true,60105282,1
+true,5,https://api.elsevier.com/content/author/author_id/34975051900,34975051900,Gutiérrez J.,Gutiérrez,J. M.,J.M.,true,60105282,1
+true,1,https://api.elsevier.com/content/author/author_id/6507165067,6507165067,Jiménez-Arce G.,Jiménez-Arce,G.,G.,true,60071929,2
+true,1,https://api.elsevier.com/content/author/author_id/7401953241,7401953241,Rodríguez E.,Rodríguez,E.,E.,true,60071929,3
+true,2,https://api.elsevier.com/content/author/author_id/6505611958,6505611958,Mar Gamboa M.,Mar Gamboa,M. D.,M.D.,true,60071929,3
+true,3,https://api.elsevier.com/content/author/author_id/57205968855,57205968855,Fernández B.,Fernández,B.,B.,true,60071929,3
+true,1,https://api.elsevier.com/content/author/author_id/6603728017,6603728017,Lichtwardt R.,Lichtwardt,R. W.,R.W.,true,60015457,4
+true,2,https://api.elsevier.com/content/author/author_id/57196791172,57196791172,Gómez L.,Gómez,L. D.,L.D.,true,60015457,4
+true,1,https://api.elsevier.com/content/author/author_id/7004861829,7004861829,Villegas L.,Villegas,L.,L.,true,60071237,5
+true,2,https://api.elsevier.com/content/author/author_id/7003322931,7003322931,Aguirre E.,Aguirre,E.,E.,true,60071237,5
+true,3,https://api.elsevier.com/content/author/author_id/6701717393,6701717393,Zavaleta A.,Zavaleta,A.,A.,true,60071237,5
+true,1,https://api.elsevier.com/content/author/author_id/7004154808,7004154808,Monge R.,Monge,R.,R.,true,60071929,6
+true,2,https://api.elsevier.com/content/author/author_id/7202940698,7202940698,Arias M.,Arias,M. L.,M.L.,true,60071929,6
+true,3,https://api.elsevier.com/content/author/author_id/6506733242,6506733242,Ellner R.,Ellner,R.,R.,true,60071929,6
+true,1,https://api.elsevier.com/content/author/author_id/7004415266,7004415266,Barrantes R.,Barrantes,R.,R.,true,60071929,7
+true,1,https://api.elsevier.com/content/author/author_id/22034159100,22034159100,Gamboa M.,Gamboa,M. M.,M.M.,true,60071929,8
+true,2,https://api.elsevier.com/content/author/author_id/7401953241,7401953241,Rodríguez E.,Rodríguez,E.,E.,true,60071929,8
+true,3,https://api.elsevier.com/content/author/author_id/57205968855,57205968855,Fernández B.,Fernández,B.,B.,true,60071929,8
+true,1,https://api.elsevier.com/content/author/author_id/57197480243,57197480243,Hernández F.,Hernández,F.,F.,true,60071929,9
+true,2,https://api.elsevier.com/content/author/author_id/7401953241,7401953241,Rodríguez E.,Rodríguez,E.,E.,true,60071929,9
+true,1,https://api.elsevier.com/content/author/author_id/56077925700,56077925700,Monteón V.M.,Monteón,V. M.,V.M.,true,60010748,10
+true,2,https://api.elsevier.com/content/author/author_id/57208830255,57208830255,Ramos A.,Ramos,A.,A.,true,60010748,10
+true,3,https://api.elsevier.com/content/author/author_id/57219135550,57219135550,Reyes P.A.,Reyes,P. A.,P.A.,true,60010748,10
+true,1,https://api.elsevier.com/content/author/author_id/7801436746,7801436746,Sáenz Renauld G.,Sáenz Renauld,G. F.,G.F.,true,60071929,11
+true,2,https://api.elsevier.com/content/author/author_id/7801682954,7801682954,Rodríguez Romero W.,Rodríguez Romero,W.,W.,true,60071929,11
+true,3,https://api.elsevier.com/content/author/author_id/6506837209,6506837209,Chaves Villalobos M.,Chaves Villalobos,M.,M.,true,60071929,11
+true,1,https://api.elsevier.com/content/author/author_id/16687973900,16687973900,Campos E.,Campos,E.,E.,true,60071920,12
+true,2,https://api.elsevier.com/content/author/author_id/6602237089,6602237089,Bolaños H.,Bolaños,H.,H.,true,60071920,12
+true,3,https://api.elsevier.com/content/author/author_id/23467774600,23467774600,Serra J.,Serra,J.,J.,true,60071920,12
+true,4,https://api.elsevier.com/content/author/author_id/57213249075,57213249075,Ramírez J.A.,Ramírez,J. A.,J.A.,true,60071920,12
+true,5,https://api.elsevier.com/content/author/author_id/6508319113,6508319113,Barboza O.,Barboza,O.,O.,true,60071920,12
+true,6,https://api.elsevier.com/content/author/author_id/57225350236,57225350236,Jacobs E.,Jacobs,E.,E.,true,60071920,12
+true,1,https://api.elsevier.com/content/author/author_id/6602245941,6602245941,Castro Volio I.,Castro Volio,I.,I.,true,60071929,13
+true,2,https://api.elsevier.com/content/author/author_id/6506480915,6506480915,Montero Umaña C.,Montero Umaña,C.,C.,true,60071929,13
+true,3,https://api.elsevier.com/content/author/author_id/7801430352,7801430352,Jiménez Cruz G.,Jiménez Cruz,G.,G.,true,60071929,13
+true,1,https://api.elsevier.com/content/author/author_id/7003774874,7003774874,Chinchilla M.,Chinchilla,M.,M.,true,60071929,14
+true,2,https://api.elsevier.com/content/author/author_id/7003354052,7003354052,Guerrero O.,Guerrero,O. M.,O.M.,true,60071929,14
+true,3,https://api.elsevier.com/content/author/author_id/6506414974,6506414974,Catarinella G.,Catarinella,G.,G.,true,60071929,14
+true,4,https://api.elsevier.com/content/author/author_id/7005723465,7005723465,Reyes L.,Reyes,L.,L.,true,60071929,14
+true,1,https://api.elsevier.com/content/author/author_id/22034159100,22034159100,Gamboa M.,Gamboa,M. M.,M.M.,true,60071929,15
+true,2,https://api.elsevier.com/content/author/author_id/7401953241,7401953241,Rodríguez E.,Rodríguez,E.,E.,true,60071929,15
+true,3,https://api.elsevier.com/content/author/author_id/57205968855,57205968855,Fernández B.,Fernández,B.,B.,true,60071929,15
+true,1,https://api.elsevier.com/content/author/author_id/6603598980,6603598980,Pérez Reyes R.,Pérez Reyes,R.,R.,true,60022916,16
+true,2,https://api.elsevier.com/content/author/author_id/57213295305,57213295305,Abbud Ochoa A.,Abbud Ochoa,A.,A.,true,60022916,16
+true,1,https://api.elsevier.com/content/author/author_id/57197480243,57197480243,Hernández F.,Hernández,F.,F.,true,60071929,17
+true,2,https://api.elsevier.com/content/author/author_id/6701710014,6701710014,Argüello A.P.,Argüello,A. P.,A.P.,true,60071929,17
+true,3,https://api.elsevier.com/content/author/author_id/14632286800,14632286800,Rivera P.,Rivera,P.,P.,true,60071929,17
+true,4,https://api.elsevier.com/content/author/author_id/7202385112,7202385112,Jiménez E.,Jiménez,E.,E.,true,60071929,17

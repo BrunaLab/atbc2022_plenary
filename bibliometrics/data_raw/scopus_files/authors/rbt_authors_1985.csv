@@ -1,0 +1,12 @@
+@_fa,@seq,author-url,authid,authname,surname,given-name,initials,entry_number,afid.@_fa,afid.$
+true,1,https://api.elsevier.com/content/author/author_id/57197480243,57197480243,Hernández F.,Hernández,F.,F.,1,NA,NA
+true,2,https://api.elsevier.com/content/author/author_id/14632286800,14632286800,Rivera P.,Rivera,P.,P.,1,NA,NA
+true,3,https://api.elsevier.com/content/author/author_id/7202049868,7202049868,Herrera M.,Herrera,M. L.,M.L.,1,NA,NA
+true,1,https://api.elsevier.com/content/author/author_id/35618207100,35618207100,Gené J.,Gené,J. A.,J.A.,2,true,60071929
+true,2,https://api.elsevier.com/content/author/author_id/7005342903,7005342903,Lomonte B.,Lomonte,B.,B.,2,true,60071929
+true,3,https://api.elsevier.com/content/author/author_id/34975051900,34975051900,Gutiérrez J.,Gutiérrez,J. M.,J.M.,2,true,60071929
+true,4,https://api.elsevier.com/content/author/author_id/6701827192,6701827192,Cerdas L.,Cerdas,L.,L.,2,true,60071929
+true,1,https://api.elsevier.com/content/author/author_id/7004415266,7004415266,Barrantes R.,Barrantes,R.,R.,3,true,60071929
+true,2,https://api.elsevier.com/content/author/author_id/6602200138,6602200138,Azofeifa J.,Azofeifa,J.,J.,3,true,60071929
+true,3,https://api.elsevier.com/content/author/author_id/7103247134,7103247134,Mata L.,Mata,L.,L.,3,true,60071929
+true,1,https://api.elsevier.com/content/author/author_id/7006318801,7006318801,Solís V.,Solís,V.,V.,4,true,60071929

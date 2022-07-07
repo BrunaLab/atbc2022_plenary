@@ -1,0 +1,293 @@
+entry_number,@_fa,affiliation-url,afid,affilname,affiliation-city,affiliation-country
+2,NA,NA,NA,NA,NA,NA
+2,true,https://api.elsevier.com/content/affiliation/affiliation_id/60052098,60052098,Universidad Nacional de Colombia Medellin,Medellin,Colombia
+2,true,https://api.elsevier.com/content/affiliation/affiliation_id/60025028,60025028,Universidad de Salamanca,Salamanca,Spain
+2,true,https://api.elsevier.com/content/affiliation/affiliation_id/60015482,60015482,CSIC - Instituto de Recursos Naturales y Agrobiologia de Salamanca (IRNASA),Salamanca,Spain
+3,true,https://api.elsevier.com/content/affiliation/affiliation_id/60106657,60106657,Universidad de Santander,Bucaramanga,Colombia
+3,true,https://api.elsevier.com/content/affiliation/affiliation_id/60066812,60066812,"Universidad del Valle, Cali",Cali,Colombia
+3,true,https://api.elsevier.com/content/affiliation/affiliation_id/60057258,60057258,Universidad Industrial de Santander,Bucaramanga,Colombia
+3,true,https://api.elsevier.com/content/affiliation/affiliation_id/60051434,60051434,Universidad del Cauca,Popayan,Colombia
+3,true,https://api.elsevier.com/content/affiliation/affiliation_id/60023103,60023103,"Facultad de Ciencias Naturales y Museo, Universidad Nacional de La Plata",La Plata Provincia de Buenos Aires,Argentina
+3,true,https://api.elsevier.com/content/affiliation/affiliation_id/60004518,60004518,Consejo Nacional de Investigaciones Científicas y Técnicas,Buenos Aires,Argentina
+4,true,https://api.elsevier.com/content/affiliation/affiliation_id/60015438,60015438,El Colegio de la Frontera Sur,Tapachula,Mexico
+4,true,https://api.elsevier.com/content/affiliation/affiliation_id/112196906,112196906,Universidad Autónoma Nuevo León,NA,United States
+5,true,https://api.elsevier.com/content/affiliation/affiliation_id/60010202,60010202,Ebonyi State University,Abakaliki,Nigeria
+6,true,https://api.elsevier.com/content/affiliation/affiliation_id/101632152,101632152,Centro de Investigaciones y Servicios Ambientales (ECOVIDA),Pinar del Río,Cuba
+7,true,https://api.elsevier.com/content/affiliation/affiliation_id/60005618,60005618,Universidad Autónoma de Baja California,Ensenada,Mexico
+7,true,https://api.elsevier.com/content/affiliation/affiliation_id/60000130,60000130,Universidad de Murcia,Murcia,Spain
+8,true,https://api.elsevier.com/content/affiliation/affiliation_id/60012455,60012455,Texas A and M University at Galveston,Galveston,United States
+9,true,https://api.elsevier.com/content/affiliation/affiliation_id/60030171,60030171,University of Missouri-St. Louis,St. Louis,United States
+9,true,https://api.elsevier.com/content/affiliation/affiliation_id/60021918,60021918,University of Virginia,Charlottesville,United States
+9,true,https://api.elsevier.com/content/affiliation/affiliation_id/112791830,112791830,Organization for Tropical Studies La Selva Biological Station,Miami,United States
+10,true,https://api.elsevier.com/content/affiliation/affiliation_id/60109953,60109953,Universidad de Ciencias Médicas de La Habana,Havana,Cuba
+10,true,https://api.elsevier.com/content/affiliation/affiliation_id/60108770,60108770,Universidad de Ciencias Médicas de Villa Clara,Santa Clara,Cuba
+10,true,https://api.elsevier.com/content/affiliation/affiliation_id/60052951,60052951,Universidad Central de Las Villas,Santa Clara,Cuba
+11,true,https://api.elsevier.com/content/affiliation/affiliation_id/60028469,60028469,Universidade Federal do Estado do Rio de Janeiro,Rio de Janeiro,Brazil
+11,true,https://api.elsevier.com/content/affiliation/affiliation_id/60000036,60000036,Universidade Federal do Rio de Janeiro,Rio de Janeiro,Brazil
+12,true,https://api.elsevier.com/content/affiliation/affiliation_id/60033545,60033545,Pontificia Universidad Javeriana,Bogota,Colombia
+12,true,https://api.elsevier.com/content/affiliation/affiliation_id/121408770,121408770,Universidad Nacional,Bogota,Colombia
+13,true,https://api.elsevier.com/content/affiliation/affiliation_id/60015760,60015760,Pontifícia Universidade Católica do Rio Grande do Sul,Porto Alegre,Brazil
+14,true,https://api.elsevier.com/content/affiliation/affiliation_id/60052106,60052106,"Universidad de Los Andes, Colombia",Bogota,Colombia
+14,true,https://api.elsevier.com/content/affiliation/affiliation_id/109159406,109159406,Fundación Malpelo y Otros Ecosistemas Marinos,Bogota,Colombia
+15,true,https://api.elsevier.com/content/affiliation/affiliation_id/60009149,60009149,Instituto Nacional de la Nutrición Salvador Zubiran,Tlalpan,Mexico
+16,true,https://api.elsevier.com/content/affiliation/affiliation_id/60064735,60064735,Universidad del Magdalena,Santa Marta,Colombia
+16,true,https://api.elsevier.com/content/affiliation/affiliation_id/60055696,60055696,Universidad Nacional de Colombia,Bogota,Colombia
+17,true,https://api.elsevier.com/content/affiliation/affiliation_id/60032057,60032057,Universidad Nacional de La Plata,La Plata,Argentina
+18,true,https://api.elsevier.com/content/affiliation/affiliation_id/60029195,60029195,Universidad Católica del Norte,Antofagasta,Chile
+18,true,https://api.elsevier.com/content/affiliation/affiliation_id/112193729,112193729,Universidad Nacional,San Cristobal,Venezuela
+19,true,https://api.elsevier.com/content/affiliation/affiliation_id/60027136,60027136,Universidade Federal de Goiás,Goiania,Brazil
+19,true,https://api.elsevier.com/content/affiliation/affiliation_id/60019023,60019023,Fiocruz Amazônia,Manaus,Brazil
+20,true,https://api.elsevier.com/content/affiliation/affiliation_id/60052098,60052098,Universidad Nacional de Colombia Medellin,Medellin,Colombia
+21,true,https://api.elsevier.com/content/affiliation/affiliation_id/60071929,60071929,Universidad de Costa Rica,San Jose,Costa Rica
+22,true,https://api.elsevier.com/content/affiliation/affiliation_id/60024712,60024712,"Instituto de Ecología, A.C.",Xalapa,Mexico
+22,true,https://api.elsevier.com/content/affiliation/affiliation_id/60009892,60009892,ENTRIX Inc.,Houston,United States
+23,true,https://api.elsevier.com/content/affiliation/affiliation_id/60064735,60064735,Universidad del Magdalena,Santa Marta,Colombia
+24,true,https://api.elsevier.com/content/affiliation/affiliation_id/110425479,110425479,Instituto Costarricense de Electricidad,NA,Mexico
+25,true,https://api.elsevier.com/content/affiliation/affiliation_id/60071877,60071877,CSIR - Water Research Institute Ghana,Accra,Ghana
+25,true,https://api.elsevier.com/content/affiliation/affiliation_id/60017910,60017910,University of Ghana,Accra,Ghana
+26,true,https://api.elsevier.com/content/affiliation/affiliation_id/60021606,60021606,Universidade Estadual do Ceará,Fortaleza,Brazil
+26,true,https://api.elsevier.com/content/affiliation/affiliation_id/60020457,60020457,Universidade Federal do Ceará,Fortaleza,Brazil
+27,true,https://api.elsevier.com/content/affiliation/affiliation_id/60015104,60015104,Universidade Federal de Uberlândia,Uberlandia,Brazil
+28,true,https://api.elsevier.com/content/affiliation/affiliation_id/60031769,60031769,Centro de Estudios Parasitológicos y de Vectores (CONICET- Universidad Nacional de La Plata),Provincia de Buenos Aires,Argentina
+29,true,https://api.elsevier.com/content/affiliation/affiliation_id/60025791,60025791,Universidad de Oriente - Venezuela,Cumana,Venezuela
+30,true,https://api.elsevier.com/content/affiliation/affiliation_id/60016737,60016737,Instituto De Pesquisas Jardim Botanico Do Rio De Janerio,Rio de Janeiro,Brazil
+31,true,https://api.elsevier.com/content/affiliation/affiliation_id/60109581,60109581,Grupo Boticario,Curitiba,Brazil
+31,true,https://api.elsevier.com/content/affiliation/affiliation_id/60015043,60015043,Universidade Federal do Parana,Curitiba,Brazil
+31,true,https://api.elsevier.com/content/affiliation/affiliation_id/101906971,101906971,Sanepar/DMA,Curitiba,Brazil
+32,true,https://api.elsevier.com/content/affiliation/affiliation_id/60013792,60013792,Universidade Federal de São Carlos,Sao Carlos,Brazil
+33,true,https://api.elsevier.com/content/affiliation/affiliation_id/60024559,60024559,Universidade do Vale do Rio dos Sinos,Sao Leopoldo,Brazil
+33,true,https://api.elsevier.com/content/affiliation/affiliation_id/60013792,60013792,Universidade Federal de São Carlos,Sao Carlos,Brazil
+34,true,https://api.elsevier.com/content/affiliation/affiliation_id/60025791,60025791,Universidad de Oriente - Venezuela,Cumana,Venezuela
+34,true,https://api.elsevier.com/content/affiliation/affiliation_id/60001282,60001282,Universidad de Concepcion,Biobio,Chile
+34,true,https://api.elsevier.com/content/affiliation/affiliation_id/112194065,112194065,S. C. (CIBNOR),NA,Mexico
+35,true,https://api.elsevier.com/content/affiliation/affiliation_id/112911914,112911914,Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional Unidad Sinaloa (CIIDIR-IPN Unidad Sinaloa),"Guasave, Sinaloa",Mexico
+35,true,https://api.elsevier.com/content/affiliation/affiliation_id/112193881,112193881,Departamento: Vectores,Culiacan,Mexico
+36,true,https://api.elsevier.com/content/affiliation/affiliation_id/60031769,60031769,Centro de Estudios Parasitológicos y de Vectores (CONICET- Universidad Nacional de La Plata),Provincia de Buenos Aires,Argentina
+36,true,https://api.elsevier.com/content/affiliation/affiliation_id/60020211,60020211,Comision de Investigaciones Cientificas - La Plata,La Plata,Argentina
+37,true,https://api.elsevier.com/content/affiliation/affiliation_id/60027136,60027136,Universidade Federal de Goiás,Goiania,Brazil
+38,true,https://api.elsevier.com/content/affiliation/affiliation_id/60029159,60029159,Instituto Nacional de Pesquisas Da Amazonia,Manaus,Brazil
+38,true,https://api.elsevier.com/content/affiliation/affiliation_id/60013918,60013918,Universidade Federal de Vicosa,Vicosa,Brazil
+38,true,https://api.elsevier.com/content/affiliation/affiliation_id/60009625,60009625,Empresa Brasileira de Pesquisa Agropecuária - Embrapa,Brasilia,Brazil
+39,true,https://api.elsevier.com/content/affiliation/affiliation_id/60071924,60071924,Universidad Nacional de Costa Rica,Heredia,Costa Rica
+39,true,https://api.elsevier.com/content/affiliation/affiliation_id/60032179,60032179,University of Wisconsin-Madison,Madison,United States
+39,true,https://api.elsevier.com/content/affiliation/affiliation_id/60021468,60021468,Milwaukee Public Museum,Milwaukee,United States
+39,true,https://api.elsevier.com/content/affiliation/affiliation_id/100450120,100450120,Associated Colleges of the Midwest,San Jose,Costa Rica
+40,true,https://api.elsevier.com/content/affiliation/affiliation_id/60121765,60121765,El Colegio de la Frontera Sur,San Cristobal de las Casas,Mexico
+40,true,https://api.elsevier.com/content/affiliation/affiliation_id/60025378,60025378,Universidad Juárez Autónoma de Tabasco,Villahermosa,Mexico
+40,true,https://api.elsevier.com/content/affiliation/affiliation_id/60015438,60015438,El Colegio de la Frontera Sur,Tapachula,Mexico
+41,true,https://api.elsevier.com/content/affiliation/affiliation_id/60110909,60110909,Instituto Tecnológico de Mérida,Merida,Mexico
+41,true,https://api.elsevier.com/content/affiliation/affiliation_id/60095232,60095232,Instituto Tecnológico Agropecuario de Conkal,Conkal,Mexico
+41,true,https://api.elsevier.com/content/affiliation/affiliation_id/60021746,60021746,Centro de Investigaciones Biologicas Del Noroeste,La Paz,Mexico
+41,true,https://api.elsevier.com/content/affiliation/affiliation_id/60010531,60010531,CINVESTAV Unidad Merida,Merida,Mexico
+42,true,https://api.elsevier.com/content/affiliation/affiliation_id/60052098,60052098,Universidad Nacional de Colombia Medellin,Medellin,Colombia
+43,true,https://api.elsevier.com/content/affiliation/affiliation_id/60002439,60002439,"Universidad De Los Andes, Merida",Merida,Venezuela
+44,true,https://api.elsevier.com/content/affiliation/affiliation_id/60071929,60071929,Universidad de Costa Rica,San Jose,Costa Rica
+45,true,https://api.elsevier.com/content/affiliation/affiliation_id/60071928,60071928,CATIE - Centro Agronómico Tropical de Investigación y Enseñanza,Turrialba,Costa Rica
+46,true,https://api.elsevier.com/content/affiliation/affiliation_id/60009771,60009771,Centro de Investigacion Cientifica de Yucatan,Merida,Mexico
+46,true,https://api.elsevier.com/content/affiliation/affiliation_id/60001197,60001197,Universidad Central de Venezuela,Caracas,Venezuela
+47,true,https://api.elsevier.com/content/affiliation/affiliation_id/60028469,60028469,Universidade Federal do Estado do Rio de Janeiro,Rio de Janeiro,Brazil
+47,true,https://api.elsevier.com/content/affiliation/affiliation_id/60027947,60027947,Universidade Federal Rural do Rio de Janeiro,Seropedica,Brazil
+47,true,https://api.elsevier.com/content/affiliation/affiliation_id/60001865,60001865,Universidade Federal Fluminense,Niteroi,Brazil
+48,true,https://api.elsevier.com/content/affiliation/affiliation_id/60077395,60077395,Institute of Amazonian Research-Sinchi,Bogota,Colombia
+48,true,https://api.elsevier.com/content/affiliation/affiliation_id/60052098,60052098,Universidad Nacional de Colombia Medellin,Medellin,Colombia
+49,true,https://api.elsevier.com/content/affiliation/affiliation_id/60071532,60071532,Universidad de Puerto Rico en Humacao,Humacao,Puerto Rico
+50,true,https://api.elsevier.com/content/affiliation/affiliation_id/60010329,60010329,Universidad Del Zulia Facultad Experimental de Ciencias,Maracaibo,Venezuela
+51,true,https://api.elsevier.com/content/affiliation/affiliation_id/60046703,60046703,Universidad de La Habana,Havana,Cuba
+51,true,https://api.elsevier.com/content/affiliation/affiliation_id/101826017,101826017,Ministerio de Ciencia,Havana,Cuba
+52,true,https://api.elsevier.com/content/affiliation/affiliation_id/60031769,60031769,Centro de Estudios Parasitológicos y de Vectores (CONICET- Universidad Nacional de La Plata),Provincia de Buenos Aires,Argentina
+52,true,https://api.elsevier.com/content/affiliation/affiliation_id/60018064,60018064,Centro de Ecologia Aplicada del Litoral,Corrientes,Argentina
+52,true,https://api.elsevier.com/content/affiliation/affiliation_id/60003542,60003542,Universidad Nacional del Nordeste,Corrientes,Argentina
+53,true,https://api.elsevier.com/content/affiliation/affiliation_id/60190660,60190660,Bowen University,Iwo,Nigeria
+53,true,https://api.elsevier.com/content/affiliation/affiliation_id/60006270,60006270,University of Ibadan,Ibadan,Nigeria
+54,true,https://api.elsevier.com/content/affiliation/affiliation_id/60071928,60071928,CATIE - Centro Agronómico Tropical de Investigación y Enseñanza,Turrialba,Costa Rica
+54,true,https://api.elsevier.com/content/affiliation/affiliation_id/60024941,60024941,"University of California, Santa Cruz",Santa Cruz,United States
+54,true,https://api.elsevier.com/content/affiliation/affiliation_id/60014837,60014837,University of Hawaii at Hilo,Hilo,United States
+54,true,https://api.elsevier.com/content/affiliation/affiliation_id/60013791,60013791,University of Hawaiʻi at Mānoa,Honolulu,United States
+54,true,https://api.elsevier.com/content/affiliation/affiliation_id/112648955,112648955,Organización para Estudios Tropicales (OET),NA,Costa Rica
+55,true,https://api.elsevier.com/content/affiliation/affiliation_id/60113197,60113197,Universidad Estatal a Distancia,San Jose,Costa Rica
+55,true,https://api.elsevier.com/content/affiliation/affiliation_id/60071929,60071929,Universidad de Costa Rica,San Jose,Costa Rica
+56,true,https://api.elsevier.com/content/affiliation/affiliation_id/60023103,60023103,"Facultad de Ciencias Naturales y Museo, Universidad Nacional de La Plata",La Plata Provincia de Buenos Aires,Argentina
+57,true,https://api.elsevier.com/content/affiliation/affiliation_id/60018064,60018064,Centro de Ecologia Aplicada del Litoral,Corrientes,Argentina
+58,true,https://api.elsevier.com/content/affiliation/affiliation_id/60032442,60032442,Universidad Nacional Autónoma de México,Ciudad de México,Mexico
+58,true,https://api.elsevier.com/content/affiliation/affiliation_id/60015438,60015438,El Colegio de la Frontera Sur,Tapachula,Mexico
+58,true,https://api.elsevier.com/content/affiliation/affiliation_id/60013281,60013281,Universidad de Ciencias y Artes de Chiapas,Tuxtla Gutierrez,Mexico
+59,true,https://api.elsevier.com/content/affiliation/affiliation_id/60070384,60070384,Universidad de Pinar del Rio,NA,Cuba
+59,true,https://api.elsevier.com/content/affiliation/affiliation_id/60000823,60000823,Universidad de Castilla-La Mancha,Ciudad Real,Spain
+59,true,https://api.elsevier.com/content/affiliation/affiliation_id/110716825,110716825,Estación Territorial de Protección de Plantas,NA,Cuba
+60,true,https://api.elsevier.com/content/affiliation/affiliation_id/60038119,60038119,Instituto de Medicina Tropical Pedro Kouri,NA,Cuba
+60,true,https://api.elsevier.com/content/affiliation/affiliation_id/112649142,112649142,INISAV Research Institute of Plant Protection,Havana,Cuba
+61,true,https://api.elsevier.com/content/affiliation/affiliation_id/60009625,60009625,Empresa Brasileira de Pesquisa Agropecuária - Embrapa,Brasilia,Brazil
+62,true,https://api.elsevier.com/content/affiliation/affiliation_id/60026021,60026021,Universidade de Mogi das Cruzes,Mogi das Cruzes,Brazil
+62,true,https://api.elsevier.com/content/affiliation/affiliation_id/60015043,60015043,Universidade Federal do Parana,Curitiba,Brazil
+62,true,https://api.elsevier.com/content/affiliation/affiliation_id/101479007,101479007,Instituto de Pesquisas Cananéia,Sao Paulo,Brazil
+63,true,https://api.elsevier.com/content/affiliation/affiliation_id/60030074,60030074,Universidade Federal de Minas Gerais,Belo Horizonte,Brazil
+63,true,https://api.elsevier.com/content/affiliation/affiliation_id/60024246,60024246,Universidade Estadual de Montes Claros,Montes Claros,Brazil
+64,true,https://api.elsevier.com/content/affiliation/affiliation_id/60111654,60111654,Panthera USA,New York,United States
+64,true,https://api.elsevier.com/content/affiliation/affiliation_id/60051434,60051434,Universidad del Cauca,Popayan,Colombia
+64,true,https://api.elsevier.com/content/affiliation/affiliation_id/60002281,60002281,Universidad Autónoma del Estado de México,Toluca,Mexico
+65,true,https://api.elsevier.com/content/affiliation/affiliation_id/60039702,60039702,"Universidad Central de Venezuela, Facultad de Ciencias",Caracas,Venezuela
+66,true,https://api.elsevier.com/content/affiliation/affiliation_id/60007866,60007866,Instituto Venezolano de Investigaciones Cientificas,Caracas,Venezuela
+67,true,https://api.elsevier.com/content/affiliation/affiliation_id/60172565,60172565,Facultad de Estudios Superiores Cuautitlán,Cuautitlan Izcalli,Mexico
+67,true,https://api.elsevier.com/content/affiliation/affiliation_id/60071924,60071924,Universidad Nacional de Costa Rica,Heredia,Costa Rica
+67,true,https://api.elsevier.com/content/affiliation/affiliation_id/60032179,60032179,University of Wisconsin-Madison,Madison,United States
+67,true,https://api.elsevier.com/content/affiliation/affiliation_id/60000958,60000958,Universidade Federal Rural de Pernambuco,Recife,Brazil
+67,true,https://api.elsevier.com/content/affiliation/affiliation_id/110716189,110716189,Associated Colleges of the Midwest,San Pedro,Costa Rica
+67,true,https://api.elsevier.com/content/affiliation/affiliation_id/110715296,110715296,Centro de Investigación y Conservación de Vida Silvestre (CIVS),La Paz,Mexico
+68,true,https://api.elsevier.com/content/affiliation/affiliation_id/60023103,60023103,"Facultad de Ciencias Naturales y Museo, Universidad Nacional de La Plata",La Plata Provincia de Buenos Aires,Argentina
+68,true,https://api.elsevier.com/content/affiliation/affiliation_id/60020211,60020211,Comision de Investigaciones Cientificas - La Plata,La Plata,Argentina
+68,true,https://api.elsevier.com/content/affiliation/affiliation_id/60004518,60004518,Consejo Nacional de Investigaciones Científicas y Técnicas,Buenos Aires,Argentina
+69,true,https://api.elsevier.com/content/affiliation/affiliation_id/60052098,60052098,Universidad Nacional de Colombia Medellin,Medellin,Colombia
+69,true,https://api.elsevier.com/content/affiliation/affiliation_id/60027863,60027863,Université du Québec à Montréal,Montreal,Canada
+70,true,https://api.elsevier.com/content/affiliation/affiliation_id/60026438,60026438,Universidad Simón Bolívar,Caracas,Venezuela
+71,true,https://api.elsevier.com/content/affiliation/affiliation_id/60172565,60172565,Facultad de Estudios Superiores Cuautitlán,Cuautitlan Izcalli,Mexico
+71,true,https://api.elsevier.com/content/affiliation/affiliation_id/60032442,60032442,Universidad Nacional Autónoma de México,Ciudad de México,Mexico
+71,true,https://api.elsevier.com/content/affiliation/affiliation_id/60032179,60032179,University of Wisconsin-Madison,Madison,United States
+71,true,https://api.elsevier.com/content/affiliation/affiliation_id/60000958,60000958,Universidade Federal Rural de Pernambuco,Recife,Brazil
+71,true,https://api.elsevier.com/content/affiliation/affiliation_id/110715296,110715296,Centro de Investigación y Conservación de Vida Silvestre (CIVS),La Paz,Mexico
+72,true,https://api.elsevier.com/content/affiliation/affiliation_id/60055696,60055696,Universidad Nacional de Colombia,Bogota,Colombia
+73,true,https://api.elsevier.com/content/affiliation/affiliation_id/60077377,60077377,Universidad Tecnológica de Pereira,Pereira,Colombia
+73,true,https://api.elsevier.com/content/affiliation/affiliation_id/60040209,60040209,Universidad de Caldas,Manizales,Colombia
+74,true,https://api.elsevier.com/content/affiliation/affiliation_id/60028351,60028351,Universidade Federal de Sao Joao del-Rei,Sao Joao del Rei,Brazil
+74,true,https://api.elsevier.com/content/affiliation/affiliation_id/60016207,60016207,Universidade Regional de Blumenau,Blumenau,Brazil
+74,true,https://api.elsevier.com/content/affiliation/affiliation_id/60009625,60009625,Empresa Brasileira de Pesquisa Agropecuária - Embrapa,Brasilia,Brazil
+75,true,https://api.elsevier.com/content/affiliation/affiliation_id/60031769,60031769,Centro de Estudios Parasitológicos y de Vectores (CONICET- Universidad Nacional de La Plata),Provincia de Buenos Aires,Argentina
+75,true,https://api.elsevier.com/content/affiliation/affiliation_id/112475662,112475662,Sección Entomología,Montevideo,Uruguay
+76,true,https://api.elsevier.com/content/affiliation/affiliation_id/60025417,60025417,Universidad Autónoma de Nuevo León,San Nicolas de los Garza,Mexico
+77,true,https://api.elsevier.com/content/affiliation/affiliation_id/60021746,60021746,Centro de Investigaciones Biologicas Del Noroeste,La Paz,Mexico
+77,true,https://api.elsevier.com/content/affiliation/affiliation_id/60004432,60004432,Centro Interdisciplinario de Ciencias Marinas,La Paz,Mexico
+77,true,https://api.elsevier.com/content/affiliation/affiliation_id/110715914,110715914,Centro Regional de Investigación Pesquera Puerto Morelos del INAPESCA,Matamoros,Mexico
+78,true,https://api.elsevier.com/content/affiliation/affiliation_id/60025378,60025378,Universidad Juárez Autónoma de Tabasco,Villahermosa,Mexico
+78,true,https://api.elsevier.com/content/affiliation/affiliation_id/60015438,60015438,El Colegio de la Frontera Sur,Tapachula,Mexico
+79,true,https://api.elsevier.com/content/affiliation/affiliation_id/60055696,60055696,Universidad Nacional de Colombia,Bogota,Colombia
+80,true,https://api.elsevier.com/content/affiliation/affiliation_id/60065192,60065192,Universidad del Quindio,Armenia,Colombia
+81,true,https://api.elsevier.com/content/affiliation/affiliation_id/60026438,60026438,Universidad Simón Bolívar,Caracas,Venezuela
+82,true,https://api.elsevier.com/content/affiliation/affiliation_id/60025791,60025791,Universidad de Oriente - Venezuela,Cumana,Venezuela
+83,true,https://api.elsevier.com/content/affiliation/affiliation_id/110375193,110375193,Kimberly Newhard,Valparaiso,United States
+83,true,https://api.elsevier.com/content/affiliation/affiliation_id/101582262,101582262,The School for Field Studies,Alajuela,Costa Rica
+84,true,https://api.elsevier.com/content/affiliation/affiliation_id/60113197,60113197,Universidad Estatal a Distancia,San Jose,Costa Rica
+84,true,https://api.elsevier.com/content/affiliation/affiliation_id/60071929,60071929,Universidad de Costa Rica,San Jose,Costa Rica
+85,true,https://api.elsevier.com/content/affiliation/affiliation_id/60071232,60071232,"Museo de Historia Natural, Lima",Lima,Peru
+85,true,https://api.elsevier.com/content/affiliation/affiliation_id/60014037,60014037,Universidad San Pablo-CEU,Madrid,Spain
+86,true,https://api.elsevier.com/content/affiliation/affiliation_id/60055833,60055833,Universidad de Antioquia,Medellin,Colombia
+86,true,https://api.elsevier.com/content/affiliation/affiliation_id/110375257,110375257,ISAGEN,Medellin,Colombia
+87,true,https://api.elsevier.com/content/affiliation/affiliation_id/60031287,60031287,Universidad Autónoma de Baja California Sur,La Paz,Mexico
+87,true,https://api.elsevier.com/content/affiliation/affiliation_id/60004432,60004432,Centro Interdisciplinario de Ciencias Marinas,La Paz,Mexico
+88,true,https://api.elsevier.com/content/affiliation/affiliation_id/60121765,60121765,El Colegio de la Frontera Sur,San Cristobal de las Casas,Mexico
+88,true,https://api.elsevier.com/content/affiliation/affiliation_id/60015438,60015438,El Colegio de la Frontera Sur,Tapachula,Mexico
+88,true,https://api.elsevier.com/content/affiliation/affiliation_id/60007909,60007909,Universidad Veracruzana,Xalapa,Mexico
+89,true,https://api.elsevier.com/content/affiliation/affiliation_id/60032442,60032442,Universidad Nacional Autónoma de México,Ciudad de México,Mexico
+90,true,https://api.elsevier.com/content/affiliation/affiliation_id/60071929,60071929,Universidad de Costa Rica,San Jose,Costa Rica
+90,true,https://api.elsevier.com/content/affiliation/affiliation_id/60031287,60031287,Universidad Autónoma de Baja California Sur,La Paz,Mexico
+90,true,https://api.elsevier.com/content/affiliation/affiliation_id/60017383,60017383,Nature Conservancy,Arlington,United States
+90,true,https://api.elsevier.com/content/affiliation/affiliation_id/110375313,110375313,Sistema Nacional de Áreas de Conservación,San Jose,Costa Rica
+91,true,https://api.elsevier.com/content/affiliation/affiliation_id/60052098,60052098,Universidad Nacional de Colombia Medellin,Medellin,Colombia
+92,true,https://api.elsevier.com/content/affiliation/affiliation_id/100559914,100559914,Instituto Nacional de Pesca (INAPESCA),Benito Juarez,Mexico
+93,true,https://api.elsevier.com/content/affiliation/affiliation_id/60069399,60069399,Sam Ratulangi University,Manado,Indonesia
+93,true,https://api.elsevier.com/content/affiliation/affiliation_id/60025378,60025378,Universidad Juárez Autónoma de Tabasco,Villahermosa,Mexico
+94,true,https://api.elsevier.com/content/affiliation/affiliation_id/60027998,60027998,Consejo Nacional de Ciencia y Tecnologia Mexico,Benito Juarez,Mexico
+94,true,https://api.elsevier.com/content/affiliation/affiliation_id/60005058,60005058,Facultad de Estudios Superiores Iztacala,Tlalnepantla,Mexico
+95,true,https://api.elsevier.com/content/affiliation/affiliation_id/60046703,60046703,Universidad de La Habana,Havana,Cuba
+96,true,https://api.elsevier.com/content/affiliation/affiliation_id/60000906,60000906,Universiti Sains Malaysia,Minden,Malaysia
+97,true,https://api.elsevier.com/content/affiliation/affiliation_id/60021746,60021746,Centro de Investigaciones Biologicas Del Noroeste,La Paz,Mexico
+98,true,https://api.elsevier.com/content/affiliation/affiliation_id/60013792,60013792,Universidade Federal de São Carlos,Sao Carlos,Brazil
+99,true,https://api.elsevier.com/content/affiliation/affiliation_id/60103731,60103731,CSIC-GV-UV - Centro de Investigaciones sobre Desertificación,Moncada,Spain
+99,true,https://api.elsevier.com/content/affiliation/affiliation_id/60052106,60052106,"Universidad de Los Andes, Colombia",Bogota,Colombia
+100,true,https://api.elsevier.com/content/affiliation/affiliation_id/60064735,60064735,Universidad del Magdalena,Santa Marta,Colombia
+100,true,https://api.elsevier.com/content/affiliation/affiliation_id/60057258,60057258,Universidad Industrial de Santander,Bucaramanga,Colombia
+101,true,https://api.elsevier.com/content/affiliation/affiliation_id/60071924,60071924,Universidad Nacional de Costa Rica,Heredia,Costa Rica
+101,true,https://api.elsevier.com/content/affiliation/affiliation_id/60025791,60025791,Universidad de Oriente - Venezuela,Cumana,Venezuela
+102,true,https://api.elsevier.com/content/affiliation/affiliation_id/60029498,60029498,Universidade Estadual de Maringa,Maringa,Brazil
+102,true,https://api.elsevier.com/content/affiliation/affiliation_id/60009160,60009160,Universidade Federal de Mato Grosso do Sul,Campo Grande,Brazil
+103,true,https://api.elsevier.com/content/affiliation/affiliation_id/100589484,100589484,Coffee Research Station,Mysore,India
+104,true,https://api.elsevier.com/content/affiliation/affiliation_id/110375376,110375376,San Vicente,San Jose,Costa Rica
+105,true,https://api.elsevier.com/content/affiliation/affiliation_id/60089375,60089375,"Cross River University of Technology, Calabar",Calabar,Nigeria
+106,true,https://api.elsevier.com/content/affiliation/affiliation_id/60032442,60032442,Universidad Nacional Autónoma de México,Ciudad de México,Mexico
+106,true,https://api.elsevier.com/content/affiliation/affiliation_id/60024712,60024712,"Instituto de Ecología, A.C.",Xalapa,Mexico
+106,true,https://api.elsevier.com/content/affiliation/affiliation_id/60005058,60005058,Facultad de Estudios Superiores Iztacala,Tlalnepantla,Mexico
+107,true,https://api.elsevier.com/content/affiliation/affiliation_id/60071919,60071919,Instituto Costarricense de Electricidad Costa Rica,San Jose,Costa Rica
+108,true,https://api.elsevier.com/content/affiliation/affiliation_id/60080329,60080329,Instituto Chico Mendes de Conservacao da Biodiversidade,Brasilia,Brazil
+108,true,https://api.elsevier.com/content/affiliation/affiliation_id/60005499,60005499,Universidade do Estado do Rio de Janeiro,Rio de Janeiro,Brazil
+109,true,https://api.elsevier.com/content/affiliation/affiliation_id/60055696,60055696,Universidad Nacional de Colombia,Bogota,Colombia
+110,true,https://api.elsevier.com/content/affiliation/affiliation_id/60028381,60028381,Universidad Autónoma Metropolitana -Unidad Iztapalapa,Iztapalapa,Mexico
+111,true,https://api.elsevier.com/content/affiliation/affiliation_id/60069399,60069399,Sam Ratulangi University,Manado,Indonesia
+111,true,https://api.elsevier.com/content/affiliation/affiliation_id/60025378,60025378,Universidad Juárez Autónoma de Tabasco,Villahermosa,Mexico
+112,true,https://api.elsevier.com/content/affiliation/affiliation_id/60114704,60114704,"ICAR - Directorate of Medicinal and Aromatic Plants Research, Boriavi",Boriavi,India
+113,true,https://api.elsevier.com/content/affiliation/affiliation_id/60172283,60172283,UNAM campus Juriquilla,Juriquilla,Mexico
+113,true,https://api.elsevier.com/content/affiliation/affiliation_id/60032442,60032442,Universidad Nacional Autónoma de México,Ciudad de México,Mexico
+114,true,https://api.elsevier.com/content/affiliation/affiliation_id/60032897,60032897,Universidad de Sonora,Hermosillo,Mexico
+114,true,https://api.elsevier.com/content/affiliation/affiliation_id/60021746,60021746,Centro de Investigaciones Biologicas Del Noroeste,La Paz,Mexico
+114,true,https://api.elsevier.com/content/affiliation/affiliation_id/100606669,100606669,Centro Regional de Investigación Pesquera,Guaymas,Mexico
+115,true,https://api.elsevier.com/content/affiliation/affiliation_id/60071929,60071929,Universidad de Costa Rica,San Jose,Costa Rica
+115,true,https://api.elsevier.com/content/affiliation/affiliation_id/60071928,60071928,CATIE - Centro Agronómico Tropical de Investigación y Enseñanza,Turrialba,Costa Rica
+116,true,https://api.elsevier.com/content/affiliation/affiliation_id/60071929,60071929,Universidad de Costa Rica,San Jose,Costa Rica
+117,true,https://api.elsevier.com/content/affiliation/affiliation_id/60003542,60003542,Universidad Nacional del Nordeste,Corrientes,Argentina
+118,true,https://api.elsevier.com/content/affiliation/affiliation_id/60052098,60052098,Universidad Nacional de Colombia Medellin,Medellin,Colombia
+119,true,https://api.elsevier.com/content/affiliation/affiliation_id/60027257,60027257,Shenyang Institute of Applied Ecology Chinese Academy of Sciences,Shenyang,China
+119,true,https://api.elsevier.com/content/affiliation/affiliation_id/60022345,60022345,Liaoning University,Shenyang,China
+119,true,https://api.elsevier.com/content/affiliation/affiliation_id/60012627,60012627,Xishuangbanna Tropical Botanical Garden Chinese Academy of Sciences,Mengla,China
+120,true,https://api.elsevier.com/content/affiliation/affiliation_id/60052098,60052098,Universidad Nacional de Colombia Medellin,Medellin,Colombia
+121,true,https://api.elsevier.com/content/affiliation/affiliation_id/60071929,60071929,Universidad de Costa Rica,San Jose,Costa Rica
+121,true,https://api.elsevier.com/content/affiliation/affiliation_id/110112209,110112209,Prog. Mosc. Mosc.-Desa.de Métodos Cen. Poni. No. 14 altos-Esq,NA,Mexico
+122,true,https://api.elsevier.com/content/affiliation/affiliation_id/60029498,60029498,Universidade Estadual de Maringa,Maringa,Brazil
+123,true,https://api.elsevier.com/content/affiliation/affiliation_id/60025791,60025791,Universidad de Oriente - Venezuela,Cumana,Venezuela
+123,true,https://api.elsevier.com/content/affiliation/affiliation_id/60007866,60007866,Instituto Venezolano de Investigaciones Cientificas,Caracas,Venezuela
+124,true,https://api.elsevier.com/content/affiliation/affiliation_id/60018064,60018064,Centro de Ecologia Aplicada del Litoral,Corrientes,Argentina
+125,true,https://api.elsevier.com/content/affiliation/affiliation_id/60008943,60008943,Universidad de Guadalajara,Guadalajara,Mexico
+126,true,https://api.elsevier.com/content/affiliation/affiliation_id/60071924,60071924,Universidad Nacional de Costa Rica,Heredia,Costa Rica
+126,true,https://api.elsevier.com/content/affiliation/affiliation_id/60071539,60071539,"Universidad de Puerto Rico, Recinto de Rio Piedras",San Juan,Puerto Rico
+126,true,https://api.elsevier.com/content/affiliation/affiliation_id/110026947,110026947,Fundación Keto,San Jose,Costa Rica
+127,true,https://api.elsevier.com/content/affiliation/affiliation_id/60025637,60025637,Universidade Estadual de Santa Cruz,Ilheus,Brazil
+128,true,https://api.elsevier.com/content/affiliation/affiliation_id/60033203,60033203,Universidade Federal Rural do Semi-Árido – UFERSA,Mossoro,Brazil
+128,true,https://api.elsevier.com/content/affiliation/affiliation_id/60006028,60006028,"Universidade Estadual Paulista ""Júlio de Mesquita Filho""",Sao Paulo,Brazil
+129,true,https://api.elsevier.com/content/affiliation/affiliation_id/60071924,60071924,Universidad Nacional de Costa Rica,Heredia,Costa Rica
+129,true,https://api.elsevier.com/content/affiliation/affiliation_id/60032179,60032179,University of Wisconsin-Madison,Madison,United States
+129,true,https://api.elsevier.com/content/affiliation/affiliation_id/60029445,60029445,University of Minnesota Twin Cities,Minneapolis,United States
+129,true,https://api.elsevier.com/content/affiliation/affiliation_id/60029288,60029288,University of Northern Iowa,Cedar Falls,United States
+130,true,https://api.elsevier.com/content/affiliation/affiliation_id/60027282,60027282,Universidad Complutense de Madrid,Madrid,Spain
+130,true,https://api.elsevier.com/content/affiliation/affiliation_id/60023103,60023103,"Facultad de Ciencias Naturales y Museo, Universidad Nacional de La Plata",La Plata Provincia de Buenos Aires,Argentina
+131,true,https://api.elsevier.com/content/affiliation/affiliation_id/60194533,60194533,Universidade Federal do Oeste do Pará,Santarem,Brazil
+131,true,https://api.elsevier.com/content/affiliation/affiliation_id/60071706,60071706,"The University of the West Indies, St. Augustine Campus",St Augustine,Trinidad and Tobago
+131,true,https://api.elsevier.com/content/affiliation/affiliation_id/60001890,60001890,Universidade Federal do Pará,Belem,Brazil
+132,true,https://api.elsevier.com/content/affiliation/affiliation_id/100476455,100476455,Instituto Nacional de Pesca,Guayaquil,Ecuador
+133,true,https://api.elsevier.com/content/affiliation/affiliation_id/60057258,60057258,Universidad Industrial de Santander,Bucaramanga,Colombia
+134,true,https://api.elsevier.com/content/affiliation/affiliation_id/60025264,60025264,Planta Piloto de Procesos Industriales Microbiologicos,San Miguel de Tucuman,Argentina
+134,true,https://api.elsevier.com/content/affiliation/affiliation_id/110110402,110110402,Fund. Mig. Lillo,NA,Argentina
+134,true,https://api.elsevier.com/content/affiliation/affiliation_id/110109800,110109800,Fac.de Cien. Natu. e IML. U.N.T. Mig,NA,Argentina
+135,true,https://api.elsevier.com/content/affiliation/affiliation_id/60017520,60017520,CSIC - Instituto de Investigaciones Agrobiologicas de Galicia (IIAG),Santiago de Compostela,Spain
+136,true,https://api.elsevier.com/content/affiliation/affiliation_id/60032442,60032442,Universidad Nacional Autónoma de México,Ciudad de México,Mexico
+136,true,https://api.elsevier.com/content/affiliation/affiliation_id/60007909,60007909,Universidad Veracruzana,Xalapa,Mexico
+137,true,https://api.elsevier.com/content/affiliation/affiliation_id/60003634,60003634,Universidad Austral de Chile,Valdivia,Chile
+138,true,https://api.elsevier.com/content/affiliation/affiliation_id/101952790,101952790,Centro de Bioproductos Marinos (CEBIMAR),Havana,Cuba
+138,true,https://api.elsevier.com/content/affiliation/affiliation_id/101826629,101826629,Centro de Química Biomolecular,Havana,Cuba
+139,true,https://api.elsevier.com/content/affiliation/affiliation_id/60007866,60007866,Instituto Venezolano de Investigaciones Cientificas,Caracas,Venezuela
+139,true,https://api.elsevier.com/content/affiliation/affiliation_id/60001197,60001197,Universidad Central de Venezuela,Caracas,Venezuela
+139,true,https://api.elsevier.com/content/affiliation/affiliation_id/110110375,110110375,Centro Simón Bolívar,El Silencio,Venezuela
+140,true,https://api.elsevier.com/content/affiliation/affiliation_id/60071929,60071929,Universidad de Costa Rica,San Jose,Costa Rica
+141,true,https://api.elsevier.com/content/affiliation/affiliation_id/60028381,60028381,Universidad Autónoma Metropolitana -Unidad Iztapalapa,Iztapalapa,Mexico
+141,true,https://api.elsevier.com/content/affiliation/affiliation_id/60010210,60010210,Universidad Autónoma Metropolitana Unidad Xochimilco,Mexico City,Mexico
+141,true,https://api.elsevier.com/content/affiliation/affiliation_id/60005058,60005058,Facultad de Estudios Superiores Iztacala,Tlalnepantla,Mexico
+142,true,https://api.elsevier.com/content/affiliation/affiliation_id/60010531,60010531,CINVESTAV Unidad Merida,Merida,Mexico
+143,true,https://api.elsevier.com/content/affiliation/affiliation_id/60197279,60197279,Universidad de Puerto Rico en Ponce,Ponce,Puerto Rico
+143,true,https://api.elsevier.com/content/affiliation/affiliation_id/60071532,60071532,Universidad de Puerto Rico en Humacao,Humacao,Puerto Rico
+144,true,https://api.elsevier.com/content/affiliation/affiliation_id/60070393,60070393,Centro de Investigaciones Pesqueras,Havana,Cuba
+145,true,https://api.elsevier.com/content/affiliation/affiliation_id/60071924,60071924,Universidad Nacional de Costa Rica,Heredia,Costa Rica
+145,true,https://api.elsevier.com/content/affiliation/affiliation_id/110110001,110110001,Instituto Nacional de Aprendizaje,Cartago,Costa Rica
+146,true,https://api.elsevier.com/content/affiliation/affiliation_id/60026438,60026438,Universidad Simón Bolívar,Caracas,Venezuela
+147,true,https://api.elsevier.com/content/affiliation/affiliation_id/60021746,60021746,Centro de Investigaciones Biologicas Del Noroeste,La Paz,Mexico
+147,true,https://api.elsevier.com/content/affiliation/affiliation_id/60019607,60019607,Universidad Autónoma de Tamaulipas,Ciudad Victoria,Mexico
+147,true,https://api.elsevier.com/content/affiliation/affiliation_id/110109834,110109834,Centro Interdisciplinario de Investigación para el Desarrollo,NA,Mexico
+148,true,https://api.elsevier.com/content/affiliation/affiliation_id/60008547,60008547,Universidad Nacional del Litoral,Santa Fe,Argentina
+148,true,https://api.elsevier.com/content/affiliation/affiliation_id/60004518,60004518,Consejo Nacional de Investigaciones Científicas y Técnicas,Buenos Aires,Argentina
+149,true,https://api.elsevier.com/content/affiliation/affiliation_id/60017292,60017292,Universidad Nacional de San Juan,San Juan,Argentina
+150,true,https://api.elsevier.com/content/affiliation/affiliation_id/60025791,60025791,Universidad de Oriente - Venezuela,Cumana,Venezuela
+150,true,https://api.elsevier.com/content/affiliation/affiliation_id/60004429,60004429,Universidad de Oriente - Núcleo Bolívar,Bolivar,Venezuela
+151,true,https://api.elsevier.com/content/affiliation/affiliation_id/60010844,60010844,Universitat d'Alacant,Alicante,Spain
+151,true,https://api.elsevier.com/content/affiliation/affiliation_id/60002281,60002281,Universidad Autónoma del Estado de México,Toluca,Mexico
+152,true,https://api.elsevier.com/content/affiliation/affiliation_id/60172563,60172563,UNAM Campus Morelia,Morelia,Mexico
+153,true,https://api.elsevier.com/content/affiliation/affiliation_id/60005499,60005499,Universidade do Estado do Rio de Janeiro,Rio de Janeiro,Brazil
+153,true,https://api.elsevier.com/content/affiliation/affiliation_id/60000036,60000036,Universidade Federal do Rio de Janeiro,Rio de Janeiro,Brazil
+154,true,https://api.elsevier.com/content/affiliation/affiliation_id/60024696,60024696,Universidad de Carabobo,Valencia,Venezuela
+154,true,https://api.elsevier.com/content/affiliation/affiliation_id/112194005,112194005,Grupo de Exploraciones Científicas Minas de Aroa (GECMA - Yaracuy),NA,Venezuela
+155,true,https://api.elsevier.com/content/affiliation/affiliation_id/60071929,60071929,Universidad de Costa Rica,San Jose,Costa Rica
+156,true,https://api.elsevier.com/content/affiliation/affiliation_id/60021746,60021746,Centro de Investigaciones Biologicas Del Noroeste,La Paz,Mexico
+156,true,https://api.elsevier.com/content/affiliation/affiliation_id/60012676,60012676,Universidad Autónoma de Sinaloa,Culiacan,Mexico

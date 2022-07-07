@@ -1,0 +1,20 @@
+@_fa,@seq,author-url,authid,authname,surname,given-name,initials,afid.@_fa,afid.$,entry_number
+true,1,https://api.elsevier.com/content/author/author_id/6603243571,6603243571,Kilias G.,Kilias,G.,G.,true,60031155,1
+true,2,https://api.elsevier.com/content/author/author_id/6701688686,6701688686,Alahiotis S.,Alahiotis,S. N.,S.N.,true,60031155,1
+true,3,https://api.elsevier.com/content/author/author_id/6602424957,6602424957,Pelecanos M.,Pelecanos,M.,M.,true,60031155,1
+true,1,https://api.elsevier.com/content/author/author_id/7201988811,7201988811,Templeton A.,Templeton,A. R.,A.R.,true,60010261,2
+true,1,https://api.elsevier.com/content/author/author_id/7005731291,7005731291,McCauley D.,McCauley,D. E.,D.E.,true,60029278,3
+true,2,https://api.elsevier.com/content/author/author_id/7201453227,7201453227,Wade M.,Wade,M. J.,M.J.,true,60029278,3
+true,1,https://api.elsevier.com/content/author/author_id/7003950325,7003950325,Spirito F.,Spirito,F.,F.,true,60032350,4
+true,2,https://api.elsevier.com/content/author/author_id/7006604219,7006604219,Modesti A.,Modesti,A.,A.,true,60032350,4
+true,3,https://api.elsevier.com/content/author/author_id/6603864570,6603864570,Perticone P.,Perticone,P.,P.,true,60032350,4
+true,1,https://api.elsevier.com/content/author/author_id/7201453227,7201453227,Wade M.,Wade,M. J.,M.J.,true,60029278,5
+true,2,https://api.elsevier.com/content/author/author_id/7005731291,7005731291,McCauley D.,McCauley,D. E.,D.E.,true,60029278,5
+true,1,https://api.elsevier.com/content/author/author_id/7401614352,7401614352,Grant P.,Grant,P. R.,P.R.,true,60025778,6
+true,2,https://api.elsevier.com/content/author/author_id/7004506235,7004506235,Abbott I.,Abbott,I.,I.,true,60025778,6
+true,1,https://api.elsevier.com/content/author/author_id/7006511894,7006511894,Lande R.,Lande,R.,R.,true,60029278,7
+true,1,https://api.elsevier.com/content/author/author_id/7004802903,7004802903,Birney E.,Birney,E. C.,E.C.,true,60029445,8
+true,2,https://api.elsevier.com/content/author/author_id/7003563257,7003563257,Jenness R.,Jenness,R.,R.,true,60029445,8
+true,3,https://api.elsevier.com/content/author/author_id/7005798537,7005798537,Hume I.,Hume,I. D.,I.D.,true,60029445,8
+true,1,https://api.elsevier.com/content/author/author_id/55468922400,55468922400,Wood D.,Wood,D.,D.,true,60008279,9
+true,2,https://api.elsevier.com/content/author/author_id/7006329584,7006329584,Ringo J.,Ringo,J. M.,J.M.,true,60008279,9

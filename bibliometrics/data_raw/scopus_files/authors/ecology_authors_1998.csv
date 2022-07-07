@@ -1,0 +1,604 @@
+@_fa,@seq,author-url,authid,authname,surname,given-name,initials,afid.@_fa,afid.$,entry_number
+true,1,https://api.elsevier.com/content/author/author_id/7004203471,7004203471,Fryxell J.,Fryxell,John M.,J.M.,true,60015881,1
+true,2,https://api.elsevier.com/content/author/author_id/6505531686,6505531686,Bruce Falls J.,Bruce Falls,J.,J.,true,60016849,1
+true,3,https://api.elsevier.com/content/author/author_id/6505563259,6505563259,Ann Falls E.,Ann Falls,E.,E.,true,60016849,1
+true,4,https://api.elsevier.com/content/author/author_id/7402359074,7402359074,Brooks R.,Brooks,Ronald J.,R.J.,true,60015881,1
+true,1,https://api.elsevier.com/content/author/author_id/7004119036,7004119036,Giesler R.,Giesler,Reiner,R.,true,60027152,2
+true,2,https://api.elsevier.com/content/author/author_id/7003782659,7003782659,Högberg M.,Högberg,Mona,M.,true,60027152,2
+true,3,https://api.elsevier.com/content/author/author_id/7005265823,7005265823,Högberg P.,Högberg,Peter,P.,true,60027152,2
+true,1,https://api.elsevier.com/content/author/author_id/7404721705,7404721705,Hall R.,Hall,Robert O.,R.O.,true,60029747,3
+true,2,https://api.elsevier.com/content/author/author_id/7406102925,7406102925,Meyer J.,Meyer,Judy L.,J.L.,true,60029747,3
+true,1,https://api.elsevier.com/content/author/author_id/7801471527,7801471527,Corff J.L.E.,Corff,Josiane L.E.,J.L.E.,true,60015481,4
+true,2,https://api.elsevier.com/content/author/author_id/34567833800,34567833800,Ågren J.,Ågren,Jon,J.,true,60031040,4
+true,3,https://api.elsevier.com/content/author/author_id/7003289416,7003289416,Schemske D.W.,Schemske,Douglas W.,D.W.,true,60015481,4
+true,1,https://api.elsevier.com/content/author/author_id/7004128879,7004128879,Hobbie S.E.,Hobbie,Sarah E.,S.E.,true,60025038,5
+true,2,https://api.elsevier.com/content/author/author_id/6504475781,6504475781,Chaimn F.S.,Chaimn,F. Stuart,F.S.,true,60025038,5
+true,1,https://api.elsevier.com/content/author/author_id/6504057889,6504057889,Lawrence Kerby J.,Lawrence Kerby,J.,J.,true,60026451,6
+true,2,https://api.elsevier.com/content/author/author_id/7005208110,7005208110,Kats L.B.,Kats,Lee B.,L.B.,true,60026451,6
+true,1,https://api.elsevier.com/content/author/author_id/7202824355,7202824355,Foster B.L.,Foster,Bryan L.,B.L.,true,60031707,7
+true,2,https://api.elsevier.com/content/author/author_id/7201602719,7201602719,Gross K.L.,Gross,Katherine L.,K.L.,true,60031707,7
+true,1,https://api.elsevier.com/content/author/author_id/7201798080,7201798080,Frank D.,Frank,D. A.,D.A.,NA,NA,8
+true,2,https://api.elsevier.com/content/author/author_id/56885159000,56885159000,Groffman P.,Groffman,P. M.,P.M.,NA,NA,8
+true,1,https://api.elsevier.com/content/author/author_id/7202761416,7202761416,Stone G.N.,Stone,Graham N.,G.N.,true,60026851,9
+true,2,https://api.elsevier.com/content/author/author_id/7004180739,7004180739,Willmer P.,Willmer,Pat,P.,true,60022132,9
+true,3,https://api.elsevier.com/content/author/author_id/35555080900,35555080900,Alexandra Rowe J.,Alexandra Rowe,J.,J.,true,60008323,9
+true,1,https://api.elsevier.com/content/author/author_id/7006635430,7006635430,Pierson E.A.,Pierson,Elizabeth A.,E.A.,true,60010065,10
+true,2,https://api.elsevier.com/content/author/author_id/7404556633,7404556633,Turner R.M.,Turner,Raymond M.,R.M.,true,60010065,10
+true,1,https://api.elsevier.com/content/author/author_id/7501700948,7501700948,Li X.,Li,Xingdong,X.,true,60030101,11
+true,2,https://api.elsevier.com/content/author/author_id/7404785890,7404785890,Wilson S.,Wilson,Scott D.,S.D.,true,60030101,11
+true,1,https://api.elsevier.com/content/author/author_id/7005807983,7005807983,Naeem S.,Naeem,Shahid,S.,true,60029445,12
+true,2,https://api.elsevier.com/content/author/author_id/36826414900,36826414900,Li S.,Li,Shibin,S.,true,60029445,12
+true,1,https://api.elsevier.com/content/author/author_id/55892033300,55892033300,Gerardo Herrera M L.,Gerardo Herrera M,L.,L.,true,60029251,13
+true,2,https://api.elsevier.com/content/author/author_id/7003648101,7003648101,Martínez Del Río C.,Martínez Del Río,Carlos,C.,true,60008827,13
+true,1,https://api.elsevier.com/content/author/author_id/7004170523,7004170523,Cam E.,Cam,Emmanuelle,E.,true,60001422,14
+true,2,https://api.elsevier.com/content/author/author_id/7201521910,7201521910,Hines J.,Hines,James E.,J.E.,true,60004404,14
+true,3,https://api.elsevier.com/content/author/author_id/6701354188,6701354188,Monnat J.,Monnat,Jean Yves,J.Y.,true,60019762,14
+true,4,https://api.elsevier.com/content/author/author_id/35601925200,35601925200,Nichols J.,Nichols,James D.,J.D.,true,60004404,14
+true,5,https://api.elsevier.com/content/author/author_id/35304529700,35304529700,Danchin E.,Danchin,Etienne,E.,true,60001422,14
+true,1,https://api.elsevier.com/content/author/author_id/7003854098,7003854098,Ryel R.,Ryel,R. J.,R.J.,true,60031706,15
+true,2,https://api.elsevier.com/content/author/author_id/7101755401,7101755401,Caldwell M.,Caldwell,M. M.,M.M.,true,60031706,15
+true,1,https://api.elsevier.com/content/author/author_id/7005474784,7005474784,Magnuson J.,Magnuson,John J.,J.J.,true,60032179,16
+true,2,https://api.elsevier.com/content/author/author_id/7003849275,7003849275,Tonn W.,Tonn,William M.,W.M.,true,60030835,16
+true,3,https://api.elsevier.com/content/author/author_id/56301710900,56301710900,Banerjee A.,Banerjee,Asit,A.,true,60032179,16
+true,4,https://api.elsevier.com/content/author/author_id/7005701637,7005701637,Toivonen J.,Toivonen,Jorma,J.,true,60106157,16
+true,5,https://api.elsevier.com/content/author/author_id/7004581609,7004581609,Sanchez O.,Sanchez,Oliva,O.,true,60032179,16
+true,6,https://api.elsevier.com/content/author/author_id/35910740000,35910740000,Rask M.,Rask,Martti,M.,true,60106157,16
+true,1,https://api.elsevier.com/content/author/author_id/7003306568,7003306568,Ruess R.,Ruess,Roger W.,R.W.,true,60011976,17
+true,2,https://api.elsevier.com/content/author/author_id/7006234428,7006234428,Hendrick R.,Hendrick,Ronald L.,R.L.,true,60029747,17
+true,3,https://api.elsevier.com/content/author/author_id/7202903826,7202903826,Bryant J.,Bryant,John P.,J.P.,true,60011976,17
+true,1,https://api.elsevier.com/content/author/author_id/7005189478,7005189478,McCann K.,McCann,Kevin,K.,true,60014439,18
+true,1,https://api.elsevier.com/content/author/author_id/6602214384,6602214384,Boveng P.L.,Boveng,Peter L.,P.L.,true,60020873,19
+true,2,https://api.elsevier.com/content/author/author_id/6505844097,6505844097,Hiruki L.M.,Hiruki,Lisa M.,L.M.,true,60020873,19
+true,3,https://api.elsevier.com/content/author/author_id/56325334800,56325334800,Schwartz M.K.,Schwartz,Michael K.,M.K.,true,60020873,19
+true,4,https://api.elsevier.com/content/author/author_id/7005983974,7005983974,Bengtson J.L.,Bengtson,John L.,J.L.,true,60020873,19
+true,1,https://api.elsevier.com/content/author/author_id/7005912553,7005912553,Airoldi L.,Airoldi,Laura,L.,true,60028868,20
+true,1,https://api.elsevier.com/content/author/author_id/36047626100,36047626100,Gaillard J.,Gaillard,J. M.,J.M.,true,60023578,21
+true,2,https://api.elsevier.com/content/author/author_id/7402653712,7402653712,Andersen R.,Andersen,R.,R.,true,60020071,21
+true,3,https://api.elsevier.com/content/author/author_id/35309627100,35309627100,Delorme D.,Delorme,D.,D.,true,60102594,21
+true,4,https://api.elsevier.com/content/author/author_id/7007163644,7007163644,Linnell J.,Linnell,J. D.C.,J.D.C.,true,60020071,21
+true,1,https://api.elsevier.com/content/author/author_id/35427904400,35427904400,Donohue K.,Donohue,Kathleen,K.,true,60029278,22
+true,1,https://api.elsevier.com/content/author/author_id/6601977126,6601977126,Ettema C.H.,Ettema,Christien H.,C.H.,true,60029747,23
+true,2,https://api.elsevier.com/content/author/author_id/57202526952,57202526952,Coleman D.C.,Coleman,David C.,D.C.,true,60029747,23
+true,3,https://api.elsevier.com/content/author/author_id/7004829557,7004829557,Vellidis G.,Vellidis,George,G.,true,60023582,23
+true,4,https://api.elsevier.com/content/author/author_id/7005659734,7005659734,Lowrance R.,Lowrance,Richard,R.,true,60103647,23
+true,5,https://api.elsevier.com/content/author/author_id/6701348745,6701348745,Rathbun S.L.,Rathbun,Stephen L.,S.L.,true,60029747,23
+true,1,https://api.elsevier.com/content/author/author_id/6506021384,6506021384,Bassow S.,Bassow,S. L.,S.L.,true,60009982,24
+true,2,https://api.elsevier.com/content/author/author_id/7005453999,7005453999,Bazzaz F.,Bazzaz,F. A.,F.A.,true,60009982,24
+true,1,https://api.elsevier.com/content/author/author_id/57206194753,57206194753,Davis M.B.,Davis,Margaret B.,M.B.,true,60029445,25
+true,2,https://api.elsevier.com/content/author/author_id/6602246539,6602246539,Calcote R.R.,Calcote,Randy R.,R.R.,true,60029445,25
+true,3,https://api.elsevier.com/content/author/author_id/7102862669,7102862669,Sugita S.,Sugita,Shinya,S.,true,60029445,25
+true,4,https://api.elsevier.com/content/author/author_id/7005256232,7005256232,Takahara H.,Takahara,Hikaru,H.,true,60001320,25
+true,1,https://api.elsevier.com/content/author/author_id/7005257933,7005257933,Villalba R.,Villalba,Ricardo,R.,true,60008394,26
+true,2,https://api.elsevier.com/content/author/author_id/7005710296,7005710296,Veblen T.,Veblen,Thomas T.,T.T.,true,60000221,26
+true,1,https://api.elsevier.com/content/author/author_id/7006275187,7006275187,Harder L.,Harder,Lawrence D.,L.D.,true,60002306,27
+true,2,https://api.elsevier.com/content/author/author_id/7404032087,7404032087,Wilson W.,Wilson,William G.,W.G.,true,60008724,27
+true,1,https://api.elsevier.com/content/author/author_id/56259836900,56259836900,Karlsson B.,Karlsson,Bengt,B.,true,60028378,28
+true,1,https://api.elsevier.com/content/author/author_id/7003544978,7003544978,Proulx M.,Proulx,Marc,M.,true,60009507,29
+true,2,https://api.elsevier.com/content/author/author_id/7103185594,7103185594,Mazumder A.,Mazumder,Asit,A.,true,60009507,29
+true,1,https://api.elsevier.com/content/author/author_id/6601978846,6601978846,Tewksbury J.,Tewksbury,Joshua J.,J.J.,true,60022355,30
+true,2,https://api.elsevier.com/content/author/author_id/6603653712,6603653712,Hejl S.,Hejl,Sallie J.,S.J.,true,60022772,30
+true,3,https://api.elsevier.com/content/author/author_id/7403463514,7403463514,Martin T.,Martin,Thomas E.,T.E.,true,60022355,30
+true,1,https://api.elsevier.com/content/author/author_id/6603433643,6603433643,Marvier M.,Marvier,Michelle A.,M.A.,true,60024941,31
+true,1,https://api.elsevier.com/content/author/author_id/7007082693,7007082693,Ohlson M.,Ohlson,Mikael,M.,true,60007008,32
+true,2,https://api.elsevier.com/content/author/author_id/7004084110,7004084110,Økland R.,Økland,Rune Halvorsen,R.H.,true,60010348,32
+true,1,https://api.elsevier.com/content/author/author_id/56259654700,56259654700,Lahti K.,Lahti,Kimmo,K.,true,60012954,33
+true,2,https://api.elsevier.com/content/author/author_id/56268332300,56268332300,Orell M.,Orell,Markku,M.,true,60012954,33
+true,3,https://api.elsevier.com/content/author/author_id/7003479891,7003479891,Rytkönen S.,Rytkönen,Seppo,S.,true,60012954,33
+true,4,https://api.elsevier.com/content/author/author_id/7003966928,7003966928,Koivula K.,Koivula,Kari,K.,true,60012954,33
+true,1,https://api.elsevier.com/content/author/author_id/7004329709,7004329709,Karanth K.,Karanth,K. Ullas,K.U.,true,60001012,34
+true,2,https://api.elsevier.com/content/author/author_id/35601925200,35601925200,Nichols J.,Nichols,James D.,J.D.,true,60004404,34
+true,1,https://api.elsevier.com/content/author/author_id/7005735088,7005735088,Benoît H.P.,Benoît,Hugues P.,H.P.,true,60002306,35
+true,2,https://api.elsevier.com/content/author/author_id/7005935988,7005935988,Mccauley E.,Mccauley,Edward,E.,true,60002306,35
+true,3,https://api.elsevier.com/content/author/author_id/7202174791,7202174791,Post J.R.,Post,John R.,J.R.,true,60002306,35
+true,1,https://api.elsevier.com/content/author/author_id/7004438121,7004438121,Letourneau D.,Letourneau,D. K.,D.K.,true,60024941,36
+true,2,https://api.elsevier.com/content/author/author_id/7006690970,7006690970,Dyer L.,Dyer,L. A.,L.A.,true,60010357,36
+true,1,https://api.elsevier.com/content/author/author_id/6603911810,6603911810,Batzer D.P.,Batzer,Darold P.,D.P.,true,60007776,37
+true,1,https://api.elsevier.com/content/author/author_id/6507855905,6507855905,Rodgerson L.,Rodgerson,Louise,L.,true,60019544,38
+true,1,https://api.elsevier.com/content/author/author_id/6506636526,6506636526,Wied A.,Wied,Anna,A.,true,60006173,39
+true,2,https://api.elsevier.com/content/author/author_id/7003988847,7003988847,Galen C.,Galen,Candace,C.,true,60006173,39
+true,1,https://api.elsevier.com/content/author/author_id/57551686800,57551686800,Mills K.E.,Mills,Katherine E.,K.E.,true,60008724,40
+true,2,https://api.elsevier.com/content/author/author_id/7003930092,7003930092,Bever J.D.,Bever,James D.,J.D.,true,60008724,40
+true,1,https://api.elsevier.com/content/author/author_id/7003889161,7003889161,Benke A.,Benke,Arthur C.,A.C.,true,60025371,41
+true,1,https://api.elsevier.com/content/author/author_id/6508321409,6508321409,Levri M.A.,Levri,Maureen A.,M.A.,true,60021121,42
+true,2,https://api.elsevier.com/content/author/author_id/7004426665,7004426665,Real L.A.,Real,Leslie A.,L.A.,true,60021121,42
+true,1,https://api.elsevier.com/content/author/author_id/7004119403,7004119403,Damgaard C.,Damgaard,Christian,C.,true,100469068,43
+true,1,https://api.elsevier.com/content/author/author_id/6603959205,6603959205,Caley M.,Caley,M. J.,M.J.,true,60019870,44
+true,2,https://api.elsevier.com/content/author/author_id/7006035288,7006035288,Schluter D.,Schluter,D.,D.,true,60019870,44
+true,1,https://api.elsevier.com/content/author/author_id/7006666680,7006666680,Gehring C.,Gehring,Catherine A.,C.A.,true,60023517,45
+true,2,https://api.elsevier.com/content/author/author_id/6603928649,6603928649,Theimer T.,Theimer,Tad C.,T.C.,true,60023517,45
+true,3,https://api.elsevier.com/content/author/author_id/7004648942,7004648942,Whitham T.,Whitham,Thomas G.,T.G.,true,60023517,45
+true,4,https://api.elsevier.com/content/author/author_id/7007034048,7007034048,Keim P.,Keim,Paul,P.,true,60023517,45
+true,1,https://api.elsevier.com/content/author/author_id/7003449708,7003449708,Thacker R.W.,Thacker,Robert W.,R.W.,true,60072876,46
+true,2,https://api.elsevier.com/content/author/author_id/6506603600,6506603600,Becfrro M.A.,Becfrro,Mikel A.,M.A.,true,60072876,46
+true,3,https://api.elsevier.com/content/author/author_id/57213132196,57213132196,Lumbang W.A.,Lumbang,Wilfred A.,W.A.,true,60072876,46
+true,4,https://api.elsevier.com/content/author/author_id/7102371822,7102371822,Paul V.J.,Paul,Valerie J.,V.J.,true,60072876,46
+true,1,https://api.elsevier.com/content/author/author_id/7103323608,7103323608,Zamora R.,Zamora,Regino,R.,true,60014655,47
+true,2,https://api.elsevier.com/content/author/author_id/55327141300,55327141300,Gómez J.M.,Gómez,José M.,J.M.,true,60014655,47
+true,3,https://api.elsevier.com/content/author/author_id/7003733322,7003733322,Hódar J.A.,Hódar,José A.,J.A.,true,60014655,47
+true,1,https://api.elsevier.com/content/author/author_id/7006140205,7006140205,Scheu S.,Scheu,Stefan,S.,true,100345277,48
+true,2,https://api.elsevier.com/content/author/author_id/7202502082,7202502082,Schaefer M.,Schaefer,Matthias,M.,true,100345277,48
+true,1,https://api.elsevier.com/content/author/author_id/35966285500,35966285500,Lele S.,Lele,Subhash,S.,true,60005248,49
+true,2,https://api.elsevier.com/content/author/author_id/6701765721,6701765721,Taper M.L.,Taper,Mark L.,M.L.,true,60022522,49
+true,3,https://api.elsevier.com/content/author/author_id/7004136089,7004136089,Gage S.,Gage,Stuart,S.,true,60031707,49
+true,1,https://api.elsevier.com/content/author/author_id/7103149928,7103149928,Vila M.,Vila,Montserrat,M.,true,60025038,50
+true,2,https://api.elsevier.com/content/author/author_id/7004381721,7004381721,D'Antonio C.M.,D'Antonio,Carla M.,C.M.,true,60025038,50
+true,1,https://api.elsevier.com/content/author/author_id/35280094600,35280094600,Murray D.,Murray,Dennis L.,D.L.,true,60032179,51
+true,2,https://api.elsevier.com/content/author/author_id/7102038644,7102038644,Keith L.,Keith,Lloyd B.,L.B.,true,60032179,51
+true,3,https://api.elsevier.com/content/author/author_id/7006826782,7006826782,Cary J.,Cary,John R.,J.R.,true,60032179,51
+true,1,https://api.elsevier.com/content/author/author_id/7006918639,7006918639,Saether B.E.,Saether,B. E.,B.E.,true,60013141,52
+true,2,https://api.elsevier.com/content/author/author_id/7402653712,7402653712,Andersen R.,Andersen,R.,R.,true,60013141,52
+true,3,https://api.elsevier.com/content/author/author_id/6603007738,6603007738,Hjeljord O.,Hjeljord,O.,O.,true,60013141,52
+true,4,https://api.elsevier.com/content/author/author_id/7201996326,7201996326,Heim M.,Heim,M.,M.,true,60013141,52
+true,1,https://api.elsevier.com/content/author/author_id/6505979702,6505979702,Pacejka A.J.,Pacejka,Andrew J.,A.J.,true,117255491,53
+true,2,https://api.elsevier.com/content/author/author_id/7004717739,7004717739,Gratton C.M.,Gratton,Colleen M.,C.M.,true,117255491,53
+true,3,https://api.elsevier.com/content/author/author_id/7404237606,7404237606,Thompson C.F.,Thompson,Charles F.,C.F.,true,117255491,53
+true,1,https://api.elsevier.com/content/author/author_id/7004252716,7004252716,Bridgham S.D.,Bridgham,Scott D.,S.D.,true,60021508,54
+true,2,https://api.elsevier.com/content/author/author_id/7003412737,7003412737,Updegraff K.,Updegraff,Karen,K.,true,60009875,54
+true,3,https://api.elsevier.com/content/author/author_id/7201639608,7201639608,Pastor J.,Pastor,John,J.,true,60009875,54
+true,1,https://api.elsevier.com/content/author/author_id/7003652738,7003652738,Haig S.,Haig,Susan M.,S.M.,true,60006407,55
+true,1,https://api.elsevier.com/content/author/author_id/6603900587,6603900587,Coomes D.A.,Coomes,David A.,D.A.,true,60031101,56
+true,2,https://api.elsevier.com/content/author/author_id/7005533165,7005533165,Grubb P.J.,Grubb,Peter J.,P.J.,true,60031101,56
+true,1,https://api.elsevier.com/content/author/author_id/7004381336,7004381336,Nadelhoffer K.,Nadelhoffer,K. J.,K.J.,true,60028402,57
+true,2,https://api.elsevier.com/content/author/author_id/6603797566,6603797566,Raich J.,Raich,J. W.,J.W.,true,60028402,57
+true,3,https://api.elsevier.com/content/author/author_id/7007157171,7007157171,Aber J.,Aber,J. D.,J.D.,true,60028402,57
+true,1,https://api.elsevier.com/content/author/author_id/7003918041,7003918041,Craine J.,Craine,J. M.,J.M.,true,60025038,58
+true,2,https://api.elsevier.com/content/author/author_id/35560658500,35560658500,Mack M.,Mack,M. C.,M.C.,true,60025038,58
+true,1,https://api.elsevier.com/content/author/author_id/6603689287,6603689287,Twombly S.,Twombly,Saran,S.,true,60010806,59
+true,2,https://api.elsevier.com/content/author/author_id/6507717804,6507717804,Clancy N.,Clancy,Nancy,N.,true,60010806,59
+true,3,https://api.elsevier.com/content/author/author_id/7201835080,7201835080,Burns C.W.,Burns,Carolyn W.,C.W.,true,60017311,59
+true,1,https://api.elsevier.com/content/author/author_id/56246266500,56246266500,Stadler B.,Stadler,Bernhard,B.,true,60023208,60
+true,2,https://api.elsevier.com/content/author/author_id/6505691103,6505691103,Mlchalzik B.,Mlchalzik,Beate,B.,true,60023208,60
+true,3,https://api.elsevier.com/content/author/author_id/55688116200,55688116200,Muller T.,Muller,Thomas,T.,true,100776104,60
+true,1,https://api.elsevier.com/content/author/author_id/7004023042,7004023042,D'Amico V.,D'Amico,Vincent,V.,true,60014313,61
+true,2,https://api.elsevier.com/content/author/author_id/7005687163,7005687163,Elkinton J.,Elkinton,Joseph S.,J.S.,NA,NA,61
+true,3,https://api.elsevier.com/content/author/author_id/7005887487,7005887487,Dwyer G.,Dwyer,Greg,G.,true,60014313,61
+true,4,https://api.elsevier.com/content/author/author_id/7202814160,7202814160,Willis R.,Willis,Raymond B.,R.B.,NA,NA,61
+true,5,https://api.elsevier.com/content/author/author_id/7102101097,7102101097,Montgomery M.,Montgomery,Michael E.,M.E.,NA,NA,61
+true,1,https://api.elsevier.com/content/author/author_id/7003509768,7003509768,Angermeier P.,Angermeier,Paul L.,P.L.,true,60002245,62
+true,2,https://api.elsevier.com/content/author/author_id/7102752705,7102752705,Winston M.,Winston,Matthew R.,M.R.,true,60027090,62
+true,1,https://api.elsevier.com/content/author/author_id/36608857500,36608857500,Nickerson D.,Nickerson,David M.,D.M.,true,60022144,63
+true,2,https://api.elsevier.com/content/author/author_id/6507840586,6507840586,Brunell A.,Brunell,Arnold,A.,true,60000362,63
+true,1,https://api.elsevier.com/content/author/author_id/7203008309,7203008309,Sherman P.,Sherman,Peter T.,P.T.,true,60020633,64
+true,2,https://api.elsevier.com/content/author/author_id/7003973690,7003973690,Eason P.,Eason,Perri K.,P.K.,true,60020633,64
+true,1,https://api.elsevier.com/content/author/author_id/35319712500,35319712500,Bishop J.G.,Bishop,John G.,J.G.,true,60015481,65
+true,2,https://api.elsevier.com/content/author/author_id/7003289416,7003289416,Schemske D.W.,Schemske,Douglas W.,D.W.,true,60015481,65
+true,1,https://api.elsevier.com/content/author/author_id/7401857350,7401857350,Hughes C.,Hughes,Colin,C.,true,60026161,66
+true,1,https://api.elsevier.com/content/author/author_id/57197840902,57197840902,Lucas E.,Lucas,Èric,E.,true,60032619,67
+true,2,https://api.elsevier.com/content/author/author_id/7004563056,7004563056,Coderre D.,Coderre,Daniel,D.,true,60027863,67
+true,3,https://api.elsevier.com/content/author/author_id/7102961965,7102961965,Brodeur J.,Brodeur,Jacques,J.,true,60032619,67
+true,1,https://api.elsevier.com/content/author/author_id/7006706627,7006706627,Ives A.,Ives,Anthony R.,A.R.,true,60032179,68
+true,2,https://api.elsevier.com/content/author/author_id/7006982838,7006982838,Jansen V.,Jansen,Vincent A.A.,V.A.A.,true,60007317,68
+true,1,https://api.elsevier.com/content/author/author_id/16243987300,16243987300,Barkmann J.,Barkmann,Jan,J.,true,60008279,69
+true,2,https://api.elsevier.com/content/author/author_id/6701602657,6701602657,Schwintzer C.,Schwintzer,Christa R.,C.R.,true,60008279,69
+true,1,https://api.elsevier.com/content/author/author_id/7004241357,7004241357,Mysterud A.,Mysterud,Atle,A.,true,60010348,70
+true,2,https://api.elsevier.com/content/author/author_id/7006373946,7006373946,Ims R.,Ims,Rolf Anker,R.A.,true,60010348,70
+true,1,https://api.elsevier.com/content/author/author_id/8842539100,8842539100,Lynch E.A.,Lynch,Elizabeth A.,E.A.,true,60029445,71
+true,1,https://api.elsevier.com/content/author/author_id/7401948102,7401948102,Price M.,Price,Mary V.,M.V.,true,60029526,72
+true,2,https://api.elsevier.com/content/author/author_id/35611671400,35611671400,Waser N.,Waser,Nickolas M.,N.M.,true,60029526,72
+true,1,https://api.elsevier.com/content/author/author_id/7004135095,7004135095,Rotenberry J.,Rotenberry,John T.,J.T.,true,60029526,73
+true,2,https://api.elsevier.com/content/author/author_id/7007159962,7007159962,Wiens J.,Wiens,John A.,J.A.,true,60009226,73
+true,1,https://api.elsevier.com/content/author/author_id/7202020944,7202020944,Morrison L.,Morrison,Lloyd W.,L.W.,true,60014439,74
+true,1,https://api.elsevier.com/content/author/author_id/56208271500,56208271500,Grogan P.,Grogan,Paul,P.,true,60025038,75
+true,1,https://api.elsevier.com/content/author/author_id/7005090867,7005090867,Solow A.R.,Solow,Andrew R.,A.R.,true,60013609,76
+true,1,https://api.elsevier.com/content/author/author_id/7003481910,7003481910,Maron J.L.,Maron,John L.,J.L.,true,60000000,77
+true,1,https://api.elsevier.com/content/author/author_id/7005589407,7005589407,Speight M.R.,Speight,M. R.,M.R.,true,60026851,78
+true,2,https://api.elsevier.com/content/author/author_id/57203629426,57203629426,Hails R.S.,Hails,R. S.,R.S.,true,60004708,78
+true,3,https://api.elsevier.com/content/author/author_id/7801539618,7801539618,Gllbkrt M.,Gllbkrt,M.,M.,true,60026851,78
+true,4,https://api.elsevier.com/content/author/author_id/6602145321,6602145321,Foggo A.,Foggo,A.,A.,true,60024779,78
+true,1,https://api.elsevier.com/content/author/author_id/7006359599,7006359599,Boonstra R.,Boonstra,Rudy,R.,true,60016849,79
+true,2,https://api.elsevier.com/content/author/author_id/7103010232,7103010232,Krebs C.,Krebs,Charles J.,C.J.,true,60010365,79
+true,3,https://api.elsevier.com/content/author/author_id/16040160500,16040160500,Stenseth N.,Stenseth,Nils Chr,N.C.,true,60010348,79
+true,1,https://api.elsevier.com/content/author/author_id/7006109407,7006109407,McPeek M.,McPeek,Mark A.,M.A.,true,60010756,80
+true,2,https://api.elsevier.com/content/author/author_id/7003396980,7003396980,Peckarsky B.,Peckarsky,Barbara L.,B.L.,true,60007776,80
+true,1,https://api.elsevier.com/content/author/author_id/7006069958,7006069958,Spiller D.,Spiller,David A.,D.A.,true,60014439,81
+true,2,https://api.elsevier.com/content/author/author_id/7003503904,7003503904,Schoener T.,Schoener,Thomas W.,T.W.,true,60014439,81
+true,1,https://api.elsevier.com/content/author/author_id/7003357337,7003357337,Dalling J.,Dalling,J. W.,J.W.,true,60030522,82
+true,2,https://api.elsevier.com/content/author/author_id/7005840067,7005840067,Swaine M.,Swaine,M. D.,M.D.,true,60015875,82
+true,3,https://api.elsevier.com/content/author/author_id/6602281479,6602281479,Garwood N.,Garwood,Nancy C.,N.C.,true,60025352,82
+true,1,https://api.elsevier.com/content/author/author_id/7101909853,7101909853,Cáceres C.E.,Cáceres,Carla E.,C.E.,true,60007776,83
+true,1,https://api.elsevier.com/content/author/author_id/7005486622,7005486622,Bradshaw W.E.,Bradshaw,W. E.,W.E.,true,60012317,84
+true,2,https://api.elsevier.com/content/author/author_id/7006175391,7006175391,Armbruster P.A.,Armbruster,P. A.,P.A.,true,60012317,84
+true,3,https://api.elsevier.com/content/author/author_id/7006509279,7006509279,Holzapfel C.M.,Holzapfel,C. M.,C.M.,true,60012317,84
+true,1,https://api.elsevier.com/content/author/author_id/7004801538,7004801538,Doughty P.,Doughty,Paul,P.,true,60025709,85
+true,2,https://api.elsevier.com/content/author/author_id/13002918700,13002918700,Shine R.,Shine,Richard,R.,true,60025709,85
+true,1,https://api.elsevier.com/content/author/author_id/6508072018,6508072018,Kurzava L.,Kurzava,Lynn M.,L.M.,true,60119141,86
+true,2,https://api.elsevier.com/content/author/author_id/7202967408,7202967408,Morin P.,Morin,Peter J.,P.J.,true,60119141,86
+true,1,https://api.elsevier.com/content/author/author_id/7003403483,7003403483,Hentschel B.T.,Hentschel,Brian T.,B.T.,true,60011986,87
+true,1,https://api.elsevier.com/content/author/author_id/6603555984,6603555984,Lennartsson T.,Lennartsson,Tommy,T.,true,60027152,88
+true,2,https://api.elsevier.com/content/author/author_id/57220772844,57220772844,Nilsson P.,Nilsson,Patric,P.,NA,NA,88
+true,3,https://api.elsevier.com/content/author/author_id/56187473800,56187473800,Tuomi J.,Tuomi,Juha,J.,true,60012954,88
+true,1,https://api.elsevier.com/content/author/author_id/7005175455,7005175455,Simberloff D.,Simberloff,D.,D.,true,60015574,89
+true,2,https://api.elsevier.com/content/author/author_id/7003512490,7003512490,Stiling P.,Stiling,P.,P.,true,60015574,89
+true,1,https://api.elsevier.com/content/author/author_id/7004468655,7004468655,Westoby M.,Westoby,M.,M.,true,60019544,90
+true,1,https://api.elsevier.com/content/author/author_id/6603840063,6603840063,Killingbeck K.,Killingbeck,K. T.,K.T.,true,60010806,91
+true,1,https://api.elsevier.com/content/author/author_id/35511227300,35511227300,Erikstad K.E.,Erikstad,Kjell Einar,K.E.,true,60020071,92
+true,2,https://api.elsevier.com/content/author/author_id/56253588700,56253588700,Fauchald P.,Fauchald,Per,P.,true,60020071,92
+true,3,https://api.elsevier.com/content/author/author_id/6602559532,6602559532,Tveraa T.,Tveraa,Torkild,T.,true,60020071,92
+true,4,https://api.elsevier.com/content/author/author_id/57201601674,57201601674,Steen H.,Steen,Harald,H.,true,60020071,92
+true,1,https://api.elsevier.com/content/author/author_id/7006634772,7006634772,Gough L.,Gough,Laura,L.,true,60007566,93
+true,2,https://api.elsevier.com/content/author/author_id/7202870965,7202870965,Grace J.B.,Grace,James B.,J.B.,true,60029698,93
+true,1,https://api.elsevier.com/content/author/author_id/6602079589,6602079589,Langtimm C.A.,Langtimm,C. A.,C.A.,true,60011347,94
+true,2,https://api.elsevier.com/content/author/author_id/7007139282,7007139282,O'Shea T.J.,O'Shea,T. J.,T.J.,true,60011347,94
+true,3,https://api.elsevier.com/content/author/author_id/7003520954,7003520954,Pradel R.,Pradel,R.,R.,true,60008134,94
+true,4,https://api.elsevier.com/content/author/author_id/25823696500,25823696500,Beck C.A.,Beck,C. A.,C.A.,true,60011347,94
+true,1,https://api.elsevier.com/content/author/author_id/7101680020,7101680020,Bender D.,Bender,Darren J.,D.J.,true,60017592,95
+true,2,https://api.elsevier.com/content/author/author_id/6701495781,6701495781,Contreras T.,Contreras,Thomas A.,T.A.,true,60017592,95
+true,3,https://api.elsevier.com/content/author/author_id/7004616118,7004616118,Fahrig L.,Fahrig,Lenore,L.,true,60017592,95
+true,1,https://api.elsevier.com/content/author/author_id/57203646755,57203646755,Myers J.H.,Myers,Judith H.,J.H.,true,60010365,96
+true,1,https://api.elsevier.com/content/author/author_id/7404722125,7404722125,Hall R.,Hall,R. B.W.,R.B.W.,true,60005286,97
+true,2,https://api.elsevier.com/content/author/author_id/6701414778,6701414778,Harcombe P.,Harcombe,P. A.,P.A.,true,60005286,97
+true,1,https://api.elsevier.com/content/author/author_id/6603672139,6603672139,Schlosser I.J.,Schlosser,Isaac J.,I.J.,true,60026161,98
+true,2,https://api.elsevier.com/content/author/author_id/6506291801,6506291801,Doeringsfeld M.R.,Doeringsfeld,Matthew R.,M.R.,true,60000689,98
+true,3,https://api.elsevier.com/content/author/author_id/57616261100,57616261100,Elder J.F.,Elder,John F.,J.F.,true,60000711,98
+true,4,https://api.elsevier.com/content/author/author_id/6507636432,6507636432,Arzayus L.F.,Arzayus,Luis F.,L.F.,true,60016053,98
+true,1,https://api.elsevier.com/content/author/author_id/6603957831,6603957831,Wheelwright N.,Wheelwright,Nathaniel T.,N.T.,true,60000144,99
+true,2,https://api.elsevier.com/content/author/author_id/7004031806,7004031806,Mauck R.,Mauck,Robert A.,R.A.,true,60003500,99
+true,1,https://api.elsevier.com/content/author/author_id/7103014938,7103014938,Leonard G.,Leonard,George H.,G.H.,true,60011460,100
+true,2,https://api.elsevier.com/content/author/author_id/7403579630,7403579630,Levine J.,Levine,Jonathan M.,J.M.,true,60011460,100
+true,3,https://api.elsevier.com/content/author/author_id/7403630564,7403630564,Schmidt P.,Schmidt,Paul R.,P.R.,true,60011460,100
+true,4,https://api.elsevier.com/content/author/author_id/7006871355,7006871355,Bertness M.,Bertness,Mark D.,M.D.,true,60011460,100
+true,1,https://api.elsevier.com/content/author/author_id/7003863091,7003863091,Kieft T.,Kieft,Thomas L.,T.L.,true,60028844,101
+true,2,https://api.elsevier.com/content/author/author_id/7404152320,7404152320,White C.,White,Carleton S.,C.S.,true,60033021,101
+true,3,https://api.elsevier.com/content/author/author_id/6602726830,6602726830,Loftin S.,Loftin,Samuel R.,S.R.,true,60002722,101
+true,4,https://api.elsevier.com/content/author/author_id/7101739175,7101739175,Aguilar R.,Aguilar,Richard,R.,true,60007843,101
+true,5,https://api.elsevier.com/content/author/author_id/7401926243,7401926243,Craig J.,Craig,John A.,J.A.,true,60033021,101
+true,6,https://api.elsevier.com/content/author/author_id/6701569253,6701569253,Skaar D.,Skaar,David A.,D.A.,true,60028844,101
+true,1,https://api.elsevier.com/content/author/author_id/7404647737,7404647737,Schwartz M.,Schwartz,Mark W.,M.W.,true,60014439,102
+true,2,https://api.elsevier.com/content/author/author_id/7004265167,7004265167,Hoeksema J.,Hoeksema,Jason D.,J.D.,true,60014439,102
+true,1,https://api.elsevier.com/content/author/author_id/7006751568,7006751568,Engeman R.M.,Engeman,Richard M.,R.M.,true,60032434,103
+true,2,https://api.elsevier.com/content/author/author_id/7006609107,7006609107,Sugihara R.T.,Sugihara,Robert T.,R.T.,true,60032434,103
+true,1,https://api.elsevier.com/content/author/author_id/7401452165,7401452165,Gilbert J.J.,Gilbert,John J.,J.J.,true,60010756,104
+true,2,https://api.elsevier.com/content/author/author_id/7103248897,7103248897,Schreiber D.K.,Schreiber,Dorothee K.,D.K.,true,60010756,104
+true,1,https://api.elsevier.com/content/author/author_id/7401781173,7401781173,Adams E.,Adams,Eldridge S.,E.S.,true,60027165,105
+true,1,https://api.elsevier.com/content/author/author_id/7202590568,7202590568,Morales M.A.,Morales,Manuel A.,M.A.,true,60001966,106
+true,2,https://api.elsevier.com/content/author/author_id/6505882441,6505882441,Heithaus E.R.,Heithaus,E. Raymond,E.R.,true,60001966,106
+true,1,https://api.elsevier.com/content/author/author_id/6603614747,6603614747,Boose E.,Boose,Emery R.,E.R.,true,60007624,107
+true,2,https://api.elsevier.com/content/author/author_id/36980615100,36980615100,Boose E.,Boose,Emery F.,E.F.,NA,NA,107
+true,3,https://api.elsevier.com/content/author/author_id/6506667758,6506667758,Lezberg A.,Lezberg,Ann L.,A.L.,true,60007624,107
+true,1,https://api.elsevier.com/content/author/author_id/7004411995,7004411995,Hedin L.,Hedin,Lars O.,L.O.,true,60007776,108
+true,2,https://api.elsevier.com/content/author/author_id/7801493719,7801493719,Von Fischer J.,Von Fischer,Joseph C.,J.C.,true,60007776,108
+true,3,https://api.elsevier.com/content/author/author_id/7003458582,7003458582,Ostrom N.,Ostrom,Nathaniel E.,N.E.,true,60031707,108
+true,4,https://api.elsevier.com/content/author/author_id/57212173300,57212173300,Kennedy B.,Kennedy,Brian P.,B.P.,true,60010756,108
+true,5,https://api.elsevier.com/content/author/author_id/55722070900,55722070900,Brown M.,Brown,Michael G.,M.G.,true,60007776,108
+true,6,https://api.elsevier.com/content/author/author_id/7402368664,7402368664,Philip Robertson G.,Philip Robertson,G.,G.,true,60031707,108
+true,1,https://api.elsevier.com/content/author/author_id/7004284067,7004284067,Boulinier T.,Boulinier,Thierry,T.,true,60004923,109
+true,2,https://api.elsevier.com/content/author/author_id/35601925200,35601925200,Nichols J.D.,Nichols,James D.,J.D.,true,60004404,109
+true,3,https://api.elsevier.com/content/author/author_id/16182360600,16182360600,Sauer J.R.,Sauer,John R.,J.R.,true,60004404,109
+true,4,https://api.elsevier.com/content/author/author_id/7201521910,7201521910,Hines J.E.,Hines,James E.,J.E.,true,60004404,109
+true,5,https://api.elsevier.com/content/author/author_id/7006354430,7006354430,Pollock K.H.,Pollock,K. H.,K.H.,true,60004923,109
+true,1,https://api.elsevier.com/content/author/author_id/7006090945,7006090945,Snodgrass J.W.,Snodgrass,Joel W.,J.W.,true,60009225,110
+true,2,https://api.elsevier.com/content/author/author_id/7003322725,7003322725,Meffe G.K.,Meffe,Gary K.,G.K.,true,60009225,110
+true,1,https://api.elsevier.com/content/author/author_id/7003853473,7003853473,Andreassen H.P.,Andreassen,Harry P.,H.P.,true,60010348,111
+true,2,https://api.elsevier.com/content/author/author_id/6602187650,6602187650,Hertzberg K.,Hertzberg,Karine,K.,true,60014393,111
+true,3,https://api.elsevier.com/content/author/author_id/7006373946,7006373946,Ims R.A.,Ims,Rolf A.,R.A.,true,60010348,111
+true,1,https://api.elsevier.com/content/author/author_id/6701737054,6701737054,Doums C.,Doums,Claudie,C.,true,60083827,112
+true,2,https://api.elsevier.com/content/author/author_id/6508310390,6508310390,Perdieu M.A.,Perdieu,Mireille Ange,M.A.,true,60083827,112
+true,3,https://api.elsevier.com/content/author/author_id/56264346500,56264346500,Jarne P.,Jarne,Philippe,P.,true,60083827,112
+true,1,https://api.elsevier.com/content/author/author_id/7005425150,7005425150,Mcnaughton S.,Mcnaughton,S. J.,S.J.,true,60030551,113
+true,2,https://api.elsevier.com/content/author/author_id/6507100128,6507100128,Banyikwa F.,Banyikwa,F. F.,F.F.,true,60030551,113
+true,3,https://api.elsevier.com/content/author/author_id/7003949485,7003949485,Mcnaughton M.,Mcnaughton,M. M.,M.M.,true,60030551,113
+true,1,https://api.elsevier.com/content/author/author_id/7401517887,7401517887,Perry J.,Perry,Joe N.,J.N.,true,60002793,114
+true,1,https://api.elsevier.com/content/author/author_id/57204831584,57204831584,Garvey J.,Garvey,James E.,J.E.,true,60003500,115
+true,2,https://api.elsevier.com/content/author/author_id/7006714132,7006714132,Marschall E.,Marschall,Elizabeth A.,E.A.,true,60016005,115
+true,3,https://api.elsevier.com/content/author/author_id/56513056100,56513056100,Wright R.,Wright,Russell A.,R.A.,true,60011754,115
+true,1,https://api.elsevier.com/content/author/author_id/6603354156,6603354156,Bashkin M.A.,Bashkin,Michael A.,M.A.,true,60009226,116
+true,2,https://api.elsevier.com/content/author/author_id/7101905324,7101905324,Binkley D.,Binkley,Dan,D.,true,60009226,116
+true,1,https://api.elsevier.com/content/author/author_id/6603789476,6603789476,Pascarella J.,Pascarella,John B.,J.B.,true,60029251,117
+true,2,https://api.elsevier.com/content/author/author_id/6603674522,6603674522,Horvitz C.,Horvitz,Carol C.,C.C.,true,60029251,117
+true,1,https://api.elsevier.com/content/author/author_id/7103019985,7103019985,Snow A.A.,Snow,A. A.,A.A.,NA,NA,118
+true,2,https://api.elsevier.com/content/author/author_id/7202013469,7202013469,Parker P.G.,Parker,P. G.,P.G.,NA,NA,118
+true,1,https://api.elsevier.com/content/author/author_id/7202089824,7202089824,Yan G.,Yan,Guiyun,G.,true,60009500,119
+true,2,https://api.elsevier.com/content/author/author_id/7202311648,7202311648,Stevens L.,Stevens,Lori,L.,true,60009500,119
+true,3,https://api.elsevier.com/content/author/author_id/6603712232,6603712232,Goodnight C.J.,Goodnight,Charles J.,C.J.,true,60009500,119
+true,4,https://api.elsevier.com/content/author/author_id/7007028482,7007028482,Schall J.J.,Schall,Joseph J.,J.J.,true,60009500,119
+true,1,https://api.elsevier.com/content/author/author_id/35364042800,35364042800,Dennis B.,Dennis,B.,B.,true,60033389,120
+true,2,https://api.elsevier.com/content/author/author_id/7101839550,7101839550,Kemp W.,Kemp,W. P.,W.P.,true,60031706,120
+true,3,https://api.elsevier.com/content/author/author_id/6701765721,6701765721,Taper M.,Taper,M. L.,M.L.,true,60022522,120
+true,1,https://api.elsevier.com/content/author/author_id/6603922181,6603922181,Ostertag R.,Ostertag,Rebecca,R.,true,60013959,121
+true,1,https://api.elsevier.com/content/author/author_id/6506609770,6506609770,Bardsley L.,Bardsley,Louise,L.,true,60017317,122
+true,2,https://api.elsevier.com/content/author/author_id/7005839821,7005839821,Beebee T.J.C.,Beebee,Trevor J.C.,T.J.C.,true,60017317,122
+true,1,https://api.elsevier.com/content/author/author_id/6603641334,6603641334,Jules E.S.,Jules,Erik S.,E.S.,true,60025778,123
+true,1,https://api.elsevier.com/content/author/author_id/7004591095,7004591095,Runkle J.,Runkle,James R.,J.R.,true,60018306,124
+true,1,https://api.elsevier.com/content/author/author_id/7006121902,7006121902,Crete M.,Crete,M.,M.,true,60079208,125
+true,1,https://api.elsevier.com/content/author/author_id/57203084708,57203084708,Polak M.,Polak,Michal,M.,true,60030551,126
+true,1,https://api.elsevier.com/content/author/author_id/6701362826,6701362826,Saikkonen K.,Saikkonen,Kari,K.,true,60006876,127
+true,2,https://api.elsevier.com/content/author/author_id/6504522307,6504522307,Koivunen S.,Koivunen,Sari,S.,true,60006876,127
+true,3,https://api.elsevier.com/content/author/author_id/6601947936,6601947936,Vuorisalo T.,Vuorisalo,Timo,T.,true,60006876,127
+true,4,https://api.elsevier.com/content/author/author_id/55948975700,55948975700,Mutikainen P.,Mutikainen,Pia,P.,true,60006876,127
+true,1,https://api.elsevier.com/content/author/author_id/57203697645,57203697645,Feild T.S.,Feild,Taylor S.,T.S.,true,60007776,128
+true,2,https://api.elsevier.com/content/author/author_id/26643193500,26643193500,Dawson T.E.,Dawson,Todd E.,T.E.,true,60007776,128
+true,1,https://api.elsevier.com/content/author/author_id/6603433643,6603433643,Marvier M.,Marvier,Michelle,M.,true,60024941,129
+true,1,https://api.elsevier.com/content/author/author_id/6701760794,6701760794,Siikamäki P.,Siikamäki,Pirkko,P.,true,60032398,130
+true,1,https://api.elsevier.com/content/author/author_id/55916875600,55916875600,Pearson G.,Pearson,Gareth A.,G.A.,true,60008279,131
+true,2,https://api.elsevier.com/content/author/author_id/7004093604,7004093604,Serrão E.,Serrão,Ester A.,E.A.,true,60008279,131
+true,3,https://api.elsevier.com/content/author/author_id/7003833382,7003833382,Brawley S.,Brawley,Susan H.,S.H.,true,60008279,131
+true,1,https://api.elsevier.com/content/author/author_id/7403375518,7403375518,Robinson C.H.,Robinson,C. H.,C.H.,true,60011520,132
+true,2,https://api.elsevier.com/content/author/author_id/7004647991,7004647991,Wookey P.A.,Wookey,P. A.,P.A.,true,60020595,132
+true,3,https://api.elsevier.com/content/author/author_id/8531856300,8531856300,Lee J.A.,Lee,J. A.,J.A.,true,60001881,132
+true,4,https://api.elsevier.com/content/author/author_id/7006279779,7006279779,Callaghan T.V.,Callaghan,T. V.,T.V.,true,60001881,132
+true,5,https://api.elsevier.com/content/author/author_id/7101918716,7101918716,Press M.C.,Press,M. C.,M.C.,true,60001881,132
+true,1,https://api.elsevier.com/content/author/author_id/7401732061,7401732061,Frank J.,Frank,J. H.,J.H.,true,60013959,133
+true,1,https://api.elsevier.com/content/author/author_id/6701451805,6701451805,Kneeshaw D.,Kneeshaw,Daniel D.,D.D.,true,60027863,134
+true,2,https://api.elsevier.com/content/author/author_id/7006384506,7006384506,Bergeron Y.,Bergeron,Yves,Y.,true,60027863,134
+true,1,https://api.elsevier.com/content/author/author_id/7103099109,7103099109,Hooper D.,Hooper,David U.,D.U.,true,60012708,135
+true,1,https://api.elsevier.com/content/author/author_id/57225304637,57225304637,O'Connell L.M.,O'Connell,Lisa M.,L.M.,true,60015913,136
+true,2,https://api.elsevier.com/content/author/author_id/26643322900,26643322900,Johnston M.O.,Johnston,Mark O.,M.O.,true,60015913,136
+true,1,https://api.elsevier.com/content/author/author_id/22978736600,22978736600,Chase J.,Chase,Jonathan M.,J.M.,true,60029278,137
+true,1,https://api.elsevier.com/content/author/author_id/7004438121,7004438121,Letourneau D.K.,Letourneau,Deborah K.,D.K.,true,60024941,138
+true,1,https://api.elsevier.com/content/author/author_id/7003520808,7003520808,Lusk C.,Lusk,Christopher H.,C.H.,true,60016278,139
+true,2,https://api.elsevier.com/content/author/author_id/7501689274,7501689274,Smith B.,Smith,Benjamin,B.,true,60017311,139
+true,1,https://api.elsevier.com/content/author/author_id/7003341080,7003341080,Shure D.J.,Shure,Donald J.,D.J.,true,60000928,140
+true,2,https://api.elsevier.com/content/author/author_id/6506464344,6506464344,Mooreside P.D.,Mooreside,Peter D.,P.D.,true,60000928,140
+true,3,https://api.elsevier.com/content/author/author_id/7004593987,7004593987,Ogle S.M.,Ogle,Stephen M.,S.M.,true,60000928,140
+true,1,https://api.elsevier.com/content/author/author_id/7202013469,7202013469,Parker P.G.,Parker,Patricia G.,P.G.,true,60003500,141
+true,2,https://api.elsevier.com/content/author/author_id/7103019985,7103019985,Snow A.A.,Snow,Allison A.,A.A.,true,60003500,141
+true,3,https://api.elsevier.com/content/author/author_id/6701834319,6701834319,Schug M.D.,Schug,Malcolm D.,M.D.,true,60003500,141
+true,4,https://api.elsevier.com/content/author/author_id/6601959337,6601959337,Booton G.C.,Booton,Gregory C.,G.C.,true,60003500,141
+true,5,https://api.elsevier.com/content/author/author_id/7007030164,7007030164,Fuerst P.A.,Fuerst,Paul A.,P.A.,true,60003500,141
+true,1,https://api.elsevier.com/content/author/author_id/7801616180,7801616180,Range-Ley R.,Range-Ley,Robert W.,R.W.,true,60002494,142
+true,2,https://api.elsevier.com/content/author/author_id/57203046501,57203046501,Kramer D.,Kramer,Donald L.,D.L.,true,60002494,142
+true,1,https://api.elsevier.com/content/author/author_id/7003881411,7003881411,Carlton G.,Carlton,G. C.,G.C.,true,60009982,143
+true,2,https://api.elsevier.com/content/author/author_id/7005453999,7005453999,Bazzaz F.,Bazzaz,F. A.,F.A.,true,60009982,143
+true,1,https://api.elsevier.com/content/author/author_id/7004560258,7004560258,Siemens D.H.,Siemens,David H.,D.H.,true,60022355,144
+true,2,https://api.elsevier.com/content/author/author_id/7006487662,7006487662,Mitchell-Olds T.,Mitchell-Olds,Thomas,T.,true,60022355,144
+true,1,https://api.elsevier.com/content/author/author_id/7004378051,7004378051,Laska M.,Laska,Mark S.,M.S.,true,60119141,145
+true,2,https://api.elsevier.com/content/author/author_id/7101730267,7101730267,Wootton J.,Wootton,J. Timothy,J.T.,true,60029278,145
+true,1,https://api.elsevier.com/content/author/author_id/7006871355,7006871355,Bertness M.,Bertness,Mark D.,M.D.,true,60011460,146
+true,2,https://api.elsevier.com/content/author/author_id/35554794700,35554794700,Gaines S.,Gaines,Steven D.,S.D.,true,60029241,146
+true,3,https://api.elsevier.com/content/author/author_id/7402085563,7402085563,Yeh S.,Yeh,Su Ming,S.M.,true,60011460,146
+true,1,https://api.elsevier.com/content/author/author_id/7003729364,7003729364,Irons D.,Irons,David B.,D.B.,true,60009056,147
+true,1,https://api.elsevier.com/content/author/author_id/6701414273,6701414273,Cruzan M.B.,Cruzan,Mitchell B.,M.B.,true,60015574,148
+true,1,https://api.elsevier.com/content/author/author_id/57203645880,57203645880,Dial R.,Dial,Roman,R.,true,60012708,149
+true,2,https://api.elsevier.com/content/author/author_id/7006132592,7006132592,Roughgarden J.,Roughgarden,Jonathan,J.,true,60012708,149
+true,1,https://api.elsevier.com/content/author/author_id/57193304990,57193304990,Watson A.,Watson,A.,A.,true,60004708,150
+true,2,https://api.elsevier.com/content/author/author_id/8085775500,8085775500,Moss R.,Moss,R.,R.,true,60004708,150
+true,3,https://api.elsevier.com/content/author/author_id/7005281545,7005281545,Rae S.,Rae,S.,S.,true,60004708,150
+true,1,https://api.elsevier.com/content/author/author_id/7005617183,7005617183,Houle G.,Houle,Gilles,G.,true,60086620,151
+true,1,https://api.elsevier.com/content/author/author_id/7403463514,7403463514,Martin T.,Martin,Thomas E.,T.E.,true,60022355,152
+true,1,https://api.elsevier.com/content/author/author_id/7102193955,7102193955,Murdoch W.,Murdoch,W. W.,W.W.,true,60029241,153
+true,2,https://api.elsevier.com/content/author/author_id/7005826836,7005826836,Nisbet R.,Nisbet,R. M.,R.M.,true,60029241,153
+true,3,https://api.elsevier.com/content/author/author_id/7005935988,7005935988,McCauley E.,McCauley,E.,E.,true,60002306,153
+true,4,https://api.elsevier.com/content/author/author_id/35607677700,35607677700,DeRoos A.,DeRoos,A. M.,A.M.,true,60002483,153
+true,5,https://api.elsevier.com/content/author/author_id/7004778095,7004778095,Gurney W.,Gurney,W. S.C.,W.S.C.,true,60024724,153
+true,1,https://api.elsevier.com/content/author/author_id/7003582447,7003582447,Scharf F.S.,Scharf,Frederick S.,F.S.,true,60014313,154
+true,2,https://api.elsevier.com/content/author/author_id/7003516098,7003516098,Juanes F.,Juanes,Francis,F.,true,60014313,154
+true,3,https://api.elsevier.com/content/author/author_id/7101639844,7101639844,Sutherland M.,Sutherland,Michael,M.,true,60014313,154
+true,1,https://api.elsevier.com/content/author/author_id/36867856900,36867856900,Dooley J.,Dooley,James L.,J.L.,true,60021918,155
+true,2,https://api.elsevier.com/content/author/author_id/7202687379,7202687379,Bowers M.,Bowers,Michael A.,M.A.,true,60021918,155
+true,1,https://api.elsevier.com/content/author/author_id/6602547942,6602547942,Saetre P.,Saetre,Peter,P.,true,60027152,156
+true,1,https://api.elsevier.com/content/author/author_id/6701739347,6701739347,Rank N.E.,Rank,Nathan E.,N.E.,true,60025858,157
+true,2,https://api.elsevier.com/content/author/author_id/7102290163,7102290163,Köpf A.,Köpf,Alfred,A.,true,60025858,157
+true,3,https://api.elsevier.com/content/author/author_id/7004458670,7004458670,Julkunen-Tiitto R.,Julkunen-Tiitto,Riita,R.,true,60103673,157
+true,4,https://api.elsevier.com/content/author/author_id/7004264918,7004264918,Tahvanainen J.,Tahvanainen,Jorma,J.,true,60103673,157
+true,1,https://api.elsevier.com/content/author/author_id/7402594396,7402594396,Rose M.,Rose,Michael D.,M.D.,true,60003915,158
+true,2,https://api.elsevier.com/content/author/author_id/7004519184,7004519184,Polis G.,Polis,Gary A.,G.A.,true,60003915,158
+true,1,https://api.elsevier.com/content/author/author_id/6508337734,6508337734,Cochran-Stafira D.L.,Cochran-Stafira,D. Liane,D.L.,true,60009550,159
+true,2,https://api.elsevier.com/content/author/author_id/6506881916,6506881916,Von Ende C.N.,Von Ende,Carl N.,C.N.,true,60009550,159
+true,1,https://api.elsevier.com/content/author/author_id/7401662997,7401662997,Guo Q.,Guo,Qinfeng,Q.,true,60027550,160
+true,2,https://api.elsevier.com/content/author/author_id/7004152561,7004152561,Rundel P.,Rundel,Philip W.,P.W.,true,60027550,160
+true,1,https://api.elsevier.com/content/author/author_id/7004519184,7004519184,Polis G.A.,Polis,Gary A.,G.A.,true,60003915,161
+true,2,https://api.elsevier.com/content/author/author_id/7007092906,7007092906,Hurd S.D.,Hurd,Stephen D.,S.D.,true,60003915,161
+true,3,https://api.elsevier.com/content/author/author_id/57196859024,57196859024,Jackson C.T.,Jackson,C. Todd,C.T.,true,60003915,161
+true,4,https://api.elsevier.com/content/author/author_id/6602505397,6602505397,Sanchez-Piñero F.,Sanchez-Piñero,Francisco,F.,true,60003915,161
+true,1,https://api.elsevier.com/content/author/author_id/7006875635,7006875635,O'Donoghue M.,O'Donoghue,Mark,M.,true,100843503,162
+true,2,https://api.elsevier.com/content/author/author_id/7006945293,7006945293,Boutin S.,Boutin,Stan,S.,true,60030835,162
+true,3,https://api.elsevier.com/content/author/author_id/7103010232,7103010232,Krebs C.,Krebs,Charles J.,C.J.,true,100843503,162
+true,4,https://api.elsevier.com/content/author/author_id/6602414419,6602414419,Zuleta G.,Zuleta,Gustavo,G.,true,60001563,162
+true,5,https://api.elsevier.com/content/author/author_id/35280094600,35280094600,Murray D.,Murray,Dennis L.,D.L.,true,60030835,162
+true,6,https://api.elsevier.com/content/author/author_id/7103269363,7103269363,Hofer E.,Hofer,Elizabeth J.,E.J.,NA,NA,162
+true,1,https://api.elsevier.com/content/author/author_id/6603029516,6603029516,Griffis M.,Griffis,Martha R.,M.R.,true,60015161,163
+true,2,https://api.elsevier.com/content/author/author_id/7201646872,7201646872,Jaeger R.,Jaeger,Robert G.,R.G.,true,60015161,163
+true,1,https://api.elsevier.com/content/author/author_id/6603352141,6603352141,Sieving K.,Sieving,Kathryn E.,K.E.,true,60013959,164
+true,2,https://api.elsevier.com/content/author/author_id/7006729171,7006729171,Willson M.,Willson,Mary F.,M.F.,true,60003518,164
+true,1,https://api.elsevier.com/content/author/author_id/7005133371,7005133371,Raffa K.E.,Raffa,Kennkth E.,K.E.,true,60032179,165
+true,2,https://api.elsevier.com/content/author/author_id/7102584515,7102584515,Krause S.C.,Krause,Steven C.,S.C.,true,60032179,165
+true,3,https://api.elsevier.com/content/author/author_id/7101895179,7101895179,Reich P.B.,Reich,Peter B.,P.B.,true,60032179,165
+true,1,https://api.elsevier.com/content/author/author_id/7004366340,7004366340,Keeley J.E.,Keeley,Jon E.,J.E.,true,60013346,166
+true,2,https://api.elsevier.com/content/author/author_id/6602747827,6602747827,Fotheringham C.J.,Fotheringham,C. J.,C.J.,true,60030759,166
+true,1,https://api.elsevier.com/content/author/author_id/7405819896,7405819896,Thompson J.N.,Thompson,J. N.,J.N.,true,60018208,167
+true,1,https://api.elsevier.com/content/author/author_id/7005454364,7005454364,Fraser B.,Fraser,Brian G.,B.G.,true,60016849,168
+true,2,https://api.elsevier.com/content/author/author_id/7406547284,7406547284,Williams D.,Williams,D. Dudley,D.D.,true,60016849,168
+true,1,https://api.elsevier.com/content/author/author_id/7005090867,7005090867,Solow A.R.,Solow,Andrew R.,A.R.,true,60013609,169
+true,2,https://api.elsevier.com/content/author/author_id/6506007138,6506007138,Beet A.R.,Beet,Andrew R.,A.R.,true,60013609,169
+true,1,https://api.elsevier.com/content/author/author_id/7003329577,7003329577,Pütz K.,Pütz,K.,K.,true,60079129,170
+true,2,https://api.elsevier.com/content/author/author_id/7501526090,7501526090,Wilson R.P.,Wilson,R. P.,R.P.,true,60079129,170
+true,3,https://api.elsevier.com/content/author/author_id/6701626740,6701626740,Charrassin J.B.,Charrassin,J. B.,J.B.,true,60008134,170
+true,4,https://api.elsevier.com/content/author/author_id/6701458446,6701458446,Raclot T.,Raclot,T.,T.,true,60008134,170
+true,5,https://api.elsevier.com/content/author/author_id/7006458055,7006458055,Lage J.,Lage,J.,J.,true,60008134,170
+true,6,https://api.elsevier.com/content/author/author_id/7006131359,7006131359,Maho Y.L.E.,Maho,Y. L.E.,Y.L.E.,true,60008134,170
+true,7,https://api.elsevier.com/content/author/author_id/6506742481,6506742481,Kierspel M.A.M.,Kierspel,M. A.M.,M.A.M.,true,60079129,170
+true,8,https://api.elsevier.com/content/author/author_id/7004169252,7004169252,Culik B.M.,Culik,B. M.,B.M.,true,60079129,170
+true,9,https://api.elsevier.com/content/author/author_id/6603513705,6603513705,Adelung D.,Adelung,D.,D.,true,60079129,170
+true,1,https://api.elsevier.com/content/author/author_id/35481336500,35481336500,Sheldon B.C.,Sheldon,Ben C.,B.C.,true,60027272,171
+true,2,https://api.elsevier.com/content/author/author_id/7004683954,7004683954,Merilä J.,Merilä,Juha,J.,true,60006876,171
+true,3,https://api.elsevier.com/content/author/author_id/7006170860,7006170860,Lindgren G.,Lindgren,Gabriella,G.,true,60027152,171
+true,4,https://api.elsevier.com/content/author/author_id/7006386997,7006386997,Ellegren H.,Ellegren,Hans,H.,true,60027152,171
+true,1,https://api.elsevier.com/content/author/author_id/7202765254,7202765254,Suarez A.V.,Suarez,Andrew V.,A.V.,true,60030612,172
+true,2,https://api.elsevier.com/content/author/author_id/7003330049,7003330049,Bolger D.T.,Bolger,Douglas T.,D.T.,true,60010756,172
+true,3,https://api.elsevier.com/content/author/author_id/7103040418,7103040418,Case T.J.,Case,Ted J.,T.J.,true,60030612,172
+true,1,https://api.elsevier.com/content/author/author_id/7004252716,7004252716,Bridgham S.D.,Bridgham,S. D.,S.D.,NA,NA,173
+true,2,https://api.elsevier.com/content/author/author_id/7003412737,7003412737,Updegraff K.,Updegraff,K.,K.,NA,NA,173
+true,3,https://api.elsevier.com/content/author/author_id/7201639608,7201639608,Pastor J.,Pastor,J.,J.,NA,NA,173
+true,1,https://api.elsevier.com/content/author/author_id/7006409967,7006409967,Korpimaki E.,Korpimaki,Erkki,E.,true,60006876,174
+true,2,https://api.elsevier.com/content/author/author_id/6504274183,6504274183,Norrdahi K.,Norrdahi,Kai,K.,true,60006876,174
+true,1,https://api.elsevier.com/content/author/author_id/6507999276,6507999276,Wahaj S.A.,Wahaj,Sofia A.,S.A.,true,60013959,175
+true,2,https://api.elsevier.com/content/author/author_id/7003901064,7003901064,Levey D.J.,Levey,Douglas J.,D.J.,true,60013959,175
+true,3,https://api.elsevier.com/content/author/author_id/7202516985,7202516985,Sanders A.K.,Sanders,Anna K.,A.K.,true,60023917,175
+true,4,https://api.elsevier.com/content/author/author_id/6701731977,6701731977,Cipollini M.L.,Cipollini,Martin L.,M.L.,true,60023917,175
+true,1,https://api.elsevier.com/content/author/author_id/6701327741,6701327741,Martinsen G.,Martinsen,Gregory D.,G.D.,true,60023517,176
+true,2,https://api.elsevier.com/content/author/author_id/6507584884,6507584884,Driebe E.,Driebe,Elizabeth M.,E.M.,true,60023517,176
+true,3,https://api.elsevier.com/content/author/author_id/7004648942,7004648942,Whitham T.,Whitham,Thomas G.,T.G.,true,60023517,176
+true,1,https://api.elsevier.com/content/author/author_id/7006710408,7006710408,Fisk M.,Fisk,Melany C.,M.C.,true,60000221,177
+true,2,https://api.elsevier.com/content/author/author_id/7401845551,7401845551,Schmidt S.,Schmidt,Steven K.,S.K.,true,60000221,177
+true,3,https://api.elsevier.com/content/author/author_id/7003301963,7003301963,Seastedt T.,Seastedt,Timothy R.,T.R.,true,60000221,177
+true,1,https://api.elsevier.com/content/author/author_id/7004013446,7004013446,Sollins P.,Sollins,Phillip,P.,true,60013402,178
+true,1,https://api.elsevier.com/content/author/author_id/6602325354,6602325354,Zavala-Hurtado J.A.,Zavala-Hurtado,José Alejandro,J.A.,true,60014923,179
+true,2,https://api.elsevier.com/content/author/author_id/6507560373,6507560373,Vite F.,Vite,Fernando,F.,true,60014923,179
+true,3,https://api.elsevier.com/content/author/author_id/55405316400,55405316400,Ezcurra E.,Ezcurra,Exkquiel,E.,true,60032442,179
+true,1,https://api.elsevier.com/content/author/author_id/6603593890,6603593890,Byström P.,Byström,Pär,P.,true,60031040,180
+true,2,https://api.elsevier.com/content/author/author_id/7202841053,7202841053,Persson L.,Persson,Lennart,L.,true,60031040,180
+true,3,https://api.elsevier.com/content/author/author_id/7003774132,7003774132,Wahlström E.,Wahlström,Eva,E.,true,60031040,180
+true,1,https://api.elsevier.com/content/author/author_id/7410086607,7410086607,Wilson D.,Wilson,Dawn S.,D.S.,true,60007740,181
+true,1,https://api.elsevier.com/content/author/author_id/7006236509,7006236509,Laurance W.,Laurance,William F.,W.F.,true,60029159,182
+true,2,https://api.elsevier.com/content/author/author_id/57200105441,57200105441,Ferreira L.,Ferreira,Leandro V.,L.V.,true,60029159,182
+true,3,https://api.elsevier.com/content/author/author_id/6602649604,6602649604,Rankin-de Merona J.,Rankin-de Merona,Judy M.,J.M.,true,60029159,182
+true,4,https://api.elsevier.com/content/author/author_id/57201304604,57201304604,Laurance S.,Laurance,Susan G.,S.G.,true,60029159,182
+true,1,https://api.elsevier.com/content/author/author_id/7004519184,7004519184,Polis G.,Polis,G. A.,G.A.,true,60014439,183
+true,2,https://api.elsevier.com/content/author/author_id/57197333693,57197333693,Barnes J.,Barnes,J. D.,J.D.,true,60014439,183
+true,3,https://api.elsevier.com/content/author/author_id/55579449500,55579449500,Seely M.,Seely,M. K.,M.K.,true,60014439,183
+true,4,https://api.elsevier.com/content/author/author_id/7003934800,7003934800,Henschel J.,Henschel,J. R.,J.R.,true,60014439,183
+true,5,https://api.elsevier.com/content/author/author_id/24310259300,24310259300,Enders M.,Enders,M. M.,M.M.,true,60014439,183
+true,1,https://api.elsevier.com/content/author/author_id/6602803114,6602803114,De Mazancourt C.,De Mazancourt,Claire,C.,true,60000179,184
+true,2,https://api.elsevier.com/content/author/author_id/7005901496,7005901496,Loreau M.,Loreau,Michel,M.,true,60000179,184
+true,3,https://api.elsevier.com/content/author/author_id/6603989798,6603989798,Abbadie L.,Abbadie,Luc,L.,true,60000179,184
+true,1,https://api.elsevier.com/content/author/author_id/7007105720,7007105720,Amundsen T.,Amundsen,Trond,T.,true,60013141,185
+true,2,https://api.elsevier.com/content/author/author_id/7005437840,7005437840,Slagsvold T.,Slagsvold,Tore,T.,true,60010348,185
+true,1,https://api.elsevier.com/content/author/author_id/35304529700,35304529700,Danchin E.,Danchin,Etienne,E.,true,60008134,186
+true,2,https://api.elsevier.com/content/author/author_id/7004284067,7004284067,Boulinier T.,Boulinier,Thierry,T.,true,60008134,186
+true,3,https://api.elsevier.com/content/author/author_id/34571147100,34571147100,Massot M.,Massot,Manuel,M.,true,60008134,186
+true,1,https://api.elsevier.com/content/author/author_id/57161052200,57161052200,Larsen C.,Larsen,C. P.S.,C.P.S.,true,60031828,187
+true,2,https://api.elsevier.com/content/author/author_id/55609112700,55609112700,MaCdonald G.,MaCdonald,G. M.,G.M.,true,60031828,187
+true,1,https://api.elsevier.com/content/author/author_id/7005705727,7005705727,Juliano S.,Juliano,Steven A.,S.A.,true,60031975,188
+true,1,https://api.elsevier.com/content/author/author_id/6507904956,6507904956,Phdersen B.S.,Phdersen,Brian S.,B.S.,true,60013402,189
+true,1,https://api.elsevier.com/content/author/author_id/7006021743,7006021743,Vitousek P.,Vitousek,P. M.,P.M.,NA,NA,190
+true,1,https://api.elsevier.com/content/author/author_id/6506521104,6506521104,Bkrtram D.F.,Bkrtram,Douglas F.,D.F.,true,60014462,191
+true,2,https://api.elsevier.com/content/author/author_id/7004179348,7004179348,Strathmann R.R.,Strathmann,Richard R.,R.R.,true,60014462,191
+true,1,https://api.elsevier.com/content/author/author_id/6603746760,6603746760,Banack S.A.,Banack,Sandra Anne,S.A.,true,60025038,192
+true,1,https://api.elsevier.com/content/author/author_id/7402171176,7402171176,Gray A.N.,Gray,A. N.,A.N.,NA,NA,193
+true,2,https://api.elsevier.com/content/author/author_id/7006769507,7006769507,Spies T.A.,Spies,T. A.,T.A.,NA,NA,193
+true,1,https://api.elsevier.com/content/author/author_id/7202770069,7202770069,Agrawal A.,Agrawal,Anurag A.,A.A.,true,60014439,194
+true,1,https://api.elsevier.com/content/author/author_id/57203646755,57203646755,Myers J.,Myers,Judith H.,J.H.,true,60010365,195
+true,2,https://api.elsevier.com/content/author/author_id/7801424330,7801424330,Boettner G.,Boettner,George,G.,true,60014313,195
+true,3,https://api.elsevier.com/content/author/author_id/7005687163,7005687163,Elkinton J.,Elkinton,Joseph,J.,true,60014313,195
+true,1,https://api.elsevier.com/content/author/author_id/35586801800,35586801800,Vander Wall S.,Vander Wall,Stfphen B.,S.B.,true,60001769,196
+true,1,https://api.elsevier.com/content/author/author_id/6701785172,6701785172,Witman J.,Witman,Jon D.,J.D.,true,60011460,197
+true,2,https://api.elsevier.com/content/author/author_id/6506397491,6506397491,Grange K.,Grange,Ken R.,K.R.,true,60024594,197
+true,1,https://api.elsevier.com/content/author/author_id/7201798080,7201798080,Frank D.,Frank,Douglas A.,D.A.,true,60030551,198
+true,2,https://api.elsevier.com/content/author/author_id/56885159000,56885159000,Groffman P.,Groffman,Peter M.,P.M.,true,60017474,198
+true,1,https://api.elsevier.com/content/author/author_id/7102581315,7102581315,Hughes N.,Hughes,Nicholas F.,N.F.,true,60018491,199
+true,1,https://api.elsevier.com/content/author/author_id/7004885835,7004885835,Tank J.,Tank,Jennifer L.,J.L.,true,60027090,200
+true,2,https://api.elsevier.com/content/author/author_id/7402197340,7402197340,Webster J.,Webster,J. R.,J.R.,true,60027090,200
+true,1,https://api.elsevier.com/content/author/author_id/55922205100,55922205100,Burd M.,Burd,Martin,M.,true,60019578,201
+true,1,https://api.elsevier.com/content/author/author_id/7003711967,7003711967,Arnqvist G.,Arnqvist,Göran,G.,true,60031040,202
+true,2,https://api.elsevier.com/content/author/author_id/56262792100,56262792100,Johansson F.,Johansson,Frank,F.,true,60031040,202
+true,1,https://api.elsevier.com/content/author/author_id/55995941700,55995941700,Huber-Sannwald E.,Huber-Sannwald,Elisabeth,E.,true,60031706,203
+true,2,https://api.elsevier.com/content/author/author_id/36091903600,36091903600,Pyke D.,Pyke,David A.,D.A.,true,60013402,203
+true,3,https://api.elsevier.com/content/author/author_id/7101755401,7101755401,Caldwell M.,Caldwell,Martyn M.,M.M.,true,60031706,203
+true,4,https://api.elsevier.com/content/author/author_id/7201680576,7201680576,Durham S.,Durham,Susan,S.,true,60031706,203
+true,1,https://api.elsevier.com/content/author/author_id/6507969268,6507969268,Firle S.,Firle,Sascha,S.,true,60003858,204
+true,2,https://api.elsevier.com/content/author/author_id/6602185631,6602185631,Bommarco R.,Bommarco,Riccardo,R.,true,60027152,204
+true,3,https://api.elsevier.com/content/author/author_id/7003809998,7003809998,Ekbom B.,Ekbom,Barbara,B.,true,60027152,204
+true,4,https://api.elsevier.com/content/author/author_id/6602724419,6602724419,Natiello M.,Natiello,Mario,M.,true,60002014,204
+true,1,https://api.elsevier.com/content/author/author_id/57216466495,57216466495,McCollum E.W.,McCollum,Elizabeth Walker,E.W.,true,60004923,205
+true,2,https://api.elsevier.com/content/author/author_id/7005270269,7005270269,Crowder L.B.,Crowder,Larry B.,L.B.,true,60020096,205
+true,3,https://api.elsevier.com/content/author/author_id/57216466469,57216466469,Andy McCollum S.,Andy McCollum,S.,S.,true,60025778,205
+true,1,https://api.elsevier.com/content/author/author_id/7103079339,7103079339,Lindberg M.S.,Lindberg,Mark S.,M.S.,true,60011976,206
+true,2,https://api.elsevier.com/content/author/author_id/7003849568,7003849568,Sedinger J.S.,Sedinger,James S.,J.S.,true,60011976,206
+true,3,https://api.elsevier.com/content/author/author_id/7005722965,7005722965,Derksen D.V.,Derksen,Dirk V.,D.V.,true,100541435,206
+true,4,https://api.elsevier.com/content/author/author_id/7004389079,7004389079,Rockwell R.F.,Rockwell,Robert F.,R.F.,true,60028458,206
+true,1,https://api.elsevier.com/content/author/author_id/7006449806,7006449806,Carey E.,Carey,Eileen V.,E.V.,true,60000745,207
+true,2,https://api.elsevier.com/content/author/author_id/7006942837,7006942837,Callaway R.,Callaway,Ragan M.,R.M.,true,60022355,207
+true,3,https://api.elsevier.com/content/author/author_id/35553263900,35553263900,Delucia E.,Delucia,Evan H.,E.H.,true,60000745,207
+true,1,https://api.elsevier.com/content/author/author_id/6506452259,6506452259,Tardiff S.,Tardiff,Sandra E.,S.E.,true,60017053,208
+true,2,https://api.elsevier.com/content/author/author_id/7202266599,7202266599,Stanford J.,Stanford,Jack A.,J.A.,true,60017053,208
+true,1,https://api.elsevier.com/content/author/author_id/7202037553,7202037553,Fuller J.L.,Fuller,Janick L.,J.L.,true,60031101,209
+true,1,https://api.elsevier.com/content/author/author_id/7403170100,7403170100,Shibata M.,Shibata,Mitsue,M.,true,60007819,210
+true,2,https://api.elsevier.com/content/author/author_id/8202754300,8202754300,Tanaka H.,Tanaka,Hiroshi,H.,true,60007819,210
+true,3,https://api.elsevier.com/content/author/author_id/6504763461,6504763461,Nakashizka T.,Nakashizka,Tohru,T.,true,60011001,210
+true,1,https://api.elsevier.com/content/author/author_id/7005254734,7005254734,Pennings S.C.,Pennings,Steven C.,S.C.,true,60033227,211
+true,2,https://api.elsevier.com/content/author/author_id/6701547578,6701547578,Carefoot T.H.,Carefoot,Thomas H.,T.H.,true,60010365,211
+true,3,https://api.elsevier.com/content/author/author_id/6601928053,6601928053,Siska E.L.,Siska,Erin L.,E.L.,true,60033227,211
+true,4,https://api.elsevier.com/content/author/author_id/7102338689,7102338689,Chase M.E.,Chase,Margo E.,M.E.,true,60012468,211
+true,5,https://api.elsevier.com/content/author/author_id/7101668622,7101668622,Page T.A.,Page,Teresa A.,T.A.,true,60033227,211
+true,1,https://api.elsevier.com/content/author/author_id/7102003880,7102003880,Gould W.R.,Gould,William R.,W.R.,true,60016419,212
+true,2,https://api.elsevier.com/content/author/author_id/35601925200,35601925200,Nichols J.D.,Nichols,Jamks D.,J.D.,true,60011347,212
+true,1,https://api.elsevier.com/content/author/author_id/6701554093,6701554093,DeMott W.R.,DeMott,William R.,W.R.,true,60000726,213
+true,1,https://api.elsevier.com/content/author/author_id/7202418448,7202418448,Mccormick M.I.,Mccormick,Mark I.,M.I.,true,60019870,214
+true,1,https://api.elsevier.com/content/author/author_id/6701510535,6701510535,Wardle G.,Wardle,Glenda M.,G.M.,true,60029278,215
+true,1,https://api.elsevier.com/content/author/author_id/35583019600,35583019600,Davies S.J.,Davies,Stuart James,S.J.,true,60009982,216
+true,1,https://api.elsevier.com/content/author/author_id/7005387800,7005387800,Ben-David M.,Ben-David,M.,M.,true,60011976,217
+true,2,https://api.elsevier.com/content/author/author_id/7006644185,7006644185,Bowyer R.,Bowyer,R. T.,R.T.,true,60011976,217
+true,3,https://api.elsevier.com/content/author/author_id/7101839949,7101839949,Duffy L.,Duffy,L. K.,L.K.,true,60011976,217
+true,4,https://api.elsevier.com/content/author/author_id/7005596678,7005596678,Roby D.,Roby,D. D.,D.D.,true,60011976,217
+true,5,https://api.elsevier.com/content/author/author_id/7005140314,7005140314,Schell D.,Schell,D. M.,D.M.,true,60011976,217
+true,1,https://api.elsevier.com/content/author/author_id/7201723435,7201723435,Adler G.,Adler,Gregory H.,G.H.,true,60029146,218
+true,1,https://api.elsevier.com/content/author/author_id/35121598200,35121598200,Kirk K.,Kirk,Kevin L.,K.L.,true,60028844,219
+true,1,https://api.elsevier.com/content/author/author_id/6603885561,6603885561,Mlkola J.,Mlkola,Juha,J.,true,60032398,220
+true,2,https://api.elsevier.com/content/author/author_id/6503883667,6503883667,Sktälä H.,Sktälä,Heikki,H.,true,60032398,220
+true,1,https://api.elsevier.com/content/author/author_id/7003836101,7003836101,Denver R.J.,Denver,Robert J.,R.J.,true,60025778,221
+true,2,https://api.elsevier.com/content/author/author_id/57216466320,57216466320,Mirhadi N.,Mirhadi,Nooshan,N.,true,60025038,221
+true,3,https://api.elsevier.com/content/author/author_id/57216468123,57216468123,Phillips M.,Phillips,Marnie,M.,true,60025778,221
+true,1,https://api.elsevier.com/content/author/author_id/6503869753,6503869753,Kearslfy M.J.C.,Kearslfy,Michakl J.C.,M.J.C.,true,60023517,222
+true,2,https://api.elsevier.com/content/author/author_id/7004648942,7004648942,Whitham T.G.,Whitham,Thomas G.,T.G.,true,60023517,222
+true,1,https://api.elsevier.com/content/author/author_id/7103186911,7103186911,Pollock M.M.,Pollock,Michael M.,M.M.,true,60015481,223
+true,2,https://api.elsevier.com/content/author/author_id/7006543659,7006543659,Naiman R.J.,Naiman,Robert J.,R.J.,true,60015481,223
+true,3,https://api.elsevier.com/content/author/author_id/7004972307,7004972307,Hanley T.A.,Hanley,Thomas A.,T.A.,true,60003518,223
+true,1,https://api.elsevier.com/content/author/author_id/7003807507,7003807507,Roxburgh S.H.,Roxburgh,Stephen H.,S.H.,true,60159889,224
+true,2,https://api.elsevier.com/content/author/author_id/7003308416,7003308416,Chesson P.,Chesson,Peter,P.,true,60159889,224
+true,1,https://api.elsevier.com/content/author/author_id/56464821900,56464821900,Van der Heijden M.G.A.,Van der Heijden,Marcel G.A.,M.G.A.,true,60110500,225
+true,2,https://api.elsevier.com/content/author/author_id/7101821505,7101821505,Boller T.,Boller,Thomas,T.,true,60110500,225
+true,3,https://api.elsevier.com/content/author/author_id/7004294563,7004294563,Wiemken A.,Wiemken,Andres,A.,true,60110500,225
+true,4,https://api.elsevier.com/content/author/author_id/7004408257,7004408257,Sanders I.R.,Sanders,Ian R.,I.R.,true,60110500,225
+true,1,https://api.elsevier.com/content/author/author_id/6602759218,6602759218,Bélisle M.,Bélisle,Marc,M.,true,60033154,226
+true,1,https://api.elsevier.com/content/author/author_id/6701339495,6701339495,Siemann E.,Siemann,Evan,E.,true,60029445,227
+true,1,https://api.elsevier.com/content/author/author_id/7402647568,7402647568,Zeng Z.,Zeng,Zheng,Z.,true,60022522,228
+true,2,https://api.elsevier.com/content/author/author_id/6602076545,6602076545,Nowierski R.,Nowierski,Robert M.,R.M.,true,60022522,228
+true,3,https://api.elsevier.com/content/author/author_id/6701765721,6701765721,Taper M.,Taper,Mark L.,M.L.,true,60022522,228
+true,4,https://api.elsevier.com/content/author/author_id/35364042800,35364042800,Dennis B.,Dennis,Brian,B.,true,60033389,228
+true,5,https://api.elsevier.com/content/author/author_id/7101839550,7101839550,Kemp W.,Kemp,William P.,W.P.,true,60031706,228
+true,1,https://api.elsevier.com/content/author/author_id/7007135615,7007135615,Aizen M.A.,Aizen,Marcelo A.,M.A.,true,60017346,229
+true,2,https://api.elsevier.com/content/author/author_id/6602602356,6602602356,Raffaele E.,Raffaele,Estela,E.,true,60017346,229
+true,1,https://api.elsevier.com/content/author/author_id/6701583872,6701583872,Losey J.,Losey,John E.,J.E.,true,60020304,230
+true,2,https://api.elsevier.com/content/author/author_id/7006542660,7006542660,Denno R.,Denno,Robert F.,R.F.,true,60020304,230
+true,1,https://api.elsevier.com/content/author/author_id/7004929223,7004929223,Wilsey B.J.,Wilsey,Brian J.,B.J.,true,60006876,231
+true,2,https://api.elsevier.com/content/author/author_id/7004382580,7004382580,Haukioja E.,Haukioja,Erkki,E.,true,60006876,231
+true,3,https://api.elsevier.com/content/author/author_id/6603965312,6603965312,Koricheva J.,Koricheva,Julia,J.,true,60006876,231
+true,4,https://api.elsevier.com/content/author/author_id/7801558747,7801558747,Sulkinoja M.,Sulkinoja,Matti,M.,true,60006876,231
+true,1,https://api.elsevier.com/content/author/author_id/7005755677,7005755677,Fleishman E.,Fleishman,Erica,E.,true,60001769,232
+true,2,https://api.elsevier.com/content/author/author_id/7102681045,7102681045,Austin G.T.,Austin,George T.,G.T.,true,60027987,232
+true,3,https://api.elsevier.com/content/author/author_id/55439613000,55439613000,Weiss A.D.,Weiss,Andrew D.,A.D.,true,60012708,232
+true,1,https://api.elsevier.com/content/author/author_id/7004778095,7004778095,Gurney W.S.C.,Gurney,W. S.C.,W.S.C.,true,60024724,233
+true,2,https://api.elsevier.com/content/author/author_id/7004758211,7004758211,Veitch A.R.,Veitch,A. R.,A.R.,true,60024724,233
+true,3,https://api.elsevier.com/content/author/author_id/6506627321,6506627321,Cruickshank I.,Cruickshank,I.,I.,true,60024724,233
+true,4,https://api.elsevier.com/content/author/author_id/6504526607,6504526607,Mcgeachin G.,Mcgeachin,G.,G.,true,60024724,233
+true,1,https://api.elsevier.com/content/author/author_id/7401662997,7401662997,Guo Q.,Guo,Q.,Q.,true,60006508,234
+true,2,https://api.elsevier.com/content/author/author_id/57213916199,57213916199,Berry W.L.,Berry,W. L.,W.L.,true,60006508,234
+true,1,https://api.elsevier.com/content/author/author_id/7004491078,7004491078,Gilchrist H.G.,Gilchrist,H. Grant,H.G.,true,60010365,235
+true,2,https://api.elsevier.com/content/author/author_id/7103165824,7103165824,Gaston A.J.,Gaston,Anthony J.,A.J.,true,60000673,235
+true,3,https://api.elsevier.com/content/author/author_id/7410169121,7410169121,Smith J.N.M.,Smith,James N.M.,J.N.M.,true,60010365,235
+true,1,https://api.elsevier.com/content/author/author_id/6701600057,6701600057,Yund P.,Yund,Philip O.,P.O.,true,60022758,236
+true,1,https://api.elsevier.com/content/author/author_id/6603450738,6603450738,Waide R.B.,Waide,Robert B.,R.B.,true,60071503,237
+true,2,https://api.elsevier.com/content/author/author_id/7401859637,7401859637,Zimmerman J.K.,Zimmerman,Jess K.,J.K.,true,60071503,237
+true,3,https://api.elsevier.com/content/author/author_id/35614096800,35614096800,Scatena F.N.,Scatena,F. N.,F.N.,true,60071509,237
+true,1,https://api.elsevier.com/content/author/author_id/6601966109,6601966109,Batista W.B.,Batista,William B.,W.B.,true,60007566,238
+true,2,https://api.elsevier.com/content/author/author_id/7004214080,7004214080,Platt W.J.,Platt,William J.,W.J.,true,60007566,238
+true,3,https://api.elsevier.com/content/author/author_id/6508029434,6508029434,Macchiavellli R.E.,Macchiavellli,Raui E.,R.E.,true,60007566,238
+true,1,https://api.elsevier.com/content/author/author_id/7003308145,7003308145,Wiser S.K.,Wiser,Susan K.,S.K.,true,60017806,239
+true,2,https://api.elsevier.com/content/author/author_id/7404224031,7404224031,Allen R.B.,Allen,Robert B.,R.B.,true,60017806,239
+true,3,https://api.elsevier.com/content/author/author_id/7003500070,7003500070,Clinton P.W.,Clinton,Peter W.,P.W.,true,60020585,239
+true,4,https://api.elsevier.com/content/author/author_id/7005349641,7005349641,Platt K.H.,Platt,Kevin H.,K.H.,true,60017806,239
+true,1,https://api.elsevier.com/content/author/author_id/56702490400,56702490400,Bruijnzeel L.,Bruijnzeel,L. A.,L.A.,true,60008734,240
+true,2,https://api.elsevier.com/content/author/author_id/6701344246,6701344246,Veneklaas E.,Veneklaas,E. J.,E.J.,true,60007989,240
+true,1,https://api.elsevier.com/content/author/author_id/7102154244,7102154244,Abrams P.A.,Abrams,Peter A.,P.A.,true,60020304,241
+true,2,https://api.elsevier.com/content/author/author_id/13310376500,13310376500,Holt R.D.,Holt,Robert D.,R.D.,true,60015457,241
+true,3,https://api.elsevier.com/content/author/author_id/7404379448,7404379448,Roth J.D.,Roth,James D.,J.D.,true,60029445,241
+true,1,https://api.elsevier.com/content/author/author_id/7201384950,7201384950,Hahn T.P.,Hahn,Thomas P.,T.P.,true,60015481,242
+true,1,https://api.elsevier.com/content/author/author_id/7003573951,7003573951,Hasselquist D.,Hasselquist,Dennis,D.,true,60029170,243
+true,1,https://api.elsevier.com/content/author/author_id/6504300725,6504300725,Moilankn A.,Moilankn,Atte,A.,true,60002952,244
+true,2,https://api.elsevier.com/content/author/author_id/35494739100,35494739100,Hanski I.,Hanski,Ilkka,I.,true,60002952,244
+true,1,https://api.elsevier.com/content/author/author_id/7102927055,7102927055,Ritchik M.E.,Ritchik,Mark E.,M.E.,true,60031706,245
+true,2,https://api.elsevier.com/content/author/author_id/7005020351,7005020351,Tilman D.,Tilman,David,D.,true,60029445,245
+true,3,https://api.elsevier.com/content/author/author_id/7005705363,7005705363,Knops J.M.H.,Knops,Johannes M.H.,J.M.H.,true,60029445,245
+true,1,https://api.elsevier.com/content/author/author_id/7003708194,7003708194,Norrdahl K.,Norrdahl,Kai,K.,true,60006876,246
+true,2,https://api.elsevier.com/content/author/author_id/6504104541,6504104541,Orpimäki E.K.,Orpimäki,Erkki K.,E.K.,true,60006876,246
+true,1,https://api.elsevier.com/content/author/author_id/57203077274,57203077274,Pace M.,Pace,Michael L.,M.L.,true,60017474,247
+true,2,https://api.elsevier.com/content/author/author_id/7403376264,7403376264,Cole J.,Cole,Jonathan J.,J.J.,true,60017474,247
+true,3,https://api.elsevier.com/content/author/author_id/55630395300,55630395300,Carpenter S.,Carpenter,Stkphkn R.,S.R.,true,60032179,247
+true,1,https://api.elsevier.com/content/author/author_id/7004950358,7004950358,Pringle C.M.,Pringle,Catherine M.,C.M.,true,60029747,248
+true,2,https://api.elsevier.com/content/author/author_id/56257268700,56257268700,Hamazaki T.,Hamazaki,Toshihide,T.,true,60029747,248
+true,1,https://api.elsevier.com/content/author/author_id/7202566728,7202566728,Buckley D.,Buckley,David S.,D.S.,true,60016536,249
+true,2,https://api.elsevier.com/content/author/author_id/7003330829,7003330829,Sharik T.,Sharik,Terry L.,T.L.,true,60016536,249
+true,3,https://api.elsevier.com/content/author/author_id/7003712761,7003712761,Isebrands J.,Isebrands,J. G.,J.G.,true,60003342,249
+true,1,https://api.elsevier.com/content/author/author_id/7007134599,7007134599,Tanner E.,Tanner,E. V.J.,E.V.J.,true,60031101,250
+true,2,https://api.elsevier.com/content/author/author_id/7006021743,7006021743,Vltousek P.,Vltousek,P. M.,P.M.,true,60012708,250
+true,3,https://api.elsevier.com/content/author/author_id/7005754421,7005754421,Cuevas E.,Cuevas,E.,E.,true,100431854,250

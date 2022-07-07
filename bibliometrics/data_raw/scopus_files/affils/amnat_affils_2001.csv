@@ -1,0 +1,117 @@
+entry_number,@_fa,affiliation-url,afid,affilname,affiliation-city,affiliation-country
+2,NA,NA,NA,NA,NA,NA
+2,true,https://api.elsevier.com/content/affiliation/affiliation_id/60004862,60004862,University of Arkansas,Fayetteville,United States
+3,true,https://api.elsevier.com/content/affiliation/affiliation_id/60002769,60002769,"Faculdade de Ciências, Universidade de Lisboa",Lisbon,Portugal
+4,true,https://api.elsevier.com/content/affiliation/affiliation_id/60010065,60010065,The University of Arizona,Tucson,United States
+5,true,https://api.elsevier.com/content/affiliation/affiliation_id/60027272,60027272,The University of Edinburgh,Edinburgh,United Kingdom
+6,true,https://api.elsevier.com/content/affiliation/affiliation_id/60020760,60020760,National Center for Ecological Analysis and Synthesis,Santa Barbara,United States
+7,true,https://api.elsevier.com/content/affiliation/affiliation_id/60029278,60029278,The University of Chicago,Chicago,United States
+8,true,https://api.elsevier.com/content/affiliation/affiliation_id/60027550,60027550,"University of California, Los Angeles",Los Angeles,United States
+9,true,https://api.elsevier.com/content/affiliation/affiliation_id/60005286,60005286,Rice University,Houston,United States
+10,true,https://api.elsevier.com/content/affiliation/affiliation_id/60027561,60027561,University of Illinois at Chicago,Chicago,United States
+11,true,https://api.elsevier.com/content/affiliation/affiliation_id/60006925,60006925,La Trobe University,Melbourne,Australia
+12,true,https://api.elsevier.com/content/affiliation/affiliation_id/60016437,60016437,Göteborgs Universitet,Gothenburg,Sweden
+13,true,https://api.elsevier.com/content/affiliation/affiliation_id/60029170,60029170,Lunds Universitet,Lund,Sweden
+14,true,https://api.elsevier.com/content/affiliation/affiliation_id/60008559,60008559,Applied Biomathematics,Setauket,United States
+15,true,https://api.elsevier.com/content/affiliation/affiliation_id/60012197,60012197,University of Reading,Reading,United Kingdom
+16,true,https://api.elsevier.com/content/affiliation/affiliation_id/60011754,60011754,Auburn University,Auburn,United States
+17,true,https://api.elsevier.com/content/affiliation/affiliation_id/60007278,60007278,"University of California, Irvine",Irvine,United States
+18,true,https://api.elsevier.com/content/affiliation/affiliation_id/60003269,60003269,Princeton University,Princeton,United States
+19,true,https://api.elsevier.com/content/affiliation/affiliation_id/60020760,60020760,National Center for Ecological Analysis and Synthesis,Santa Barbara,United States
+20,true,https://api.elsevier.com/content/affiliation/affiliation_id/60004156,60004156,Wageningen University &amp; Research,Wageningen,Netherlands
+21,true,https://api.elsevier.com/content/affiliation/affiliation_id/60031101,60031101,University of Cambridge,Cambridge,United Kingdom
+22,true,https://api.elsevier.com/content/affiliation/affiliation_id/60000082,60000082,National University of Ireland,Dublin,Ireland
+23,true,https://api.elsevier.com/content/affiliation/affiliation_id/60026415,60026415,Stony Brook University,Stony Brook,United States
+24,true,https://api.elsevier.com/content/affiliation/affiliation_id/60002612,60002612,Eawag - Swiss Federal Institute of Aquatic Science and Technology,Dubendorf,Switzerland
+25,true,https://api.elsevier.com/content/affiliation/affiliation_id/60025488,60025488,The University of Utah,Salt Lake City,United States
+26,true,https://api.elsevier.com/content/affiliation/affiliation_id/60015574,60015574,"The University of Tennessee, Knoxville",Knoxville,United States
+27,true,https://api.elsevier.com/content/affiliation/affiliation_id/60029526,60029526,"University of California, Riverside",Riverside,United States
+28,true,https://api.elsevier.com/content/affiliation/affiliation_id/60009424,60009424,Jihočeská Univerzita v Českých Budějovicích,Ceske Budejovice,Czech Republic
+29,true,https://api.elsevier.com/content/affiliation/affiliation_id/60002952,60002952,Helsingin Yliopisto,Helsinki,Finland
+30,true,https://api.elsevier.com/content/affiliation/affiliation_id/60014439,60014439,"University of California, Davis",Davis,United States
+31,true,https://api.elsevier.com/content/affiliation/affiliation_id/60015543,60015543,University of Pittsburgh,Pittsburgh,United States
+32,true,https://api.elsevier.com/content/affiliation/affiliation_id/60005300,60005300,Oberlin College,Oberlin,United States
+34,NA,NA,NA,NA,NA,NA
+34,true,https://api.elsevier.com/content/affiliation/affiliation_id/60025111,60025111,The University of North Carolina at Chapel Hill,Chapel Hill,United States
+35,true,https://api.elsevier.com/content/affiliation/affiliation_id/60015941,60015941,University of Kentucky,Lexington,United States
+36,true,https://api.elsevier.com/content/affiliation/affiliation_id/60008435,60008435,Tohoku University,Sendai,Japan
+37,true,https://api.elsevier.com/content/affiliation/affiliation_id/100509596,100509596,Programa de Computação Científica,Rio de Janeiro,Brazil
+38,true,https://api.elsevier.com/content/affiliation/affiliation_id/60016849,60016849,University of Toronto,Toronto,Canada
+40,NA,NA,NA,NA,NA,NA
+40,true,https://api.elsevier.com/content/affiliation/affiliation_id/60033021,60033021,The University of New Mexico,Albuquerque,United States
+41,true,https://api.elsevier.com/content/affiliation/affiliation_id/60032143,60032143,University of Akron,Akron,United States
+42,true,https://api.elsevier.com/content/affiliation/affiliation_id/60031101,60031101,University of Cambridge,Cambridge,United Kingdom
+43,true,https://api.elsevier.com/content/affiliation/affiliation_id/60012708,60012708,Stanford University,Palo Alto,United States
+44,true,https://api.elsevier.com/content/affiliation/affiliation_id/60121456,60121456,Energy &amp; Resources Group,Berkeley,United States
+45,true,https://api.elsevier.com/content/affiliation/affiliation_id/60014313,60014313,University of Massachusetts Amherst,Amherst MA,United States
+46,true,https://api.elsevier.com/content/affiliation/affiliation_id/60001490,60001490,University of Glasgow,Glasgow,United Kingdom
+47,true,https://api.elsevier.com/content/affiliation/affiliation_id/60021121,60021121,Indiana University Bloomington,Bloomington,United States
+48,true,https://api.elsevier.com/content/affiliation/affiliation_id/60068952,60068952,Centre d’Ecologie Fonctionnelle et Evolutive,Montpellier,France
+49,true,https://api.elsevier.com/content/affiliation/affiliation_id/60016849,60016849,University of Toronto,Toronto,Canada
+49,true,https://api.elsevier.com/content/affiliation/affiliation_id/60014439,60014439,"University of California, Davis",Davis,United States
+50,true,https://api.elsevier.com/content/affiliation/affiliation_id/60025488,60025488,The University of Utah,Salt Lake City,United States
+50,true,https://api.elsevier.com/content/affiliation/affiliation_id/60008724,60008724,Duke University,Durham,United States
+51,true,https://api.elsevier.com/content/affiliation/affiliation_id/60010065,60010065,The University of Arizona,Tucson,United States
+51,true,https://api.elsevier.com/content/affiliation/affiliation_id/60007776,60007776,Cornell University,Ithaca,United States
+52,true,https://api.elsevier.com/content/affiliation/affiliation_id/60028596,60028596,Institute for Biodiversity and Ecosystem Dynamics - Amsterdam,Amsterdam,Netherlands
+52,true,https://api.elsevier.com/content/affiliation/affiliation_id/60010023,60010023,Rijksuniversiteit Groningen,Groningen,Netherlands
+53,true,https://api.elsevier.com/content/affiliation/affiliation_id/60028596,60028596,Institute for Biodiversity and Ecosystem Dynamics - Amsterdam,Amsterdam,Netherlands
+53,true,https://api.elsevier.com/content/affiliation/affiliation_id/60013029,60013029,"Institute of Entomology, Biology Centre of the Academy of Sciences of the Czech Republic",Ceske Budejovice,Czech Republic
+53,true,https://api.elsevier.com/content/affiliation/affiliation_id/60001422,60001422,Sorbonne Universite,Paris,France
+54,true,https://api.elsevier.com/content/affiliation/affiliation_id/60010065,60010065,The University of Arizona,Tucson,United States
+54,true,https://api.elsevier.com/content/affiliation/affiliation_id/100944894,100944894,AAFC-AAC,St Jean-sur-Richelieu,Canada
+55,true,https://api.elsevier.com/content/affiliation/affiliation_id/60019497,60019497,"International Institute for Applied Systems Analysis, Laxenburg",Laxenburg,Austria
+55,true,https://api.elsevier.com/content/affiliation/affiliation_id/60002952,60002952,Helsingin Yliopisto,Helsinki,Finland
+56,true,https://api.elsevier.com/content/affiliation/affiliation_id/60002494,60002494,Université McGill,Montreal,Canada
+57,true,https://api.elsevier.com/content/affiliation/affiliation_id/60014439,60014439,"University of California, Davis",Davis,United States
+58,true,https://api.elsevier.com/content/affiliation/affiliation_id/60017806,60017806,Manaaki Whenua – Landcare Research,Lincoln,New Zealand
+59,true,https://api.elsevier.com/content/affiliation/affiliation_id/60004923,60004923,NC State University,Raleigh,United States
+60,true,https://api.elsevier.com/content/affiliation/affiliation_id/60029170,60029170,Lunds Universitet,Lund,Sweden
+61,true,https://api.elsevier.com/content/affiliation/affiliation_id/60002952,60002952,Helsingin Yliopisto,Helsinki,Finland
+62,true,https://api.elsevier.com/content/affiliation/affiliation_id/60006793,60006793,Universidad de Oviedo,Oviedo,Spain
+63,true,https://api.elsevier.com/content/affiliation/affiliation_id/60008134,60008134,CNRS Centre National de la Recherche Scientifique,Paris,France
+64,true,https://api.elsevier.com/content/affiliation/affiliation_id/60006625,60006625,Lincoln University,Lincoln,New Zealand
+65,true,https://api.elsevier.com/content/affiliation/affiliation_id/60022148,60022148,University College London,London,United Kingdom
+66,true,https://api.elsevier.com/content/affiliation/affiliation_id/60007776,60007776,Cornell University,Ithaca,United States
+67,true,https://api.elsevier.com/content/affiliation/affiliation_id/60000112,60000112,University of East Anglia,Norwich,United Kingdom
+68,true,https://api.elsevier.com/content/affiliation/affiliation_id/60009254,60009254,Purdue University,West Lafayette,United States
+69,true,https://api.elsevier.com/content/affiliation/affiliation_id/60029241,60029241,"University of California, Santa Barbara",Santa Barbara,United States
+70,true,https://api.elsevier.com/content/affiliation/affiliation_id/60012708,60012708,Stanford University,Palo Alto,United States
+71,true,https://api.elsevier.com/content/affiliation/affiliation_id/60002092,60002092,Florida State University,Tallahassee,United States
+72,true,https://api.elsevier.com/content/affiliation/affiliation_id/60001456,60001456,Boise State University,Boise,United States
+73,true,https://api.elsevier.com/content/affiliation/affiliation_id/60009226,60009226,Colorado State University,Fort Collins,United States
+74,true,https://api.elsevier.com/content/affiliation/affiliation_id/60030612,60030612,"University of California, San Diego",San Diego,United States
+75,true,https://api.elsevier.com/content/affiliation/affiliation_id/60021895,60021895,University of Toyama,Toyama,Japan
+76,true,https://api.elsevier.com/content/affiliation/affiliation_id/60015150,60015150,Imperial College London,London,United Kingdom
+77,true,https://api.elsevier.com/content/affiliation/affiliation_id/60000239,60000239,Université de Lausanne (UNIL),Lausanne,Switzerland
+78,true,https://api.elsevier.com/content/affiliation/affiliation_id/60020547,60020547,Texas A&amp;M University,College Station,United States
+79,true,https://api.elsevier.com/content/affiliation/affiliation_id/60001422,60001422,Sorbonne Universite,Paris,France
+80,true,https://api.elsevier.com/content/affiliation/affiliation_id/60005738,60005738,Siena College,Loudonville,United States
+81,true,https://api.elsevier.com/content/affiliation/affiliation_id/60015481,60015481,University of Washington,Seattle,United States
+82,true,https://api.elsevier.com/content/affiliation/affiliation_id/60028599,60028599,University of Memphis,Memphis,United States
+83,true,https://api.elsevier.com/content/affiliation/affiliation_id/60002494,60002494,Université McGill,Montreal,Canada
+84,true,https://api.elsevier.com/content/affiliation/affiliation_id/60006627,60006627,CSIC- Estación Biológica de Doñana EBD,Sevilla,Spain
+85,true,https://api.elsevier.com/content/affiliation/affiliation_id/60013791,60013791,University of Hawaiʻi at Mānoa,Honolulu,United States
+86,true,https://api.elsevier.com/content/affiliation/affiliation_id/60010023,60010023,Rijksuniversiteit Groningen,Groningen,Netherlands
+87,true,https://api.elsevier.com/content/affiliation/affiliation_id/60016114,60016114,William &amp; Mary,Williamsburg,United States
+88,true,https://api.elsevier.com/content/affiliation/affiliation_id/60021121,60021121,Indiana University Bloomington,Bloomington,United States
+89,true,https://api.elsevier.com/content/affiliation/affiliation_id/60004156,60004156,Wageningen University &amp; Research,Wageningen,Netherlands
+90,true,https://api.elsevier.com/content/affiliation/affiliation_id/60010348,60010348,Universitetet i Oslo,Oslo,Norway
+91,true,https://api.elsevier.com/content/affiliation/affiliation_id/60025200,60025200,University of Stirling,Stirling,United Kingdom
+92,true,https://api.elsevier.com/content/affiliation/affiliation_id/60008724,60008724,Duke University,Durham,United States
+93,true,https://api.elsevier.com/content/affiliation/affiliation_id/60013141,60013141,Norges Teknisk-Naturvitenskapelige Universitet,Trondheim,Norway
+94,true,https://api.elsevier.com/content/affiliation/affiliation_id/60025928,60025928,School of Life Sciences,Tempe,United States
+95,true,https://api.elsevier.com/content/affiliation/affiliation_id/60002952,60002952,Helsingin Yliopisto,Helsinki,Finland
+96,true,https://api.elsevier.com/content/affiliation/affiliation_id/60007971,60007971,Det Natur- og Biovidenskabelige Fakultet,Frederiksberg,Denmark
+97,true,https://api.elsevier.com/content/affiliation/affiliation_id/60022132,60022132,University of St Andrews,St Andrews,United Kingdom
+98,true,https://api.elsevier.com/content/affiliation/affiliation_id/60005681,60005681,Tel Aviv University,Tel Aviv-Yafo,Israel
+99,true,https://api.elsevier.com/content/affiliation/affiliation_id/60008134,60008134,CNRS Centre National de la Recherche Scientifique,Paris,France
+100,true,https://api.elsevier.com/content/affiliation/affiliation_id/60029241,60029241,"University of California, Santa Barbara",Santa Barbara,United States
+101,true,https://api.elsevier.com/content/affiliation/affiliation_id/60005681,60005681,Tel Aviv University,Tel Aviv-Yafo,Israel
+102,true,https://api.elsevier.com/content/affiliation/affiliation_id/60017837,60017837,University of New England Australia,Armidale,Australia
+103,true,https://api.elsevier.com/content/affiliation/affiliation_id/60000239,60000239,Université de Lausanne (UNIL),Lausanne,Switzerland
+104,true,https://api.elsevier.com/content/affiliation/affiliation_id/60014439,60014439,"University of California, Davis",Davis,United States
+105,true,https://api.elsevier.com/content/affiliation/affiliation_id/60016849,60016849,University of Toronto,Toronto,Canada
+106,true,https://api.elsevier.com/content/affiliation/affiliation_id/60009512,60009512,The University of Adelaide,Adelaide,Australia
+107,true,https://api.elsevier.com/content/affiliation/affiliation_id/60006577,60006577,National Institutes of Health (NIH),Bethesda,United States
+108,true,https://api.elsevier.com/content/affiliation/affiliation_id/60015036,60015036,"Lewis &amp; Clark College, Portland",Portland,United States

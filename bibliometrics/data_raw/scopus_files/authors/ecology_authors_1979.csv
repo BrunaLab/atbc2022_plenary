@@ -1,0 +1,7 @@
+@_fa,@seq,author-url,authid,authname,surname,given-name,initials,afid.@_fa,afid.$,entry_number
+true,1,https://api.elsevier.com/content/author/author_id/7005657734,7005657734,Pinder J.E.,Pinder,J. E.,J.E.,true,60009225,1
+true,2,https://api.elsevier.com/content/author/author_id/55495908700,55495908700,Smith M.H.,Smith,M. H.,M.H.,true,60009225,1
+true,3,https://api.elsevier.com/content/author/author_id/57200813265,57200813265,Boni A.L.,Boni,A. L.,A.L.,true,60009225,1
+true,1,https://api.elsevier.com/content/author/author_id/7402871350,7402871350,Mitchell M.J.,Mitchell,M. J.,M.J.,true,60028269,2
+true,1,https://api.elsevier.com/content/author/author_id/7101840726,7101840726,Gottschalk M.,Gottschalk,M. R.,M.R.,true,60000928,3
+true,2,https://api.elsevier.com/content/author/author_id/7003341080,7003341080,Shure D.,Shure,D. J.,D.J.,true,60000928,3

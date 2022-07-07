@@ -1,0 +1,49 @@
+entry_number,@_fa,affiliation-url,afid,affilname,affiliation-city,affiliation-country
+2,NA,NA,NA,NA,NA,NA
+2,true,https://api.elsevier.com/content/affiliation/affiliation_id/60112834,60112834,"The World Bank, USA","Washington, D.C.",United States
+3,true,https://api.elsevier.com/content/affiliation/affiliation_id/60052106,60052106,"Universidad de Los Andes, Colombia",Bogota,Colombia
+3,true,https://api.elsevier.com/content/affiliation/affiliation_id/60025488,60025488,The University of Utah,Salt Lake City,United States
+4,true,https://api.elsevier.com/content/affiliation/affiliation_id/60015481,60015481,University of Washington,Seattle,United States
+4,true,https://api.elsevier.com/content/affiliation/affiliation_id/60002864,60002864,Universidad Nacional de Mar del Plata,Mar de Plata,Argentina
+4,true,https://api.elsevier.com/content/affiliation/affiliation_id/100565824,100565824,Tropical Science Center,San Jose,Costa Rica
+5,true,https://api.elsevier.com/content/affiliation/affiliation_id/60030522,60030522,Smithsonian Tropical Research Institute,"Washington, D.C.",United States
+6,true,https://api.elsevier.com/content/affiliation/affiliation_id/60007566,60007566,Louisiana State University,Baton Rouge,United States
+7,true,https://api.elsevier.com/content/affiliation/affiliation_id/60006270,60006270,University of Ibadan,Ibadan,Nigeria
+7,true,https://api.elsevier.com/content/affiliation/affiliation_id/100572837,100572837,Forestry Research Station,NA,Cameroon
+8,true,https://api.elsevier.com/content/affiliation/affiliation_id/60008435,60008435,Tohoku University,Sendai,Japan
+9,true,https://api.elsevier.com/content/affiliation/affiliation_id/60025200,60025200,University of Stirling,Stirling,United Kingdom
+10,true,https://api.elsevier.com/content/affiliation/affiliation_id/60021221,60021221,University of Botswana,Gaborone,Botswana
+10,true,https://api.elsevier.com/content/affiliation/affiliation_id/60008734,60008734,Vrije Universiteit Amsterdam,Amsterdam,Netherlands
+11,true,https://api.elsevier.com/content/affiliation/affiliation_id/60030522,60030522,Smithsonian Tropical Research Institute,"Washington, D.C.",United States
+11,true,https://api.elsevier.com/content/affiliation/affiliation_id/60014439,60014439,"University of California, Davis",Davis,United States
+12,true,https://api.elsevier.com/content/affiliation/affiliation_id/60025577,60025577,Universiti Putra Malaysia,Serdang,Malaysia
+13,true,https://api.elsevier.com/content/affiliation/affiliation_id/60071082,60071082,University of Peradeniya,Peradeniya,Sri Lanka
+15,NA,NA,NA,NA,NA,NA
+15,true,https://api.elsevier.com/content/affiliation/affiliation_id/60159889,60159889,ANU Research School of Biology,Canberra,Australia
+15,true,https://api.elsevier.com/content/affiliation/affiliation_id/60071074,60071074,University of Colombo,Colombo,Sri Lanka
+16,true,https://api.elsevier.com/content/affiliation/affiliation_id/60015206,60015206,Florida International University,Miami,United States
+18,NA,NA,NA,NA,NA,NA
+18,true,https://api.elsevier.com/content/affiliation/affiliation_id/60019333,60019333,Instituto de Biología de la UNAM,Mexico City,Mexico
+19,true,https://api.elsevier.com/content/affiliation/affiliation_id/60025038,60025038,"University of California, Berkeley",Berkeley,United States
+19,true,https://api.elsevier.com/content/affiliation/affiliation_id/60015206,60015206,Florida International University,Miami,United States
+19,true,https://api.elsevier.com/content/affiliation/affiliation_id/60001319,60001319,Missouri Botanical Garden,St. Louis,United States
+20,true,https://api.elsevier.com/content/affiliation/affiliation_id/60008177,60008177,Conservation Commission of the Northern Territory,Canberra,Australia
+21,true,https://api.elsevier.com/content/affiliation/affiliation_id/60012286,60012286,Monsanto Company,St. Louis,United States
+21,true,https://api.elsevier.com/content/affiliation/affiliation_id/60000745,60000745,University of Illinois Urbana-Champaign,Urbana,United States
+22,true,https://api.elsevier.com/content/affiliation/affiliation_id/105396824,105396824,Government of Zambia,NA,Zambia
+23,true,https://api.elsevier.com/content/affiliation/affiliation_id/60018945,60018945,CSIRO Entomology,Canberra,Australia
+24,true,https://api.elsevier.com/content/affiliation/affiliation_id/60015875,60015875,University of Aberdeen,Aberdeen,United Kingdom
+25,true,https://api.elsevier.com/content/affiliation/affiliation_id/60032442,60032442,Universidad Nacional Autónoma de México,Ciudad de México,Mexico
+25,true,https://api.elsevier.com/content/affiliation/affiliation_id/60007989,60007989,Universiteit Utrecht,Utrecht,Netherlands
+26,true,https://api.elsevier.com/content/affiliation/affiliation_id/60006270,60006270,University of Ibadan,Ibadan,Nigeria
+27,true,https://api.elsevier.com/content/affiliation/affiliation_id/60017980,60017980,University of Benin,Benin,Nigeria
+28,true,https://api.elsevier.com/content/affiliation/affiliation_id/60031101,60031101,University of Cambridge,Cambridge,United Kingdom
+28,true,https://api.elsevier.com/content/affiliation/affiliation_id/60017563,60017563,Weizmann Institute of Science Israel,Rehovot,Israel
+28,true,https://api.elsevier.com/content/affiliation/affiliation_id/60011149,60011149,Trinity College Dublin,Dublin,Ireland
+28,true,https://api.elsevier.com/content/affiliation/affiliation_id/60010261,60010261,Washington University in St. Louis,St. Louis,United States
+28,true,https://api.elsevier.com/content/affiliation/affiliation_id/109350957,109350957,Royal Ontario Museum,Toronto,United States
+29,true,https://api.elsevier.com/content/affiliation/affiliation_id/60022175,60022175,Durham University,Durham,United Kingdom
+30,true,https://api.elsevier.com/content/affiliation/affiliation_id/60019909,60019909,University of Wisconsin-Milwaukee,Milwaukee,United States
+31,true,https://api.elsevier.com/content/affiliation/affiliation_id/60011149,60011149,Trinity College Dublin,Dublin,Ireland
+32,true,https://api.elsevier.com/content/affiliation/affiliation_id/101327025,101327025,Norman Myers Consultancy Ltd.,Oxford,United Kingdom
+33,true,https://api.elsevier.com/content/affiliation/affiliation_id/60011484,60011484,Rosenstiel School of Marine and Atmospheric Science,Miami,United States
