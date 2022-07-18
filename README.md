@@ -21,12 +21,12 @@ Bruna, Emilio. M. Code and data repository for ATBC Plenary Presentation. 2022. 
 
 or in .bib format
 
-@misc{Bruna2022,
-  author = {Bruna, E. M.},
-  title = {Code and data repository for ATBC Plenary Presentation},
-  year = {2022},
-  publisher = {GitHub},
-  journal = {GitHub repository},
-  howpublished = {\url{https://github.com/BrunaLab/atbc2022_plenary_talk}},
-  commit = {----- (most recent)}
-}
+@misc{Bruna2022,  
+  author = {Bruna, E. M.},  
+  title = {Code and data repository for ATBC Plenary Presentation},  
+  year = {2022},  
+  publisher = {GitHub},  
+  journal = {GitHub repository},  
+  howpublished = {\url{https://github.com/BrunaLab/atbc2022_plenary_talk}},  
+  commit = {----- (most recent)} 
+} 
