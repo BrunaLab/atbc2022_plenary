@@ -1,4 +1,4 @@
-library(tidyverse)
+library(tidyverse) 
 library(raster)
 library(rgdal)
 library(geotiff)
@@ -29,8 +29,12 @@ pop_df_3bins <- pop_df %>%
   group_by(region) %>%
   summarise(n = sum(pop)) %>% 
   mutate(perc=n/sum(n)*100)
+# percentage in tropics ---------------------------------------------------
 
+perc_trop<-pop_df_3bins %>% filter(region=="tropical") %>% select(perc)
+perc_trop<-pop_df_3bins[3,3] 
 
+# binning figures ---------------------------------------------------------
 
 
 pop_df_binned <- pop_df %>% 
@@ -65,6 +69,7 @@ group.colors <- c(Tropical = "#1AB601", Temperate = "#085D8B")
 # plot1<-ggplot(pop_df_binned, aes(x=lat, y=pop, fill=region)) + 
 plot1<-ggplot(pop_df, aes(x=lat, y=pop/1000000, fill=region)) + 
   geom_bar(stat = "identity")+
+  annotate("text", x=-20, y=250, label= paste(floor(perc_trop),"% (50% by 2050)", sep=""), size=16) +
   scale_fill_manual(values=group.colors)+
   geom_vline(xintercept = 0,color = "gray42", linetype="dashed", size=0.8)+
   # geom_vline(xintercept = -24, linetype="dashed", 
@@ -82,58 +87,5 @@ plot1
 
 
 
-# world map ---------------------------------------------------------------
-
-# 
-library(tidyverse)
-library(sf)
-library(sp)
-library(rnaturalearth)
-library(rnaturalearthdata)
-library(transformr)
-library(gganimate)
-
-target_crs <- st_crs("+proj=moll +x_0=0 +y_0=0 +lat_0=0 +lon_0")
-world.trans <- ne_countries(scale = "medium", returnclass = "sf") %>%
-  sf::st_transform(crs = target_crs)
-class(world.trans)
 
 
-
-points_all<-data.frame(pop_df$lat,pop_df$lon,pop_df$region,pop_df$pop) 
-points_all<-points_all %>% 
-  rename("lat"="pop_df.lat", 
-         "long"="pop_df.lon",
-         "region"="pop_df.region",
-         "pop"="pop_df.pop") %>% 
-  arrange(region,pop)
-
-coordinates(points_all) <- ~long+lat
-proj4string(points_all) <- CRS(paste("+init=epsg:4326"))
-
-pts.trans.all <- st_as_sf(points_all, coords = c("pop_df.lat", "pop_df.lon"), 
-                          crs = ("+proj=moll +lon_0=0 +x_0=0 +y_0=0"), agr = "constant")
-
-
-plot2<-ggplot(world.trans) + 
-  geom_sf(color = "gray50", fill = "gray50") +
-  geom_sf(data = pts.trans.all %>% filter(region=="Tropical") %>% slice_sample(n=700), 
-          aes(fill = region,
-              # color=region,
-              # size=0.4), 
-          size=pop), 
-          shape = 21)+
-  # labs(title="----",
-  #      subtitle="2020") + 
-  scale_fill_manual(values=group.colors)+
-  # labs(title="Jrnl Categories") + 
-  # labs(size = 'Pop. Size')+
-  # labs(size = 'No of Publications')+
-  # labs(fill = ' ')+
-  coord_sf(default_crs = target_crs)+
-  theme_opts
-plot2
-
-plot1+plot2
-
-plot1 + inset_element(plot2, left = 0.5, bottom = 0.4, right = 0.9, top = 0.95)

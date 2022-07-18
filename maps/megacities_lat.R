@@ -15,6 +15,7 @@ library(rnaturalearth)
 library(rnaturalearthdata)
 library(transformr)
 library(gganimate)
+library(gifski)
 
 mega<-read_csv("./figs/raw_data_UPP_2020/POP_EST_SSP_2.csv") %>%
   as.data.frame() %>%
@@ -123,3 +124,6 @@ animate(mega_map,
         # duration = 50, 
         nframes = 10)+
   labs(caption = "YEAR: {round(frame_time, 0)}") ###
+
+anim_save("./mega_map.gif")
+
