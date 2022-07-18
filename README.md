@@ -6,7 +6,7 @@
 
 ## Slides
 
-A pdf version of the slides can be found here.
+A pdf version of the slides [can be found here](https://github.com/BrunaLab/atbc2022_plenary_talk/blob/main/Bruna_ATBC2022_Plenary_Slides.pdf).
 
 ## References
 
