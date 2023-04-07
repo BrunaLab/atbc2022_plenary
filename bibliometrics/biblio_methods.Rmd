@@ -1,0 +1,67 @@
+---
+title: "bibliometric methods"
+author: "Emilio M. Bruna"
+date: "2023-02-08"
+output: html_document
+---
+
+
+1. Use `scopus_api_loop` to pull the records that are available in scopus for each journal * consecutive run of years. save in `data_ra/scopus`
+
+#TODO: need to add tropical ecology journal
+
+1. Bind these records together and standardize them with `processing_scopus`. save in `data_clean`
+
+1. download WOS
+
+jane: article, review
+evolution: article, note, review article
+ecology: article, note, review article
+jecol: article, note, review 
+bitr: article, note
+tcs: article, review article
+amnat: article, note, review article
+rbt: article, note, review article
+jte: 
+trec: article, review aericle 1994-2008 scopus, 2009-2022 wos
+all from 1901-(date of search in scopus) in WOS core collection
+marked list of these = ____
+
+
+1. Process the records downloaded from WOS with references_read(). 
+
+2. Combine with output from scopus.
+
+(should actually be able to do key words and title from resulting file here)
+
+TODO: 2.5 ID the "Tropical" articles in the general journals and flag them in the overall dataset
+
+
+
+KW searches
+TS = tropical dry forest and (SO = JOURNAL OF ANIMAL ECOLOGY or SO = JOURNAL OF ECOLOGY or SO = JOURNAL OF EVOLUTIONARY BIOLOGY or SO = EVOLUTION or SO = AMERICAN NATURALIST or SO= ECOLOGY)
+
+TS = tropical rain forest* and (SO = JOURNAL OF ANIMAL ECOLOGY or SO = JOURNAL OF ECOLOGY or SO = JOURNAL OF EVOLUTIONARY BIOLOGY or SO = EVOLUTION or SO = AMERICAN NATURALIST or SO= ECOLOGY)
+
+TS = (tropical or tropics) and (SO = JOURNAL OF ANIMAL ECOLOGY or SO = JOURNAL OF ECOLOGY or SO = JOURNAL OF EVOLUTIONARY BIOLOGY or SO = EVOLUTION or SO = AMERICAN NATURALIST  or SO= ECOLOGY)
+
+TS = tropic* and (SO = JOURNAL OF ANIMAL ECOLOGY or SO = JOURNAL OF ECOLOGY or SO = JOURNAL OF EVOLUTIONARY BIOLOGY or SO = EVOLUTION or SO = AMERICAN NATURALIST or SO= ECOLOGY)
+
+TS = BCI and (SO = JOURNAL OF ANIMAL ECOLOGY or SO = JOURNAL OF ECOLOGY or SO = JOURNAL OF EVOLUTIONARY BIOLOGY or SO = EVOLUTION or SO = AMERICAN NATURALIST or SO= ECOLOGY)
+
+TS = (BCI or Pasoh or La Selva or OTS or BDFFP or Manu or Cocha Cashu) and (SO = JOURNAL OF ANIMAL ECOLOGY or SO = JOURNAL OF ECOLOGY or SO = JOURNAL OF EVOLUTIONARY BIOLOGY or SO = EVOLUTION or SO = AMERICAN NATURALIST  or SO= ECOLOGY)
+
+this gave 2615,  eliminated >2022, only article, not, review article, data paper. = 2480
+
+Keyword analyses
+TW analyses
+
+3. use authors_clean() to extract and organize. From this point forward should only be necessary if georeferening
+
+
+
+
+1. get a list of the articles that are in general journals that are done in tropics
+
+
+1. download the misisng ones form biosis etc

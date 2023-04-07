@@ -1,8 +1,0 @@
-@_fa,affiliation-url,afid,affilname,affiliation-city,affiliation-country,entry_number
-true,https://api.elsevier.com/content/affiliation/affiliation_id/60025709,60025709,The University of Sydney,Sydney,Australia,1
-true,https://api.elsevier.com/content/affiliation/affiliation_id/60017681,60017681,Australian Museum,Sydney,Australia,1
-true,https://api.elsevier.com/content/affiliation/affiliation_id/60016849,60016849,University of Toronto,Toronto,Canada,2
-true,https://api.elsevier.com/content/affiliation/affiliation_id/60014171,60014171,University of Waterloo,Waterloo,Canada,2
-true,https://api.elsevier.com/content/affiliation/affiliation_id/60010475,60010475,Ontario Ministry of Natural Resources,Peterborough,Canada,2
-true,https://api.elsevier.com/content/affiliation/affiliation_id/60000673,60000673,Environment Canada,Gatineau,Canada,2
-true,https://api.elsevier.com/content/affiliation/affiliation_id/60014439,60014439,"University of California, Davis",Davis,United States,3

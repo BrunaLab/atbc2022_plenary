@@ -1,9 +1,0 @@
-@_fa,@seq,author-url,authid,authname,surname,given-name,initials,afid.@_fa,afid.$,entry_number
-true,1,https://api.elsevier.com/content/author/author_id/7005425150,7005425150,McNaughton S.,McNaughton,S. J.,S.J.,true,100414227,1
-true,2,https://api.elsevier.com/content/author/author_id/35116480900,35116480900,Folsom T.,Folsom,T. C.,T.C.,true,100414227,1
-true,3,https://api.elsevier.com/content/author/author_id/56122304200,56122304200,Lee T.,Lee,T.,T.,true,100414227,1
-true,1,https://api.elsevier.com/content/author/author_id/6507136992,6507136992,Gochenaur S.,Gochenaur,S. E.,S.E.,true,60022908,2
-true,2,https://api.elsevier.com/content/author/author_id/7003418649,7003418649,Woodwell G.,Woodwell,G. M.,G.M.,true,60022908,2
-true,1,https://api.elsevier.com/content/author/author_id/7403187340,7403187340,Ritchie J.,Ritchie,J. C.,J.C.,true,60030965,3
-true,2,https://api.elsevier.com/content/author/author_id/7005619724,7005619724,McHenry J.,McHenry,J. R.,J.R.,true,60030965,3
-true,3,https://api.elsevier.com/content/author/author_id/35116447700,35116447700,Gill A.,Gill,A. C.,A.C.,true,60030965,3

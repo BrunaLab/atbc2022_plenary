@@ -1,6 +1,0 @@
-@_fa,@seq,author-url,authid,authname,surname,given-name,initials,afid.@_fa,afid.$,entry_number
-true,1,https://api.elsevier.com/content/author/author_id/7004460066,7004460066,Birks H.,Birks,H. J.B.,H.J.B.,true,60031101,1
-true,2,https://api.elsevier.com/content/author/author_id/7101792603,7101792603,Madsen B.,Madsen,B. J.,B.J.,true,60031101,1
-true,1,https://api.elsevier.com/content/author/author_id/6507253742,6507253742,Livett E.,Livett,E. A.,E.A.,true,60003771,2
-true,2,https://api.elsevier.com/content/author/author_id/8531856300,8531856300,Lee J.,Lee,J. A.,J.A.,true,60003771,2
-true,3,https://api.elsevier.com/content/author/author_id/6603800187,6603800187,Tallis J.,Tallis,J. H.,J.H.,true,60003771,2
