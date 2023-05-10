@@ -61,35 +61,37 @@ keywords<-keywords %>%
   mutate(kw_original=gsub("below-ground","belowground",kw_original)) %>%
   mutate(kw_original=gsub("below- ","belowground",kw_original)) %>%  
   mutate(kw_original=gsub("above- ","aboveground",kw_original)) %>%
+  mutate(kw_original=gsub("c-3"," c3",kw_original)) %>%
+  mutate(kw_original=gsub("c-4"," c4",kw_original)) %>%
   mutate(kw_refined_manual = case_when(
     kw_original ==  "ant plant interactions" ~ "ant-plant interactions",
     # kw_original ==  "ant plant interactions" ~ "ant-plant interactions",
-    kw_original ==  "tropical forests" ~ "tropical forest",
+    # kw_original ==  "tropical forests" ~ "tropical forest",
     # kw_original ==  "tropical forests" ~ "tropical forest",
     kw_original ==  "germination" ~ "seed germination",
-    kw_original ==  "litter" ~ "litterfall",
-    kw_original ==  "tropical" ~ "tropics/tropical",
-    kw_original ==  "tropics" ~ "tropics/tropical",
+    # kw_original ==  "litter" ~ "litterfall",
+    kw_original ==  "litterfall" ~ "litter",
+    # kw_original ==  "tropical" ~ "tropics/tropical",
+    # kw_original ==  "tropics" ~ "tropics/tropical",
     kw_original ==  "germination" ~ "seed germination",
-    kw_original ==  "litter" ~ "litterfall",
-    kw_original ==  "tropical" ~ "tropics/tropical",
-    kw_original ==  "tropics" ~ "tropics/tropical",
+    # kw_original ==  "tropical" ~ "tropics/tropical",
+    # kw_original ==  "tropics" ~ "tropics/tropical",
     # kw_original ==  "tropical forestsuccession" ~ "tropical forest succession/regeneration",
     kw_original ==  "tropical forestsuccession" ~ "tropical forest succession",
     # kw_original ==  "tropical forest succession" ~ "tropical forest succession/regeneration",
     # kw_original ==  "tropical forest regeneration" ~ "tropical forest succession/regeneration",
     # kw_original ==  "tropical forests" ~ "tropical forest(s)",
     # kw_original ==  "tropical forest" ~ "tropical forest(s)",
-    kw_original ==  "tropical forest fragmentation" ~ "tropical forest fragments/fragmentation",
+    # kw_original ==  "tropical forest fragmentation" ~ "tropical forest fragments/fragmentation",
     # kw_original ==  "tropical forest fragments" ~ "tropical forest fragmentation",
     # kw_original ==  "tropical forest fragment" ~"tropical forest fragmentation",
-    kw_original ==  "tropical forest fragments" ~ "tropical forest fragments/fragmentation",
-    kw_original ==  "tropical forest fragment" ~"tropical forest fragments/fragmentation",
+    # kw_original ==  "tropical forest fragments" ~ "tropical forest fragments/fragmentation",
+    # kw_original ==  "tropical forest fragment" ~"tropical forest fragments/fragmentation",
     kw_original ==  "tropical forest manage-" ~ "tropical forest management",
-    kw_original ==  "invertebrate herbivory" ~ "invertebrate herbivory/herbivore(s)",
-    kw_original ==  "invertebrate herbivores" ~ "invertebrate herbivory/herbivore(s)",
-    kw_original ==  "invertebrate community structure" ~ "invertebrate communities/structure",
-    kw_original ==  "invertebrate communities" ~ "invertebrate communities/structure",
+    # kw_original ==  "invertebrate herbivory" ~ "invertebrate herbivory/herbivore(s)",
+    # kw_original ==  "invertebrate herbivores" ~ "invertebrate herbivory/herbivore(s)",
+    # kw_original ==  "invertebrate community structure" ~ "invertebrate communities/structure",
+    # kw_original ==  "invertebrate communities" ~ "invertebrate communities/structure",
     # kw_original ==  "invertebrate predators" ~ " invertebrate predator(s)",
     # kw_original ==  "invertebrate predator" ~ " invertebrate predator(s)",
     # kw_original ==  "seed dispersal networks" ~ "seed dispersal network(s)",
@@ -114,16 +116,20 @@ keywords<-keywords %>%
     # kw_original ==  "p ratio" ~ "P ratio(s)",
     # kw_original ==  "p ratios" ~ "P ratio(s)",
     # kw_original ==  "x choromosomes" ~ "x choromosomes",
-    kw_original ==  "rain forest" ~ "(tropical) rain forest(s)",
-    kw_original ==  "diversity" ~ "(species) diversity/biodiversity",
-    kw_original ==  "species diversity" ~ "(species) diversity/biodiversity",
-    kw_original ==  "biodiversity" ~ "(species) diversity/biodiversity",
-    kw_original ==  "tropical rainforest"~"(tropical) rain forest(s)",
+    # kw_original ==  "rain forest" ~ "(tropical) rain forest(s)",
+    kw_original ==  "rain forest" ~ "tropical rain forest",
+    # kw_original ==  "diversity" ~ "(species) diversity/biodiversity",
+    # kw_original ==  "species diversity" ~ "(species) diversity/biodiversity",
+    kw_original ==  "species diversity" ~ "diversity",
+    kw_original ==  "biodiversity" ~ "diversity",
+    # kw_original ==  "biodiversity" ~ "(species) diversity/biodiversity",
+    # kw_original ==  "tropical rainforest"~"(tropical) rain forest(s)",
+    kw_original ==  "tropical rainforest"~"tropical rain forest",
     kw_original ==  "redundancy analysis (rda)" ~ "redundancy analysis",
     # kw_original ==  "plant community" ~ "plant communities",
     # kw_original ==  "pinus plantations"~"pine plantation(s)",
     # kw_original ==  "pinus plantation"~"pine plantation(s)",
-    kw_original ==  "lowland tropical forest" ~ "lowland tropical rain forest",
+    # kw_original ==  "lowland tropical forest" ~ "lowland tropical rain forest",
     # kw_original ==  "vapour pressure deficits" ~ "vapor pressure deficit",
     kw_original ==  "megafaunal-dispersal syndrome" ~ "megafaunal dispersal syndrome",
     # kw_original ==  "amazon" ~ "amazon(ia)",
@@ -136,39 +142,41 @@ keywords<-keywords %>%
     # kw_original ==  "fig" ~ "fig(s)",
     # kw_original ==  "rodent" ~ "rodentia",
     kw_original ==  "bambusoideae" ~ "bambuseae",
-    kw_original ==  "relative growth" ~ "relative growth (rate)",
-    kw_original ==  "relative growth rate" ~ "relative growth (rate)",
+    # kw_original ==  "relative growth" ~ "relative growth (rate)",
+    kw_original ==  "relative growth" ~ "relative growth rate",
+    # kw_original ==  "relative growth rate" ~ "relative growth (rate)",
     # kw_original ==  "tropical montane cloud forest"~"tropical montane forest",
     kw_original ==  "reduced impact logging" ~ "reduced-impact logging",
     kw_original ==  "afrotropical" ~ "afrotropics",
-    kw_original ==  "insectivores" ~ "insectivores/insectivory",
-    kw_original ==  "insectivory" ~ "insectivores/insectivory",
+    # kw_original ==  "insectivores" ~ "insectivores/insectivory",
+    # kw_original ==  "insectivory" ~ "insectivores/insectivory",
     kw_original ==  "land use history" ~ "land-use history",
     # kw_original ==  "bird community" ~ "bird communities",
     kw_original ==  "agriculture intensification" ~ "agricultural intensification",
     # kw_original ==  "camera trapping" ~ "camera trap(ping)",
     # kw_original ==  "camera trap" ~ "camera trap(ping)",
-    kw_original ==  "leaf litterfall" ~ "leaf litter",
-    kw_original ==  "liana-tree interaction" ~ "liana-tree interaction (network)",
+    # kw_original ==  "leaf litterfall" ~ "leaf litter",
+    kw_original ==  "leaf litterfall" ~ "litter",
+    # kw_original ==  "liana-tree interaction" ~ "liana-tree interaction (network)",
     kw_original ==  "liana-tree interaction network" ~ "liana-tree interaction (network)",
-    kw_original ==  "canopy openness" ~ "canopy openness/openings",
-    kw_original ==  "canopy openings" ~ "canopy openness/openings",
-    kw_original ==  "insect-plant interactions" ~ "plant-insect interaction",
-    kw_original ==  "thermal performance" ~ "thermal performance (curves)",
-    kw_original ==  "thermal performance curves" ~ "thermal performance (curves)",
-    kw_original ==  "atlantic rain forest biome" ~ "atlantic rain forest",
+    # kw_original ==  "canopy openness" ~ "canopy openness/openings",
+    # kw_original ==  "canopy openings" ~ "canopy openness/openings",
+    # kw_original ==  "insect-plant interactions" ~ "plant-insect interaction",
+    # kw_original ==  "thermal performance" ~ "thermal performance (curves)",
+    # kw_original ==  "thermal performance curves" ~ "thermal performance (curves)",
+    # kw_original ==  "atlantic rain forest biome" ~ "atlantic rain forest",
     kw_original ==  "atlantic rainforest" ~ "atlantic rain forest",
-    kw_original ==  "arboreal" ~ "arboreal/arboreality",
-    kw_original ==  "arboreality" ~ "arboreal/arboreality",
-    kw_original ==  "resprout" ~ "resprout(ing)",
-    kw_original ==  "resprouting" ~ "resprout(ing)",
+    # kw_original ==  "arboreal" ~ "arboreal/arboreality",
+    # kw_original ==  "arboreality" ~ "arboreal/arboreality",
+    # kw_original ==  "resprout" ~ "resprout(ing)",
+    # kw_original ==  "resprouting" ~ "resprout(ing)",
     kw_original ==  "land use change" ~ "land-use change",
-    kw_original ==  "forest canopies" ~ "forest canopy",
+    # kw_original ==  "forest canopies" ~ "forest canopy",
     kw_original ==  "tropical mountain forests"~"tropical montane forest",
-    kw_original ==  "decomposition" ~ "decomposition rate",
+    # kw_original ==  "decomposition" ~ "decomposition rate",
     kw_original ==  "albertine rift eco-region"~"albertine rift region",
     kw_original ==  "climatic change" ~ "climate change",
-    kw_original ==  "neotropical" ~ "neotropics",
+    # kw_original ==  "neotropical" ~ "neotropics",
     kw_original ==  "psittacidae" ~ "psittacids",
     kw_original ==  "psittacines" ~ "psittacids",
     kw_original ==  "pan troglodytes verus" ~ "pan troglodytes",
@@ -178,24 +186,25 @@ keywords<-keywords %>%
     kw_original ==  "long distance dispersal" ~ "long-distance dispersal",
     kw_original ==  "twig-nesting ant species" ~ "twig-nesting ants",
     kw_original ==  "tropical mountain cloud forest" ~ "tropical montane cloud forest",
-    kw_original ==  "life histories" ~ "life history",
+    # kw_original ==  "life histories" ~ "life history",
     kw_original ==  "seasonally dry tropical forest" ~ "tropical dry forest",
     kw_original ==  "seasonal dry tropical forest" ~ "tropical dry forest",
     kw_original ==  "dry-season flushing" ~ "dry season flushing",
-    kw_original ==  "photosynthesis rates" ~ "photosynthesis (rates)",
-    kw_original ==  "photosynthesis" ~ "photosynthesis (rates)",
+    # kw_original ==  "photosynthesis rates" ~ "photosynthesis (rates)",
+    # kw_original ==  "photosynthesis" ~ "photosynthesis (rates)",
     kw_original ==  "janzen-connell model" ~ "janzen-connell",
     kw_original ==  "termitidae" ~ "termite",
     kw_original ==  "carbon dioxide (co2)" ~ "carbon dioxide",
     kw_original ==  "tropical montane" ~ "tropical montane forest",
-    kw_original ==  "tropical lowland forests" ~ "tropical lowland rain forest(s)",
+    # kw_original ==  "tropical lowland forests" ~ "tropical lowland rain forest(s)",
+    kw_original ==  "tropical lowland forests" ~ "tropical lowland rain forest",
     kw_original ==  "atlantic rain forest biome"~"atlantic rain forest",
     kw_original ==  "symbiotic microbiota" ~ "symbiotic microbes",
     kw_original ==  "caribbean sea" ~ "caribbean",
     kw_original ==  "post-dispersal predation" ~ "postdispersal seed predation",
     kw_original ==  "phyllostomid bats" ~ "phyllostomidae",
     kw_original ==  "life table response experiment" ~ "life table response experiments",
-    kw_original ==  "tropical rainforest" ~ "tropical rain forest(s)",
+    # kw_original ==  "tropical rainforest" ~ "tropical rain forest(s)",
     kw_original == "b matrix" ~ "b-matrix",
     kw_original ==  "type 1 error"~"type-1 error",
     kw_original ==  "type i error"~"type-1 error",
@@ -218,18 +227,18 @@ keywords<-keywords %>%
     kw_original ==  "site-dependency"~"site-dependence",
     kw_original ==  "b-chromosomes"~"b-chromosome",
     kw_original ==  "f statistics"~"f-statistics",
-    kw_original ==  "np ratio"~"np ratio(s)",
-    kw_original ==  "np ratios"~"np ratio(s)",
+    # kw_original ==  "np ratio"~"np ratio(s)",
+    # kw_original ==  "np ratios"~"np ratio(s)",
     kw_original ==  "n limitation"~"n-limitation",
     kw_original ==  "rapid biodiversity assessment protocol"~"rapid biodiversity assessment",
-    kw_original ==  "noninvasive sample"~"noninvasive sample/sampling",
-    kw_original ==  "noninvasive sampling"~"noninvasive sample/sampling",
-    kw_original ==  "road"~"roads",
+    # kw_original ==  "noninvasive sample"~"noninvasive sample/sampling",
+    # kw_original ==  "noninvasive sampling"~"noninvasive sample/sampling",
+    # kw_original ==  "road"~"roads",
     kw_original ==  "varillales"~"varillal",
-    kw_original ==  "palm"~"palm(s)",
-    kw_original ==  "palms"~"palm(s)",
-    kw_original ==  "bird"~"bird(s)",
-    kw_original ==  "birds"~"bird(s)",
+    # kw_original ==  "palm"~"palm(s)",
+    # kw_original ==  "palms"~"palm(s)",
+    # kw_original ==  "bird"~"bird(s)",
+    # kw_original ==  "birds"~"bird(s)",
   #  kw_original ==  abiotic&#8208~"abiotic",
     kw_original == "abundant centre model"~"abundant center model",
     kw_original == "barley and cereal yellow dwarf virus"~"barley and cereal yellow dwarf viruses",
@@ -266,26 +275,27 @@ keywords<-keywords %>%
     kw_original == "arciidae"~"ariidae",
     kw_original == "anthropogenic stress"~"anthropogenic stressors",
     kw_original == "biogeochemical model"~"biogeochemical modeling",
-    kw_original == "ant assemblages"~"bat assemblages",
-    kw_original == "ant pollination"~"bat pollination",
-    kw_original == "arboreal ants"~"arboreal plants",
+    # kw_original == "ant assemblages"~"bat assemblages",
+    # kw_original == "ant pollination"~"bat pollination",
+    # kw_original == "arboreal ants"~"arboreal plants",
     kw_original == "allogenic ecosystem engineers"~"autogenic ecosystem engineers",
-    kw_original == "basic reproductive number"~"basic reproductive number r-0",
+    kw_original == "basic reproductive number"~"r0",
+  kw_original == "r-o"~"r0",
     kw_original == "alternative mating strategies"~"alternative mating strategy",
     kw_original == "above-ground competition"~"above-ground competition cue",
     kw_original == "agelaia"~"aglaia",
     kw_original == "agro-ecosystem"~"agroecosystems",
     kw_original == "akaike information criterion"~"akaikes information criteria",
-    kw_original == "annual grass"~"annual grasses",
+    # kw_original == "annual grass"~"annual grasses",
     kw_original == "baetids"~"baetis",
-    kw_original == "bioenergetic model"~"bioenergetic modeling",
+    # kw_original == "bioenergetic model"~"bioenergetic modeling",
     kw_original == "biodiversity and ecosystem function (bef)"~"biodiversity and ecosystem function",
     kw_original == "altitudinal migrant"~"altitudinal migration",
     kw_original == "centre-periphery hypothesis"~"center-periphery hypothesis",
     kw_original == "borrelia burdgorferi"~"borrelia burgdorferi",
     kw_original == "blue-green aglae"~"blue-green algae",
     kw_original == "coastal temperate rain forests"~"coastal temperate rainforest",
-    kw_original == "c-4 grassland"~"c-4 grasslands",
+    kw_original == "c4 grassland"~"c4 grasslands",
     kw_original == "brachyramphus marmoratus"~"brachyramphus marmotus",
     kw_original == "coadapted gene complex"~"coadapted gene complexes",
     kw_original == "coffee agro-ecosystems"~"coffee agroecosystem",
@@ -315,16 +325,17 @@ keywords<-keywords %>%
     kw_original == "climate-growth relation"~"climate-growth relationship",
     kw_original == "community dynamic model"~"community dynamics modeling",
     kw_original == "competition for pollination"~"competition for pollinators",
-    kw_original == "GxE interactions(s)"~"GxE interaction(s)",
+    # kw_original == "GxE interactions(s)"~"GxE interaction(s)",
+    kw_original == "GxE interactions(s)"~"GxE interactions",
     kw_original == "top-down vs. bottom-up control"~"bottom-up vs top-down control",
     kw_original == "50-ha forest dynamics plot"~"50-ha plot",
-    kw_original == "<bold>g</bold>-matrix"~"g matrix",
+    kw_original == "<bold>g</bold>-matrix"~"g-matrix",
     kw_original == "acacia species"~"acacia",
     kw_original == "africa, bat reproduction"~"african bat reproduction",
-    kw_original == "age-specific reproduction"~"age-specific reproduction/survival",
-    kw_original == "age-specific reproduction and survival"~"age-specific reproduction/survival",
-    kw_original == "age-specific reproductive success"~"age-specific reproduction/survival",
-    kw_original == "age-specific survival"~"age-specific reproduction/survival",
+    # kw_original == "age-specific reproduction"~"age-specific reproduction/survival",
+    # kw_original == "age-specific reproduction and survival"~"age-specific reproduction/survival",
+    # kw_original == "age-specific reproductive success"~"age-specific reproduction/survival",
+    # kw_original == "age-specific survival"~"age-specific reproduction/survival",
     kw_original == "aboveground annual net primary productivity"~"anpp",
     kw_original == "above ground net primary productivity (anpp)"~"anpp",
     kw_original == "aboveground net primary production (anpp)"~"anpp",
@@ -334,40 +345,140 @@ keywords<-keywords %>%
     kw_original == "abandoned cattle pastures"~"abandoned pastures",
     kw_original == "abandoned pasture"~"abandoned pastures",
     kw_original == "abandoned farmland"~"abandoned fields",
-    kw_original == "16s rdna"~"16s rdna/rrna",
-    kw_original == "16s"~"16s rdna/rrna",
-    kw_original == "16s rdna sequencing"~"16s rdna/rrna",
+    # kw_original == "16s rdna"~"16s rdna/rrna",
+  # kw_original == "16s rdna"~"16s rdna/rrna",
+    # kw_original == "16s"~"16s rdna/rrna",
+    # kw_original == "16s rdna sequencing"~"16s rdna/rrna",
+  kw_original == "16s rdna sequencing"~"16s rdna",
     kw_original == "coevoltion"~"coevolution",
-    kw_original == "16s rrna"~"16s rdna/rrna",
-    kw_original == "16s rrna genes"~"16s rdna/rrna",
-    kw_original == "16s-rrna and its gene sequencing"~"16s rdna/rrna",
+    # kw_original == "16s rrna"~"16s rdna/rrna",
+    # kw_original == "16s rrna genes"~"16s rdna/rrna",
+  kw_original == "16s rrna genes"~"16s rrna",
+    kw_original == "16s-rrna and its gene sequencing"~"16s rrna",
+  # kw_original == "16s-rrna and its gene sequencing"~"16s rdna/rrna",
     kw_original ==  "smithsonian forestgeo"~"bci",
-    kw_original ==  "smithsonian tropical research institute"~"bci",
-    kw_original ==  "smithsonian tropical research institute, gamboa, panama"~"bci",
+    # kw_original ==  "smithsonian tropical research institute"~"bci",
+  kw_original ==  "smithsonian tropical research institute"~"stri",
+    # kw_original ==  "smithsonian tropical research institute, gamboa, panama"~"bci",
+  kw_original ==  "smithsonian tropical research institute, gamboa, panama"~"stri, panama",
     kw_original ==  "site dependence"~"site-dependence",
     # kw_original ==  ", usa"~"",
    TRUE ~ as.character(kw_original))) 
+# 
+# 
+# 
+# 
+# keywords_to_refine<-keywords %>% 
+#   select(kw_original,kw_refined_manual) %>% 
+#   distinct(kw_refined_manual)
+# 
+# write_csv(keywords_to_refine,"./bibliometrics/data_intermediate/kw_to_refine2.csv")
+# rm(keywords_to_refine)
+#   
+# refined_kw<-read_csv("./bibliometrics/data_intermediate/kw-to-refine2.csv") %>% 
+#   rename(kw_final=kw) %>% 
+#   filter(!str_detect(kw_final, 'frailty model, hierarchical model,')) %>% 
+#   filter(!str_detect(kw_final, 'reproductive activity, sierra nevada de santa marta')) %>% 
+#   filter(!str_detect(kw_final, 'assemblages, extinction,')) %>% 
+#   filter(!str_detect(kw_final, 'photosynthesis, path')) %>% 
+#   filter(!str_detect(kw_final, 'georgia, usa, geostatistics'))  
+  keywords<-keywords %>% 
+    rename(kw_final=kw_refined_manual) %>% 
+mutate(kw_final=gsub("sensu stricto","sensustricto",kw_final)) %>%  # Only for purposes of searching...it's two words!
+  mutate(kw_final=gsub("grasslands.","grasslands.",kw_final)) %>%  # Only for purposes of searching...it's two words!
+  mutate(kw_final=gsub("rain forest","rainforest",kw_final)) %>%  # Only for purposes of searching...it's two words!
+  mutate(kw_final=gsub("rain-forest","rainforest",kw_final)) %>%  # Only for purposes of searching...it's two words!
+  mutate(kw_final=gsub("forests","forest",kw_final)) %>% 
+  mutate(kw_final=gsub("savannas","savanna",kw_final)) %>% 
+  mutate(kw_final=gsub("grasslands","grassland",kw_final)) %>% 
+  mutate(kw_final=gsub("savannah","savanna",kw_final)) %>% 
+  mutate(kw_final=gsub("savannahs","savanna",kw_final)) %>% 
+  # mutate(kw_final=gsub("(usa) ","",kw_final)) %>% 
+  mutate(kw_final=gsub("reefs","reef",kw_final)) %>% 
+  mutate(kw_final=gsub("reefcape","reefscape",kw_final)) %>% # this corrects back the one messed up by the prior correction
+  mutate(kw_final=gsub("systems","system",kw_final)) %>% 
+  mutate(kw_final = case_when(
+    (str_detect(kw_original,"sloss") == TRUE) ~ "sloss",
+    (str_detect(kw_original,"la selva") == TRUE) ~ "la selva",
+    (str_detect(kw_original,"organization for tropical studies") == TRUE) ~ "ots",
+    (str_detect(kw_original,"las cruces") == TRUE) ~ "las cruces",
+    (str_detect(kw_original,"palo verde") == TRUE) ~ "palo verde",
+    (str_detect(kw_original,"guanacaste") == TRUE) ~ "guanacaste",
+    (str_detect(kw_original,"manu national") == TRUE) ~ "manu",
+    (str_detect(kw_original,"bci") == TRUE) ~ "bci",
+    (str_detect(kw_original,"republic of panama") == TRUE) ~ "panama",
+    (str_detect(kw_original,"cocha cashu") == TRUE) ~ "cocha cashu",
+    (str_detect(kw_original,"amazonian ecuador") == TRUE) ~ "ecuadorian amazon",
+    (str_detect(kw_original,"biological dynamics of forest fragments") == TRUE) ~ "bdffp",
+    kw_final == "rainforest (christman island"~"rainforest (christman island)",
+    kw_final == "rainforest (christman island"~"rainforest, christman island",
+    # kw_final == "longleaf pine savanna, southeastern usa"~"longleaf pine savanna",
+    kw_final == "ots"~"ots-oet",
+    kw_final == "ots"~"ots-oet",
+    kw_final == "c grassland composition 4"~" c4 grassland composition",
+    kw_final == "c grassland composition 3"~" c3 grassland composition",
+    kw_final == "life table response experiment, ltre"~"ltre",
+    kw_final == "ltre analysis"~"ltre",
+    kw_final == "δ n 15"~"delta n15",
+    kw_final == "δ c 13"~"delta c13",
+    kw_final == "β-diversity"~"beta diversity",
+    kw_final == "zostera-marina"~"zostera marina",
+    kw_final == "zostera-capricorni"~"zostera capricorni",
+    kw_final == "zooplancton"~"zooplankton",
+    kw_final == "zooplancton"~"zooplankton",
+    kw_final == "alaska (usa)"~"alaska",
+    kw_final == "alaska (usa)"~"usa",
+    kw_final == "akaikes information criteria"~"aic",
+    kw_final == "akaike's information criterion (aic)"~"aic",
+    kw_final == "akaike's information criterion"~"aic",
+    kw_final == "akaike's information criteria"~"aic",
+    kw_final == "akaike weights"~"aic",
+    kw_final == "akaike information criterion (aic)"~"aic",
+    kw_final == "akaike information criteria"~"aic",
+    kw_final == "akaike criterion"~"aic",
+    kw_final == "akaike"~"aic",
+    # kw_final == "manu national park, peru"~"manu national park",
+    kw_final == "manu national park (peru)"~"manu national park, peru",
+    # kw_final == "manu national park (peru)"~"manu national park",
+    # kw_final == "yasuni national park, amazonian ecuador"~"yasuni national park",
+    # kw_final == "yasuni ecological research station, ecuador"~"yasuni ecological research station",
+    kw_final == "acer-saccharum"~"acer saccharum",
+    kw_final == "acer-rubrum"~"acer rubrum",
+    kw_final == "acer-negundo"~"acer negundo",
+    kw_final == "agro-forest system"~"agroforest system",
+    # kw_final == "tropical forest"~"tropical forest(s)",
+    kw_final == "aboveground‚Äìbelowground interactions"~"above- and belowground interactions",
+    kw_final == "aboveground‚Äìbelowground interactions"~"above- and belowground interactions",
+    TRUE ~ as.character(kw_final))) %>% 
+  mutate(kw_final=gsub("behaviour","behavior",kw_final)) %>% 
+  # mutate(kw_final=gsub("behavioural","reef",kw_final)) %>% 
+  mutate(kw_final=gsub("colour","color",kw_final)) %>% 
+  # mutate(kw_final=gsub("colouration","reef",kw_final)) %>% 
+  mutate(kw_final=gsub("harbour","harbor",kw_final)) %>% 
+  mutate(kw_final=gsub("adultplants","adult plant",kw_final)) %>% 
+  mutate(kw_final=gsub("insectivoresinsectivory","insectivores/insectivory",kw_final)) %>% 
+  mutate(kw_final=gsub("densitydependence","density dependence",kw_final)) %>% 
+  mutate(kw_final=gsub("moult","molt",kw_final)) %>% 
+  mutate(kw_final=gsub("neighbour","neighbor",kw_final)) %>% 
+  # mutate(kw_final=gsub("neighbourhood","reef",kw_final)) %>% 
+  mutate(kw_final=gsub("signalling","signaling",kw_final)) %>% 
+  mutate(kw_final=gsub("modelling","modeling",kw_final)) %>% 
+  mutate(kw_final=gsub("ageing","aging",kw_final)) %>% 
+  mutate(kw_final=gsub("'","",kw_final)) %>% 
+  mutate(kw_final=gsub("“","",kw_final)) %>% 
+  mutate(kw_final=gsub("”","",kw_final)) %>% 
+  mutate(kw_final=gsub("‘","",kw_final)) %>% 
+  mutate(kw_final=gsub("’","",kw_final)) %>%
+  mutate(kw_final=gsub("“","",kw_final)) %>% 
+  mutate(kw_final=gsub("’","",kw_final)) %>%
+  # mutate(kw_final=gsub(", usa"," (usa)",kw_final)) %>%
+  mutate(kw_final=gsub("defence","defense",kw_final)) %>% 
+  filter(!str_detect(kw_final, 'funding was provided by grants from the academy')) %>% 
+  filter(!str_detect(kw_final, 'este trabajo es parte del trabajo doctoral de la autora')) %>% 
+  filter(!str_detect(kw_final, 'atom percent excess')) %>% 
+  filter(!str_detect(kw_final, 'fruit census fruit trap collection')) # need to fix this one
 
-keywords_to_refine<-keywords %>% 
-  select(kw_original,kw_refined_manual) %>% 
-  distinct(kw_refined_manual)
-
-write_csv(keywords_to_refine,"./bibliometrics/data_intermediate/kw_to_refine2.csv")
-rm(keywords_to_refine)
-  
-refined_kw<-read_csv("./bibliometrics/data_intermediate/kw-to-refine2.csv") %>% 
-  rename(kw_final=kw) %>% 
-  filter(!str_detect(kw_final, 'frailty model, hierarchical model,')) %>% 
-  filter(!str_detect(kw_final, 'reproductive activity, sierra nevada de santa marta')) %>% 
-  filter(!str_detect(kw_final, 'assemblages, extinction,')) %>% 
-  filter(!str_detect(kw_final, 'photosynthesis, path')) %>% 
-  filter(!str_detect(kw_final, 'georgia, usa, geostatistics'))  
-  
-
-
-
-  
-keywords_clean<-full_join(keywords,refined_kw) %>% 
+  keywords<-keywords %>% 
   mutate(kw_final=trimws(kw_final)) %>% 
   mutate(kw_final=tolower(kw_final)) %>% 
   mutate(kw_final=gsub("sensu stricto","sensustricto",kw_final)) %>%  # Only for purposes of searching...it's two words!
@@ -469,22 +580,47 @@ keywords_clean<-full_join(keywords,refined_kw) %>%
 #   (str_detect(kw_final,", (usa)") == TRUE) ~ ", usa",
 #   TRUE ~ as.character(kw_final)))
 #   mutate(kw_final=gsub("//(uk)",", uk",kw_final)) 
-
-keywords_clean<-keywords_clean %>% 
-  separate(kw_final,c("kw_final2","kw_final3"),sep=",",remove=FALSE,extra="warn") %>% 
-  separate(kw_final3,c("kw_final4","kw_final5"),sep="\\(",remove=FALSE,extra="warn")
-keywords_clean_summary<-keywords_clean %>% 
+# 
+# keywords_clean<-keywords_clean %>% 
+#   separate(kw_final,c("kw_final2","kw_final3"),sep=",",remove=FALSE,extra="warn") %>% 
+#   separate(kw_final3,c("kw_final4","kw_final5"),sep="\\(",remove=FALSE,extra="warn")
+keywords_clean_summary<-keywords %>% 
   as_tibble() %>% 
   group_by(kw_final) %>% 
   summarize(n=n())
 keywords_clean_summary
 
 
-keywords_clean$kw_final<-str_replace(keywords_clean$kw_final,"species\\) diversity/biodiversity", "species diversity")
-keywords_clean$kw_final<-str_replace(keywords_clean$kw_final,"[:punct:]", "")
-keywords_clean$kw_final<-str_replace(keywords_clean$kw_final,"\\)", "")
-keywords_clean$kw_final<-str_replace(keywords_clean$kw_final,"\\(", "")
-keywords_clean$kw_final<-str_replace(keywords_clean$kw_final,"\\,", "")
+
+library(hunspell)
+
+## find the misspelled words
+# foo<-kw_final_counts_split %>%  select(kw_original) %>% slice(1:3000)
+bad.words <- hunspell(keywords_clean_summary$kw_final)
+bad.words <- unique(unlist(bad.words))
+sugg.words <- hunspell_suggest(bad.words)
+sugg.words <- unlist(lapply(sugg.words, function(x) x[1]))
+word.list <- as.data.frame(cbind(bad.words, sugg.words))
+
+freq.word <- count(foo, kw_original)
+names(freq.word)
+names(word.list)
+freq.word <- inner_join(freq.word, word.list, by = c(kw_original = "bad.words")) %>% mutate(sugg.words=tolower(sugg.words))
+freq.word <- freq.word %>% distinct(sugg.words,kw_original) %>% mutate(unique=(sugg.words==kw_original)) %>% filter(unique==FALSE)
+freq.word<- freq.word %>% 
+  mutate(sugg.words=gsub(" ","",sugg.words))  %>% 
+  mutate(unique=(sugg.words==kw_original)) %>% 
+  filter(unique==FALSE) %>% 
+  mutate(sugg.words=gsub(" ","",sugg.words))  %>% 
+  mutate(unique=(sugg.words==kw_original)) %>% 
+  filter(unique==FALSE) 
+
+
+# keywords_clean$kw_final<-str_replace(keywords_clean$kw_final,"species\\) diversity/biodiversity", "species diversity")
+# keywords_clean$kw_final<-str_replace(keywords_clean$kw_final,"[:punct:]", "")
+# keywords_clean$kw_final<-str_replace(keywords_clean$kw_final,"\\)", "")
+# keywords_clean$kw_final<-str_replace(keywords_clean$kw_final,"\\(", "")
+# keywords_clean$kw_final<-str_replace(keywords_clean$kw_final,"\\,", "")
 
 
 keywords_clean_summary<-keywords_clean %>% 
