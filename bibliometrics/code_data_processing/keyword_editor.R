@@ -1,0 +1,2671 @@
+keyword_editor <- function(keywords) {
+  library(tidyverse)
+  library(stringr)
+  
+  keywords <- keywords %>%
+    mutate(edited = original) %>% 
+    mutate(edited = gsub("r  theory *", "rstar theory", edited)) %>%
+    mutate(edited = gsub("above-ground", "aboveground", edited)) %>%
+    mutate(edited = gsub("below-ground", "belowground", edited)) %>%
+    mutate(edited = gsub("below- ", "belowground", edited)) %>%
+    mutate(edited = gsub("below ground", "belowground", edited)) %>%
+    mutate(edited = gsub("above ground", "aboveground", edited)) %>%
+    mutate(edited = gsub("c-3", " c3", edited)) %>%
+    mutate(edited = gsub("c-4", " c4", edited)) %>%
+    mutate(edited = case_when(
+      edited == "ant plant interactions" ~ "ant-plant interactions",
+      edited == "germination" ~ "seed germination",
+      edited == "litterfall" ~ "litter",
+      edited == "germination" ~ "seed germination",
+      edited == "tropical forestsuccession" ~ "tropical forest succession",
+      edited == "tropical forest manage-" ~ "tropical forest management",
+      edited == "cerraddo" ~ "cerrado",
+      edited == "path analyses" ~ "path analysis",
+      edited == "biodiversity" ~ "diversity",
+      edited == "redundancy analysis (rda)" ~ "redundancy analysis",
+      edited == "bambusoideae" ~ "bambuseae",
+      edited == "relative growth" ~ "relative growth rate",
+      edited == "afrotropical" ~ "afrotropics",
+      edited == "agriculture intensification" ~ "agricultural intensification",
+      edited == "phylogenetic generalized least squares gls" ~ "phylogenetic generalized least squares",
+      edited == "phylogenetic generalized least squares pgls" ~ "phylogenetic generalized least squares",
+      edited == "tropical mountain forests" ~ "tropical montane forests",
+      edited == "climatic change" ~ "climate change",
+      edited == "pan troglodytes verus" ~ "pan troglodytes",
+      edited == "anura" ~ "anurans",
+      edited == "la selva biological research station" ~ "la selva",
+      edited == "la selva biological station" ~ "la selva",
+      edited == "animal-plant interaction" ~ "plant-animal interaction",
+      edited == "tropical mountain cloud forest" ~ "tropical montane cloud forest",
+      edited == "seasonally dry tropical forest" ~ "tropical dry forest",
+      edited == "seasonal dry tropical forest" ~ "tropical dry forest",
+      edited == "janzen-connell model" ~ "janzen-connell",
+      edited == "carbon dioxide (co2)" ~ "carbon dioxide",
+      edited == "tropical lowland forests" ~ "tropical lowland rain forests",
+      edited == "caribbean sea" ~ "caribbean",
+      edited == "type 1 error" ~ "type1 error",
+      edited == "type i error" ~ "type1 error",
+      edited == "c : p ratio" ~ "cp ratio",
+      edited == "c : p ratios" ~ "cp ratio",
+      edited == "k : p ratio" ~ "kp ratio",
+      edited == "k : p ratios" ~ "kp ratio",
+      edited == "n : k ratio" ~ "nk ratio",
+      edited == "n : k ratios" ~ "nk ratio",
+      edited == "n : p ratios" ~ "np ratio",
+      edited == "barro colorado island" ~ "bci",
+      edited == "barro colorado-island" ~ "bci",
+      edited == "barro-colorado island" ~ "bci",
+      edited == "burro colorado island" ~ "bci",
+      edited == "site-dependency" ~ "site-dependence",
+      edited == "b-chromosomes" ~ "b-chromosome",
+      edited == "f statistics" ~ "f-statistics",
+      edited == "n limitation" ~ "n-limitation",
+      edited == "rapid biodiversity assessment protocol" ~ "rapid biodiversity assessment",
+      edited == "abundant centre model" ~ "abundant center model",
+      edited == "acer opalus ssp granatense" ~ "acer opalus",
+      edited == "acer opalus subsp granatense" ~ "acer opalus",
+      edited == "biodiversity and ecosystem functioning" ~ "biodiversity and ecosystem function",
+      edited == "alternative stable state" ~ "alternate stable state",
+      edited == "anas plathyrynchos" ~ "anas platyrhynchos",
+      edited == "asymmetric competition" ~ "asymmetrical competition",
+      edited == "binomial mixture model" ~ "binomial n-mixture model",
+      edited == "barley yellow dwarf virus (bydv)" ~ "barley and cereal yellow dwarf virus",
+      edited == "barley yellow dwarf viruses (bydvs)" ~ "barley and cereal yellow dwarf virus",
+      edited == "arbuscular mycorrhiza" ~ "arbuscular myccorrhyiza",
+      edited == "aguoti paca" ~ "agouti paca",
+      edited == "anti-predator behavior" ~ "antipredatory behavior",
+      edited == "below-ground process" ~ "belowground processes",
+      edited == "behavioural tradeoff" ~ "behavioral trade-off",
+      edited == "anti-plant" ~ "ant-plant",
+      edited == "bayesian hierarchical modeling" ~ "bayesian hierarchical model",
+      edited == "behavior genetics" ~ "behavioral genetics",
+      edited == "alternate states" ~ "alternative states",
+      # edited == "arciidae" ~ "arctiidae",
+      edited == "area-concentrated search" ~ "area-concentrated searching",
+      edited == "behavioral changes" ~ "behavioral change",
+      edited == "behavioural change" ~ "behavioral change",
+      edited == "age-specific breeding probabilities" ~ "age-specific breeding probability",
+      edited == "alternative reproductive strategies" ~ "alternative reproductive strategy",
+      edited == "bialowieza forest" ~ "biaowiea forest",
+      edited == "above and belowground herbivores" ~ "aboveground and belowground herbivores",
+      edited == "alternate prey" ~ "alternative prey",
+      edited == "anthropogenic stress" ~ "anthropogenic stressors",
+      edited == "biogeochemical model" ~ "biogeochemical modeling",
+      edited == "allogenic ecosystem engineers" ~ "autogenic ecosystem engineers",
+      edited == "basic reproductive number" ~ "r0",
+      edited == "r-o" ~ "r0",
+      edited == "alternative mating strategies" ~ "alternative mating strategy",
+      edited == "above-ground competition" ~ "above-ground competition cue",
+      edited == "agelaia" ~ "aglaia",
+      edited == "agro-ecosystem" ~ "agroecosystems",
+      edited == "akaike information criterion" ~ "aic",
+      edited == "borrelia burdgorferi" ~ "borrelia burgdorferi",
+      edited == "biodiversity and ecosystem function (bef)" ~ "biodiversity and ecosystem function",
+      edited == "altitudinal migrant" ~ "altitudinal migration",
+      edited == "centre-periphery hypothesis" ~ "center-periphery hypothesis",
+      edited == "blue-green aglae" ~ "blue-green algae",
+      edited == "brachyramphus marmoratus" ~ "brachyramphus marmotus",
+      edited == "coffee agro-ecosystems" ~ "coffee agroecosystem",
+      edited == "coffee agroforest" ~ "coffee agroforestry",
+      edited == "bloflies" ~ "blowflies",
+      edited == "carry-over effects" ~ "carryover effect",
+      edited == "coevolutionary arm races" ~ "coevolutionary arms race",
+      edited == "chasmagnathus granulata" ~ "chasmagnathus granulatus",
+      edited == "community assembly by trait selection, cats" ~ "community assembly by trait selection",
+      edited == "caesium" ~ "cesium",
+      edited == "climate-growth relation" ~ "climate-growth relationship",
+      edited == "GxE interactions(s)" ~ "GxE interactions",
+      edited == "top-down vs. bottom-up control" ~ "bottom-up vs top-down control",
+      edited == "50-ha forest dynamics plot" ~ "50-ha plot",
+      edited == "<bold>g</bold>-matrix" ~ "g matrix",
+      edited == "acacia species" ~ "acacia",
+      edited == "africa, bat reproduction" ~ "african bat reproduction",
+      edited == "aboveground annual net primary productivity" ~ "anpp",
+      edited == "above ground net primary productivity (anpp)" ~ "anpp",
+      edited == "aboveground net primary production (anpp)" ~ "anpp",
+      edited == "age-dependent mortality demography" ~ "age-dependent mortality",
+      edited == "age-from-stage modeling" ~ "age-from-stage models",
+      edited == "abandoned agricultural lands" ~ "abandoned agriculture",
+      edited == "abandoned cattle pastures" ~ "abandoned cattle pasture", # Plural
+      edited == "site dependence" ~ "site-dependence",
+      edited == "16s rdna sequencing" ~ "16s rdna",
+      edited == "coevoltion" ~ "coevolution",
+      edited == "16s rrna genes" ~ "16s rrna",
+      edited == "16s-rrna and its gene sequencing" ~ "16s rrna",
+      edited == "smithsonian forestgeo" ~ "forestgeo",
+      edited == "smithsonian tropical research institute" ~ "stri",
+      TRUE ~ as.character(edited)
+    ))
+
+  # changes after openrefine ------------------------------------------------
+  keywords$edited <- str_replace(keywords$edited, "sensu stricto", "sensustricto") # Only for purposes of searching...it's two words!
+  keywords$edited <- str_replace(keywords$edited, "grasslands.", "grasslands.") # Only for purposes of searching...it's two words!
+  keywords$edited <- str_replace(keywords$edited, "rain forest", "rainforest") # Only for purposes of searching...it's two words!
+  keywords$edited <- str_replace(keywords$edited, "rain-forest", "rainforest") # Only for purposes of searching...it's two words!
+  keywords$edited <- str_replace(keywords$edited, "savannah", "savanna")
+  keywords$edited <- str_replace(keywords$edited, "reefcape", "reefscape") # this corrects back the one messed up by the prior correction
+  keywords <- keywords %>% mutate(edited = case_when(
+    (str_detect(edited, "trait mediated indirect interaction") == TRUE) ~ "trait mediated indirect interaction",
+    (str_detect(edited, "jena experiment") == TRUE) ~ "jena experiment",
+    (str_detect(edited, "enso event") == TRUE) ~ "enso",
+    (str_detect(edited, "enso phenom") == TRUE) ~ "enso",
+    (str_detect(edited, "enso south oscillation") == TRUE) ~ "enso",
+    (str_detect(edited, "enso southern") == TRUE) ~ "enso",
+    (str_detect(edited, "jena trait") == TRUE) ~ "jena experiment",
+    (str_detect(edited, "sloss") == TRUE) ~ "sloss",
+    (str_detect(edited, "cedar creek") == TRUE) ~ "cedar creek",
+    (str_detect(edited, "la selva") == TRUE) ~ "la selva",
+    (str_detect(edited, "organization for tropical studies") == TRUE) ~ "ots",
+    (str_detect(edited, "las cruces") == TRUE) ~ "las cruces",
+    (str_detect(edited, "palo verde") == TRUE) ~ "palo verde",
+    (str_detect(edited, "guanacaste") == TRUE) ~ "guanacaste",
+    (str_detect(edited, "manu national") == TRUE) ~ "manu",
+    (str_detect(edited, "bci") == TRUE) ~ "bci",
+    (str_detect(edited, "republic of panama") == TRUE) ~ "panama",
+    (str_detect(edited, "cocha cashu") == TRUE) ~ "cocha cashu",
+    (str_detect(edited, "amazonian ecuador") == TRUE) ~ "ecuadorian amazon",
+    (str_detect(edited, "biological dynamics of forest fragments") == TRUE) ~ "bdffp",
+    edited == "rainforest (christman island" ~ "rainforest (christman island)",
+    edited == "rainforest (christman island" ~ "rainforest, christman island",
+    edited == "c grassland composition 4" ~ " c4 grassland composition",
+    edited == "c grassland composition 3" ~ " c3 grassland composition",
+    edited == "life table response experiment, ltre" ~ "ltre",
+    edited == "ltre analysis" ~ "ltre",
+    edited == "δ n 15" ~ "delta n15",
+    edited == "δ c 13" ~ "delta c13",
+    edited == "β-diversity" ~ "beta diversity",
+    edited == "zostera-marina" ~ "zostera marina",
+    edited == "zostera-capricorni" ~ "zostera capricorni",
+    edited == "zooplancton" ~ "zooplankton",
+    edited == "zooplancton" ~ "zooplankton",
+    edited == "akaikes information criteria" ~ "aic",
+    edited == "akaike's information criterion (aic)" ~ "aic",
+    edited == "akaike's information criterion" ~ "aic",
+    edited == "akaike's information criteria" ~ "aic",
+    edited == "akaike weights" ~ "aic",
+    edited == "akaike information criterion (aic)" ~ "aic",
+    edited == "akaike information criteria" ~ "aic",
+    edited == "akaike criterion" ~ "aic",
+    edited == "akaike" ~ "aic",
+    edited == "agro-forest system" ~ "agroforest system",
+    edited == "aboveground/belowground interactions" ~ "above- and belowground interactions",
+    edited == "aboveground/belowground interactions" ~ "above- and belowground interactions",
+    TRUE ~ as.character(edited)
+  ))
+
+
+  keywords$edited <- str_replace(keywords$edited, "behaviour", "behavior")
+  # mutate(edited=gsub("behavioural","reef",edited)) %>%
+  keywords$edited <- str_replace(keywords$edited, "colour", "color")
+  # mutate(edited=gsub("colouration","reef",edited)) %>%
+  keywords$edited <- str_replace(keywords$edited, "harbour", "harbor")
+  keywords$edited <- str_replace(keywords$edited, "adultplants", "adult plant")
+  keywords$edited <- str_replace(keywords$edited, "insectivoresinsectivory", "insectivores/insectivory")
+  keywords$edited <- str_replace(keywords$edited, "densitydependence", "density dependence")
+  keywords$edited <- str_replace(keywords$edited, "moult", "molt")
+  keywords$edited <- str_replace(keywords$edited, "neighbour", "neighbor")
+  # mutate(edited=gsub("neighbourhood","reef",edited)) %>%
+  keywords$edited <- str_replace(keywords$edited, "signalling", "signaling")
+  keywords$edited <- str_replace(keywords$edited, "modelling", "modeling")
+  keywords$edited <- str_replace(keywords$edited, "ageing", "aging")
+  keywords$edited <- str_replace(keywords$edited, "'", "")
+  keywords$edited <- str_replace(keywords$edited, "“", "")
+  keywords$edited <- str_replace(keywords$edited, "”", "")
+  keywords$edited <- str_replace(keywords$edited, "‘", "")
+  keywords$edited <- str_replace(keywords$edited, "’", "")
+  keywords$edited <- str_replace(keywords$edited, "“", "")
+  keywords$edited <- str_replace(keywords$edited, "’", "")
+  # mutate(edited=gsub(", usa","(usa)",edited)) %>%
+  keywords$edited <- str_replace(keywords$edited, "defence", "defense")
+
+
+  keywords <- keywords %>%
+    mutate(edited = trimws(edited)) %>%
+    mutate(edited = tolower(edited))
+
+  keywords$edited <- str_replace(keywords$edited, "sensu stricto", "sensustricto") # Only for purposes of searching...it's two words!
+  keywords$edited <- str_replace(keywords$edited, "grasslands.", "grasslands.") # Only for purposes of searching...it's two words!
+  keywords$edited <- str_replace(keywords$edited, "rain forest", "rainforest") # Only for purposes of searching...it's two words!
+  keywords$edited <- str_replace(keywords$edited, "rain-forest", "rainforest") # Only for purposes of searching...it's two words!
+  keywords$edited <- str_replace(keywords$edited, "savannah", "savanna")
+  keywords$edited <- str_replace(keywords$edited, "reefcape", "reefscape") # this corrects back the one messed up by the prior correction
+  keywords$edited <- str_replace(keywords$edited, "δ n 15", "delta n15")
+  keywords$edited <- str_replace(keywords$edited, "δ c 15", "delta c13")
+  keywords$edited <- str_replace(keywords$edited, "δ", "delta")
+  keywords$edited <- str_replace(keywords$edited, "β", "beta")
+  
+  
+  keywords <- keywords %>%
+    mutate(edited = case_when(
+      (str_detect(edited, "barro colorado national monument") == TRUE) ~ "bci",
+      (str_detect(edited, "single large or several small") == TRUE) ~ "sloss",
+      (str_detect(edited, "la selva") == TRUE) ~ "la selva",
+      (str_detect(edited, "organization for tropical studies") == TRUE) ~ "ots",
+      (str_detect(edited, "las cruces") == TRUE) ~ "las cruces",
+      (str_detect(edited, "palo verde") == TRUE) ~ "palo verde",
+      (str_detect(edited, "guanacaste") == TRUE) ~ "guanacaste",
+      (str_detect(edited, "manu national") == TRUE) ~ "manu",
+      (str_detect(edited, "bci") == TRUE) ~ "bci",
+      (str_detect(edited, "republic of panama") == TRUE) ~ "panama",
+      (str_detect(edited, "cocha cashu") == TRUE) ~ "cocha cashu",
+      (str_detect(edited, "amazonian ecuador") == TRUE) ~ "ecuadorian amazon",
+      (str_detect(edited, "biological dynamics of forest fragments") == TRUE) ~ "bdffp",
+      edited == "rainforest (christmas island" ~ "rainforest (christmas island)",
+      edited == "plant interaction" ~ "plant-plant interaction",
+      edited == "ots" ~ "ots",
+      edited == "life table response experiment, ltre" ~ "ltre",
+      edited == "ltre analysis" ~ "ltre",
+      TRUE ~ as.character(edited)
+    ))
+
+
+  keywords$edited <- str_replace(keywords$edited, "behaviour", "behavior")
+  keywords$edited <- str_replace(keywords$edited, "colour", "color")
+  keywords$edited <- str_replace(keywords$edited, "harbour", "harbor")
+  keywords$edited <- str_replace(keywords$edited, "adultplants", "adult plant")
+  keywords$edited <- str_replace(keywords$edited, "insectivoresinsectivory", "insectivores/insectivory")
+  keywords$edited <- str_replace(keywords$edited, "densitydependence", "density dependence")
+  keywords$edited <- str_replace(keywords$edited, "moult", "molt")
+  keywords$edited <- str_replace(keywords$edited, "neighbour", "neighbor")
+  keywords$edited <- str_replace(keywords$edited, "signalling", "signaling")
+  keywords$edited <- str_replace(keywords$edited, "modelling", "modeling")
+  keywords$edited <- str_replace(keywords$edited, "ageing", "aging")
+  keywords$edited <- str_replace(keywords$edited, "defence", "defense")
+  keywords$edited <- str_replace(keywords$edited, "palaeogenetics","paleogenetics")
+  keywords$edited <- str_replace(keywords$edited, "caerulescens","caeruleseens")
+  keywords$edited <- str_replace(keywords$edited, "coelocmocytes","coelomocytes")
+  keywords$edited <- str_replace(keywords$edited, "palaeogenomics","paleogenomics")
+  keywords$edited <- str_replace(keywords$edited, "palaeotropics","paleotropics")
+  keywords$edited <- str_replace(keywords$edited, "psitacids","psittacids")
+  
+  keywords$edited <- str_replace(keywords$edited, "'", "")
+  keywords$edited <- str_replace(keywords$edited, "“", "")
+  keywords$edited <- str_replace(keywords$edited, "”", "")
+  keywords$edited <- str_replace(keywords$edited, "‘", "")
+  keywords$edited <- str_replace(keywords$edited, "’", "")
+  keywords$edited <- str_replace(keywords$edited, "“", "")
+  keywords$edited <- str_replace(keywords$edited, "’", "")
+  keywords$edited <- str_replace(keywords$edited, "[-]", " ")
+  keywords$edited <- str_replace(keywords$edited, "[.]", "")
+  keywords$edited <- str_replace(keywords$edited, "[.]", "")
+  keywords$edited <- str_replace(keywords$edited, "[.]", "")
+  # keywords$edited<-str_replace(keywords$edited,"[.]", "")
+  keywords$edited <- str_replace(keywords$edited, "[(]", "")
+  keywords$edited <- str_replace(keywords$edited, "[)]", "")
+  
+  # replace hyphens/emdash
+  
+  keywords$edited<-str_replace(keywords$edited,"–", "-")
+  keywords$edited<-str_replace(keywords$edited, "–", "-")
+  keywords$edited<-str_replace(keywords$edited, "/", "-")
+  keywords$edited<-str_replace(keywords$edited, " - ", "-")
+  
+  
+  
+  
+  
+  
+  
+  keywords$edited<-str_replace(keywords$edited, "trade off", "tradeoff")
+  keywords$edited<-str_replace(keywords$edited, "life history evolution", "life-history evolution")
+  keywords$edited<-str_replace(keywords$edited, "meta analysis", "metaanalysis")
+  keywords$edited<-str_replace(keywords$edited, "plant herbivore interactions", "plant-herbivore interaction")
+  # edited =="plant herbivore interactions"~"plant-herbivore interactions")
+  keywords$edited<-str_replace(keywords$edited, "predator prey interactions", "predator-prey interaction")
+  # edited =="predator prey interactions"~"predator-prey interactions")
+  keywords$edited<-str_replace(keywords$edited, "life history traits", "lifehistory trait")
+  # edited =="life history traits"~"life-history traits")
+  keywords$edited<-str_replace(keywords$edited, "plant insect interactions", "plant-insect interaction")
+  keywords$edited<-str_replace(keywords$edited, "self fertilization", "self-fertilization")
+  keywords$edited<-str_replace(keywords$edited, "home range", "homerange")
+  keywords$edited<-str_replace(keywords$edited, "frequency dependent selection", "frequency-dependent selection")
+  keywords$edited<-str_replace(keywords$edited, "predator prey", "predator-prey")
+  keywords$edited<-str_replace(keywords$edited, "phylogenetic comparative methods", "comparative phylogenetic method")
+  # edited =="phylogenetic comparative methods"~"comparative phylogenetic methods")
+  keywords$edited<-str_replace(keywords$edited, "plant soil belowground interactions", "plant-soil belowground interaction")
+  # edited =="plant soil belowground interactions"~"plant-soil belowground interactions")
+  keywords$edited<-str_replace(keywords$edited, "individual based model", "individual-based model")
+  keywords$edited<-str_replace(keywords$edited, "plant animal interactions", "plant-animal interactions")
+  keywords$edited<-str_replace(keywords$edited, "plant climate interactions", "plant-climate interactions")
+  keywords$edited<-str_replace(keywords$edited, "host parasite interactions", "host-parasite interactions")
+  keywords$edited<-str_replace(keywords$edited, "méxico", "mexico")
+  keywords$edited<-str_replace(keywords$edited, "salt marsh", "saltmarsh")
+  keywords$edited<-str_replace(keywords$edited, "plant plant interactions", "plant interactions")
+  keywords$edited<-str_replace(keywords$edited, "land use", "land-use")
+  keywords$edited<-str_replace(keywords$edited, "plant-herbivore interactions", "plant-herbivore interactions")
+  keywords$edited<-str_replace(keywords$edited, "host parasite interaction", "host-parasite interaction")
+  keywords$edited<-str_replace(keywords$edited, "capture recapture", "capture-recapture")
+  keywords$edited<-str_replace(keywords$edited, "plant diversity", "diversity plant")
+  keywords$edited<-str_replace(keywords$edited, "mark recapture", "mark-recapture")
+  keywords$edited<-str_replace(keywords$edited, "eco evolutionary dynamics", "eco-evolutionary dynamics")
+  keywords$edited<-str_replace(keywords$edited, "isolation by distance", "isolation-by-distance")
+  keywords$edited<-str_replace(keywords$edited, "top down control", "top-down control")
+  keywords$edited<-str_replace(keywords$edited, "life history trade-offs", "life-history tradeoffs")
+  keywords$edited<-str_replace(keywords$edited, "species area relationship", "species-area relationship")
+  keywords$edited<-str_replace(keywords$edited, "life span", "lifespan")
+  keywords$edited<-str_replace(keywords$edited, "genotype by-environment interaction", "gxe")
+  keywords$edited<-str_replace(keywords$edited, "plant functional traits", "functional plant traits")
+  keywords$edited<-str_replace(keywords$edited, "plant-plant interactions", "ant-plant interactions")
+  keywords$edited<-str_replace(keywords$edited, "predator prey interaction", "predator-prey interaction")
+  keywords$edited<-str_replace(keywords$edited, "janzen connell hypothesis", "janzen-connell hypothesis")
+  keywords$edited<-str_replace(keywords$edited, "el niño", "enso")
+  keywords$edited<-str_replace(keywords$edited, "host parasite coevolution", "host-parasite coevolution")
+  keywords$edited<-str_replace(keywords$edited, "long distance dispersal", "long-distance dispersal")
+  keywords$edited<-str_replace(keywords$edited, "parent offspring conflict", "parent-offspring conflict")
+  keywords$edited<-str_replace(keywords$edited, "insect plant interactions", "plant-insect interaction")
+  keywords$edited<-str_replace(keywords$edited, "tropical montane forest", "montane tropical forest")
+  keywords$edited<-str_replace(keywords$edited, "top down", "top-down")
+  keywords$edited<-str_replace(keywords$edited, "host parasite", "host-parasite")
+  keywords$edited<-str_replace(keywords$edited, "co evolution", "coevolution")
+  keywords$edited<-str_replace(keywords$edited, "host pathogen interactions", "host-pathogen interactions")
+  keywords$edited<-str_replace(keywords$edited, "old growth forest", "old-growth forest")
+  keywords$edited<-str_replace(keywords$edited, "stage structure", "age-stage structure")
+  keywords$edited<-str_replace(keywords$edited, "ant plant interactions", "ant-plant interactions")
+  keywords$edited<-str_replace(keywords$edited, "male male competition", "male-male competition")
+  keywords$edited<-str_replace(keywords$edited, "plant soil feedback", "plant-soil feedback")
+  keywords$edited<-str_replace(keywords$edited, "predator prey dynamics", "predator-prey dynamics")
+  keywords$edited<-str_replace(keywords$edited, "co occurrence", "cooccurrence")
+  keywords$edited<-str_replace(keywords$edited, "population genetic structure", "genetic population structure")
+  keywords$edited<-str_replace(keywords$edited, "predator-prey interactions", "predator-prey interactions")
+  keywords$edited<-str_replace(keywords$edited, "plant herbivore interaction", "plant-herbivore interaction")
+  keywords$edited<-str_replace(keywords$edited, "plant insect interaction", "insect-plant interaction")
+  keywords$edited<-str_replace(keywords$edited, "state space model", "state-space model")
+  keywords$edited<-str_replace(keywords$edited, "15 n", "15n")
+  keywords$edited<-str_replace(keywords$edited, "artemisia tridentata", "artemisia tridentate")
+  keywords$edited<-str_replace(keywords$edited, "biodiversity ecosystem functioning", "biodiversity-ecosystem functioning")
+  keywords$edited<-str_replace(keywords$edited, "elevated co 2", "elevated co2")
+  keywords$edited<-str_replace(keywords$edited, "f st", "fst")
+  keywords$edited<-str_replace(keywords$edited, "poeciliidae", "poeciilidae")
+  keywords$edited<-str_replace(keywords$edited, "life history trade-off", "life-history trade-off")
+  keywords$edited<-str_replace(keywords$edited, "plant animal interaction", "plant-animal interaction")
+  keywords$edited<-str_replace(keywords$edited, "resources", "resource")
+  keywords$edited<-str_replace(keywords$edited, "self organization", "self-organization")
+  keywords$edited<-str_replace(keywords$edited, "source sink", "source-sink")
+  keywords$edited<-str_replace(keywords$edited, "biodiversity hotspot", "biodiversity hotspots")
+  keywords$edited<-str_replace(keywords$edited, "el niño southern oscillation", "enso")
+  keywords$edited<-str_replace(keywords$edited, "extra pair paternity", "extrapair paternity")
+  keywords$edited<-str_replace(keywords$edited, "phylogenetic comparative method", "comparative phylogenetic method")
+  keywords$edited<-str_replace(keywords$edited, "plant pollinator interactions", "plant-pollinator interactions")
+  keywords$edited<-str_replace(keywords$edited, "alces alces", "alces")
+  keywords$edited<-str_replace(keywords$edited, "life table response experiments", "life-table response experiments")
+  keywords$edited<-str_replace(keywords$edited, "long term monitoring", "long-term monitoring")
+  keywords$edited<-str_replace(keywords$edited, "plant-soil interactions", "plant-soil interactions")
+  keywords$edited<-str_replace(keywords$edited, "radio tracking", "radiotracking")
+  keywords$edited<-str_replace(keywords$edited, "scatter hoarding", "scatterhoarding")
+  keywords$edited<-str_replace(keywords$edited, "selection natural", "natural selection")
+  keywords$edited<-str_replace(keywords$edited, "species distribution modeling", "modeling species distribution")
+  keywords$edited<-str_replace(keywords$edited, "tropical eastern pacific", "eastern tropical pacific")
+  keywords$edited<-str_replace(keywords$edited, "leaf life span", "leaf lifespan")
+  keywords$edited<-str_replace(keywords$edited, "long term data", "long-term data")
+  keywords$edited<-str_replace(keywords$edited, "plant soil interactions", "plant-soil interactions")
+  keywords$edited<-str_replace(keywords$edited, "plant-animal interactions", "plant-animal interactions")
+  keywords$edited<-str_replace(keywords$edited, "trait mediated indirect interactions", "indirect trait mediated interactions")
+  keywords$edited<-str_replace(keywords$edited, "biodiversity ecosystem function", "biodiversity-ecosystem function")
+  keywords$edited<-str_replace(keywords$edited, "bird song", "birdsong")
+  keywords$edited<-str_replace(keywords$edited, "enemy free space", "enemy-free space")
+  keywords$edited<-str_replace(keywords$edited, "evo devo", "evo-devo")
+  keywords$edited<-str_replace(keywords$edited, "negative frequency dependent selection", "negative frequency-dependent selection")
+  keywords$edited<-str_replace(keywords$edited, "non timber forest products", "nontimber forest products")
+  keywords$edited<-str_replace(keywords$edited, "semi arid", "semiarid")
+  keywords$edited<-str_replace(keywords$edited, "co 2", "co2")
+  keywords$edited<-str_replace(keywords$edited, "plant soil feedbacks", "plant-soil feedbacks")
+  keywords$edited<-str_replace(keywords$edited, "plant-pollinator interactions", "plant-pollinator interactions")
+  keywords$edited<-str_replace(keywords$edited, "radio telemetry", "radiotelemetry")
+  keywords$edited<-str_replace(keywords$edited, "south east asia", "southeast asia")
+  keywords$edited<-str_replace(keywords$edited, "tree line", "treeline")
+  keywords$edited<-str_replace(keywords$edited, "ant plant mutualism", "ant-plant mutualism")
+  keywords$edited<-str_replace(keywords$edited, "giving up density", "giving-up density")
+  keywords$edited<-str_replace(keywords$edited, "janzen-connell hypothesis", "janzen-connell hypothesis")
+  keywords$edited<-str_replace(keywords$edited, "spatiotemporal variation", "spatio-temporal variation")
+  keywords$edited<-str_replace(keywords$edited, "agent based model", "agent-based model")
+  keywords$edited<-str_replace(keywords$edited, "bumble bee", "bumblebee")
+  keywords$edited<-str_replace(keywords$edited, "consumer resource interactions", "consumer-resource interactions")
+  keywords$edited<-str_replace(keywords$edited, "galápagos", "galapagos")
+  keywords$edited<-str_replace(keywords$edited, "gene for-gene", "gene-for-gene")
+  keywords$edited<-str_replace(keywords$edited, "plant microbe interactions", "plant-microbe interactions")
+  keywords$edited<-str_replace(keywords$edited, "plant pathogen interactions", "plant-pathogen interactions")
+  keywords$edited<-str_replace(keywords$edited, "plant-insect interactions", "plant-insect interaction")
+  keywords$edited<-str_replace(keywords$edited, "genotype by-environment interactions", "gxe")
+  keywords$edited<-str_replace(keywords$edited, "gonadosomatic index", "gonado-somatic index")
+  keywords$edited<-str_replace(keywords$edited, "host-parasite interactions", "host-parasite interactions")
+  keywords$edited<-str_replace(keywords$edited, "invasive alien species", "alien invasive species")
+  keywords$edited<-str_replace(keywords$edited, "stingless bees", "stingless bee")
+  keywords$edited<-str_replace(keywords$edited, "biodiversity-ecosystem functioning", "biodiversity-ecosystem functioning")
+  keywords$edited<-str_replace(keywords$edited, "host parasitoid interactions", "host-parasitoid interactions")
+  keywords$edited<-str_replace(keywords$edited, "plant pollinator interaction", "plant-pollinator interaction")
+  keywords$edited<-str_replace(keywords$edited, "plant secondary metabolites", "secondary plant metabolites")
+  keywords$edited<-str_replace(keywords$edited, "temperature dependent sex determination", "temperature-dependent sex determination")
+  keywords$edited<-str_replace(keywords$edited, "tri trophic interactions", "tritrophic interactions")
+  keywords$edited<-str_replace(keywords$edited, "anti predator behavior", "antipredator behavior")
+  keywords$edited<-str_replace(keywords$edited, "consumer resource dynamics", "consumer-resource dynamics")
+  keywords$edited<-str_replace(keywords$edited, "dry tropical forest", "tropical dry forest")
+  keywords$edited<-str_replace(keywords$edited, "host pathogen interaction", "host-pathogen interaction")
+  keywords$edited<-str_replace(keywords$edited, "multi trophic interactions", "multitrophic interactions")
+  keywords$edited<-str_replace(keywords$edited, "post copulatory sexual selection", "postcopulatory sexual selection")
+  keywords$edited<-str_replace(keywords$edited, "post zygotic isolation", "postzygotic isolation")
+  keywords$edited<-str_replace(keywords$edited, "pre dispersal seed predation", "predispersal seed predation")
+  keywords$edited<-str_replace(keywords$edited, "predator prey model", "predator-prey model")
+  keywords$edited<-str_replace(keywords$edited, "predator-prey interaction", "predator-prey interaction")
+  keywords$edited<-str_replace(keywords$edited, "várzea", "varzea")
+  keywords$edited<-str_replace(keywords$edited, "alternate stable states", "alternate stable state")
+  keywords$edited<-str_replace(keywords$edited, "co infection", "coinfection")
+  keywords$edited<-str_replace(keywords$edited, "insect plant interaction", "insect-plant interaction")
+  keywords$edited<-str_replace(keywords$edited, "isolation by-distance", "isolation-by-distance")
+  keywords$edited<-str_replace(keywords$edited, "müllerian mimicry", "mullerian mimicry")
+  keywords$edited<-str_replace(keywords$edited, "non native species", "nonnative species")
+  keywords$edited<-str_replace(keywords$edited, "phylogenetic comparative analysis", "comparative phylogenetic analysis")
+  keywords$edited<-str_replace(keywords$edited, "predator-prey", "predator-prey")
+  keywords$edited<-str_replace(keywords$edited, "resource pulses", "resource pulse")
+  keywords$edited<-str_replace(keywords$edited, "species tree", "tree species")
+  keywords$edited<-str_replace(keywords$edited, "trait mediated indirect interaction", "trait-mediated indirect interaction")
+  keywords$edited<-str_replace(keywords$edited, "within host dynamics", "within-host dynamics")
+  keywords$edited<-str_replace(keywords$edited, "distance decay", "distance-decay")
+  keywords$edited<-str_replace(keywords$edited, "eco evolutionary feedback", "ecoevolutionary feedback")
+  keywords$edited<-str_replace(keywords$edited, "floodplain forest", "flood plain forest")
+  keywords$edited<-str_replace(keywords$edited, "genotype by environment interaction", "gxe")
+  keywords$edited<-str_replace(keywords$edited, "life history trade offs", "life-history tradeoffs")
+  keywords$edited<-str_replace(keywords$edited, "non consumptive effects", "nonconsumptive effects")
+  keywords$edited<-str_replace(keywords$edited, "plant-herbivore interaction", "plant-herbivore interaction")
+  keywords$edited<-str_replace(keywords$edited, "sexual signals", "sexual signal")
+  keywords$edited<-str_replace(keywords$edited, "species co occurrence", "species cooccurrence")
+  keywords$edited<-str_replace(keywords$edited, "bayesian hierarchical model", "hierarchical bayesian model")
+  keywords$edited<-str_replace(keywords$edited, "bumble bees", "bumblebees")
+  keywords$edited<-str_replace(keywords$edited, "correlated response", "correlated responses")
+  keywords$edited<-str_replace(keywords$edited, "el nino", "enso")
+  keywords$edited<-str_replace(keywords$edited, "life history trade off", "life-history trade-off")
+  keywords$edited<-str_replace(keywords$edited, "non additive effects", "nonadditive effects")
+  keywords$edited<-str_replace(keywords$edited, "plant-pathogen interactions", "plant-pathogen interactions")
+  keywords$edited<-str_replace(keywords$edited, "radseq", "rad seq")
+  keywords$edited<-str_replace(keywords$edited, "rattus rattus", "rattus")
+  keywords$edited<-str_replace(keywords$edited, "signaling-courtship", "signaling-courtship")
+  keywords$edited<-str_replace(keywords$edited, "yucatán", "yucatan")
+  keywords$edited<-str_replace(keywords$edited, "anti herbivore defense", "antiherbivore defense")
+  keywords$edited<-str_replace(keywords$edited, "côte divoire", "ivory coast")
+  keywords$edited<-str_replace(keywords$edited, "eastern himalaya", "eastern himalayas")
+  keywords$edited<-str_replace(keywords$edited, "host pathogen", "host-pathogen")
+  keywords$edited<-str_replace(keywords$edited, "host-parasite interaction", "host-parasite interaction")
+  keywords$edited<-str_replace(keywords$edited, "human wildlife conflict", "human-wildlife conflict")
+  keywords$edited<-str_replace(keywords$edited, "long term", "longterm")
+  keywords$edited<-str_replace(keywords$edited, "lotka volterra", "lotka-volterra")
+  keywords$edited<-str_replace(keywords$edited, "n 15", "15n")
+  
+  
+  keywords$edited<-str_replace(keywords$edited, "non structural carbohydrates", "nonstructural carbohydrates")
+  keywords$edited<-str_replace(keywords$edited, "ornstein uhlenbeck", "ornstein-uhlenbeck")
+  keywords$edited<-str_replace(keywords$edited, "pair correlation function", "pair-correlation function")
+  keywords$edited<-str_replace(keywords$edited, "pesticides", "pesticide")
+  keywords$edited<-str_replace(keywords$edited, "post dispersal seed predation", "postdispersal seed predation")
+  keywords$edited<-str_replace(keywords$edited, "queen worker conflict", "queen-worker conflict")
+  keywords$edited<-str_replace(keywords$edited, "species area relationships", "species-area relationships")
+  keywords$edited<-str_replace(keywords$edited, "stable carbon isotopes", "carbon stable isotopes")
+  keywords$edited<-str_replace(keywords$edited, "wet tropical forest", "tropical wet forest")
+  keywords$edited<-str_replace(keywords$edited, "aboveground belowground interactions", "aboveground-belowground interactions")
+  keywords$edited<-str_replace(keywords$edited, "aboveground-belowground interactions", "aboveground-belowground interactions")
+  keywords$edited<-str_replace(keywords$edited, "consumer resource interaction", "consumer-resource interactions")
+  keywords$edited<-str_replace(keywords$edited, "dead wood", "deadwood")
+  keywords$edited<-str_replace(keywords$edited, "density mediated indirect interactions", "density-mediated indirect interactions")
+  keywords$edited<-str_replace(keywords$edited, "ecoimmunology", "eco immunology")
+  keywords$edited<-str_replace(keywords$edited, "evolutionary transitions", "evolutionary transition")
+  keywords$edited<-str_replace(keywords$edited, "forest tundra", "forest-tundra")
+  keywords$edited<-str_replace(keywords$edited, "honey bee", "honeybee")
+  keywords$edited<-str_replace(keywords$edited, "host feeding", "host-feeding")
+  keywords$edited<-str_replace(keywords$edited, "leaf fall", "leaf-fall")
+  keywords$edited<-str_replace(keywords$edited, "lotka volterra model", "lotka-volterra model")
+  keywords$edited<-str_replace(keywords$edited, "male competition", "male-male competition")
+  keywords$edited<-str_replace(keywords$edited, "marine reserves", "marine reserve")
+  keywords$edited<-str_replace(keywords$edited, "meta ecosystem", "metaecosystem")
+  keywords$edited<-str_replace(keywords$edited, "non native", "nonnative")
+  keywords$edited<-str_replace(keywords$edited, "ornstein uhlenbeck model", "ornstein-uhlenbeck model")
+  keywords$edited<-str_replace(keywords$edited, "safe sites", "safe site")
+  keywords$edited<-str_replace(keywords$edited, "slash and-burn agriculture", "slash and burn agriculture")
+  keywords$edited<-str_replace(keywords$edited, "stage structured models", "stage-structured models")
+  keywords$edited<-str_replace(keywords$edited, "time lag", "lag time")
+  keywords$edited<-str_replace(keywords$edited, "tree fall gaps", "treefall gaps")
+  keywords$edited<-str_replace(keywords$edited, "tropical soils", "tropical soil")
+  keywords$edited<-str_replace(keywords$edited, "yasuní national park", "yasuni")
+  keywords$edited<-str_replace(keywords$edited, "yasuni national park", "yasuni")
+  keywords$edited<-str_replace(keywords$edited, "bison bison", "bison")
+  keywords$edited<-str_replace(keywords$edited, "capture-mark-recapture", "capture mark-recapture")
+  keywords$edited<-str_replace(keywords$edited, "carry over effect", "carryover effect")
+  keywords$edited<-str_replace(keywords$edited, "competition colonization trade-off", "competition-colonization trade-off")
+  keywords$edited<-str_replace(keywords$edited, "consumer resource model", "consumer-resource model")
+  keywords$edited<-str_replace(keywords$edited, "cormack jolly-seber model", "cormack-jolly-seber model")
+  keywords$edited<-str_replace(keywords$edited, "cost benefit analysis", "cost-benefit analysis")
+  keywords$edited<-str_replace(keywords$edited, "critical transitions", "critical transition")
+  keywords$edited<-str_replace(keywords$edited, "eco evolutionary feedbacks", "eco-evolutionary feedbacks")
+  keywords$edited<-str_replace(keywords$edited, "food resources", "food resource")
+  keywords$edited<-str_replace(keywords$edited, "forest types", "forest type")
+  keywords$edited<-str_replace(keywords$edited, "honey bees", "honeybees")
+  keywords$edited<-str_replace(keywords$edited, "host parasite dynamics", "host-parasite dynamics")
+  keywords$edited<-str_replace(keywords$edited, "host pathogen dynamics", "host-pathogen dynamics")
+  keywords$edited<-str_replace(keywords$edited, "host shifts", "host shift")
+  keywords$edited<-str_replace(keywords$edited, "host-pathogen interactions", "host-pathogen interactions")
+  keywords$edited<-str_replace(keywords$edited, "leaf miner", "leafminer")
+  keywords$edited<-str_replace(keywords$edited, "mixed grass prairie", "mixed-grass prairie")
+  keywords$edited<-str_replace(keywords$edited, "panamá", "panama")
+  keywords$edited<-str_replace(keywords$edited, "predator prey system", "prey-predator system")
+  keywords$edited<-str_replace(keywords$edited, "predator-prey dynamics", "predator-prey dynamics")
+  keywords$edited<-str_replace(keywords$edited, "presence absence", "presence-absence")
+  keywords$edited<-str_replace(keywords$edited, "páramo", "paramo")
+  keywords$edited<-str_replace(keywords$edited, "q st", "qst")
+  keywords$edited<-str_replace(keywords$edited, "selection experimental", "experimental selection")
+  # keywords$edited<-str_replace(keywords$edited, "size structured populations", "size-structured populations")
+  keywords$edited<-str_replace(keywords$edited, "soil resources", "soil resource")
+  keywords$edited<-str_replace(keywords$edited, "spatial capture-recapture", "spatial capture-recapture")
+  keywords$edited<-str_replace(keywords$edited, "species abundance distributions", "species-abundance distributions")
+  keywords$edited<-str_replace(keywords$edited, "species area", "species-area")
+  keywords$edited<-str_replace(keywords$edited, "species area curve", "species-area curve")
+  keywords$edited<-str_replace(keywords$edited, "species area curves", "species-area curve")
+  keywords$edited<-str_replace(keywords$edited, "tree grass interactions", "tree-grass interactions")
+  keywords$edited<-str_replace(keywords$edited, "tri trophic interaction", "tritrophic interaction")
+  keywords$edited<-str_replace(keywords$edited, "tropical lowland rainforest", "lowland tropical rainforest")
+  keywords$edited<-str_replace(keywords$edited, "above ground biomass", "aboveground biomass")
+  keywords$edited<-str_replace(keywords$edited, "allocation trade offs", "allocation tradeoffs")
+  keywords$edited<-str_replace(keywords$edited, "ancestral states", "ancestral state")
+  keywords$edited<-str_replace(keywords$edited, "bayesian hierarchical models", "hierarchical bayesian models")
+  keywords$edited<-str_replace(keywords$edited, "behavioral responses", "behavioral response")
+  keywords$edited<-str_replace(keywords$edited, "benthic pelagic coupling", "benthic-pelagic coupling")
+  keywords$edited<-str_replace(keywords$edited, "bio logging", "biologging")
+  keywords$edited<-str_replace(keywords$edited, "birth weight", "birthweight")
+  
+  
+  keywords$edited<-str_replace(keywords$edited, "consumer resource", "consumer-resource")
+  keywords$edited<-str_replace(keywords$edited, "deer mice", "deermice")
+  keywords$edited<-str_replace(keywords$edited, "el nino southern oscillation", "enso")
+  keywords$edited<-str_replace(keywords$edited, "fast slow continuum", "fast-slow continuum")
+  keywords$edited<-str_replace(keywords$edited, "forest fires", "forest fire")
+  keywords$edited<-str_replace(keywords$edited, "geographic information system gis", "gis")
+  keywords$edited<-str_replace(keywords$edited, "heterozygosity fitness correlation", "heterozygosity-fitness correlation")
+  keywords$edited<-str_replace(keywords$edited, "host parasitoid", "host-parasitoid")
+  keywords$edited<-str_replace(keywords$edited, "leaf functional traits", "functional leaf traits")
+  keywords$edited<-str_replace(keywords$edited, "length weight relationship", "length-weight relationship")
+  keywords$edited<-str_replace(keywords$edited, "parasite host interactions", "host-parasite interactions")
+  keywords$edited<-str_replace(keywords$edited, "perú", "peru")
+  keywords$edited<-str_replace(keywords$edited, "post fledging survival", "postfledging survival")
+  keywords$edited<-str_replace(keywords$edited, "range expansions", "range expansion")
+  keywords$edited<-str_replace(keywords$edited, "reproductive trade offs", "reproductive tradeoffs")
+  keywords$edited<-str_replace(keywords$edited, "selection sexual", "sexual selection")
+  keywords$edited<-str_replace(keywords$edited, "semi deciduous forest", "semideciduous forest")
+  keywords$edited<-str_replace(keywords$edited, "spatio temporal variation", "spatio-temporal variation")
+  keywords$edited<-str_replace(keywords$edited, "above belowground interactions", "above-belowground interactions")
+  keywords$edited<-str_replace(keywords$edited, "allochthonous resources", "allochthonous resource")
+  keywords$edited<-str_replace(keywords$edited, "alpine tree line", "alpine treeline")
+  keywords$edited<-str_replace(keywords$edited, "ant-plant interactions", "ant-plant interactions")
+  keywords$edited<-str_replace(keywords$edited, "aquatic terrestrial linkages", "terrestrial-aquatic linkages")
+  keywords$edited<-str_replace(keywords$edited, "by catch", "bycatch")
+  keywords$edited<-str_replace(keywords$edited, "carbon nutrient balance", "c:n balance")
+  keywords$edited<-str_replace(keywords$edited, "co adaptation", "coadaptation")
+  keywords$edited<-str_replace(keywords$edited, "co existence", "coexistence")
+  keywords$edited<-str_replace(keywords$edited, "co limitation", "colimitation")
+  keywords$edited<-str_replace(keywords$edited, "condition dependent dispersal", "condition-dependent dispersal")
+  keywords$edited<-str_replace(keywords$edited, "epichloë", "epichloe")
+  keywords$edited<-str_replace(keywords$edited, "evolution of co operation", "evolution of cooperation")
+  keywords$edited<-str_replace(keywords$edited, "f  st", "fst")
+  keywords$edited<-str_replace(keywords$edited, "g x e", "gxe")
+  keywords$edited<-str_replace(keywords$edited, "genotype by-genotype interactions", "gxe")
+  keywords$edited<-str_replace(keywords$edited, "genotyping by-sequencing", "genotyping by sequencing")
+  keywords$edited<-str_replace(keywords$edited, "helpers at-the-nest", "helpers at the nest")
+  keywords$edited<-str_replace(keywords$edited, "host parasitoid dynamics", "host-parasitoid dynamics")
+  keywords$edited<-str_replace(keywords$edited, "host-parasite", "host-parasite")
+  keywords$edited<-str_replace(keywords$edited, "hotspot", "hotspots")
+  keywords$edited<-str_replace(keywords$edited, "life stages", "life stage")
+  keywords$edited<-str_replace(keywords$edited, "long distance migration", "long-distance migration")
+  keywords$edited<-str_replace(keywords$edited, "major transitions", "major transition")
+  keywords$edited<-str_replace(keywords$edited, "mark release-recapture", "mark-release-recapture")
+  keywords$edited<-str_replace(keywords$edited, "mark-recapture", "mark-recapture")
+  keywords$edited<-str_replace(keywords$edited, "menidia menidia", "menidia")
+  keywords$edited<-str_replace(keywords$edited, "p st", "pst")
+  keywords$edited<-str_replace(keywords$edited, "pace of-life", "pace of life")
+  keywords$edited<-str_replace(keywords$edited, "plant-animal interaction", "plant-animal interaction")
+  # keywords$edited<-str_replace(keywords$edited, "r", "r* theory")
+  keywords$edited<-str_replace(keywords$edited, "r and k-selection", "r and k selection")
+  keywords$edited<-str_replace(keywords$edited, "r\\* theory", "rstar theory")
+  keywords$edited<-str_replace(keywords$edited, "r\\* rule", "rstar rule")
+  keywords$edited<-str_replace(keywords$edited, "r\\*", "rstar theory")
+  keywords$edited<-str_replace(keywords$edited, "regional species pool", "regional species pools")
+  keywords$edited<-str_replace(keywords$edited, "rutilus rutilus", "rutilus")
+  keywords$edited<-str_replace(keywords$edited, "sea stars", "seastars")
+  keywords$edited<-str_replace(keywords$edited, "semi arid ecosystem", "semiarid ecosystem")
+  keywords$edited<-str_replace(keywords$edited, "space for-time substitution", "space-for-time substitution")
+  keywords$edited<-str_replace(keywords$edited, "species assemblages", "species assemblage")
+  keywords$edited<-str_replace(keywords$edited, "species ranges", "species range")
+  keywords$edited<-str_replace(keywords$edited, "trait mediated interaction", "trait-mediated interaction")
+  keywords$edited<-str_replace(keywords$edited, "tropical semi deciduous forest", "tropical semideciduous forest")
+  keywords$edited<-str_replace(keywords$edited, "vulpes vulpes", "vulpes")
+  keywords$edited<-str_replace(keywords$edited, "aboveground belowground linkages", "aboveground-belowground linkages")
+  keywords$edited<-str_replace(keywords$edited, "agro ecosystem", "agroecosystem")
+  keywords$edited<-str_replace(keywords$edited, "ant aphid mutualism", "ant-aphid mutualism")
+  keywords$edited<-str_replace(keywords$edited, "carbon nutrient balance hypothesis", "carbon:nutrient balance hypothesis")
+  keywords$edited<-str_replace(keywords$edited, "consumer-resource interactions", "consumer-resource interactions")
+  keywords$edited<-str_replace(keywords$edited, "curaçao", "curacao")
+  keywords$edited<-str_replace(keywords$edited, "developmental mode", "developmental model")
+  keywords$edited<-str_replace(keywords$edited, "diversity-productivity relationship", "diversity-productivity relationship")
+  keywords$edited<-str_replace(keywords$edited, "female competition", "female-female competition")
+  keywords$edited<-str_replace(keywords$edited, "genotype by environment", "gxe")
+  keywords$edited<-str_replace(keywords$edited, "gxe interaction", "gxe")
+  keywords$edited<-str_replace(keywords$edited, "habitat shifts", "habitat shift")
+  keywords$edited<-str_replace(keywords$edited, "hill robertson interference", "hill-robertson interference")
+  keywords$edited<-str_replace(keywords$edited, "host-microbe interactions", "host-microbe interactions")
+  keywords$edited<-str_replace(keywords$edited, "igapó", "igapo")
+  keywords$edited<-str_replace(keywords$edited, "individual based simulation", "individual-based simulation")
+  keywords$edited<-str_replace(keywords$edited, "insect plant relationships", "insect-plant relationships")
+  keywords$edited<-str_replace(keywords$edited, "insect-plant interactions", "insect-plant interactions")
+  keywords$edited<-str_replace(keywords$edited, "isolation by environment", "isolation-by-environment")
+  keywords$edited<-str_replace(keywords$edited, "leafminers", "leaf miners")
+  keywords$edited<-str_replace(keywords$edited, "limiting resources", "limiting resource")
+  
+  
+  keywords$edited<-str_replace(keywords$edited, "lévy flight", "levy flight")
+  keywords$edited<-str_replace(keywords$edited, "lévy walk", "levy walk")
+  keywords$edited<-str_replace(keywords$edited, "meta community", "metacommunity")
+  keywords$edited<-str_replace(keywords$edited, "micro organisms", "microorganisms")
+  keywords$edited<-str_replace(keywords$edited, "multistate mark recapture", "multistate capture mark-recapture")
+  keywords$edited<-str_replace(keywords$edited, "mus musculus musculus", "mus musculus")
+  keywords$edited<-str_replace(keywords$edited, "non breeding season", "nonbreeding season")
+  keywords$edited<-str_replace(keywords$edited, "non equilibrium", "nonequilibrium")
+  keywords$edited<-str_replace(keywords$edited, "non indigenous", "nonindigenous")
+  keywords$edited<-str_replace(keywords$edited, "non lethal effects", "nonlethal effects")
+  keywords$edited<-str_replace(keywords$edited, "north east india", "northeast india")
+  keywords$edited<-str_replace(keywords$edited, "parasite interactions", "parasite-parasite interactions")
+  keywords$edited<-str_replace(keywords$edited, "plant plant interaction", "plant-plant interaction")
+  keywords$edited<-str_replace(keywords$edited, "plant pollinator network", "plant-pollinator network")
+  keywords$edited<-str_replace(keywords$edited, "plant soil interaction", "plant-soil interaction")
+  keywords$edited<-str_replace(keywords$edited, "post copulatory", "post-copulatory")
+  keywords$edited<-str_replace(keywords$edited, "predator prey theory", "predator-prey theory")
+  keywords$edited<-str_replace(keywords$edited, "presence absence data", "presence-absence data")
+  keywords$edited<-str_replace(keywords$edited, "pungitius pungitius", "pungitius")
+  keywords$edited<-str_replace(keywords$edited, "robertson price identity", "robertson-price identity")
+  keywords$edited<-str_replace(keywords$edited, "selection  natural", "natural selection")
+  keywords$edited<-str_replace(keywords$edited, "selection group-kin", "group-kin selection  ")
+  keywords$edited<-str_replace(keywords$edited, "semi arid savanna", "semiarid savanna")
+  keywords$edited<-str_replace(keywords$edited, "slow fast continuum", "fast-slow continuum")
+  keywords$edited<-str_replace(keywords$edited, "soil borne pathogens", "soilborne pathogens")
+  keywords$edited<-str_replace(keywords$edited, "spatial capture recapture", "spatial capture-recapture")
+  keywords$edited<-str_replace(keywords$edited, "spatially explicit capture recapture", "spatially explicit capture-recapture")
+  keywords$edited<-str_replace(keywords$edited, "sub arctic", "subarctic")
+  keywords$edited<-str_replace(keywords$edited, "successional stages", "successional stage")
+  # keywords$edited<-str_replace(keywords$edited, "temperature-size rule", "temperature size rule")
+  keywords$edited<-str_replace(keywords$edited, "trivers willard hypothesis", "trivers-willard hypothesis")
+  keywords$edited<-str_replace(keywords$edited, "tropical seasonal forest", "seasonal tropical forest")
+  keywords$edited<-str_replace(keywords$edited, "visual signals", "visual signal")
+  keywords$edited<-str_replace(keywords$edited, "waste water", "wastewater")
+  keywords$edited<-str_replace(keywords$edited, "15 n isotope", "15n isotope")
+  keywords$edited<-str_replace(keywords$edited, "abundance distribution", "distribution-abundance")
+  keywords$edited<-str_replace(keywords$edited, "animal plant interactions", "plant-animal interactions")
+  keywords$edited<-str_replace(keywords$edited, "arid lands", "aridlands")
+  keywords$edited<-str_replace(keywords$edited, "bio indicator", "bioindicator")
+  keywords$edited<-str_replace(keywords$edited, "boosted regression trees", "boosted regression tree")
+  keywords$edited<-str_replace(keywords$edited, "cave fish", "cavefish")
+  keywords$edited<-str_replace(keywords$edited, "chocó", "choco")
+  keywords$edited<-str_replace(keywords$edited, "community phylogenetic structure", "phylogenetic community structure")
+  keywords$edited<-str_replace(keywords$edited, "compensatory mutations", "compensatory mutation")
+  keywords$edited<-str_replace(keywords$edited, "competition colonization", "competition-colonization")
+  keywords$edited<-str_replace(keywords$edited, "condensed tannin", "condensed tannins")
+  keywords$edited<-str_replace(keywords$edited, "cormack jolly-seber", "cormack-jolly-seber")
+  keywords$edited<-str_replace(keywords$edited, "cost benefit", "cost-benefit")
+  keywords$edited<-str_replace(keywords$edited, "counter gradient variation", "countergradient variation")
+  keywords$edited<-str_replace(keywords$edited, "creosotebush", "creosote bush")
+  keywords$edited<-str_replace(keywords$edited, "ctmax", "ct max")
+  keywords$edited<-str_replace(keywords$edited, "data integration for population models special feature", "special feature: data integration for population models")
+  keywords$edited<-str_replace(keywords$edited, "dispersal vectors", "dispersal vector")
+  keywords$edited<-str_replace(keywords$edited, "diversity stability", "diversity-stability")
+  keywords$edited<-str_replace(keywords$edited, "drip tips", "driptips")
+  
+  
+  keywords$edited<-str_replace(keywords$edited, "el niño southern oscillation enso", "enso")
+  keywords$edited<-str_replace(keywords$edited, "el niño-southern oscillation", "enso")
+  keywords$edited<-str_replace(keywords$edited, "environmental stress models", "environmental stress model")
+  keywords$edited<-str_replace(keywords$edited, "extra pair fertilization", "extrapair fertilization")
+  keywords$edited<-str_replace(keywords$edited, "extreme climate", "climate extreme")
+  keywords$edited<-str_replace(keywords$edited, "functional responses", "functional response")
+  keywords$edited<-str_replace(keywords$edited, "g x e", "gxe")
+  keywords$edited<-str_replace(keywords$edited, "galápagos islands", "galapagos islands")
+  keywords$edited<-str_replace(keywords$edited, "gene for gene", "gene-for-gene")
+  keywords$edited<-str_replace(keywords$edited, "genotype phenotype map", "genotype-phenotype map")
+  keywords$edited<-str_replace(keywords$edited, "gorilla gorilla gorilla", "gorilla")
+  keywords$edited<-str_replace(keywords$edited, "growth defense trade-off", "growth-defense tradeoff")
+  keywords$edited<-str_replace(keywords$edited, "heat wave", "heatwave")
+  keywords$edited<-str_replace(keywords$edited, "host parasite system", "host-parasite system")
+  keywords$edited<-str_replace(keywords$edited, "host-parasitoid interactions", "host-parasitoid interactions")
+  keywords$edited<-str_replace(keywords$edited, "human-elephant conflict", "human-elephant conflict")
+  keywords$edited<-str_replace(keywords$edited, "hydrography", "hydrograph")
+  keywords$edited<-str_replace(keywords$edited, "induced responses", "induced response")
+  keywords$edited<-str_replace(keywords$edited, "kernel density", "density kernel")
+  keywords$edited<-str_replace(keywords$edited, "life history tradeoffs", "life-history tradeoffs")
+  keywords$edited<-str_replace(keywords$edited, "lychnis flos cuculi", "lychnis floscuculi")
+  keywords$edited<-str_replace(keywords$edited, "macro evolution", "macroevolution")
+  keywords$edited<-str_replace(keywords$edited, "male-male competition", "male-male competition")
+  keywords$edited<-str_replace(keywords$edited, "mark recapture models", "capture mark-recapture models")
+  keywords$edited<-str_replace(keywords$edited, "mark resight", "mark-resight")
+  keywords$edited<-str_replace(keywords$edited, "marmota marmota", "marmota")
+  keywords$edited<-str_replace(keywords$edited, "mercenaria mercenaria", "mercenaria")
+  keywords$edited<-str_replace(keywords$edited, "meta regression", "metaregression")
+  keywords$edited<-str_replace(keywords$edited, "moist tropical forest", "tropical moist forest")
+  keywords$edited<-str_replace(keywords$edited, "multi host pathogens", "multihost pathogens")
+  keywords$edited<-str_replace(keywords$edited, "non consumptive effect", "nonconsumptive effect")
+  keywords$edited<-str_replace(keywords$edited, "non trophic interactions", "nontrophic interactions")
+  keywords$edited<-str_replace(keywords$edited, "paraná river", "parana river")
+  keywords$edited<-str_replace(keywords$edited, "plant water relations", "plant-water relations")
+  keywords$edited<-str_replace(keywords$edited, "plant-insect interaction", "plant-insect interaction")
+  keywords$edited<-str_replace(keywords$edited, "pre adaptation", "preadaptation")
+  keywords$edited<-str_replace(keywords$edited, "prey predator interactions", "predator-prey interactions")
+  keywords$edited<-str_replace(keywords$edited, "projection matrix model", "matrix projection model")
+  keywords$edited<-str_replace(keywords$edited, "r:fr", "red farred ratio")
+  keywords$edited<-str_replace(keywords$edited, "reaction diffusion", "reaction-diffusion")
+  keywords$edited<-str_replace(keywords$edited, "reserves", "reserve")
+  keywords$edited<-str_replace(keywords$edited, "root shoot ratio", "root:shoot ratio")
+  keywords$edited<-str_replace(keywords$edited, "root to-shoot ratio", "root:shoot ratios")
+  keywords$edited<-str_replace(keywords$edited, "selection  sexual", "sexual selection")
+  keywords$edited<-str_replace(keywords$edited, "semi arid environment", "semiarid environment")
+  keywords$edited<-str_replace(keywords$edited, "semi arid region", "semiarid region")
+  keywords$edited<-str_replace(keywords$edited, "semi natural grassland", "seminatural grassland")
+  keywords$edited<-str_replace(keywords$edited, "slash and-burn", "slash-and-burn")
+  keywords$edited<-str_replace(keywords$edited, "slave making ants", "slavemaking ants")
+  keywords$edited<-str_replace(keywords$edited, "species abundances", "species abundance")
+  keywords$edited<-str_replace(keywords$edited, "species-area relationship", "species-area relationship")
+  keywords$edited<-str_replace(keywords$edited, "structural equation modeling sem", "structural equation modeling")
+  keywords$edited<-str_replace(keywords$edited, "taï national park", "tai national park")
+  keywords$edited<-str_replace(keywords$edited, "top down forces", "top-down forces")
+  keywords$edited<-str_replace(keywords$edited, "transposons", "transposon")
+  keywords$edited<-str_replace(keywords$edited, "tree falls", "treefalls")
+  
+  
+  keywords$edited<-str_replace(keywords$edited, "tree grass coexistence", "tree-grass coexistence")
+  keywords$edited<-str_replace(keywords$edited, "tropical lowland forest", "lowland tropical forest")
+  keywords$edited<-str_replace(keywords$edited, "túngara frogs", "tungara frogs")
+  keywords$edited<-str_replace(keywords$edited, "abiotic and biotic factors", "biotic and abiotic factors")
+  keywords$edited<-str_replace(keywords$edited, "abundance occupancy relationship", "occupancy-abundance relationship")
+  keywords$edited<-str_replace(keywords$edited, "behavioral indirect effects", "indirect behavioral effects")
+  keywords$edited<-str_replace(keywords$edited, "bia≈Çowie≈ºa forest", "bia≈Çowieza forest")
+  keywords$edited<-str_replace(keywords$edited, "big leaf mahogany", "bigleaf mahogany")
+  keywords$edited<-str_replace(keywords$edited, "bio indicators", "bioindicators")
+  keywords$edited<-str_replace(keywords$edited, "biodiversity ecosystem functioning relationship", "biodiversity-ecosystem functioning relationship")
+  keywords$edited<-str_replace(keywords$edited, "biodiversity-ecosystem function", "biodiversity-ecosystem function")
+  keywords$edited<-str_replace(keywords$edited, "buteo buteo", "buteo")
+  keywords$edited<-str_replace(keywords$edited, "c 13", "13 c")
+  keywords$edited<-str_replace(keywords$edited, "c 3", "c3")
+  keywords$edited<-str_replace(keywords$edited, "c 4", "c4")
+  keywords$edited<-str_replace(keywords$edited, "check list", "checklist")
+  keywords$edited<-str_replace(keywords$edited, "clarkia xantiana ssp xantiana", "clarkia xantiana")
+  keywords$edited<-str_replace(keywords$edited, "clear cutting", "clearcutting")
+  keywords$edited<-str_replace(keywords$edited, "co  2", "co2")
+  keywords$edited<-str_replace(keywords$edited, "co flowering", "coflowering")
+  keywords$edited<-str_replace(keywords$edited, "cost-benefit", "cost-benefit")
+  keywords$edited<-str_replace(keywords$edited, "density mediated indirect effect", "density-mediated indirect effect")
+  keywords$edited<-str_replace(keywords$edited, "density mediated indirect interaction", "density-mediated indirect interactions")
+  keywords$edited<-str_replace(keywords$edited, "die back", "dieback")
+  keywords$edited<-str_replace(keywords$edited, "differential selection", "selection differential")
+  keywords$edited<-str_replace(keywords$edited, "dispersal barriers", "dispersal barrier")
+  keywords$edited<-str_replace(keywords$edited, "distribution and abundance", "distribution-abundance")
+  keywords$edited<-str_replace(keywords$edited, "diversity productivity", "productivity-diversity")
+  keywords$edited<-str_replace(keywords$edited, "diversity productivity relationship", "diversity-productivity relationship")
+  keywords$edited<-str_replace(keywords$edited, "dobzhansky muller incompatibility", "dobzhansky-muller incompatibility")
+  keywords$edited<-str_replace(keywords$edited, "doñana national park", "donana")
+  keywords$edited<-str_replace(keywords$edited, "earlywood", "early wood")
+  keywords$edited<-str_replace(keywords$edited, "eco epidemiology", "ecoepidemiology")
+  keywords$edited<-str_replace(keywords$edited, "ecoevolutionary dynamics", "eco-evolutionary dynamics")
+  keywords$edited<-str_replace(keywords$edited, "f  q st st", "q-f st")
+  keywords$edited<-str_replace(keywords$edited, "fitness landscapes", "fitness landscape")
+  keywords$edited<-str_replace(keywords$edited, "foodweb", "food web")
+  keywords$edited<-str_replace(keywords$edited, "foraging-predation risk trade off", "foraging predation risk trade-off")
+  keywords$edited<-str_replace(keywords$edited, "forest edges", "forest edge")
+  keywords$edited<-str_replace(keywords$edited, "forest trees", "forest tree")
+  keywords$edited<-str_replace(keywords$edited, "free air co  enrichment face 2", "face")
+  keywords$edited<-str_replace(keywords$edited, "fresh water", "freshwater")
+  keywords$edited<-str_replace(keywords$edited, "freshwater macrophytes", "freshwater macrophyte")
+  keywords$edited<-str_replace(keywords$edited, "genotype by environment interactions", "gxe")
+  keywords$edited<-str_replace(keywords$edited, "ground layer", "groundlayer")
+  keywords$edited<-str_replace(keywords$edited, "habitat transitions", "habitat transition")
+  keywords$edited<-str_replace(keywords$edited, "haplo diploidy", "haplodiploidy")
+  keywords$edited<-str_replace(keywords$edited, "herbivore plant interactions", "plant-herbivore interactions")
+  keywords$edited<-str_replace(keywords$edited, "host-parasitoid", "host-parasitoid")
+  keywords$edited<-str_replace(keywords$edited, "human-wildlife interactions", "human-wildlife interactions")
+  keywords$edited<-str_replace(keywords$edited, "iguana iguana", "iguana")
+  keywords$edited<-str_replace(keywords$edited, "individual species area relationship", "individual species-area relationship")
+  keywords$edited<-str_replace(keywords$edited, "inflorescences", "inflorescence")
+  keywords$edited<-str_replace(keywords$edited, "isolation by-resistance", "isolation by resistance")
+  keywords$edited<-str_replace(keywords$edited, "janzen connell effect", "janzen-connell effect")
+  keywords$edited<-str_replace(keywords$edited, "keystone resources", "keystone resource")
+  keywords$edited<-str_replace(keywords$edited, "landuse", "land-use")
+  keywords$edited<-str_replace(keywords$edited, "large scale disturbance", "large-scale disturbance")
+  keywords$edited<-str_replace(keywords$edited, "leaf cutter ants", "leafcutter ants")
+  
+  
+  keywords$edited<-str_replace(keywords$edited, "live bearing", "livebearing")
+  keywords$edited<-str_replace(keywords$edited, "lock and-key", "lock-and-key")
+  keywords$edited<-str_replace(keywords$edited, "log normal", "lognormal")
+  keywords$edited<-str_replace(keywords$edited, "luquillo experimental-forest", "luquillo experimental forest")
+  keywords$edited<-str_replace(keywords$edited, "lynx lynx", "lynx")
+  keywords$edited<-str_replace(keywords$edited, "maracá", "maraca")
+  keywords$edited<-str_replace(keywords$edited, "match mismatch", "match-mismatch")
+  keywords$edited<-str_replace(keywords$edited, "match mismatch hypothesis", "match-mismatch hypothesis")
+  keywords$edited<-str_replace(keywords$edited, "maternal environmental effects", "environmental maternal effects")
+  keywords$edited<-str_replace(keywords$edited, "mean d 2", "mean d2")
+  keywords$edited<-str_replace(keywords$edited, "micro evolution", "microevolution")
+  keywords$edited<-str_replace(keywords$edited, "montane tropical rainforest", "tropical montane rainforest")
+  keywords$edited<-str_replace(keywords$edited, "monte carlo markov chain", "markov chain monte carlo")
+  keywords$edited<-str_replace(keywords$edited, "multi level selection", "multilevel selection")
+  keywords$edited<-str_replace(keywords$edited, "multimodal signals", "multimodal signal")
+  keywords$edited<-str_replace(keywords$edited, "multiple spatial scales", "multiple spatial scale")
+  keywords$edited<-str_replace(keywords$edited, "multivariate regression trees", "multivariate regression tree")
+  keywords$edited<-str_replace(keywords$edited, "n  fixation 2", "nitrogen fixation")
+  keywords$edited<-str_replace(keywords$edited, "non genetic inheritance", "nongenetic inheritance")
+  keywords$edited<-str_replace(keywords$edited, "non indigenous species", "nonindigenous species")
+  keywords$edited<-str_replace(keywords$edited, "non lethal predator effects", "nonlethal predator effects")
+  keywords$edited<-str_replace(keywords$edited, "non metric multidimensional scaling", "nmds")
+  keywords$edited<-str_replace(keywords$edited, "non random species loss", "nonrandom species loss")
+  keywords$edited<-str_replace(keywords$edited, "over exploitation", "overexploitation")
+  keywords$edited<-str_replace(keywords$edited, "p 2", "p2")
+  keywords$edited<-str_replace(keywords$edited, "palm oil", "oil palm")
+  keywords$edited<-str_replace(keywords$edited, "pan troglodytes troglodytes", "pan troglodytes")
+  keywords$edited<-str_replace(keywords$edited, "parasite host dynamics", "host-parasite dynamics")
+  keywords$edited<-str_replace(keywords$edited, "pea aphid acyrthosiphon pisum", "acyrthosiphon pisum, pea aphid")
+  keywords$edited<-str_replace(keywords$edited, "performance trade off", "performance tradeoff")
+  keywords$edited<-str_replace(keywords$edited, "phylogenetic comparative analyses", "comparative phylogenetic analyses")
+  keywords$edited<-str_replace(keywords$edited, "pine oak forest", "oak pine forest")
+  keywords$edited<-str_replace(keywords$edited, "pitvipers", "pit vipers")
+  keywords$edited<-str_replace(keywords$edited, "plant animal mutualism", "plant-animal mutualism")
+  keywords$edited<-str_replace(keywords$edited, "plant frugivore networks", "plant-frugivore networks")
+  keywords$edited<-str_replace(keywords$edited, "plant fungal interactions", "plant-fungal interactions")
+  keywords$edited<-str_replace(keywords$edited, "plant life span", "plant lifespan")
+  keywords$edited<-str_replace(keywords$edited, "plant pollinator networks", "plant-pollinator networks")
+  keywords$edited<-str_replace(keywords$edited, "postmating", "post-mating")
+  keywords$edited<-str_replace(keywords$edited, "pre dispersal seed predator", "predispersal seed predator")
+  keywords$edited<-str_replace(keywords$edited, "predator prey ratios", "predator:prey ratios")
+  keywords$edited<-str_replace(keywords$edited, "productivity diversity relationship", "diversity-productivity relationship")
+  keywords$edited<-str_replace(keywords$edited, "q  st", "qst")
+  keywords$edited<-str_replace(keywords$edited, "r 0", "r0")
+  
+  
+  keywords$edited<-str_replace(keywords$edited, "random amplified polymorphic dna", "rapd")
+  keywords$edited<-str_replace(keywords$edited, "range extensions", "range extension")
+  keywords$edited<-str_replace(keywords$edited, "rangifer tarandus caribou", "caribou rangifer tarandus")
+  keywords$edited<-str_replace(keywords$edited, "red-far red", "red farred")
+  keywords$edited<-str_replace(keywords$edited, "respiration rates", "respiration rate")
+  keywords$edited<-str_replace(keywords$edited, "rnaseq", "rna seq")
+  keywords$edited<-str_replace(keywords$edited, "rock paper-scissors", "rock-paper-scissors")
+  keywords$edited<-str_replace(keywords$edited, "root-shoot ratio", "root:shoot ratio")
+  keywords$edited<-str_replace(keywords$edited, "sea grass", "seagrass")
+  keywords$edited<-str_replace(keywords$edited, "secondary tropical forest", "tropical secondary forest")
+  keywords$edited<-str_replace(keywords$edited, "seed bank persistence", "seedbank persistence")
+  keywords$edited<-str_replace(keywords$edited, "selection artificial", "artificial selection")
+  keywords$edited<-str_replace(keywords$edited, "selection—sexual", "sexual selection")
+  keywords$edited<-str_replace(keywords$edited, "selective pressures", "selective pressure")
+  keywords$edited<-str_replace(keywords$edited, "semi arid steppe", "semiarid steppe")
+  keywords$edited<-str_replace(keywords$edited, "shrubsteppe", "shrub-steppe")
+  keywords$edited<-str_replace(keywords$edited, "speciation with-gene-flow", "speciation with gene flow")
+  keywords$edited<-str_replace(keywords$edited, "species accumulation curves", "species accumulation curve")
+  keywords$edited<-str_replace(keywords$edited, "species co existence", "species coexistence")
+  keywords$edited<-str_replace(keywords$edited, "species roles", "species role")
+  keywords$edited<-str_replace(keywords$edited, "sub alpine forest", "subalpine forest")
+  keywords$edited<-str_replace(keywords$edited, "sub saharan africa", "sub-saharan africa")
+  keywords$edited<-str_replace(keywords$edited, "terrestrial aquatic linkages", "terrestrial-aquatic linkages")
+  keywords$edited<-str_replace(keywords$edited, "tide pool", "tidepool")
+  keywords$edited<-str_replace(keywords$edited, "tide pools", "tidepools")
+  keywords$edited<-str_replace(keywords$edited, "timescales", "timescale")
+  keywords$edited<-str_replace(keywords$edited, "tree frogs", "treefrogs")
+  keywords$edited<-str_replace(keywords$edited, "tree hole", "treehole")
+  keywords$edited<-str_replace(keywords$edited, "tropical humid forest", "humid tropical forest")
+  keywords$edited<-str_replace(keywords$edited, "tropical vs temperate", "temperate vs tropical")
+  keywords$edited<-str_replace(keywords$edited, "virulence transmission trade-off", "transmission virulence trade-off")
+  keywords$edited<-str_replace(keywords$edited, "yucatán peninsula", "yucatan peninsula")
+  keywords$edited<-str_replace(keywords$edited, "above ground biomass agb", "aboveground biomass agb")
+  keywords$edited<-str_replace(keywords$edited, "aboveground net primary productivity anpp", "anpp")
+  keywords$edited<-str_replace(keywords$edited, "age stage structure", "age-stage structure")
+  keywords$edited<-str_replace(keywords$edited, "agro ecology", "agroecology")
+  keywords$edited<-str_replace(keywords$edited, "animal signals", "animal signal")
+  keywords$edited<-str_replace(keywords$edited, "anser caerulescens-caerulescens", "anser caerulescens")
+  keywords$edited<-str_replace(keywords$edited, "anti herbivore defenses", "antiherbivore defenses")
+  keywords$edited<-str_replace(keywords$edited, "anti oxidants", "antioxidants")
+  keywords$edited<-str_replace(keywords$edited, "anti predator strategy", "antipredator strategy")
+  keywords$edited<-str_replace(keywords$edited, "anti predatory behavior", "antipredatory behavior")
+  keywords$edited<-str_replace(keywords$edited, "antlion", "ant lion")
+  keywords$edited<-str_replace(keywords$edited, "antlions", "ant lions")
+  keywords$edited<-str_replace(keywords$edited, "aphid ant mutualism", "ant-aphid mutualism")
+  keywords$edited<-str_replace(keywords$edited, "aquatic-terrestrial linkages", "aquatic-terrestrial linkage")
+  keywords$edited<-str_replace(keywords$edited, "atmospheric co 2", "atmospheric co2")
+  keywords$edited<-str_replace(keywords$edited, "automated radio telemetry", "automated radiotelemetry")
+  keywords$edited<-str_replace(keywords$edited, "baja california-sur", "baja california sur")
+  keywords$edited<-str_replace(keywords$edited, "bat flies", "batflies")
+  keywords$edited<-str_replace(keywords$edited, "bayesian hierarchical modeling", "hierarchical bayesian modeling")
+  keywords$edited<-str_replace(keywords$edited, "benefits and costs", "costs and benefits")
+  keywords$edited<-str_replace(keywords$edited, "bi parental care", "biparental care")
+  keywords$edited<-str_replace(keywords$edited, "bi stability", "bistability")
+  keywords$edited<-str_replace(keywords$edited, "biodiversity data set", "biodiversity dataset")
+  keywords$edited<-str_replace(keywords$edited, "blackwater", "black water")
+  keywords$edited<-str_replace(keywords$edited, "bud burst", "budburst")
+  keywords$edited<-str_replace(keywords$edited, "bufo bufo", "bufo")
+  keywords$edited<-str_replace(keywords$edited, "capture mark-recapture analysis", "capture-mark-recapture analysis")
+  keywords$edited<-str_replace(keywords$edited, "carbon-nutrient balance", "c:n balance")
+  keywords$edited<-str_replace(keywords$edited, "cestodes", "cestode")
+  keywords$edited<-str_replace(keywords$edited, "ch 4", "ch4")
+  keywords$edited<-str_replace(keywords$edited, "chaetognatha", "chaetognath")
+  keywords$edited<-str_replace(keywords$edited, "chemical signals", "chemical signal")
+  keywords$edited<-str_replace(keywords$edited, "chen caerulescens caerulescens", "chen caerulescens")
+  keywords$edited<-str_replace(keywords$edited, "climate growth relationship", "climate-growth relationship")
+  keywords$edited<-str_replace(keywords$edited, "co gradient variation", "cogradient variation")
+  keywords$edited<-str_replace(keywords$edited, "co operation", "cooperation")
+  keywords$edited<-str_replace(keywords$edited, "co operative breeding", "cooperative breeding")
+  
+  
+  keywords$edited<-str_replace(keywords$edited, "co speciation", "cospeciation")
+  keywords$edited<-str_replace(keywords$edited, "coefficient of additive genetic variation", "additive genetic coefficient of variation")
+  keywords$edited<-str_replace(keywords$edited, "colonization competition", "competition-colonization")
+  keywords$edited<-str_replace(keywords$edited, "colonization competition trade-off", "competition-colonization trade-off")
+  keywords$edited<-str_replace(keywords$edited, "colonization extinction dynamics", "colonization-extinction dynamics")
+  keywords$edited<-str_replace(keywords$edited, "color ornament", "ornament color")
+  keywords$edited<-str_replace(keywords$edited, "community forest", "forest community")
+  keywords$edited<-str_replace(keywords$edited, "compensatory responses", "compensatory response")
+  keywords$edited<-str_replace(keywords$edited, "competitive responses", "competitive response")
+  keywords$edited<-str_replace(keywords$edited, "consumer resource cycles", "consumer resource cycle")
+  keywords$edited<-str_replace(keywords$edited, "consumer-resource interaction", "consumer-resource interactions")
+  keywords$edited<-str_replace(keywords$edited, "crown of-thorns starfish", "crown-of-thorns starfish")
+  keywords$edited<-str_replace(keywords$edited, "ctmin", "ct min")
+  keywords$edited<-str_replace(keywords$edited, "data bases", "databases")
+  keywords$edited<-str_replace(keywords$edited, "deep water", "deepwater")
+  keywords$edited<-str_replace(keywords$edited, "deforestation rates", "deforestation rate")
+  keywords$edited<-str_replace(keywords$edited, "dendro ecology", "dendroecology")
+  keywords$edited<-str_replace(keywords$edited, "diet expansions", "diet expansion")
+  keywords$edited<-str_replace(keywords$edited, "diet shifts", "diet shift")
+  keywords$edited<-str_replace(keywords$edited, "dispersers", "disperser")
+  keywords$edited<-str_replace(keywords$edited, "distribution abundance relationship", "distribution-abundance relationship")
+  keywords$edited<-str_replace(keywords$edited, "diversity stability relationship", "diversity-stability relationship")
+  keywords$edited<-str_replace(keywords$edited, "dose response curve", "dose-response curve")
+  keywords$edited<-str_replace(keywords$edited, "doñana", "donana")
+  keywords$edited<-str_replace(keywords$edited, "eco metabolomics", "ecometabolomics")
+  keywords$edited<-str_replace(keywords$edited, "eco physiology", "ecophysiology")
+  keywords$edited<-str_replace(keywords$edited, "ecoevolutionary feedbacks", "eco-evolutionary feedbacks")
+  keywords$edited<-str_replace(keywords$edited, "elaphe obsoleta obsoleta", "elaphe obsoleta")
+  keywords$edited<-str_replace(keywords$edited, "elevated co  2", "elevated co2")
+  keywords$edited<-str_replace(keywords$edited, "evodevo", "evo-devo")
+  keywords$edited<-str_replace(keywords$edited, "extinction colonization", "extinction-colonization")
+  keywords$edited<-str_replace(keywords$edited, "extra floral nectaries", "extrafloral nectaries")
+  keywords$edited<-str_replace(keywords$edited, "extra pair copulation", "extrapair copulation")
+  keywords$edited<-str_replace(keywords$edited, "extra pair mating", "extra-pair mating")
+  keywords$edited<-str_replace(keywords$edited, "extrapair mating", "extra-pair mating")
+  keywords$edited<-str_replace(keywords$edited, "fast-slow continuum", "fast-slow continuum")
+  keywords$edited<-str_replace(keywords$edited, "field work", "fieldwork")
+  keywords$edited<-str_replace(keywords$edited, "fishfauna", "fish fauna")
+  keywords$edited<-str_replace(keywords$edited, "fission fusion", "fission-fusion")
+  keywords$edited<-str_replace(keywords$edited, "fitness difference", "fitness differences")
+  keywords$edited<-str_replace(keywords$edited, "fitness surfaces", "fitness surface")
+  keywords$edited<-str_replace(keywords$edited, "floral resource", "floral resources")
+  keywords$edited<-str_replace(keywords$edited, "fluctuating resources", "fluctuating resource")
+  keywords$edited<-str_replace(keywords$edited, "fluorescent dyes", "fluorescent dye")
+  keywords$edited<-str_replace(keywords$edited, "forest reserves", "forest reserve")
+  keywords$edited<-str_replace(keywords$edited, "frequencydependent selection", "frequency-dependent selection")
+  keywords$edited<-str_replace(keywords$edited, "fresh water snail", "freshwater snail")
+  keywords$edited<-str_replace(keywords$edited, "fresh water snails", "freshwater snails")
+  keywords$edited<-str_replace(keywords$edited, "freshwater tropical fish", "tropical freshwater fish")
+  keywords$edited<-str_replace(keywords$edited, "freshwater turtles", "freshwater turtle")
+  keywords$edited<-str_replace(keywords$edited, "fuel wood", "fuelwood")
+  keywords$edited<-str_replace(keywords$edited, "functional trade offs", "functional tradeoffs")
+  keywords$edited<-str_replace(keywords$edited, "g st", "gst")
+  keywords$edited<-str_replace(keywords$edited, "gallus gallus", "gallus")
+  keywords$edited<-str_replace(keywords$edited, "gene by environment interaction", "gxe")
+  keywords$edited<-str_replace(keywords$edited, "genetic resource", "genetic resources")
+  keywords$edited<-str_replace(keywords$edited, "genotype x environment interaction", "gxe")
+  keywords$edited<-str_replace(keywords$edited, "germline", "germ line")
+  keywords$edited<-str_replace(keywords$edited, "gorilla beringei beringei", "gorilla beringei")
+  keywords$edited<-str_replace(keywords$edited, "gorilla gorilla", "gorilla")
+  keywords$edited<-str_replace(keywords$edited, "grass land", "grassland")
+  keywords$edited<-str_replace(keywords$edited, "grass shrub competition", "grass-shrub competition")
+  keywords$edited<-str_replace(keywords$edited, "green space", "greenspace")
+  keywords$edited<-str_replace(keywords$edited, "grime tilman debate", "grime-tilman debate")
+  keywords$edited<-str_replace(keywords$edited, "gulf of-mexico", "gulf of mexico")
+  keywords$edited<-str_replace(keywords$edited, "guánica forest", "guanica forest")
+  keywords$edited<-str_replace(keywords$edited, "heat waves", "heatwaves")
+  keywords$edited<-str_replace(keywords$edited, "hemi epiphytes", "hemiepiphytes")
+  keywords$edited<-str_replace(keywords$edited, "hitch hiking", "hitchhiking")
+  keywords$edited<-str_replace(keywords$edited, "homegarden", "home garden")
+  # keywords$edited<-str_replace(keywords$edited, "host ", "host")
+  keywords$edited<-str_replace(keywords$edited, "host microbe interactions", "host-microbe interactions")
+  keywords$edited<-str_replace(keywords$edited, "host parasite co-evolution", "host-parasite coevolution")
+  keywords$edited<-str_replace(keywords$edited, "host parasite ecology", "host-parasite ecology")
+  keywords$edited<-str_replace(keywords$edited, "host parasitoid interaction", "host-parasitoid interaction")
+  keywords$edited<-str_replace(keywords$edited, "host-parasite interactions", "host-parasite interactions")
+  keywords$edited<-str_replace(keywords$edited, "hostparasite interaction", "host-parasite interaction")
+  keywords$edited<-str_replace(keywords$edited, "host-pathogen dynamics", "host-pathogen dynamics")
+  keywords$edited<-str_replace(keywords$edited, "human elephant conflict", "human-elephant conflict")
+  keywords$edited<-str_replace(keywords$edited, "identity by-descent", "identity by descent")
+  keywords$edited<-str_replace(keywords$edited, "iguazú national park", "iguazu national park")
+  keywords$edited<-str_replace(keywords$edited, "induced plant defenses", "induced plant defense")
+  
+  
+  keywords$edited<-str_replace(keywords$edited, "inter annual variation", "interannual variation")
+  keywords$edited<-str_replace(keywords$edited, "inter patch movement", "interpatch movement")
+  keywords$edited<-str_replace(keywords$edited, "intra guild competition", "intraguild competition")
+  keywords$edited<-str_replace(keywords$edited, "intra guild predation", "intraguild predation")
+  keywords$edited<-str_replace(keywords$edited, "intraspecific and interspecific competition", "interspecific and intraspecific competition")
+  keywords$edited<-str_replace(keywords$edited, "isolation with-migration", "isolation with migration")
+  keywords$edited<-str_replace(keywords$edited, "keystone plant resources", "keystone plant resource")
+  keywords$edited<-str_replace(keywords$edited, "la selva-biological-station", "la selva")
+  keywords$edited<-str_replace(keywords$edited, "lagopus lagopus", "lagopus")
+  keywords$edited<-str_replace(keywords$edited, "land birds", "landbirds")
+  keywords$edited<-str_replace(keywords$edited, "landsnails", "land snails")
+  keywords$edited<-str_replace(keywords$edited, "late successional trees", "late successional tree")
+  keywords$edited<-str_replace(keywords$edited, "leaffall", "leaf-fall")
+  keywords$edited<-str_replace(keywords$edited, "levels of-selection", "levels of selection")
+  keywords$edited<-str_replace(keywords$edited, "life history covariation", "life-history covariation")
+  keywords$edited<-str_replace(keywords$edited, "life history tradeoff", "life-history trade-off")
+  keywords$edited<-str_replace(keywords$edited, "life history transition", "life-history transition")
+  keywords$edited<-str_replace(keywords$edited, "life history transitions", "life-history transition")
+  keywords$edited<-str_replace(keywords$edited, "lifehistory evolution", "life-history evolution")
+  keywords$edited<-str_replace(keywords$edited, "litter bags", "litterbags")
+  keywords$edited<-str_replace(keywords$edited, "log normal distribution", "lognormal distribution")
+  keywords$edited<-str_replace(keywords$edited, "longdistance dispersal", "long-distance dispersal")
+  keywords$edited<-str_replace(keywords$edited, "lychnis flos-cuculi", "lychnis floscuculi")
+  keywords$edited<-str_replace(keywords$edited, "mainland island", "island mainland")
+  keywords$edited<-str_replace(keywords$edited, "marine sponges", "marine sponge")
+  keywords$edited<-str_replace(keywords$edited, "mark release recapture", "mark-release-recapture")
+  keywords$edited<-str_replace(keywords$edited, "martes martes", "martes")
+  keywords$edited<-str_replace(keywords$edited, "maternal genetic effects", "genetic maternal effects")
+  keywords$edited<-str_replace(keywords$edited, "mesocarnivores", "mesocarnivore")
+  keywords$edited<-str_replace(keywords$edited, "mesoherbivores", "mesoherbivore")
+  keywords$edited<-str_replace(keywords$edited, "meta communities", "metacommunities")
+  keywords$edited<-str_replace(keywords$edited, "meta population", "metapopulation")
+  keywords$edited<-str_replace(keywords$edited, "meta populations", "metapopulations")
+  keywords$edited<-str_replace(keywords$edited, "mexican central pacific", "central mexican pacific")
+  keywords$edited<-str_replace(keywords$edited, "micro arthropods", "microarthropods")
+  keywords$edited<-str_replace(keywords$edited, "microct", "micro ct")
+  keywords$edited<-str_replace(keywords$edited, "mito nuclear", "mitonuclear")
+  keywords$edited<-str_replace(keywords$edited, "multi event model", "multievent model")
+  keywords$edited<-str_replace(keywords$edited, "multi event models", "multievent models")
+  keywords$edited<-str_replace(keywords$edited, "multi model inference", "multimodel inference")
+  keywords$edited<-str_replace(keywords$edited, "multi scale ordination", "multiscale ordination")
+  keywords$edited<-str_replace(keywords$edited, "multi species", "multispecies")
+  keywords$edited<-str_replace(keywords$edited, "multi state models", "multistate models")
+  keywords$edited<-str_replace(keywords$edited, "multi trophic", "multitrophic")
+  keywords$edited<-str_replace(keywords$edited, "multievent capture recapture models", "multi event capture-recapture models")
+  keywords$edited<-str_replace(keywords$edited, "multiple scales", "multiple scale")
+  keywords$edited<-str_replace(keywords$edited, "myco heterotrophy", "mycoheterotrophy")
+  keywords$edited<-str_replace(keywords$edited, "n 2 fixation", "nitrogen fixation")
+  keywords$edited<-str_replace(keywords$edited, "n o 2", "no2")
+  keywords$edited<-str_replace(keywords$edited, "n p ratio", "np ratio")
+  keywords$edited<-str_replace(keywords$edited, "n-p ratio", "np ratio")
+  keywords$edited<-str_replace(keywords$edited, "nestling growth rates", "nestling growth rate")
+  keywords$edited<-str_replace(keywords$edited, "niche dimensions", "niche dimension")
+  keywords$edited<-str_replace(keywords$edited, "non consumptive predator effects", "predator nonconsumptive effects")
+  keywords$edited<-str_replace(keywords$edited, "non stationarity", "nonstationarity")
+  keywords$edited<-str_replace(keywords$edited, "non stationary", "nonstationary")
+  keywords$edited<-str_replace(keywords$edited, "non target effects", "nontarget effects")
+  keywords$edited<-str_replace(keywords$edited, "non trophic interaction", "nontrophic interaction")
+  keywords$edited<-str_replace(keywords$edited, "nonconsumptive predator effects", "predator nonconsumptive effects")
+  keywords$edited<-str_replace(keywords$edited, "nucleotide sequences", "nucleotide sequence")
+  keywords$edited<-str_replace(keywords$edited, "nutrient co limitation", "nutrient colimitation")
+  keywords$edited<-str_replace(keywords$edited, "ornstein uhlenbeck models", "ornstein-uhlenbeck models")
+  keywords$edited<-str_replace(keywords$edited, "over compensation", "overcompensation")
+  keywords$edited<-str_replace(keywords$edited, "over dispersion", "overdispersion")
+  keywords$edited<-str_replace(keywords$edited, "over yielding", "overyielding")
+  keywords$edited<-str_replace(keywords$edited, "paloverde", "palo verde")
+  keywords$edited<-str_replace(keywords$edited, "parasite host", "host-parasite")
+  keywords$edited<-str_replace(keywords$edited, "parasitoid host", "host-parasitoid")
+  keywords$edited<-str_replace(keywords$edited, "parasitoid host interactions", "host-parasitoid interactions")
+  keywords$edited<-str_replace(keywords$edited, "partitioning diversity", "diversity partitioning")
+  keywords$edited<-str_replace(keywords$edited, "pattern diversity", "diversity pattern")
+  keywords$edited<-str_replace(keywords$edited, "pelagic benthic coupling", "benthic-pelagic coupling")
+  keywords$edited<-str_replace(keywords$edited, "pennsylvanian", "pennsylvania")
+  keywords$edited<-str_replace(keywords$edited, "phenol oxidase", "phenoloxidase")
+  keywords$edited<-str_replace(keywords$edited, "phenotypic responses", "phenotypic response")
+  
+  
+  keywords$edited<-str_replace(keywords$edited, "photoidentification", "photo identification")
+  keywords$edited<-str_replace(keywords$edited, "plant  animal interaction", "plant-animal interaction")
+  keywords$edited<-str_replace(keywords$edited, "plant ant interactions", "ant-plant interactions")
+  keywords$edited<-str_replace(keywords$edited, "plant insect relationships", "insect-plant relationships")
+  keywords$edited<-str_replace(keywords$edited, "plant microbe interaction", "plant-microbe interaction")
+  keywords$edited<-str_replace(keywords$edited, "plant microbial interactions", "plant-microbial interactions")
+  keywords$edited<-str_replace(keywords$edited, "plant plant communication", "plant communication")
+  keywords$edited<-str_replace(keywords$edited, "plant responses", "plant response")
+  keywords$edited<-str_replace(keywords$edited, "plant-plant interaction", "plant-plant interaction")
+  keywords$edited<-str_replace(keywords$edited, "pollen ovule ratio", "pollen:ovule ratio")
+  keywords$edited<-str_replace(keywords$edited, "poró", "poro")
+  keywords$edited<-str_replace(keywords$edited, "post copulatory female choice", "postcopulatory female choice")
+  keywords$edited<-str_replace(keywords$edited, "post mating isolation", "postmating isolation")
+  keywords$edited<-str_replace(keywords$edited, "post mating sexual selection", "postmating sexual selection")
+  keywords$edited<-str_replace(keywords$edited, "post settlement processes", "postsettlement processes")
+  keywords$edited<-str_replace(keywords$edited, "post zygotic", "postzygotic")
+  keywords$edited<-str_replace(keywords$edited, "post zygotic reproductive isolation", "postzygotic reproductive isolation")
+  keywords$edited<-str_replace(keywords$edited, "pre mating isolation", "premating isolation")
+  keywords$edited<-str_replace(keywords$edited, "pre zygotic isolation", "prezygotic isolation")
+  keywords$edited<-str_replace(keywords$edited, "predatorprey interaction", "predator-prey interaction")
+  keywords$edited<-str_replace(keywords$edited, "predatorprey interactions", "predator-prey interactions")
+  keywords$edited<-str_replace(keywords$edited, "presence-absence", "presence-absence")
+  keywords$edited<-str_replace(keywords$edited, "presence-absence data", "presence-absence data")
+  keywords$edited<-str_replace(keywords$edited, "presence-absence", "presence-absence")
+  keywords$edited<-str_replace(keywords$edited, "prey predator", "predator-prey")
+  keywords$edited<-str_replace(keywords$edited, "producer scrounger", "producer-scrounger")
+  keywords$edited<-str_replace(keywords$edited, "projection matrix models", "matrix projection models")
+  keywords$edited<-str_replace(keywords$edited, "prédation", "predation")
+  keywords$edited<-str_replace(keywords$edited, "pseudoarrhenotoky", "pseudo arrhenotoky")
+  keywords$edited<-str_replace(keywords$edited, "q  f st st", "q-f st")
+  keywords$edited<-str_replace(keywords$edited, "qst f-st comparison", "qst fst comparison")
+  keywords$edited<-str_replace(keywords$edited, "québec", "quebec")
+  # keywords$edited<-str_replace(keywords$edited, "rain ", "rain")
+  keywords$edited<-str_replace(keywords$edited, "rare and common species", "common and rare species")
+  keywords$edited<-str_replace(keywords$edited, "recessive deleterious mutations", "deleterious recessive mutations")
+  keywords$edited<-str_replace(keywords$edited, "regional vs local", "local vs regional")
+  keywords$edited<-str_replace(keywords$edited, "reserve forest", "forest reserve")
+  keywords$edited<-str_replace(keywords$edited, "residence times", "residence time")
+  keywords$edited<-str_replace(keywords$edited, "resistance genes", "resistance gene")
+  keywords$edited<-str_replace(keywords$edited, "resource consumer interactions", "consumer-resource interactions")
+  keywords$edited<-str_replace(keywords$edited, "response curves", "response curve")
+  keywords$edited<-str_replace(keywords$edited, "ricefields", "rice fields")
+  keywords$edited<-str_replace(keywords$edited, "river ganga", "ganga river")
+  keywords$edited<-str_replace(keywords$edited, "roadkills", "roadkill")
+  keywords$edited<-str_replace(keywords$edited, "robertsonian translocations", "robertsonian translocation")
+  keywords$edited<-str_replace(keywords$edited, "root : shoot ratio", "root:shoot ratio")
+  keywords$edited<-str_replace(keywords$edited, "root: shoot ratio", "root:shoot ratio")
+  keywords$edited<-str_replace(keywords$edited, "run off", "runoff")
+  keywords$edited<-str_replace(keywords$edited, "s pecies richness", "species richness")
+  keywords$edited<-str_replace(keywords$edited, "savanna forest boundary", "savanna-forest boundary")
+  keywords$edited<-str_replace(keywords$edited, "sea grasses", "seagrasses")
+  keywords$edited<-str_replace(keywords$edited, "seed reserves", "seed reserve")
+  keywords$edited<-str_replace(keywords$edited, "semiarid shrublands", "semiarid shrubland")
+  keywords$edited<-str_replace(keywords$edited, "semideciduous seasonal forest", "seasonal semideciduous forest")
+  keywords$edited<-str_replace(keywords$edited, "sex allocation ratio", "sex ratio allocation")
+  keywords$edited<-str_replace(keywords$edited, "shoot root ratio", "root:shoot ratio")
+  keywords$edited<-str_replace(keywords$edited, "shrub steppe", "shrub-steppe")
+  keywords$edited<-str_replace(keywords$edited, "size effect", "effect size")
+  keywords$edited<-str_replace(keywords$edited, "sizestructured populations", "size-structured populations")
+  keywords$edited<-str_replace(keywords$edited, "skipping reproduction", "reproduction skipping")
+  keywords$edited<-str_replace(keywords$edited, "slash and burn", "slash-and-burn")
+  keywords$edited<-str_replace(keywords$edited, "soft sediments", "soft sediment")
+  keywords$edited<-str_replace(keywords$edited, "soil micro organisms", "soil microorganisms")
+  keywords$edited<-str_replace(keywords$edited, "source-sink", "source-sink")
+  keywords$edited<-str_replace(keywords$edited, "south eastern brazil", "southeastern brazil")
+  
+  
+  keywords$edited<-str_replace(keywords$edited, "spatially explicit capture-recapture", "spatially explicit capture-recapture")
+  keywords$edited<-str_replace(keywords$edited, "spatio temporal", "spatiotemporal")
+  keywords$edited<-str_replace(keywords$edited, "spatio temporal dynamics", "spatiotemporal dynamics")
+  keywords$edited<-str_replace(keywords$edited, "spatio temporal models", "spatiotemporal models")
+  keywords$edited<-str_replace(keywords$edited, "spatio temporal pattern", "spatiotemporal pattern")
+  keywords$edited<-str_replace(keywords$edited, "spatio temporal scales", "spatiotemporal scales")
+  keywords$edited<-str_replace(keywords$edited, "species area relationship sar", "species-area relationships")
+  keywords$edited<-str_replace(keywords$edited, "species energy relationship", "species-energy relationship")
+  keywords$edited<-str_replace(keywords$edited, "spider web", "web spider")
+  keywords$edited<-str_replace(keywords$edited, "ssurdna", "ssu rdna")
+  keywords$edited<-str_replace(keywords$edited, "stable nitrogen isotope", "nitrogen stable isotope")
+  keywords$edited<-str_replace(keywords$edited, "stable states", "stable state")
+  keywords$edited<-str_replace(keywords$edited, "statespace model", "state-space model")
+  keywords$edited<-str_replace(keywords$edited, "sub alpine", "subalpine")
+  keywords$edited<-str_replace(keywords$edited, "sub tropical", "subtropical")
+  keywords$edited<-str_replace(keywords$edited, "sub tropical forest", "subtropical forest")
+  keywords$edited<-str_replace(keywords$edited, "sugar cane", "sugarcane")
+  keywords$edited<-str_replace(keywords$edited, "super hosts", "superhosts")
+  keywords$edited<-str_replace(keywords$edited, "survival and growth", "growth and survival")
+  keywords$edited<-str_replace(keywords$edited, "sus scrofa scrofa", "sus scrofa")
+  keywords$edited<-str_replace(keywords$edited, "t cell mediated immune response", "t cell-mediated immune response")
+  keywords$edited<-str_replace(keywords$edited, "terrestrial aquatic linkage", "aquatic-terrestrial linkage")
+  keywords$edited<-str_replace(keywords$edited, "tiger salamanders", "tiger salamander")
+  keywords$edited<-str_replace(keywords$edited, "tit for-tat", "tit for tat")
+  keywords$edited<-str_replace(keywords$edited, "top down factors", "top-down factors")
+  keywords$edited<-str_replace(keywords$edited, "top down limitation", "top-down limitation")
+  keywords$edited<-str_replace(keywords$edited, "trait environment relationships", "trait-environment relationships")
+  keywords$edited<-str_replace(keywords$edited, "traitmediated interaction", "trait-mediated interaction")
+  keywords$edited<-str_replace(keywords$edited, "trans generational", "transgenerational")
+  keywords$edited<-str_replace(keywords$edited, "transitions", "transition")
+  keywords$edited<-str_replace(keywords$edited, "tree fall", "treefall")
+  keywords$edited<-str_replace(keywords$edited, "tree fall gap", "treefall gap")
+  keywords$edited<-str_replace(keywords$edited, "tree frog", "treefrog")
+  keywords$edited<-str_replace(keywords$edited, "tree line ecotone", "treeline ecotone")
+  keywords$edited<-str_replace(keywords$edited, "tree-grass coexistence", "tree-grass coexistence")
+  keywords$edited<-str_replace(keywords$edited, "tropical temperate comparison", "temperate vs tropical")
+  keywords$edited<-str_replace(keywords$edited, "térraba sierpe", "sierpe térraba")
+  keywords$edited<-str_replace(keywords$edited, "unobservable states", "unobservable state")
+  keywords$edited<-str_replace(keywords$edited, "water flea", "waterflea")
+  keywords$edited<-str_replace(keywords$edited, "water resources", "water resource")
+  keywords$edited<-str_replace(keywords$edited, "water strider", "waterstrider")
+  keywords$edited<-str_replace(keywords$edited, "water striders", "waterstrider")
+  
+  # keywords$edited<-str_replace(keywords$edited, "wildlife vehicle collision", "wildlife-vehicle collision")
+  # keywords$edited<-str_replace(keywords$edited, "wildlife vehicle collisions", "wildlife-vehicle collisions")
+  # keywords$edited<-str_replace(keywords$edited, "wing-thorax ratio", "wing-thorax ratio")
+  keywords$edited<-str_replace(keywords$edited, " 18s rdna", "18s rdna")
+  keywords$edited<-str_replace(keywords$edited, " proteobacteria", "proteobacteria")
+  keywords$edited<-str_replace(keywords$edited, "%plant population and community dynamics", "plant population and community dynamics")
+  keywords$edited<-str_replace(keywords$edited, "15  n", "15n")
+  keywords$edited<-str_replace(keywords$edited, "15 n stable isotope", "15n stable isotope")
+  keywords$edited<-str_replace(keywords$edited, "16srdna", "16s rdna")
+  keywords$edited<-str_replace(keywords$edited, "a triplex patula", "atriplex patula")
+  keywords$edited<-str_replace(keywords$edited, "above  and belowground herbivory", "above and belowground herbivory")
+  keywords$edited<-str_replace(keywords$edited, "above ground", "aboveground")
+  keywords$edited<-str_replace(keywords$edited, "above ground-below ground interactions", "aboveground-belowground interactions")
+  keywords$edited<-str_replace(keywords$edited, "aboveground net primary productivity  anpp", "anpp")
+  keywords$edited<-str_replace(keywords$edited, "aboveground-belowground interactions", "aboveground-belowground interactions")
+  keywords$edited<-str_replace(keywords$edited, "abundance mass scaling", "mass-abundance scaling")
+  keywords$edited<-str_replace(keywords$edited, "abundance occupancy", "abundance-occupancy")
+  keywords$edited<-str_replace(keywords$edited, "abundance: ant", "ant abundance")
+  keywords$edited<-str_replace(keywords$edited, "acalymma vittatum", "acalymma vitattum")
+  keywords$edited<-str_replace(keywords$edited, "acquisition conservation trade-off", "acquisition-conservation trade off")
+  keywords$edited<-str_replace(keywords$edited, "acyrthosiphon pisum pea aphid", "acyrthosiphon pisum, pea aphid")
+  keywords$edited<-str_replace(keywords$edited, "adalia bipunctata l", "adalia bipunctata")
+  keywords$edited<-str_replace(keywords$edited, "adaptive suites", "adaptive suite")
+  keywords$edited<-str_replace(keywords$edited, "africanized honey bees", "africanized honeybees")
+  # keywords$edited<-str_replace(keywords$edited, "agama agama", "agama")
+  # keywords$edited<-str_replace(keywords$edited, "age structures", "age structure")
+  keywords$edited<-str_replace(keywords$edited, "agrofo restry", "agroforestry")
+  keywords$edited<-str_replace(keywords$edited, "algal", "alga")
+  keywords$edited<-str_replace(keywords$edited, "alternative stable community states", "alternative community stable state")
+  keywords$edited<-str_replace(keywords$edited, "amazonía", "amazonia")
+  keywords$edited<-str_replace(keywords$edited, "ameiva ameiva", "ameiva")
+  keywords$edited<-str_replace(keywords$edited, "ancestor reconstructions", "ancestor reconstruction")
+  keywords$edited<-str_replace(keywords$edited, "ancestral reconstructions", "ancestral reconstruction")
+  keywords$edited<-str_replace(keywords$edited, "and predators", "predators and")
+  keywords$edited<-str_replace(keywords$edited, "anguilla anguilla", "anguilla")
+  keywords$edited<-str_replace(keywords$edited, "anser anser", "anser")
+  keywords$edited<-str_replace(keywords$edited, "anti fouling", "antifouling")
+  keywords$edited<-str_replace(keywords$edited, "anti fungal", "antifungal")
+  keywords$edited<-str_replace(keywords$edited, "anti inflammatory", "antiinflammatory ")
+  # keywords$edited<-str_replace(keywords$edited, "anti inflammmatory agent", "antiinflammatory agent")
+  keywords$edited<-str_replace(keywords$edited, "anti predator", "antipredator")
+  keywords$edited<-str_replace(keywords$edited, "anti predator", "antipredator")
+  # keywords$edited<-str_replace(keywords$edited, "anti predator defenses", "antipredator defenses")
+  # keywords$edited<-str_replace(keywords$edited, "anti predator response", "antipredator response")
+  # keywords$edited<-str_replace(keywords$edited, "anti predator responses", "antipredator response")
+  # keywords$edited<-str_replace(keywords$edited, "antipredator responses", "antipredator response")
+  keywords$edited<-str_replace(keywords$edited, "antipredator-antipredator", "antipredator")
+  # keywords$edited<-str_replace(keywords$edited, "ant-aphid mutualism", "ant-aphid mutualism")
+  # keywords$edited<-str_replace(keywords$edited, "aphis fabae fabae", "aphis fabae")
+  # keywords$edited<-str_replace(keywords$edited, "aquatic terrestrial linkage", "aquatic-terrestrial linkage")
+  # keywords$edited<-str_replace(keywords$edited, "aquatic-terrestrial linkage", "aquatic-terrestrial linkage")
+  keywords$edited<-str_replace(keywords$edited, "tree line", "treeline")
+  keywords$edited<-str_replace(keywords$edited, "aspirochidotida", "aspidochirotida")
+  keywords$edited<-str_replace(keywords$edited, "associational plant defense", "plant associational defense")
+  keywords$edited<-str_replace(keywords$edited, "atta ceph alotes", "atta cephalotes")
+  # keywords$edited<-str_replace(keywords$edited, "attraction production", "attraction-production")
+  keywords$edited<-str_replace(keywords$edited, "auto correlation", "autocorrelation")
+  keywords$edited<-str_replace(keywords$edited, "avian inter specific brood parasitism", "avian interspecific brood parasitism")
+  keywords$edited<-str_replace(keywords$edited, "bahía de la ascensión", "bahia de la ascension")
+  keywords$edited<-str_replace(keywords$edited, "base line", "baseline")
+  keywords$edited<-str_replace(keywords$edited, "bateson dobzhansky-müller incompatibility", "bateson dobzhansky-muller incompatibility")
+  keywords$edited<-str_replace(keywords$edited, "trade off", "tradeoff")
+  keywords$edited<-str_replace(keywords$edited, "below ground", "belowground")
+  keywords$edited<-str_replace(keywords$edited, "benefit cost analysis", "cost-benefit analysis")
+  keywords$edited<-str_replace(keywords$edited, "benefits of-philopatry", "benefits of philopatry")
+  # keywords$edited<-str_replace(keywords$edited, "betula papyri fera", "betula papyrifera")
+  keywords$edited<-str_replace(keywords$edited, "bill fish", "billfish")
+  keywords$edited<-str_replace(keywords$edited, "bio concentration", "bioconcentration")
+  keywords$edited<-str_replace(keywords$edited, "bio invasion", "bioinvasion")
+  keywords$edited<-str_replace(keywords$edited, "biodiversity ecosystem function relationships", "biodiversityecosystem function relationships")
+  keywords$edited<-str_replace(keywords$edited, "biodiversity ecosystem-function", "biodiversity-ecosystem function")
+  keywords$edited<-str_replace(keywords$edited, "biodiversity hot spot", "biodiversity hotspot")
+  keywords$edited<-str_replace(keywords$edited, "biodiversity productivity relationships", "biodiversity-productivity relationships")
+  keywords$edited<-str_replace(keywords$edited, "biodiversity rapid assessment", "rapid biodiversity assessment")
+  keywords$edited<-str_replace(keywords$edited, "biodiversity-ecosystem function relationships", "biodiversity-ecosystem function relationships")
+  keywords$edited<-str_replace(keywords$edited, "biodiversity-ecosystem functioning relationship", "biodiversity-ecosystem functioning relationship")
+  keywords$edited<-str_replace(keywords$edited, "biodiversity-ecosystem functioning", "biodiversity-ecosystem functioning")
+  keywords$edited<-str_replace(keywords$edited, "biogeographic chocó region", "choco biogeographic region")
+  keywords$edited<-str_replace(keywords$edited, "chocó", "choco")
+  # keywords$edited<-str_replace(keywords$edited, "biosphere reserves", "biosphere reserve")
+  keywords$edited<-str_replace(keywords$edited, "bird watching", "birdwatching")
+  keywords$edited<-str_replace(keywords$edited, "black legged tick", "blacklegged tick")
+  keywords$edited<-str_replace(keywords$edited, "blow flies", "blowflies")
+  keywords$edited<-str_replace(keywords$edited, "blow fly", "blowfly")
+  keywords$edited<-str_replace(keywords$edited, "boots trapping", "bootstrapping")
+  keywords$edited<-str_replace(keywords$edited, "brackishwater", "brackish water")
+  keywords$edited<-str_replace(keywords$edited, "branta bernicla-nigricans", "branta bernicla nigricans")
+  keywords$edited<-str_replace(keywords$edited, "brazilianatlanticforest", "brazilian atlantic forest")
+  keywords$edited<-str_replace(keywords$edited, "bumble bee pollination", "bumblebee pollination")
+  keywords$edited<-str_replace(keywords$edited, "bunch grass", "bunchgrass")
+  # keywords$edited<-str_replace(keywords$edited, "buried seeds", "buried seed")
+  keywords$edited<-str_replace(keywords$edited, "bush meat", "bushmeat")
+  keywords$edited<-str_replace(keywords$edited, "bycatch shrimp", "shrimp bycatch")
+  keywords$edited<-str_replace(keywords$edited, "bêche de-mer", "beche demer")
+  keywords$edited<-str_replace(keywords$edited, "c  3", "c3")
+  keywords$edited<-str_replace(keywords$edited, "c  4", "c4")
+  keywords$edited<-str_replace(keywords$edited, "c  grassland 4", "c4 grassland")
+  keywords$edited<-str_replace(keywords$edited, "c  grassland4", "c4 grassland")
+  keywords$edited<-str_replace(keywords$edited, "c allocation", "allocation")
+  keywords$edited<-str_replace(keywords$edited, "c n ratio", "cn ratio")
+  keywords$edited<-str_replace(keywords$edited, "c n ratios", "cn ratios")
+  keywords$edited<-str_replace(keywords$edited, "c-n", "cn")
+  keywords$edited<-str_replace(keywords$edited, "c-n ratio", "cn ratio")
+  keywords$edited<-str_replace(keywords$edited, "cacao theobroma cacao", "theobroma cacao")
+  keywords$edited<-str_replace(keywords$edited, "calidris canutus canutus", "calidris canutus")
+  keywords$edited<-str_replace(keywords$edited, "calling songs", "calling song")
+  keywords$edited<-str_replace(keywords$edited, "cannon ball", "cannonball")
+  keywords$edited<-str_replace(keywords$edited, "canopy turn over times", "canopy turnover times")
+  keywords$edited<-str_replace(keywords$edited, "capture mark recapture", "capture mark-recapture")
+  keywords$edited<-str_replace(keywords$edited, "capture-mark-recapture analysis", "capture-mark-recapture analysis")
+  keywords$edited<-str_replace(keywords$edited, "capture-mark-recapture models", "capture mark-recapture models")
+  keywords$edited<-str_replace(keywords$edited, "carbohydrate reserves", "carbohydrate reserve")
+  keywords$edited<-str_replace(keywords$edited, "carbon : nitrogen ratio", "cn ratio")
+  keywords$edited<-str_replace(keywords$edited, "carbon to phosphorus ratio", "cp ratio")
+  keywords$edited<-str_replace(keywords$edited, "carbon to-phosphorus ratio", "cp ratio")
+  keywords$edited<-str_replace(keywords$edited, "carbon to-phosphorus ratios", "cp ratio")
+  keywords$edited<-str_replace(keywords$edited, "carbon-nitrogen ratio", "cn ratio")
+  keywords$edited<-str_replace(keywords$edited, "carbon: nitrogen ratio", "cn ratio")
+  keywords$edited<-str_replace(keywords$edited, "carbon:nitrogen ratio", "cn ratio")
+  keywords$edited<-str_replace(keywords$edited, "caryoph yllene oxide", "caryophyllene oxide")
+  keywords$edited<-str_replace(keywords$edited, "case  control", "case control")
+  keywords$edited<-str_replace(keywords$edited, "character transitions", "character transition")
+  keywords$edited<-str_replace(keywords$edited, "characteristic timescales", "characteristic timescale")
+  keywords$edited<-str_replace(keywords$edited, "chlorophylla", "chlorophyll a")
+  keywords$edited<-str_replace(keywords$edited, "choco biogeographic region", "chocó biogeographic region")
+  keywords$edited<-str_replace(keywords$edited, "choco biogeográfico", "choco biogeografico")
+  keywords$edited<-str_replace(keywords$edited, "clarkia xantiana ssp", "clarkia xantiana")
+  keywords$edited<-str_replace(keywords$edited, "clear cut", "clearcut")
+  keywords$edited<-str_replace(keywords$edited, "cloudforest", "cloud forest")
+  keywords$edited<-str_replace(keywords$edited, "co diversification", "codiversification")
+  keywords$edited<-str_replace(keywords$edited, "co extinction", "coextinction")
+  keywords$edited<-str_replace(keywords$edited, "co limitation nutrient", "nutrient colimitation")
+  keywords$edited<-str_replace(keywords$edited, "co variation", "covariation")
+  keywords$edited<-str_replace(keywords$edited, "coalescence times", "coalescence time")
+  keywords$edited<-str_replace(keywords$edited, "coastal atlantic forest", "atlantic coastal forest")
+  keywords$edited<-str_replace(keywords$edited, "coevolutionary hot spot", "coevolutionary hotspot")
+  keywords$edited<-str_replace(keywords$edited, "coevolutionary hotspots", "coevolutionary hotspot")
+  keywords$edited<-str_replace(keywords$edited, "coffee agro ecosystem", "coffee agroecosystem")
+  keywords$edited<-str_replace(keywords$edited, "cold frontsoutbreaks", "cold fronts outbreaks")
+  keywords$edited<-str_replace(keywords$edited, "community and population dynamics", "population and community dynamics")
+  keywords$edited<-str_replace(keywords$edited, "community weighted-mean", "community weighted mean")
+  keywords$edited<-str_replace(keywords$edited, "competition  colonization tradeoff", "competition-colonization tradeoff")
+  keywords$edited<-str_replace(keywords$edited, "competition colonization tradeoff", "competition-colonization tradeoff")
+  keywords$edited<-str_replace(keywords$edited, "competition-colonization trade off", "competition-colonization tradeoff")
+  keywords$edited<-str_replace(keywords$edited, "competition-colonization trade off", "competition-colonization tradeoff")
+  keywords$edited<-str_replace(keywords$edited, "competition-colonization tradeoff", "competition-colonization tradeoff")
+  keywords$edited<-str_replace(keywords$edited, "compound specific stable-isotope analysis", "compound specific stable isotope analysis")
+  keywords$edited<-str_replace(keywords$edited, "conservation in situ", "in situ conservation")
+  keywords$edited<-str_replace(keywords$edited, "conservation species", "species conservation")
+  keywords$edited<-str_replace(keywords$edited, "conspecific interactions", "conspecific interaction")
+  keywords$edited<-str_replace(keywords$edited, "cor egonus", "coregonus")
+  keywords$edited<-str_replace(keywords$edited, "cormack jolly seber", "cormack-jolly-seber")
+  keywords$edited<-str_replace(keywords$edited, "cormack jolly seber model", "cormack-jolly-seber model")
+  keywords$edited<-str_replace(keywords$edited, "cormack-jolly-seber", "cormack-jolly-seber")
+  keywords$edited<-str_replace(keywords$edited, "corona virus", "coronavirus")
+  keywords$edited<-str_replace(keywords$edited, "corridor dispersal", "dispersal corridor")
+  keywords$edited<-str_replace(keywords$edited, "cost benefit ratio", "cost-benefit ratio")
+  keywords$edited<-str_replace(keywords$edited, "cost of-reproduction", "cost of reproduction")
+  keywords$edited<-str_replace(keywords$edited, "cost-benefit analysis", "cost-benefit analysis")
+  keywords$edited<-str_replace(keywords$edited, "cost-benefit ratio", "cost-benefit ratio")
+  keywords$edited<-str_replace(keywords$edited, "cost: benefit analysis", "cost-benefit analysis")
+  keywords$edited<-str_replace(keywords$edited, "costofreproduction", "cost of reproduction")
+  keywords$edited<-str_replace(keywords$edited, "cote divoire", "ivory coast")
+  keywords$edited<-str_replace(keywords$edited, "coyote  canis latrans ", "coyote canis latrans")
+  keywords$edited<-str_replace(keywords$edited, "cross breeding", "crossbreeding")
+  keywords$edited<-str_replace(keywords$edited, "cross dating", "crossdating")
+  keywords$edited<-str_replace(keywords$edited, "cross talk", "crosstalk")
+  
+  
+  keywords$edited<-str_replace(keywords$edited, "crossfostering", "cross fostering")
+  keywords$edited<-str_replace(keywords$edited, "crotaphytus collaris collaris", "crotaphytus collaris")
+  keywords$edited<-str_replace(keywords$edited, "crown of thorns starfish", "crown-of-thorns starfish")
+  keywords$edited<-str_replace(keywords$edited, "ct  max", "ct max")
+  keywords$edited<-str_replace(keywords$edited, "cvalue", "c value")
+  keywords$edited<-str_replace(keywords$edited, "cycling population", "population cycling")
+  keywords$edited<-str_replace(keywords$edited, "cyto nuclear coevolution", "cytonuclear coevolution")
+  keywords$edited<-str_replace(keywords$edited, "cyto nuclear epistasis", "cytonuclear epistasis")
+  keywords$edited<-str_replace(keywords$edited, "c¬∑n ratio", "cn ratio")
+  keywords$edited<-str_replace(keywords$edited, "cô", "co")
+  keywords$edited<-str_replace(keywords$edited, "data base", "database")
+  keywords$edited<-str_replace(keywords$edited, "data model comparison", "model-data comparison")
+  keywords$edited<-str_replace(keywords$edited, "deep water fishery", "deepwater fishery")
+  keywords$edited<-str_replace(keywords$edited, "defense syndromes", "defense syndrome")
+  keywords$edited<-str_replace(keywords$edited, "degradedlands", "degraded lands")
+  keywords$edited<-str_replace(keywords$edited, "delay time", "time delay")
+  keywords$edited<-str_replace(keywords$edited, "delayed responses", "delayed response")
+  keywords$edited<-str_replace(keywords$edited, "deleterious recessives", "deleterious recessive")
+  keywords$edited<-str_replace(keywords$edited, "delta c 13", "delta c13")
+  keywords$edited<-str_replace(keywords$edited, "delta c-13", "delta c13")
+  keywords$edited<-str_replace(keywords$edited, "delta n 15", "delta n15")
+  keywords$edited<-str_replace(keywords$edited, "density estimates", "density estimate")
+  keywords$edited<-str_replace(keywords$edited, "densitymediated indirect effect", "density-mediated indirect effect")
+  keywords$edited<-str_replace(keywords$edited, "development model", "model development")
+  keywords$edited<-str_replace(keywords$edited, "di nitrogen fixation", "dinitrogen fixation")
+  keywords$edited<-str_replace(keywords$edited, "diamond back moth", "diamondback moth")
+  keywords$edited<-str_replace(keywords$edited, "diasporas", "diaspora")
+  keywords$edited<-str_replace(keywords$edited, "diffusion advection model", "advection diffusion model")
+  keywords$edited<-str_replace(keywords$edited, "dik dik", "dik-dik")
+  keywords$edited<-str_replace(keywords$edited, "dikdik", "dik-dik")
+  keywords$edited<-str_replace(keywords$edited, "dispersal condition dependent", "condition-dependent dispersal")
+  keywords$edited<-str_replace(keywords$edited, "dispersal corridors", "dispersal corridor")
+  keywords$edited<-str_replace(keywords$edited, "dissassortative mating", "disassortative mating")
+  keywords$edited<-str_replace(keywords$edited, "distance dispersal", "dispersal distance")
+  keywords$edited<-str_replace(keywords$edited, "distribution abundance", "distribution-abundance")
+  keywords$edited<-str_replace(keywords$edited, "distribution probability", "probability distribution")
+  keywords$edited<-str_replace(keywords$edited, "distribution range size", "range size distribution")
+  keywords$edited<-str_replace(keywords$edited, "disturbance and soil biodiversity", "soil biodiversity and disturbance")
+  keywords$edited<-str_replace(keywords$edited, "divergence with-gene flow", "divergence with gene flow")
+  keywords$edited<-str_replace(keywords$edited, "diversity disease relationship", "diversity-disease relationship")
+  keywords$edited<-str_replace(keywords$edited, "diversity disturbance relationship", "diversity-disturbance relationship")
+  keywords$edited<-str_replace(keywords$edited, "diversity estimators", "diversity estimator")
+  keywords$edited<-str_replace(keywords$edited, "diversity hotspots", "diversity hotspot")
+  keywords$edited<-str_replace(keywords$edited, "diversity invasibility", "diversity-invasibility")
+  keywords$edited<-str_replace(keywords$edited, "diversity invasibility hypothesis", "diversity-invasibility hypothesis")
+  keywords$edited<-str_replace(keywords$edited, "diversity-disturbance relationship", "diversity-disturbance relationship")
+  keywords$edited<-str_replace(keywords$edited, "diversity-invasibility hypothesis", "diversity-invasibility hypothesis")
+  keywords$edited<-str_replace(keywords$edited, "dn-d(s)", "dn-ds")
+  keywords$edited<-str_replace(keywords$edited, "dna bar coding", "dna barcoding")
+  keywords$edited<-str_replace(keywords$edited, "dna dna hybridization", "dna hybridization")
+  keywords$edited<-str_replace(keywords$edited, "dolphin fish", "dolphinfish")
+  keywords$edited<-str_replace(keywords$edited, "dominance diversity", "dominance-diversity")
+  keywords$edited<-str_replace(keywords$edited, "dominance-diversity", "dominance-diversity")
+  keywords$edited<-str_replace(keywords$edited, "donana national park", "donana")
+  keywords$edited<-str_replace(keywords$edited, "donaña", "donana")
+  keywords$edited<-str_replace(keywords$edited, "donãna national park", "donana")
+  keywords$edited<-str_replace(keywords$edited, "dose response curves", "dose-response curve")
+  keywords$edited<-str_replace(keywords$edited, "dry alpine meadow", "alpine dry meadow")
+  keywords$edited<-str_replace(keywords$edited, "dynamic metapopulation", "metapopulation dynamics")
+  keywords$edited<-str_replace(keywords$edited, "e laeis guineensis", "elaeis guineensis")
+  keywords$edited<-str_replace(keywords$edited, "e scape", "escape")
+  keywords$edited<-str_replace(keywords$edited, "east tropical pacific", "tropical east pacific")
+  keywords$edited<-str_replace(keywords$edited, "eco genomics", "ecogenomics")
+  keywords$edited<-str_replace(keywords$edited, "eco hydrology", "ecohydrology")
+  keywords$edited<-str_replace(keywords$edited, "eco morphology", "ecomorphology")
+  
+  
+  keywords$edited<-str_replace(keywords$edited, "eco phylogenetics", "ecophylogenetics")
+  keywords$edited<-str_replace(keywords$edited, "eco regions", "ecoregions")
+  keywords$edited<-str_replace(keywords$edited, "ecological transitions", "ecological transition")
+  keywords$edited<-str_replace(keywords$edited, "ecoregión", "ecoregion")
+  keywords$edited<-str_replace(keywords$edited, "ecosystem function and ecosystem services", "ecosystem function and services")
+  keywords$edited<-str_replace(keywords$edited, "ecosystem function and structure", "ecosystem structure and function")
+  keywords$edited<-str_replace(keywords$edited, "ecosystem responses", "ecosystem response")
+  keywords$edited<-str_replace(keywords$edited, "eggload", "egg load")
+  keywords$edited<-str_replace(keywords$edited, "el nino drought", "enso drought")
+  keywords$edited<-str_replace(keywords$edited, "el ninõ southern oscillation", "enso")
+  keywords$edited<-str_replace(keywords$edited, "el niño drought", "enso drought")
+  keywords$edited<-str_replace(keywords$edited, "el niño-southern oscillation", "enso")
+  keywords$edited<-str_replace(keywords$edited, "el niño-southern oscillation", "enso")
+  keywords$edited<-str_replace(keywords$edited, "el nī no southern oscillation enso", "enso")
+  keywords$edited<-str_replace(keywords$edited, "elevated [co ] 2", "elevated co2")
+  keywords$edited<-str_replace(keywords$edited, "ende mism", "endemism")
+  keywords$edited<-str_replace(keywords$edited, "enemyfree space", "enemy-free space")
+  keywords$edited<-str_replace(keywords$edited, "enemyrelease hypothesis", "enemy release hypothesis")
+  keywords$edited<-str_replace(keywords$edited, "energetic trade off", "energetic tradeoff")
+  keywords$edited<-str_replace(keywords$edited, "ensifera ensifera", "ensifera")
+  keywords$edited<-str_replace(keywords$edited, "environmental education &", "environmental education")
+  keywords$edited<-str_replace(keywords$edited, "environmental responses", "environmental response")
+  keywords$edited<-str_replace(keywords$edited, "espinhaço range", "espinhaco range")
+  keywords$edited<-str_replace(keywords$edited, "estimates", "estimate")
+  keywords$edited<-str_replace(keywords$edited, "eulemur fulvus fulvus", "eulemur fulvus")
+  keywords$edited<-str_replace(keywords$edited, "everglades florida", "florida everglades")
+  keywords$edited<-str_replace(keywords$edited, "evergreen broad leaved forest", "evergreen broadleaved forest")
+  keywords$edited<-str_replace(keywords$edited, "evergreen lowland rainforest", "lowland evergreen rainforest")
+  keywords$edited<-str_replace(keywords$edited, "evolution and ecology", "ecology and evolution")
+  keywords$edited<-str_replace(keywords$edited, "evolutionarily stable strategie", "evolutionarily stable strategies")
+  keywords$edited<-str_replace(keywords$edited, "evolutionary responses", "evolutionary response")
+  keywords$edited<-str_replace(keywords$edited, "ex tinction", "extinction")
+  keywords$edited<-str_replace(keywords$edited, "exap tation", "exaptation")
+  keywords$edited<-str_replace(keywords$edited, "exotic annual grasses", "annual exotic grasses")
+  keywords$edited<-str_replace(keywords$edited, "exotic invasive plants", "invasive exotic plants")
+  keywords$edited<-str_replace(keywords$edited, "exploration exploitation trade-off", "exploration-exploitation trade-off")
+  keywords$edited<-str_replace(keywords$edited, "exploration-exploitation trade off", "exploration-exploitation trade-off")
+  keywords$edited<-str_replace(keywords$edited, "extinction-colonization", "extinction-colonization")
+  keywords$edited<-str_replace(keywords$edited, "extra floral nectar", "extrafloral nectar")
+  keywords$edited<-str_replace(keywords$edited, "extra floral nectary", "extrafloral nectary")
+  keywords$edited<-str_replace(keywords$edited, "eye span", "eyespan")
+  keywords$edited<-str_replace(keywords$edited, "f  statistics", "f statistics")
+  keywords$edited<-str_replace(keywords$edited, "face free air co  enrichment 2", "face")
+  keywords$edited<-str_replace(keywords$edited, "factors controlling", "controlling factors")
+  keywords$edited<-str_replace(keywords$edited, "far red ratio", "red farred ratio")
+  keywords$edited<-str_replace(keywords$edited, "farm yard manure", "farmyard manure")
+  keywords$edited<-str_replace(keywords$edited, "fat body", "body fat")
+  keywords$edited<-str_replace(keywords$edited, "female female competition", "female-female competition")
+  keywords$edited<-str_replace(keywords$edited, "female post mating response", "post-mating female response")
+  keywords$edited<-str_replace(keywords$edited, "fi re ant", "fire ant")
+  keywords$edited<-str_replace(keywords$edited, "fire herbivore interactions", "fire-herbivore interactions")
+  keywords$edited<-str_replace(keywords$edited, "fl uvial erosion", "fluvial erosion")
+  keywords$edited<-str_replace(keywords$edited, "flood plain", "floodplain")
+  keywords$edited<-str_replace(keywords$edited, "flood plain lakes", "floodplain lakes")
+  keywords$edited<-str_replace(keywords$edited, "flood plains", "floodplains")
+  keywords$edited<-str_replace(keywords$edited, "fluctuatingselection", "fluctuating selection")
+  keywords$edited<-str_replace(keywords$edited, "forest complex", "complex forest")
+  keywords$edited<-str_replace(keywords$edited, "forest savanna boundary", "savanna-forest boundary")
+  keywords$edited<-str_replace(keywords$edited, "forest specialists", "forest specialist")
+  keywords$edited<-str_replace(keywords$edited, "forest uses", "forest use")
+  keywords$edited<-str_replace(keywords$edited, "forestland", "forest land")
+  keywords$edited<-str_replace(keywords$edited, "form function relationship", "form-function relationship")
+  keywords$edited<-str_replace(keywords$edited, "formfunction relationship", "form-function relationship")
+  keywords$edited<-str_replace(keywords$edited, "fourthcorner problem", "fourth corner problem")
+  # keywords$edited<-str_replace(keywords$edited, "frequency ", "frequency")
+  keywords$edited<-str_replace(keywords$edited, "fresh water ecology", "freshwater ecology")
+  keywords$edited<-str_replace(keywords$edited, "fresh water fishes", "freshwater fishes")
+  keywords$edited<-str_replace(keywords$edited, "fresh water shrimps", "freshwater shrimps")
+  keywords$edited<-str_replace(keywords$edited, "freshwater lakes", "freshwater lake")
+  keywords$edited<-str_replace(keywords$edited, "fruitbats", "fruit bats")
+  keywords$edited<-str_replace(keywords$edited, "fruitfly", "fruit fly")
+  keywords$edited<-str_replace(keywords$edited, "fruitset", "fruit set")
+  keywords$edited<-str_replace(keywords$edited, "functional plant group", "plant functional group")
+  keywords$edited<-str_replace(keywords$edited, "g eospiza", "geospiza")
+  keywords$edited<-str_replace(keywords$edited, "g max", "gmax")
+  keywords$edited<-str_replace(keywords$edited, "g x e interaction", "gxe")
+  keywords$edited<-str_replace(keywords$edited, "gall insect", "insect gall")
+  keywords$edited<-str_replace(keywords$edited, "gallmaker", "gall maker")
+  keywords$edited<-str_replace(keywords$edited, "gallwasp", "gall wasp")
+  keywords$edited<-str_replace(keywords$edited, "gc ms analysis", "gc-ms analysis")
+  keywords$edited<-str_replace(keywords$edited, "gc-ms analysis", "gc-ms analysis")
+  keywords$edited<-str_replace(keywords$edited, "gekkonida e", "gekkonidae")
+  keywords$edited<-str_replace(keywords$edited, "gene by-environment interaction", "gxe")
+  keywords$edited<-str_replace(keywords$edited, "gene culture co-evolution", "gene culture coevolution")
+  keywords$edited<-str_replace(keywords$edited, "geneculture coevolution", "gene culture coevolution")
+  keywords$edited<-str_replace(keywords$edited, "generalist specialist trade-offs", "generalist-specialist trade-offs")
+  keywords$edited<-str_replace(keywords$edited, "genetic structure and diversity", "genetic diversity and structure")
+  keywords$edited<-str_replace(keywords$edited, "genome wide association studies", "gwas")
+  keywords$edited<-str_replace(keywords$edited, "genomewide association studies", "gwas")
+  keywords$edited<-str_replace(keywords$edited, "genotype by genotype by environment", "gxe")
+  keywords$edited<-str_replace(keywords$edited, "genotype by genotype interactions", "gxe")
+  keywords$edited<-str_replace(keywords$edited, "genotype environment associations", "gxe")
+  keywords$edited<-str_replace(keywords$edited, "genotype environment correlation", "genotype-environment correlation")
+  keywords$edited<-str_replace(keywords$edited, "genotypephenotype map", "genotype-phenotype map")
+  keywords$edited<-str_replace(keywords$edited, "genotype x environment interaction", "gxe")
+  keywords$edited<-str_replace(keywords$edited, "genotype-environment associations", "gxe")
+  keywords$edited<-str_replace(keywords$edited, "gis geographic information system", "gis")
+  keywords$edited<-str_replace(keywords$edited, "giving up-density", "giving-up density")
+  
+  
+  keywords$edited<-str_replace(keywords$edited, "glossophaga commissarisi", "glosophaga commissarisi")
+  keywords$edited<-str_replace(keywords$edited, "gold fish", "goldfish")
+  keywords$edited<-str_replace(keywords$edited, "golfo de-california", "golfo de california")
+  keywords$edited<-str_replace(keywords$edited, "golfo de-nicoya", "golfo de nicoya")
+  keywords$edited<-str_replace(keywords$edited, "gonado somatic index", "gonado-somatic index")
+  keywords$edited<-str_replace(keywords$edited, "goodness of-fit", "goodness of fit")
+  keywords$edited<-str_replace(keywords$edited, "grass tree coexistence", "tree-grass coexistence")
+  keywords$edited<-str_replace(keywords$edited, "grasses and forbs", "forbs and grasses")
+  keywords$edited<-str_replace(keywords$edited, "grass-fire cycle", "grass-fire cycle")
+  keywords$edited<-str_replace(keywords$edited, "green beard", "greenbeard")
+  keywords$edited<-str_replace(keywords$edited, "green beards", "greenbeard")
+  keywords$edited<-str_replace(keywords$edited, "ground water", "groundwater")
+  keywords$edited<-str_replace(keywords$edited, "growth climate relationship", "climate-growth relationship")
+  keywords$edited<-str_replace(keywords$edited, "growth climate responses", "climate growth responses")
+  keywords$edited<-str_replace(keywords$edited, "growth defense trade off", "growth-defense tradeoff")
+  keywords$edited<-str_replace(keywords$edited, "growth differentiation-balance hypothesis", "growth differentiation balance hypothesis")
+  keywords$edited<-str_replace(keywords$edited, "growth responses", "growth response")
+  keywords$edited<-str_replace(keywords$edited, "growth-defense trade off", "growth-defense tradeoff")
+  keywords$edited<-str_replace(keywords$edited, "gulf california", "california gulf")
+  keywords$edited<-str_replace(keywords$edited, "g x e", "gxe")
+  keywords$edited<-str_replace(keywords$edited, "g(st)", "gst")
+  keywords$edited<-str_replace(keywords$edited, "habitat fragmentation and loss", "habitat loss and fragmentation")
+  keywords$edited<-str_replace(keywords$edited, "habitat matrix", "matrix habitat")
+  keywords$edited<-str_replace(keywords$edited, "habitat specialists", "habitat specialist")
+  keywords$edited<-str_replace(keywords$edited, "hair root", "root hair")
+  keywords$edited<-str_replace(keywords$edited, "haplo diploid", "haplodiploid")
+  keywords$edited<-str_replace(keywords$edited, "haplo diploid sex determination", "haplodiploid sex determination")
+  keywords$edited<-str_replace(keywords$edited, "hawai ªi", "hawaii")
+  keywords$edited<-str_replace(keywords$edited, "hawk moths", "hawkmoths")
+  keywords$edited<-str_replace(keywords$edited, "height vegetation", "vegetation height")
+  keywords$edited<-str_replace(keywords$edited, "hemi epiphyte", "hemiepiphyte")
+  keywords$edited<-str_replace(keywords$edited, "herbchronology", "herb chronology")
+  keywords$edited<-str_replace(keywords$edited, "herbivore herbivore interactions", "herbivore-herbivore interactions")
+  keywords$edited<-str_replace(keywords$edited, "herbivore induced plant response", "herbivore-induced plant response")
+  keywords$edited<-str_replace(keywords$edited, "herbivore induced plant responses", "herbivore-induced plant response")
+  keywords$edited<-str_replace(keywords$edited, "herbivore interactions", "herbivore-herbivore interactions")
+  keywords$edited<-str_replace(keywords$edited, "herbivore plant dynamics", "plant-herbivore dynamics")
+  keywords$edited<-str_replace(keywords$edited, "herbivore plant interaction", "plant-herbivore interaction")
+  keywords$edited<-str_replace(keywords$edited, "heterospecificpollen", "heterospecific pollen")
+  keywords$edited<-str_replace(keywords$edited, "heterozygosity-fitness correlation", "heterozygosity-fitness correlation")
+  keywords$edited<-str_replace(keywords$edited, "hind limb", "hindlimb")
+  keywords$edited<-str_replace(keywords$edited, "hluhluwe-imfolozi park", "hluhluwe imfolozi park")
+  keywords$edited<-str_replace(keywords$edited, "hollow tree", "tree hollow")
+  keywords$edited<-str_replace(keywords$edited, "holo epiphyte", "holoepiphyte")
+  keywords$edited<-str_replace(keywords$edited, "home gardens", "homegardens")
+  keywords$edited<-str_replace(keywords$edited, "hop lias malabaricus", "hoplias malabaricus")
+  keywords$edited<-str_replace(keywords$edited, "host  parasite interaction", "host-parasite interaction")
+  keywords$edited<-str_replace(keywords$edited, "host parasite relationship", "host-parasite relationship")
+  keywords$edited<-str_replace(keywords$edited, "host pathogen evolution", "host-pathogen evolution")
+  keywords$edited<-str_replace(keywords$edited, "host responses", "host response")
+  keywords$edited<-str_replace(keywords$edited, "host-parasite", "host-parasite")
+  keywords$edited<-str_replace(keywords$edited, "hostfeeding", "host-feeding")
+  keywords$edited<-str_replace(keywords$edited, "hostparasite", "host-parasite")
+  keywords$edited<-str_replace(keywords$edited, "hostparasite system", "host-parasite system")
+  keywords$edited<-str_replace(keywords$edited, "host-parasite system", "host-parasite system")
+  keywords$edited<-str_replace(keywords$edited, "hot spot", "hotspots")
+  keywords$edited<-str_replace(keywords$edited, "hot spots", "hotspots")
+  keywords$edited<-str_replace(keywords$edited, "huisman olff-fresco models", "huisman-olff-fresco models")
+  keywords$edited<-str_replace(keywords$edited, "human  elephant conflict", "human-elephant conflict")
+  keywords$edited<-str_replace(keywords$edited, "human pressures", "human pressure")
+  keywords$edited<-str_replace(keywords$edited, "human wildlife interactions", "human-wildlife interactions")
+  keywords$edited<-str_replace(keywords$edited, "hyallela azteca", "hyalella azteca")
+  keywords$edited<-str_replace(keywords$edited, "hybrid female sterility", "female hybrid sterility")
+  keywords$edited<-str_replace(keywords$edited, "hybridiza tion", "hybridization")
+  keywords$edited<-str_replace(keywords$edited, "hyper spectral remote sensing", "hyperspectral remote sensing")
+  keywords$edited<-str_replace(keywords$edited, "i  mates", "i mates")
+  keywords$edited<-str_replace(keywords$edited, "immuno competence handicap", "immunocompetence handicap")
+  keywords$edited<-str_replace(keywords$edited, "immuno suppression", "immunosuppression")
+  keywords$edited<-str_replace(keywords$edited, "immunoelectronmicroscopy", "immunoelectron microscopy")
+  keywords$edited<-str_replace(keywords$edited, "income and capital breeding", "capital and income breeding")
+  keywords$edited<-str_replace(keywords$edited, "increment growth", "growth increment")
+  keywords$edited<-str_replace(keywords$edited, "index selection", "selection index")
+  keywords$edited<-str_replace(keywords$edited, "indirect density mediated interactions", "density-mediated indirect interactions")
+  keywords$edited<-str_replace(keywords$edited, "individual based sim-ulation", "individual-based simulation")
+  keywords$edited<-str_replace(keywords$edited, "individual by-environment inter-action", "individual by environment interaction")
+  keywords$edited<-str_replace(keywords$edited, "individualbased model", "individual-based model")
+  keywords$edited<-str_replace(keywords$edited, "individualbased simulation", "individual-based simulation")
+  keywords$edited<-str_replace(keywords$edited, "ingestion rates", "ingestion rate")
+  
+  
+  keywords$edited<-str_replace(keywords$edited, "insect interactions", "insect interaction")
+  keywords$edited<-str_replace(keywords$edited, "insect pathogens", "insect pathogen")
+  # keywords$edited<-str_replace(keywords$edited, "insect plant association", "insect-plant association")
+  # keywords$edited<-str_replace(keywords$edited, "insect plant associations", "insect-plant association")
+  keywords$edited<-str_replace(keywords$edited, "insect-plant interaction", "plant-insect interaction")
+  keywords$edited<-str_replace(keywords$edited, "insectplant interaction", "plant-insect interaction")
+  keywords$edited<-str_replace(keywords$edited, "insect-plant interaction", "plant-insect interaction")
+  keywords$edited<-str_replace(keywords$edited, "insect-plant relationships", "insect-plant relationships")
+  keywords$edited<-str_replace(keywords$edited, "insular populations", "insular population")
+  keywords$edited<-str_replace(keywords$edited, "inter annual variability", "interannual variability")
+  keywords$edited<-str_replace(keywords$edited, "inter birth interval", "interbirth interval")
+  keywords$edited<-str_replace(keywords$edited, "inter breeding", "interbreeding")
+  keywords$edited<-str_replace(keywords$edited, "inter population hybridization", "interpopulation hybridization")
+  keywords$edited<-str_replace(keywords$edited, "inter sexual selection", "intersexual selection")
+  keywords$edited<-str_replace(keywords$edited, "inter species interactions", "interspecies interactions")
+  keywords$edited<-str_replace(keywords$edited, "inter specific", "interspecific")
+  keywords$edited<-str_replace(keywords$edited, "inter specific competition", "interspecific competition")
+  keywords$edited<-str_replace(keywords$edited, "inter specific interactions", "interspecific interactions")
+  keywords$edited<-str_replace(keywords$edited, "intera ctions", "interactions")
+  keywords$edited<-str_replace(keywords$edited, "international union for conservation of nature  iucn", "iucn")
+  keywords$edited<-str_replace(keywords$edited, "international union for conservation of nature iucn", "iucn")
+  keywords$edited<-str_replace(keywords$edited, "intertidal snails", "intertidal snail")
+  keywords$edited<-str_replace(keywords$edited, "intra guild interactions", "intraguild interactions")
+  keywords$edited<-str_replace(keywords$edited, "intra individual variability", "intraindividual variability")
+  keywords$edited<-str_replace(keywords$edited, "intra locus sexual conflict", "intralocus sexual conflict")
+  keywords$edited<-str_replace(keywords$edited, "intra sexual competition", "intrasexual competition")
+  keywords$edited<-str_replace(keywords$edited, "intra sexual dimorphism", "intrasexual dimorphism")
+  keywords$edited<-str_replace(keywords$edited, "intra sexual selection", "intrasexual selection")
+  keywords$edited<-str_replace(keywords$edited, "intra specific competition", "intraspecific competition")
+  keywords$edited<-str_replace(keywords$edited, "intra specific facilitation", "intraspecific facilitation")
+  keywords$edited<-str_replace(keywords$edited, "intra specific interaction", "intraspecific interaction")
+  keywords$edited<-str_replace(keywords$edited, "intra specific trait variation", "intraspecific trait variation")
+  keywords$edited<-str_replace(keywords$edited, "intra specific variation", "intraspecific variation")
+  keywords$edited<-str_replace(keywords$edited, "intrinsic post zygotic isolation", "intrinsic postzygotic isolation")
+  keywords$edited<-str_replace(keywords$edited, "invasive nonnative species", "nonnative invasive species")
+  keywords$edited<-str_replace(keywords$edited, "isolation by-environment", "isolation-by-environment")
+  keywords$edited<-str_replace(keywords$edited, "isolation bydistance", "isolation-by-distance")
+  keywords$edited<-str_replace(keywords$edited, "isotope   n  15", "15n isotope")
+  keywords$edited<-str_replace(keywords$edited, "isthmus of panamá", "isthmus of panama")
+  keywords$edited<-str_replace(keywords$edited, "its 1", "its1")
+  keywords$edited<-str_replace(keywords$edited, "itsrdna", "its rdna")
+  keywords$edited<-str_replace(keywords$edited, "janzen-connell effect", "janzen-connell effect")
+  keywords$edited<-str_replace(keywords$edited, "key resources", "key resource")
+  keywords$edited<-str_replace(keywords$edited, "l ymnaea stagnalis", "lymnaea stagnalis")
+  keywords$edited<-str_replace(keywords$edited, "la paz-bay", "la paz bay")
+  keywords$edited<-str_replace(keywords$edited, "lady beetles", "ladybeetles")
+  keywords$edited<-str_replace(keywords$edited, "lake gatun", "gatun lake")
+  keywords$edited<-str_replace(keywords$edited, "lake land linkages", "lake-land linkages")
+  keywords$edited<-str_replace(keywords$edited, "lake mývatn", "lake myvatn")
+  keywords$edited<-str_replace(keywords$edited, "land use cover", "land-use cover")
+  keywords$edited<-str_replace(keywords$edited, "land use-cover", "land-use cover")
+  keywords$edited<-str_replace(keywords$edited, "larder hoarding", "larderhoarding")
+  keywords$edited<-str_replace(keywords$edited, "large scale disturbances", "large-scale disturbance")
+  keywords$edited<-str_replace(keywords$edited, "late wood", "latewood")
+  # keywords$edited<-str_replace(keywords$edited, "leaf ", "leaf")
+  keywords$edited<-str_replace(keywords$edited, "leaf cutter ant", "leafcutter ant")
+  keywords$edited<-str_replace(keywords$edited, "levins metapopulations", "levins metapopulation")
+  keywords$edited<-str_replace(keywords$edited, "levinsb", "levins b")
+  keywords$edited<-str_replace(keywords$edited, "liana tree competition", "liana-tree competition")
+  keywords$edited<-str_replace(keywords$edited, "liana tree interaction", "liana-tree interaction")
+  keywords$edited<-str_replace(keywords$edited, "life history switch point", "life-history switch point")
+  keywords$edited<-str_replace(keywords$edited, "life table-response experiments", "life-table response experiments")
+  keywords$edited<-str_replace(keywords$edited, "lifehistory", "life-history")
+  keywords$edited<-str_replace(keywords$edited, "lifehistory covariation", "life-history covariation")
+  keywords$edited<-str_replace(keywords$edited, "lifehistory switch point", "life-history switch point")
+  keywords$edited<-str_replace(keywords$edited, "lifehistory trade offs", "life-history tradeoffs")
+  keywords$edited<-str_replace(keywords$edited, "lifehistory traits", "life-history traits")
+  keywords$edited<-str_replace(keywords$edited, "light : nutrient hypothesis", "light:nutrient hypothesis")
+  keywords$edited<-str_replace(keywords$edited, "light responses curve", "light curve responses")
+  keywords$edited<-str_replace(keywords$edited, "likelihoodratio test", "likelihood ratio test")
+  keywords$edited<-str_replace(keywords$edited, "linearmodels", "linear models")
+  keywords$edited<-str_replace(keywords$edited, "lock and key", "lock-and-key")
+  
+  
+  keywords$edited<-str_replace(keywords$edited, "logseries", "log series")
+  keywords$edited<-str_replace(keywords$edited, "long term ecological research site", "lter")
+  keywords$edited<-str_replace(keywords$edited, "long term ecological research sites", "lter")
+  keywords$edited<-str_replace(keywords$edited, "longdistance migration", "long-distance migration")
+  keywords$edited<-str_replace(keywords$edited, "longterm data", "long-term data")
+  keywords$edited<-str_replace(keywords$edited, "longterm monitoring", "long-term monitoring")
+  keywords$edited<-str_replace(keywords$edited, "loss of-function", "loss of function")
+  keywords$edited<-str_replace(keywords$edited, "lotka volterra competition model", "lotka-volterra competition model")
+  keywords$edited<-str_replace(keywords$edited, "lotka-volterra", "lotka-volterra")
+  keywords$edited<-str_replace(keywords$edited, "loxodonta africana africana", "loxodonta africana")
+  keywords$edited<-str_replace(keywords$edited, "lupïnus arboreus", "lupinus arboreus")
+  keywords$edited<-str_replace(keywords$edited, "luscinia luscinia", "luscinia")
+  keywords$edited<-str_replace(keywords$edited, "lyman tria dispar l", "lymantria dispar")
+  keywords$edited<-str_replace(keywords$edited, "lymantria dispar l", "lymantria dispar")
+  keywords$edited<-str_replace(keywords$edited, "lynx lynx canadensis", "lynx canadensis")
+  keywords$edited<-str_replace(keywords$edited, "lévy flights", "levy flights")
+  keywords$edited<-str_replace(keywords$edited, "ma crocystis pyrifera", "macrocystis pyrifera")
+  keywords$edited<-str_replace(keywords$edited, "macro ecology", "macroecology")
+  keywords$edited<-str_replace(keywords$edited, "macro invertebrate", "macroinvertebrate")
+  keywords$edited<-str_replace(keywords$edited, "macro invertebrates", "macroinvertebrates")
+  keywords$edited<-str_replace(keywords$edited, "macro molluscs", "macromolluscs")
+  keywords$edited<-str_replace(keywords$edited, "macro mutation", "macromutation")
+  keywords$edited<-str_replace(keywords$edited, "mahogany shoot borer", "mahogany shootborer")
+  keywords$edited<-str_replace(keywords$edited, "male contest competition", "male-male competition")
+  keywords$edited<-str_replace(keywords$edited, "male fitness gain curves", "male fitness gain curve")
+  keywords$edited<-str_replace(keywords$edited, "male male contest competition", "male-male competition")
+  keywords$edited<-str_replace(keywords$edited, "manacus manacus", "manacus")
+  keywords$edited<-str_replace(keywords$edited, "manage ment", "management")
+  keywords$edited<-str_replace(keywords$edited, "management conservation", "conservation management")
+  keywords$edited<-str_replace(keywords$edited, "marine protected área", "marine protected area")
+  keywords$edited<-str_replace(keywords$edited, "mark  recapture", "mark-recapture")
+  keywords$edited<-str_replace(keywords$edited, "mark recapture data", "mark-recapture data")
+  keywords$edited<-str_replace(keywords$edited, "mark-recapture", "mark-recapture")
+  keywords$edited<-str_replace(keywords$edited, "mark-recapture model", "capture mark-recapture model")
+  keywords$edited<-str_replace(keywords$edited, "mark-release-recapture", "mark-release-recapture")
+  keywords$edited<-str_replace(keywords$edited, "mass abundance scaling", "mass-abundance scaling")
+  keywords$edited<-str_replace(keywords$edited, "match-mismatch", "match-mismatch")
+  keywords$edited<-str_replace(keywords$edited, "match-mismatch", "match-mismatch")
+  keywords$edited<-str_replace(keywords$edited, "mating system transitions", "mating system transition")
+  keywords$edited<-str_replace(keywords$edited, "matrix correlation", "correlation matrix")
+  keywords$edited<-str_replace(keywords$edited, "matrix projection", "projection matrix")
+  keywords$edited<-str_replace(keywords$edited, "maximum likelihood estimates", "maximum likelihood estimate")
+  keywords$edited<-str_replace(keywords$edited, "maërl beds", "maerl beds")
+  keywords$edited<-str_replace(keywords$edited, "mean variance relationship", "mean-variance relationship")
+  keywords$edited<-str_replace(keywords$edited, "mean variance scaling", "mean-variance scaling")
+  keywords$edited<-str_replace(keywords$edited, "mega herbivore", "megaherbivore")
+  keywords$edited<-str_replace(keywords$edited, "mega herbivores", "megaherbivores")
+  keywords$edited<-str_replace(keywords$edited, "melanargia galathea l", "melanargia galathea")
+  keywords$edited<-str_replace(keywords$edited, "melanoplus femurrubrum femurrubrum", "melanoplus femurrubrum")
+  keywords$edited<-str_replace(keywords$edited, "meso herbivore", "mesoherbivore")
+  keywords$edited<-str_replace(keywords$edited, "meso herbivores", "mesoherbivore")
+  keywords$edited<-str_replace(keywords$edited, "meta frontier", "metafrontier")
+  keywords$edited<-str_replace(keywords$edited, "meta plasticity", "metaplasticity")
+  
+  
+  keywords$edited<-str_replace(keywords$edited, "meta population ecology", "metapopulation ecology")
+  keywords$edited<-str_replace(keywords$edited, "metapopulation dynamic", "metapopulation dynamics")
+  keywords$edited<-str_replace(keywords$edited, "metopeurum fuscoviride", "metopeurum fusco viride")
+  keywords$edited<-str_replace(keywords$edited, "michoacán", "michoacan")
+  keywords$edited<-str_replace(keywords$edited, "micro climate", "microclimate")
+  keywords$edited<-str_replace(keywords$edited, "micro ecosystem", "microecosystem")
+  keywords$edited<-str_replace(keywords$edited, "micro environment", "microenvironment")
+  keywords$edited<-str_replace(keywords$edited, "micro environmental conditions", "microenvironmental conditions")
+  keywords$edited<-str_replace(keywords$edited, "micro environmental variation", "microenvironmental variation")
+  keywords$edited<-str_replace(keywords$edited, "micro habitat", "microhabitat")
+  keywords$edited<-str_replace(keywords$edited, "micro satellites", "microsatellites")
+  keywords$edited<-str_replace(keywords$edited, "micro topography", "microtopography")
+  keywords$edited<-str_replace(keywords$edited, "microbe host interactions", "host-microbe interactions")
+  keywords$edited<-str_replace(keywords$edited, "microbial n biomass", "microbial biomass n")
+  keywords$edited<-str_replace(keywords$edited, "microscopy electronic", "electronic microscopy")
+  keywords$edited<-str_replace(keywords$edited, "microsporid ia", "microsporidia")
+  keywords$edited<-str_replace(keywords$edited, "mineralization: nitrogen", "nitrogen mineralization")
+  keywords$edited<-str_replace(keywords$edited, "mini barcode", "minibarcode")
+  keywords$edited<-str_replace(keywords$edited, "mini rhizotrons", "minirhizotrons")
+  keywords$edited<-str_replace(keywords$edited, "mito nuclear discordance", "mitonuclear discordance")
+  keywords$edited<-str_replace(keywords$edited, "mixed linear model", "linear mixed model")
+  keywords$edited<-str_replace(keywords$edited, "mixed model effects", "mixed effects model")
+  keywords$edited<-str_replace(keywords$edited, "mixed species stands", "mixed species stand")
+  keywords$edited<-str_replace(keywords$edited, "mixedgrass prairie", "mixed-grass prairie")
+  keywords$edited<-str_replace(keywords$edited, "mixedwoods", "mixed woods")
+  keywords$edited<-str_replace(keywords$edited, "mixing litter", "litter mixing")
+  keywords$edited<-str_replace(keywords$edited, "mo nogamy", "monogamy")
+  
+  
+  keywords$edited<-str_replace(keywords$edited, "model aggregation", "aggregation model")
+  keywords$edited<-str_replace(keywords$edited, "model data comparison", "model-data comparison")
+  keywords$edited<-str_replace(keywords$edited, "model population", "population model")
+  keywords$edited<-str_replace(keywords$edited, "modeling distribution", "distribution modeling")
+  keywords$edited<-str_replace(keywords$edited, "modeling population dynamics", "population dynamics modeling")
+  keywords$edited<-str_replace(keywords$edited, "mono culture plantation", "monoculture plantation")
+  # keywords$edited<-str_replace(keywords$edited, "monocot ", "monocot")
+  keywords$edited<-str_replace(keywords$edited, "monsoons", "monsoon")
+  keywords$edited<-str_replace(keywords$edited, "mosaic landscape", "landscape mosaic")
+  keywords$edited<-str_replace(keywords$edited, "mosquitos", "mosquito")
+  keywords$edited<-str_replace(keywords$edited, "most productive institutions and authors", "most productive authors and institutions")
+  keywords$edited<-str_replace(keywords$edited, "multi annual cycles", "multiannual cycles")
+  keywords$edited<-str_replace(keywords$edited, "multi dimensional scaling", "multidimensional scaling")
+  keywords$edited<-str_replace(keywords$edited, "multi element analysis", "multielement analysis")
+  keywords$edited<-str_replace(keywords$edited, "multi functionality", "multifunctionality")
+  keywords$edited<-str_replace(keywords$edited, "multi host system", "multihost system")
+  keywords$edited<-str_replace(keywords$edited, "multi locus", "multilocus")
+  keywords$edited<-str_replace(keywords$edited, "multi locus heterozygosity", "multilocus heterozygosity")
+  keywords$edited<-str_replace(keywords$edited, "multi modal signaling", "multimodal signaling")
+  keywords$edited<-str_replace(keywords$edited, "multi modal signals", "multimodal signal")
+  keywords$edited<-str_replace(keywords$edited, "multi predator environments", "multipredator environments")
+  keywords$edited<-str_replace(keywords$edited, "multi scale", "multiscale")
+  keywords$edited<-str_replace(keywords$edited, "multi scale analysis", "multiscale analysis")
+  keywords$edited<-str_replace(keywords$edited, "multi scaled random walk", "multiscaled random walk")
+  keywords$edited<-str_replace(keywords$edited, "multi species communities", "multispecies communities")
+  keywords$edited<-str_replace(keywords$edited, "multi species interaction", "multispecies interaction")
+  keywords$edited<-str_replace(keywords$edited, "multi state capture-recapture models", "multistate capture recapture models")
+  keywords$edited<-str_replace(keywords$edited, "multi state model", "multistate model")
+  keywords$edited<-str_replace(keywords$edited, "multi stemmed trees", "multistemmed trees")
+  keywords$edited<-str_replace(keywords$edited, "multi strata models", "multistrata models")
+  keywords$edited<-str_replace(keywords$edited, "multi trophic communities", "multitrophic communities")
+  keywords$edited<-str_replace(keywords$edited, "multi trophic interaction", "multitrophic interaction")
+  keywords$edited<-str_replace(keywords$edited, "multi trophic models", "multitrophic models")
+  keywords$edited<-str_replace(keywords$edited, "multi trophic networks", "multitrophic networks")
+  keywords$edited<-str_replace(keywords$edited, "multiple stable state", "multiple stable states")
+  keywords$edited<-str_replace(keywords$edited, "murray darling basin", "murray-darling basin")
+  keywords$edited<-str_replace(keywords$edited, "mustela nivalis nivalis", "mustela nivalis")
+  keywords$edited<-str_replace(keywords$edited, "mut ualism", "mutualism")
+  keywords$edited<-str_replace(keywords$edited, "mutational melt down", "mutational meltdown")
+  keywords$edited<-str_replace(keywords$edited, "mutual isms", "mutualisms")
+  keywords$edited<-str_replace(keywords$edited, "myotis myotis", "myotis")
+  keywords$edited<-str_replace(keywords$edited, "myrmechocory", "myrmecochory")
+  keywords$edited<-str_replace(keywords$edited, "n : p ratio", "np ratio")
+  keywords$edited<-str_replace(keywords$edited, "n and p co limitation", "np colimitation")
+  keywords$edited<-str_replace(keywords$edited, "n and p colimitation", "np colimitation")
+  keywords$edited<-str_replace(keywords$edited, "n p ratios", "np ratios")
+  keywords$edited<-str_replace(keywords$edited, "n: p ratios", "np ratios")
+  keywords$edited<-str_replace(keywords$edited, "nasua nasua", "nasua")
+  keywords$edited<-str_replace(keywords$edited, "native vs introduced species", "introduced vs native species")
+  keywords$edited<-str_replace(keywords$edited, "natural abundance δ n 15", "natural abundance δ n15")
+  keywords$edited<-str_replace(keywords$edited, "nature reserves", "nature reserve")
+  keywords$edited<-str_replace(keywords$edited, "nearest neighbor distances", "nearest neighbor distance")
+  keywords$edited<-str_replace(keywords$edited, "nectar spurs", "nectar spur")
+  keywords$edited<-str_replace(keywords$edited, "neo endemism", "neoendemism")
+  keywords$edited<-str_replace(keywords$edited, "neo tropics", "neotropics")
+  keywords$edited<-str_replace(keywords$edited, "nest predation rate", "nest-predation rate")
+  keywords$edited<-str_replace(keywords$edited, "nest predation rates", "nest-predation rate")
+  keywords$edited<-str_replace(keywords$edited, "nest sites", "nest site")
+  keywords$edited<-str_replace(keywords$edited, "nesting sites", "nesting site")
+  keywords$edited<-str_replace(keywords$edited, "nh   immobilization 4 +", "nh4+ immobilization")
+  keywords$edited<-str_replace(keywords$edited, "nh  immobilization 4+", "nh4+ immobilization")
+  keywords$edited<-str_replace(keywords$edited, "niche neutrality continuum", "niche-neutrality continuum")
+  keywords$edited<-str_replace(keywords$edited, "niche-neutrality continuum", "niche-neutrality continuum")
+  keywords$edited<-str_replace(keywords$edited, "night time transpiration", "night-time transpiration")
+  keywords$edited<-str_replace(keywords$edited, "nighttime transpiration", "night-time transpiration")
+  keywords$edited<-str_replace(keywords$edited, "nitrogen and light availability", "light and nitrogen availability")
+  keywords$edited<-str_replace(keywords$edited, "nitrogen to phosphorus ratio", "np ratio")
+  keywords$edited<-str_replace(keywords$edited, "nitrogen to-phosphorus ratio", "np ratio")
+  keywords$edited<-str_replace(keywords$edited, "no  immobilization 3 ", "no3 immobilization")
+  keywords$edited<-str_replace(keywords$edited, "no  immobilization 3  ", "no3 immobilization")
+  keywords$edited<-str_replace(keywords$edited, "no 2", "no2")
+  keywords$edited<-str_replace(keywords$edited, "c 4", "c4")
+  
+  
+  keywords$edited<-str_replace(keywords$edited, "non additive selection", "nonadditive selection")
+  keywords$edited<-str_replace(keywords$edited, "non additivity", "nonadditivity")
+  keywords$edited<-str_replace(keywords$edited, "non breeders", "nonbreeders")
+  keywords$edited<-str_replace(keywords$edited, "non breeding", "nonbreeding")
+  keywords$edited<-str_replace(keywords$edited, "non consumptive interactions", "nonconsumptive interactions")
+  keywords$edited<-str_replace(keywords$edited, "non destructive method", "nondestructive method")
+  keywords$edited<-str_replace(keywords$edited, "non equilibrium dynamics", "nonequilibrium dynamics")
+  keywords$edited<-str_replace(keywords$edited, "non human primates", "nonhuman primates")
+  keywords$edited<-str_replace(keywords$edited, "non independence", "nonindependence")
+  keywords$edited<-str_replace(keywords$edited, "non invasive monitoring", "noninvasive monitoring")
+  keywords$edited<-str_replace(keywords$edited, "non linear models", "nonlinear models")
+  keywords$edited<-str_replace(keywords$edited, "non linearity", "nonlinearity")
+  keywords$edited<-str_replace(keywords$edited, "non metric multi-dimensional scaling", "nmds")
+  keywords$edited<-str_replace(keywords$edited, "non native plant", "nonnative plant")
+  keywords$edited<-str_replace(keywords$edited, "non parametric covariance function", "nonparametric covariance function")
+  keywords$edited<-str_replace(keywords$edited, "non parametric estimators", "nonparametric estimators")
+  keywords$edited<-str_replace(keywords$edited, "non pollinating fig wasps", "nonpollinating fig wasps")
+  keywords$edited<-str_replace(keywords$edited, "north eastern north america", "eastern north america")
+  keywords$edited<-str_replace(keywords$edited, "north west argentina", "northwest argentina")
+  keywords$edited<-str_replace(keywords$edited, "north west himalaya", "northwest himalaya")
+  keywords$edited<-str_replace(keywords$edited, "north west territories", "northwest territories")
+  keywords$edited<-str_replace(keywords$edited, "north western europe", "northwestern europe")
+  keywords$edited<-str_replace(keywords$edited, "north western mediterranean", "northwestern mediterranean")
+  keywords$edited<-str_replace(keywords$edited, "northern québec", "northern quebec")
+  keywords$edited<-str_replace(keywords$edited, "nuclear cytoplasmic interaction", "cytoplasmic nuclear interaction")
+  keywords$edited<-str_replace(keywords$edited, "nullmodel", "null model")
+  keywords$edited<-str_replace(keywords$edited, "numerical and functional responses", "functional and numerical responses")
+  keywords$edited<-str_replace(keywords$edited, "nutr ient dynamics", "nutrient dynamics")
+  keywords$edited<-str_replace(keywords$edited, "nutrient  allelochemical interactions", "nutrient allelochemical interactions")
+  keywords$edited<-str_replace(keywords$edited, "nutrient hotspots", "nutrient hotspot")
+  keywords$edited<-str_replace(keywords$edited, "nutrient phytoplankton-zooplankton npz model", "nutrient-phytoplankton-zooplankton model")
+  keywords$edited<-str_replace(keywords$edited, "nutrientphytoplankton zooplankton npz model", "nutrient-phytoplankton-zooplankton model")
+  keywords$edited<-str_replace(keywords$edited, "n : p ratio", "np ratio")
+  keywords$edited<-str_replace(keywords$edited, "o rthoptera", "orthoptera")
+  keywords$edited<-str_replace(keywords$edited, "o u process", "ou process")
+  keywords$edited<-str_replace(keywords$edited, "oak quercus", "quercus oak")
+  keywords$edited<-str_replace(keywords$edited, "occupancy abundance relationship", "occupancy-abundance relationship")
+  keywords$edited<-str_replace(keywords$edited, "ol faction", "olfaction")
+  keywords$edited<-str_replace(keywords$edited, "oldgrowth forest", "old-growth forest")
+  keywords$edited<-str_replace(keywords$edited, "ontogenetic diet shifts", "ontogenetic diet shift")
+  keywords$edited<-str_replace(keywords$edited, "ornament evolution", "evolution ornament")
+  keywords$edited<-str_replace(keywords$edited, "osa península", "osa peninsula")
+  keywords$edited<-str_replace(keywords$edited, "outbreak pest", "pest outbreak")
+  keywords$edited<-str_replace(keywords$edited, "over dominance", "overdominance")
+  keywords$edited<-str_replace(keywords$edited, "over fishing", "overfishing")
+  keywords$edited<-str_replace(keywords$edited, "over fitting", "overfitting")
+  keywords$edited<-str_replace(keywords$edited, "over produced esterases", "overproduced esterase")
+  keywords$edited<-str_replace(keywords$edited, "over winter survival", "overwinter survival")
+  keywords$edited<-str_replace(keywords$edited, "over wintering", "overwintering")
+  keywords$edited<-str_replace(keywords$edited, "overproduced esterases", "overproduced esterase")
+  keywords$edited<-str_replace(keywords$edited, "oyster catcher", "oystercatcher")
+  keywords$edited<-str_replace(keywords$edited, "p  st", "pst")
+  keywords$edited<-str_replace(keywords$edited, "pacific panamá", "pacific panama")
+  keywords$edited<-str_replace(keywords$edited, "paircorrelation function", "pair-correlation function")
+  keywords$edited<-str_replace(keywords$edited, "paleo ecology", "paleoecology")
+  keywords$edited<-str_replace(keywords$edited, "pamana", "panama")
+  keywords$edited<-str_replace(keywords$edited, "parasite host ecology", "host-parasite ecology")
+  keywords$edited<-str_replace(keywords$edited, "parasite host interaction", "host-parasite interaction")
+  keywords$edited<-str_replace(keywords$edited, "parasite host relationship", "host-parasite relationship")
+  keywords$edited<-str_replace(keywords$edited, "parasite parasite interactions", "parasite-parasite interactions")
+  keywords$edited<-str_replace(keywords$edited, "parasitoid host dynamics", "host-parasitoid dynamics")
+  keywords$edited<-str_replace(keywords$edited, "parasitoid host interaction", "host-parasitoid interaction")
+  keywords$edited<-str_replace(keywords$edited, "paren tal care", "parental care")
+  
+  
+  keywords$edited<-str_replace(keywords$edited, "partitioning habitat", "habitat partitioning")
+  keywords$edited<-str_replace(keywords$edited, "pathogen host interactions", "host-pathogen interactions")
+  keywords$edited<-str_replace(keywords$edited, "peatbog", "peat bog")
+  keywords$edited<-str_replace(keywords$edited, "pennaeus vannamei", "penaeus vannamei")
+  keywords$edited<-str_replace(keywords$edited, "perennial bunch grass", "perennial bunchgrass")
+  keywords$edited<-str_replace(keywords$edited, "perennial native grasses", "native perennial grasses")
+  keywords$edited<-str_replace(keywords$edited, "performance trait", "trait performance")
+  keywords$edited<-str_replace(keywords$edited, "phaseolus lunatus l", "phaseolus lunatus")
+  keywords$edited<-str_replace(keywords$edited, "phenotypicselection analysis", "phenotypic selection analysis")
+  keywords$edited<-str_replace(keywords$edited, "phosp horus", "phosphorus")
+  keywords$edited<-str_replace(keywords$edited, "photosyn thesis", "photosynthesis")
+  keywords$edited<-str_replace(keywords$edited, "phyloge nomics", "phylogenomics")
+  keywords$edited<-str_replace(keywords$edited, "phylogenetic bayesian multilevel models", "bayesian phylogenetic multilevel models")
+  keywords$edited<-str_replace(keywords$edited, "physico chemical", "physicochemical")
+  keywords$edited<-str_replace(keywords$edited, "physico chemical factors", "physicochemical factors")
+  keywords$edited<-str_replace(keywords$edited, "physico chemical parameters", "physicochemical parameters")
+  keywords$edited<-str_replace(keywords$edited, "phyto plankton", "phytoplankton")
+  keywords$edited<-str_replace(keywords$edited, "phytop lankton", "phytoplankton")
+  keywords$edited<-str_replace(keywords$edited, "pinus ponderosa ponderosa", "pinus ponderosa")
+  keywords$edited<-str_replace(keywords$edited, "pinus sp", "pinus")
+  keywords$edited<-str_replace(keywords$edited, "pinussp", "pinus")
+  keywords$edited<-str_replace(keywords$edited, "pit fall traps", "pitfall traps")
+  keywords$edited<-str_replace(keywords$edited, "piñon", "pinon")
+  keywords$edited<-str_replace(keywords$edited, "plant  animal interactions", "plant-animal interactions")
+  keywords$edited<-str_replace(keywords$edited, "plant  insect interaction", "insect-plant interaction")
+  keywords$edited<-str_replace(keywords$edited, "plant anim al interactions", "plant-animal interactions")
+  keywords$edited<-str_replace(keywords$edited, "plant environment interactions", "plant-environment interactions")
+  keywords$edited<-str_replace(keywords$edited, "plant fungi interactions", "plant-fungi interactions")
+  keywords$edited<-str_replace(keywords$edited, "plant fungus interactions", "plant-fungus interactions")
+  keywords$edited<-str_replace(keywords$edited, "plant herbivore dynamics", "plant-herbivore dynamics")
+  keywords$edited<-str_replace(keywords$edited, "plant indirect defense", "indirect plant defense")
+  keywords$edited<-str_replace(keywords$edited, "plant induced defense", "induced plant defense")
+  keywords$edited<-str_replace(keywords$edited, "plant induced defenses", "induced plant defense")
+  keywords$edited<-str_replace(keywords$edited, "plant insect association", "insect-plant association")
+  keywords$edited<-str_replace(keywords$edited, "plant insect-pathogen interactions", "plant-insect-pathogen interactions")
+  keywords$edited<-str_replace(keywords$edited, "plant interference", "plant-plant interference")
+  keywords$edited<-str_replace(keywords$edited, "plant invasive", "invasive plant")
+  keywords$edited<-str_replace(keywords$edited, "plant mineral nutrition", "mineral plant nutrition")
+  keywords$edited<-str_replace(keywords$edited, "plant plant interference", "plant-plant interference")
+  keywords$edited<-str_replace(keywords$edited, "plant resources", "plant resource")
+  keywords$edited<-str_replace(keywords$edited, "plant soil biota interactions", "plant-soil-biota interactions")
+  keywords$edited<-str_replace(keywords$edited, "plant soil microbe interactions", "plant soil-microbe interactions")
+  keywords$edited<-str_replace(keywords$edited, "plant soil system", "plant-soil system")
+  keywords$edited<-str_replace(keywords$edited, "plant soil-biota interactions", "plant-soil-biota interactions")
+  keywords$edited<-str_replace(keywords$edited, "plant-herbivore interactions", "plant-herbivore interactions")
+  keywords$edited<-str_replace(keywords$edited, "plantanimal interactions", "plant-animal interactions")
+  keywords$edited<-str_replace(keywords$edited, "plantation forest", "forest plantation")
+  keywords$edited<-str_replace(keywords$edited, "plantinsect interactions", "plant-insect interaction")
+  keywords$edited<-str_replace(keywords$edited, "plantsoil interactions", "plant-soil interactions")
+  keywords$edited<-str_replace(keywords$edited, "plant-insect-pathogen interactions", "plant-insect-pathogen interactions")
+  keywords$edited<-str_replace(keywords$edited, "plant-pathogen-insect interactions", "plant-insect-pathogen interactions")
+  keywords$edited<-str_replace(keywords$edited, "plant-pollinator network", "plant-pollinator network")
+  keywords$edited<-str_replace(keywords$edited, "pleist ocene", "pleistocene")
+  keywords$edited<-str_replace(keywords$edited, "poisson log normal", "poisson lognormal")
+  keywords$edited<-str_replace(keywords$edited, "policy making", "policymaking")
+  keywords$edited<-str_replace(keywords$edited, "pollen : ovule ratio", "pollen:ovule ratio")
+  keywords$edited<-str_replace(keywords$edited, "pollen carry over", "pollen carryover")
+  keywords$edited<-str_replace(keywords$edited, "pollen-ovule ratio", "pollen:ovule ratio")
+  keywords$edited<-str_replace(keywords$edited, "pollinating fig wasp", "fig pollinating wasp")
+  keywords$edited<-str_replace(keywords$edited, "pollinator plant interactions", "plant-pollinator interactions")
+  keywords$edited<-str_replace(keywords$edited, "poly morphism", "polymorphism")
+  keywords$edited<-str_replace(keywords$edited, "pond breeding amphibian", "pondbreeding amphibian")
+  keywords$edited<-str_replace(keywords$edited, "population estimates", "population estimate")
+  keywords$edited<-str_replace(keywords$edited, "population matrix model", "matrix population model")
+  keywords$edited<-str_replace(keywords$edited, "population matrix models", "matrix population models")
+  keywords$edited<-str_replace(keywords$edited, "population responses", "population response")
+  # keywords$edited<-str_replace(keywords$edited, "population s", "populations")
+  keywords$edited<-str_replace(keywords$edited, "population size structures", "population size structure")
+  keywords$edited<-str_replace(keywords$edited, "porcellionides p rui nos us", "porcellionides pruinosus")
+  keywords$edited<-str_replace(keywords$edited, "porites porites", "porites")
+  keywords$edited<-str_replace(keywords$edited, "positive plant plant interactions", "positive plant interactions")
+  keywords$edited<-str_replace(keywords$edited, "post dispersal", "postdispersal")
+  keywords$edited<-str_replace(keywords$edited, "post dispersal mortality", "postdispersal mortality")
+  keywords$edited<-str_replace(keywords$edited, "post fire recovery", "postfire recovery")
+  keywords$edited<-str_replace(keywords$edited, "post fire regeneration", "postfire regeneration")
+  keywords$edited<-str_replace(keywords$edited, "post fire resprouting", "postfire resprouting")
+  keywords$edited<-str_replace(keywords$edited, "post glacial dispersal", "postglacial dispersal")
+  keywords$edited<-str_replace(keywords$edited, "post glacial expansion", "postglacial expansion")
+  keywords$edited<-str_replace(keywords$edited, "post glacial range expansion", "postglacial range expansion")
+  keywords$edited<-str_replace(keywords$edited, "post glacial recolonization", "postglacial recolonization")
+  keywords$edited<-str_replace(keywords$edited, "post ingestive feedback", "postingestive feedback")
+  keywords$edited<-str_replace(keywords$edited, "post mating", "post-mating")
+  keywords$edited<-str_replace(keywords$edited, "post mating female response", "post-mating female response")
+  keywords$edited<-str_replace(keywords$edited, "post mating prezygotic barriers", "postmating prezygotic barriers")
+  keywords$edited<-str_replace(keywords$edited, "postcopulatory", "post-copulatory")
+  keywords$edited<-str_replace(keywords$edited, "potential evapo transpiration", "potential evapotranspiration")
+  keywords$edited<-str_replace(keywords$edited, "power lines", "powerlines")
+  
+  
+  keywords$edited<-str_replace(keywords$edited, "powerlaw scaling", "power law scaling")
+  keywords$edited<-str_replace(keywords$edited, "pre dispersal seed predators", "predispersal seed predator")
+  keywords$edited<-str_replace(keywords$edited, "pre dispersal seed-predator", "predispersal seed predator")
+  keywords$edited<-str_replace(keywords$edited, "pre emptive competition", "preemptive competition")
+  keywords$edited<-str_replace(keywords$edited, "pre montane", "premontane")
+  keywords$edited<-str_replace(keywords$edited, "pre zygotic", "prezygotic")
+  keywords$edited<-str_replace(keywords$edited, "precipitation extreme", "extreme precipitation")
+  keywords$edited<-str_replace(keywords$edited, "preda tor", "predator")
+  keywords$edited<-str_replace(keywords$edited, "predati on", "predation")
+  keywords$edited<-str_replace(keywords$edited, "predator  prey dynamics", "predator-prey dynamics")
+  keywords$edited<-str_replace(keywords$edited, "predator : prey ratio", "predator:prey ratio")
+  keywords$edited<-str_replace(keywords$edited, "predator non consumptive effects", "predator nonconsumptive effects")
+  keywords$edited<-str_replace(keywords$edited, "predator prey ecology", "predator-prey ecology")
+  keywords$edited<-str_replace(keywords$edited, "predatorprey", "predator-prey")
+  keywords$edited<-str_replace(keywords$edited, "predispersal seed predators", "predispersal seed predator")
+  keywords$edited<-str_replace(keywords$edited, "preferred speeds", "preferred speed")
+  keywords$edited<-str_replace(keywords$edited, "premontane moist forest", "moist premontane forest")
+  keywords$edited<-str_replace(keywords$edited, "presence absence map", "presence-absence map")
+  keywords$edited<-str_replace(keywords$edited, "presence only model", "presence-only model")
+  keywords$edited<-str_replace(keywords$edited, "presence-absence map", "presence-absence map")
+  keywords$edited<-str_replace(keywords$edited, "presenceonly model", "presence-only model")
+  keywords$edited<-str_replace(keywords$edited, "prey predator dynamics", "predator-prey dynamics")
+  keywords$edited<-str_replace(keywords$edited, "prey predator interaction", "predator-prey interaction")
+  keywords$edited<-str_replace(keywords$edited, "prey predator ratio", "predator:prey ratio")
+  keywords$edited<-str_replace(keywords$edited, "prey predator system", "prey-predator system")
+  keywords$edited<-str_replace(keywords$edited, "prey spider", "spider prey")
+  keywords$edited<-str_replace(keywords$edited, "pro ovigeny", "proovigeny")
+  keywords$edited<-str_replace(keywords$edited, "procrustes distances", "procrustes distance")
+  keywords$edited<-str_replace(keywords$edited, "produ ctivity", "productivity")
+  keywords$edited<-str_replace(keywords$edited, "productivity diversity", "productivity-diversity")
+  keywords$edited<-str_replace(keywords$edited, "pseudo autosomal region", "pseudoautosomal region")
+  keywords$edited<-str_replace(keywords$edited, "pseudo replication", "pseudoreplication")
+  keywords$edited<-str_replace(keywords$edited, "q  -f st st", "q-f st")
+  keywords$edited<-str_replace(keywords$edited, "quality signal", "signal quality")
+  keywords$edited<-str_replace(keywords$edited, "quasi cycles", "quasicycles")
+  keywords$edited<-str_replace(keywords$edited, "quasi species", "quasispecies")
+  keywords$edited<-str_replace(keywords$edited, "r  0", "r0")
+  keywords$edited<-str_replace(keywords$edited, "r -k-selection", "r-k selection")
+  keywords$edited<-str_replace(keywords$edited, "r h whittaker", "rh whittaker")
+  # keywords$edited<-str_replace(keywords$edited, "r* theory*", "r* theory")
+  keywords$edited<-str_replace(keywords$edited, "r-k selection", "r-k selection")
+  keywords$edited<-str_replace(keywords$edited, "r: fr", "red farred ratio")
+  keywords$edited<-str_replace(keywords$edited, "rain fall", "rainfall")
+  keywords$edited<-str_replace(keywords$edited, "random ampliÔ¨Åed polymorphic dna", "rapd")
+  keywords$edited<-str_replace(keywords$edited, "range restricted species", "restricted range species")
+  keywords$edited<-str_replace(keywords$edited, "rare vs common species", "common vs rare species")
+  keywords$edited<-str_replace(keywords$edited, "razor fish", "razorfish")
+  keywords$edited<-str_replace(keywords$edited, "re burn", "reburn")
+  keywords$edited<-str_replace(keywords$edited, "re fuge", "refuge")
+  keywords$edited<-str_replace(keywords$edited, "re introduction", "reintroduction")
+  keywords$edited<-str_replace(keywords$edited, "re mating", "remating")
+  keywords$edited<-str_replace(keywords$edited, "re productive suppression", "reproductive suppression")
+  keywords$edited<-str_replace(keywords$edited, "reaction  diffusion", "reaction-diffusion")
+  keywords$edited<-str_replace(keywords$edited, "recessive alleles", "recessive allele")
+  keywords$edited<-str_replace(keywords$edited, "red : far red ratio", "red farred ratio")
+  keywords$edited<-str_replace(keywords$edited, "red far red ratio", "red farred ratio")
+  keywords$edited<-str_replace(keywords$edited, "red fox  vulpes vulpes ", "red fox, vulpes vulpes ")
+  keywords$edited<-str_replace(keywords$edited, "red fox vulpes vulpes", "red fox, vulpes vulpes ")
+  keywords$edited<-str_replace(keywords$edited, "red jungle fowl", "red junglefowl")
+  keywords$edited<-str_replace(keywords$edited, "red-far red ratio", "red farred ratio")
+  keywords$edited<-str_replace(keywords$edited, "red: far red ratio", "red farred ratio")
+  keywords$edited<-str_replace(keywords$edited, "reduction oxidation potential", "oxidation reduction potential")
+  keywords$edited<-str_replace(keywords$edited, "reef coral", "coral reef")
+  keywords$edited<-str_replace(keywords$edited, "regional vs local dynamics", "local vs regional dynamics")
+  keywords$edited<-str_replace(keywords$edited, "regression trees", "regression tree")
+  keywords$edited<-str_replace(keywords$edited, "relative species abundances", "relative species abundance")
+  keywords$edited<-str_replace(keywords$edited, "remotesensing", "remote sensing")
+  keywords$edited<-str_replace(keywords$edited, "reproduc tion", "reproduction")
+  keywords$edited<-str_replace(keywords$edited, "reproductive life span", "reproductive lifespan")
+  keywords$edited<-str_replace(keywords$edited, "reproductivebiology", "reproductive biology")
+  keywords$edited<-str_replace(keywords$edited, "residence patch", "patch residence")
+  keywords$edited<-str_replace(keywords$edited, "residues", "residue")
+  keywords$edited<-str_replace(keywords$edited, "resistance surfaces", "resistance surface")
+  keywords$edited<-str_replace(keywords$edited, "resource waves", "resource wave")
+  keywords$edited<-str_replace(keywords$edited, "response surfaces", "response surface")
+  keywords$edited<-str_replace(keywords$edited, "responses", "response")
+  keywords$edited<-str_replace(keywords$edited, "amplified fragment length polymorphism aflp", "aflp")
+  keywords$edited<-str_replace(keywords$edited, "aflp markers", "aflp")
+  keywords$edited<-str_replace(keywords$edited, "aflp analysis", "aflp")
+  keywords$edited<-str_replace(keywords$edited, "amplified fragment length polymorphisms", "aflp")
+  keywords$edited<-str_replace(keywords$edited, "amplified fragment length polymorphism", "aflp")
+  keywords$edited<-str_replace(keywords$edited, "methylation sensitive amplified fragment length polymorphism ms-aflp", "ms-aflp")
+  keywords$edited<-str_replace(keywords$edited, "fluorescent fragment length polymorphism fflp", "fflp")
+  keywords$edited<-str_replace(keywords$edited, "terminal restriction fragment length polymorphism", "trflp")
+  keywords$edited<-str_replace(keywords$edited, "t rflp", "trflp")
+  keywords$edited<-str_replace(keywords$edited, "rflp analysis", "rflp")
+
+  keywords$edited<-str_replace(keywords$edited, "restriction fragment length polymorphism rflp", "rflp")
+  keywords$edited<-str_replace(keywords$edited, "restriction fragment length polymorphisms rflp", "rflp")
+  keywords$edited<-str_replace(keywords$edited, "rflp restriction fragment length polymorphism", "rflp")
+  keywords$edited<-str_replace(keywords$edited, "richness specific", "species richness")
+  keywords$edited<-str_replace(keywords$edited, "risk  forage trade-off", "risk-forage trade-off")
+  keywords$edited<-str_replace(keywords$edited, "risk forage trade-off", "risk-forage trade-off")
+  keywords$edited<-str_replace(keywords$edited, "river  watershed exchange", "river watershed exchange")
+  keywords$edited<-str_replace(keywords$edited, "river floodplain", "floodplain river")
+  keywords$edited<-str_replace(keywords$edited, "river paraná", "parana river")
+  keywords$edited<-str_replace(keywords$edited, "rna dna ratio", "rna:dna ratio")
+  keywords$edited<-str_replace(keywords$edited, "rna interference rnai", "rna interference")
+  keywords$edited<-str_replace(keywords$edited, "rna-dna", "rna:dna")
+  keywords$edited<-str_replace(keywords$edited, "rna: dna", "rna:dna")
+  keywords$edited<-str_replace(keywords$edited, "rna : dna", "rna:dna")
+  keywords$edited<-str_replace(keywords$edited, "rna-dna", "rna:dna")
+  keywords$edited<-str_replace(keywords$edited, "road kills", "roadkill")
+  keywords$edited<-str_replace(keywords$edited, "rock paper-scissors competition", "rock-paper-scissors competition")
+  keywords$edited<-str_replace(keywords$edited, "rocky intertidal shores", "intertidal rocky shores")
+  keywords$edited<-str_replace(keywords$edited, "root shoot ratios", "root:shoot ratios")
+  keywords$edited<-str_replace(keywords$edited, "root to-shoot ratios", "root:shoot ratios")
+  keywords$edited<-str_replace(keywords$edited, "root vertical distribution", "vertical root distribution")
+  keywords$edited<-str_replace(keywords$edited, "root-ratio", "root:shoot ratio")
+  keywords$edited<-str_replace(keywords$edited, "rupicapra pyrenaica pyrenaica", "rupicapra pyrenaica")
+  keywords$edited<-str_replace(keywords$edited, "río negro", "rio negro")
+  keywords$edited<-str_replace(keywords$edited, "s patial scale", "spatial scale")
+  keywords$edited<-str_replace(keywords$edited, "s peciation", "speciation")
+  keywords$edited<-str_replace(keywords$edited, "sagitta ria lancifolia", "sagittaria lancifolia")
+  keywords$edited<-str_replace(keywords$edited, "salamandra salamandra", "salamandra")
+  keywords$edited<-str_replace(keywords$edited, "san andrés island", "san andres island")
+  keywords$edited<-str_replace(keywords$edited, "savanna-forest boundary", "savanna-forest boundary")
+  keywords$edited<-str_replace(keywords$edited, "scale transitions", "scale transition")
+  keywords$edited<-str_replace(keywords$edited, "scatter hoarding rodents", "scatterhoarding rodents")
+  keywords$edited<-str_replace(keywords$edited, "scinc idae", "scincidae")
+  keywords$edited<-str_replace(keywords$edited, "sea bird", "seabird")
+  keywords$edited<-str_replace(keywords$edited, "sea birds", "seabirds")
+  keywords$edited<-str_replace(keywords$edited, "sea water temperature", "seawater temperature")
+  keywords$edited<-str_replace(keywords$edited, "seasonal burning", "aseasonal burning")
+  keywords$edited<-str_replace(keywords$edited, "secondary plant compounds", "plant secondary compounds")
+  keywords$edited<-str_replace(keywords$edited, "secondgrowth forest", "second growth forest")
+  keywords$edited<-str_replace(keywords$edited, "second-ary forest", "secondary forest")
+  keywords$edited<-str_replace(keywords$edited, "seed : ovule ratio", "seed:ovule ratio")
+  keywords$edited<-str_replace(keywords$edited, "seed predation and dispersal", "seed dispersal and predation")
+  keywords$edited<-str_replace(keywords$edited, "seed predation", "seed predation")
+  keywords$edited<-str_replace(keywords$edited, "seed: ovule ratio", "seed:ovule ratio")
+  keywords$edited<-str_replace(keywords$edited, "seedbank", "seed bank")
+  keywords$edited<-str_replace(keywords$edited, "seedling survival and growth", "seedling growth and survival")
+  keywords$edited<-str_replace(keywords$edited, "seedset", "seed set")
+  keywords$edited<-str_replace(keywords$edited, "selection  artificial", "artificial selection")
+  keywords$edited<-str_replace(keywords$edited, "selection  experimental", "experimental selection")
+  keywords$edited<-str_replace(keywords$edited, "selection  group-kin", "group-kin selection  ")
+  keywords$edited<-str_replace(keywords$edited, "selection-natural", "natural selection")
+  keywords$edited<-str_replace(keywords$edited, "selection-sexual", "sexual selection")
+  keywords$edited<-str_replace(keywords$edited, "self  fertilization", "self-fertilization")
+  keywords$edited<-str_replace(keywords$edited, "self nonself recognition", "self-nonself recognition")
+  keywords$edited<-str_replace(keywords$edited, "self-non self recognition", "self-nonself recognition")
+  keywords$edited<-str_replace(keywords$edited, "selforganization", "self-organization")
+  keywords$edited<-str_replace(keywords$edited, "semi arid grassland", "semiarid grassland")
+  keywords$edited<-str_replace(keywords$edited, "semi arid woodland", "semiarid woodland")
+  keywords$edited<-str_replace(keywords$edited, "semi balanus balanoides", "semibalanus balanoides")
+  keywords$edited<-str_replace(keywords$edited, "semi deciduous", "semideciduous")
+  keywords$edited<-str_replace(keywords$edited, "semi deciduous tropical forest", "tropical semideciduous forest")
+  keywords$edited<-str_replace(keywords$edited, "semideciduous tropical forest", "tropical semideciduous forest")
+  keywords$edited<-str_replace(keywords$edited, "seroepidemiolology", "seroepidemiology")
+  keywords$edited<-str_replace(keywords$edited, "serpentin e", "serpentine")
+  keywords$edited<-str_replace(keywords$edited, "sesquiterpene lactones", "sesquiterpene lactone")
+  keywords$edited<-str_replace(keywords$edited, "sessile invertebrates", "sessile invertebrate")
+  keywords$edited<-str_replace(keywords$edited, "sexlimited polymorphism", "sex limited polymorphism")
+  keywords$edited<-str_replace(keywords$edited, "sexspecific population dynamics", "sex specific population dynamics")
+  # keywords$edited<-str_replace(keywords$edited, "sexual ", "sexual")
+  keywords$edited<-str_replace(keywords$edited, "sexually antagonistic co evolution", "sexually antagonistic coevolution")
+  keywords$edited<-str_replace(keywords$edited, "sexually transmitted infections", "sexually transmitted infection")
+  keywords$edited<-str_replace(keywords$edited, "shell fish", "shellfish")
+  keywords$edited<-str_replace(keywords$edited, "short grass steppe", "shortgrass steppe")
+  keywords$edited<-str_replace(keywords$edited, "shrimp by catch", "shrimp bycatch")
+  keywords$edited<-str_replace(keywords$edited, "shrub desert", "desert shrub")
+  keywords$edited<-str_replace(keywords$edited, "shrub grass competition", "grass-shrub competition")
+  keywords$edited<-str_replace(keywords$edited, "shrub-steppe", "shrub-steppe")
+  keywords$edited<-str_replace(keywords$edited, "sib ship reconstruction", "sibship reconstruction")
+  keywords$edited<-str_replace(keywords$edited, "sierra nevada california", "california sierra nevada")
+  keywords$edited<-str_replace(keywords$edited, "signal color", "color signal")
+  keywords$edited<-str_replace(keywords$edited, "signaling-courtship", "signaling-courtship")
+  keywords$edited<-str_replace(keywords$edited, "sink source", "source-sink")
+  keywords$edited<-str_replace(keywords$edited, "sink source relationships", "source-sink relationships")
+  keywords$edited<-str_replace(keywords$edited, "siskiyou klamath", "klamath siskiyou")
+  # keywords$edited<-str_replace(keywords$edited, "size ", "size")
+  keywords$edited<-str_replace(keywords$edited, "size and age at maturity", "age and size at maturity")
+  keywords$edited<-str_replace(keywords$edited, "size at-age", "size at age")
+  keywords$edited<-str_replace(keywords$edited, "size-number trade off", "size number trade-off")
+  keywords$edited<-str_replace(keywords$edited, "sizebias", "size bias")
+  keywords$edited<-str_replace(keywords$edited, "size-number trade off", "size number trade-off")
+  keywords$edited<-str_replace(keywords$edited, "slow growth-high-mortality hypothesis", "slow growth-high-mortality hypothesis")
+  keywords$edited<-str_replace(keywords$edited, "small mam mals", "small mammals")
+  keywords$edited<-str_replace(keywords$edited, "small mouth bass", "smallmouth bass")
+  keywords$edited<-str_replace(keywords$edited, "snake bite", "snakebite")
+  keywords$edited<-str_replace(keywords$edited, "socio ecological system", "socioecological system")
+  keywords$edited<-str_replace(keywords$edited, "soft and hard selection", "hard and soft selection")
+  keywords$edited<-str_replace(keywords$edited, "soft scale insect", "soft-scale insect")
+  keywords$edited<-str_replace(keywords$edited, "soft scale insects", "soft-scale insect")
+  keywords$edited<-str_replace(keywords$edited, "soil borne diseases", "soilborne diseases")
+  keywords$edited<-str_replace(keywords$edited, "soil seedbank", "soil seed bank")
+  keywords$edited<-str_replace(keywords$edited, "source sink population dynamics", "source-sink population dynamics")
+  keywords$edited<-str_replace(keywords$edited, "source sink relationships", "source-sink relationships")
+  keywords$edited<-str_replace(keywords$edited, "source-sink dynamics", "source sink dynamics")
+  keywords$edited<-str_replace(keywords$edited, "south east brazil", "southeast brazil")
+  
+  
+  keywords$edited<-str_replace(keywords$edited, "south eastern pacific", "eastern south pacific")
+  keywords$edited<-str_replace(keywords$edited, "south western nigeria", "southwestern nigeria")
+  keywords$edited<-str_replace(keywords$edited, "sp atial pattern", "spatial pattern")
+  keywords$edited<-str_replace(keywords$edited, "space for time substitution", "space-for-time substitution")
+  keywords$edited<-str_replace(keywords$edited, "spatial auto regression", "spatial autoregression")
+  keywords$edited<-str_replace(keywords$edited, "spatial capturerecapture", "spatial capture-recapture")
+  keywords$edited<-str_replace(keywords$edited, "spatial genetic autocorrelation", "genetic spatial autocorrelation")
+  keywords$edited<-str_replace(keywords$edited, "spatial pattern distribution", "spatial distribution pattern")
+  keywords$edited<-str_replace(keywords$edited, "spatial temporal variability", "spatial-temporal variability")
+  keywords$edited<-str_replace(keywords$edited, "spatio temporal heterogeneity", "spatiotemporal heterogeneity")
+  keywords$edited<-str_replace(keywords$edited, "spatio temporal model", "spatiotemporal model")
+  keywords$edited<-str_replace(keywords$edited, "spe cies richness", "species richness")
+  keywords$edited<-str_replace(keywords$edited, "specialist generalist trade-offs", "generalist-specialist trade-offs")
+  keywords$edited<-str_replace(keywords$edited, "specialist generalist tradeoffs", "generalist-specialist trade-offs")
+  keywords$edited<-str_replace(keywords$edited, "specialist vs generalist", "generalist vs specialist")
+  keywords$edited<-str_replace(keywords$edited, "specialists vsgeneralists", "specialists vs generalists")
+  keywords$edited<-str_replace(keywords$edited, "species archetype", "species archetypes")
+  keywords$edited<-str_replace(keywords$edited, "species area hypothesis", "species-area hypothesis")
+  keywords$edited<-str_replace(keywords$edited, "species coexistences", "species coexistence")
+  keywords$edited<-str_replace(keywords$edited, "species cooccurrences", "species cooccurrence")
+  keywords$edited<-str_replace(keywords$edited, "species core", "core species")
+  keywords$edited<-str_replace(keywords$edited, "species indicator", "indicator species")
+  keywords$edited<-str_replace(keywords$edited, "species individual curve", "species-individual curve")
+  keywords$edited<-str_replace(keywords$edited, "species individual-curves", "species-individual curve")
+  keywords$edited<-str_replace(keywords$edited, "species phylogenetics", "phylogenetic species")
+  keywords$edited<-str_replace(keywords$edited, "species range edges", "species range edge")
+  keywords$edited<-str_replace(keywords$edited, "species tree distribution", "tree species distribution")
+  keywords$edited<-str_replace(keywords$edited, "species -area relationship", "species-area relationship")
+  keywords$edited<-str_replace(keywords$edited, "speciesabundance distributions", "species-abundance distributions")
+  keywords$edited<-str_replace(keywords$edited, "species-energy", "species energy")
+  keywords$edited<-str_replace(keywords$edited, "specific richness", "species richness")
+  keywords$edited<-str_replace(keywords$edited, "spermcompetition", "sperm competition")
+  keywords$edited<-str_replace(keywords$edited, "spider silks", "silk spiders")
+  keywords$edited<-str_replace(keywords$edited, "spill over", "spillover")
+  keywords$edited<-str_replace(keywords$edited, "stable carbon and nitrogen isotopes", "carbon and nitrogen stable isotopes")
+  keywords$edited<-str_replace(keywords$edited, "stable carbon isotope", "carbon stable isotope")
+  keywords$edited<-str_replace(keywords$edited, "stable carbon isotope ratios", "stable carbon-isotope ratios")
+  keywords$edited<-str_replace(keywords$edited, "stable hydrogen isotopes", "hydrogen stable isotopes")
+  keywords$edited<-str_replace(keywords$edited, "stable isotope  n 15", "15n stable isotope")
+  keywords$edited<-str_replace(keywords$edited, "stable nitrogen isotopes", "nitrogen stable isotopes")
+  keywords$edited<-str_replace(keywords$edited, "stage age structure", "age-stage structure")
+  keywords$edited<-str_replace(keywords$edited, "stage specific vital rate", "stage-specific vital rate")
+  keywords$edited<-str_replace(keywords$edited, "stage specific vital rates", "stage-specific vital rate")
+  keywords$edited<-str_replace(keywords$edited, "stage structured", "stage-structured")
+  keywords$edited<-str_replace(keywords$edited, "stage structured populations", "stage-structured populations")
+  keywords$edited<-str_replace(keywords$edited, "stagestructured", "stage-structured")
+  keywords$edited<-str_replace(keywords$edited, "stagestructured models", "stage-structured models")
+  keywords$edited<-str_replace(keywords$edited, "stagestructured populations", "stage-structured populations")
+  keywords$edited<-str_replace(keywords$edited, "state and-transition model", "state and transition model")
+  keywords$edited<-str_replace(keywords$edited, "stink bugs", "stinkbugs")
+  keywords$edited<-str_replace(keywords$edited, "stochastic blockmodel", "stochastic block model")
+  keywords$edited<-str_replace(keywords$edited, "stress hormones", "stress hormone")
+  keywords$edited<-str_replace(keywords$edited, "stress responses", "stress response")
+  keywords$edited<-str_replace(keywords$edited, "strix occidentalis occidentalis", "strix occidentalis")
+  keywords$edited<-str_replace(keywords$edited, "structural equation modelingsem", "structural equation modeling")
+  keywords$edited<-str_replace(keywords$edited, "structure community", "community structure")
+  keywords$edited<-str_replace(keywords$edited, "structure function", "structure-function")
+  keywords$edited<-str_replace(keywords$edited, "structure population", "population structure")
+  keywords$edited<-str_replace(keywords$edited, "structure size", "size structure")
+  keywords$edited<-str_replace(keywords$edited, "structure vegetation", "vegetation structure")
+  keywords$edited<-str_replace(keywords$edited, "sub antarctic", "subantarctic")
+  keywords$edited<-str_replace(keywords$edited, "sub humid tropics", "subhumid tropics")
+  keywords$edited<-str_replace(keywords$edited, "sub lethal effects", "sublethal effects")
+  keywords$edited<-str_replace(keywords$edited, "subarctic salt marsh", "subarctic saltmarsh")
+  keywords$edited<-str_replace(keywords$edited, "subtropical evergreen broad leaved forest", "subtropical evergreen broadleaved forest")
+  keywords$edited<-str_replace(keywords$edited, "sub-saharan africa", "sub-saharan africa")
+  keywords$edited<-str_replace(keywords$edited, "succession rates", "succession rate")
+  keywords$edited<-str_replace(keywords$edited, "super population", "superpopulation")
+  keywords$edited<-str_replace(keywords$edited, "superspreaders", "superspreader")
+  keywords$edited<-str_replace(keywords$edited, "surface area to-volume ratio", "surface area to volume ratio")
+  keywords$edited<-str_replace(keywords$edited, "t ropics", "tropics")
+  keywords$edited<-str_replace(keywords$edited, "tall grass prairie", "tallgrass prairie")
+  keywords$edited<-str_replace(keywords$edited, "taylors powerlaw", "taylors power law")
+  keywords$edited<-str_replace(keywords$edited, "tehuacán valley", "tehuacan valley")
+  keywords$edited<-str_replace(keywords$edited, "temperate tropical comparison", "temperate vs tropical")
+  keywords$edited<-str_replace(keywords$edited, "temperature  dependent sex determination", "temperature-dependent sex determination")
+  keywords$edited<-str_replace(keywords$edited, "temperature size-rule", "temperature size rule")
+  keywords$edited<-str_replace(keywords$edited, "temporal and spatial distribution", "spatial and temporal distribution")
+  keywords$edited<-str_replace(keywords$edited, "temporal and spatial scale", "spatial and temporal scale")
+  keywords$edited<-str_replace(keywords$edited, "temporal and spatial variation", "spatial and temporal variation")
+  keywords$edited<-str_replace(keywords$edited, "terraba sierpe", "sierpe térraba")
+  keywords$edited<-str_replace(keywords$edited, "terrestrial gasteropods", "terrestrial gastropods")
+  keywords$edited<-str_replace(keywords$edited, "territorial signals", "territorial signal")
+  keywords$edited<-str_replace(keywords$edited, "territory establishment and quality", "territory quality and establishment")
+  keywords$edited<-str_replace(keywords$edited, "testoster one", "testosterone")
+  keywords$edited<-str_replace(keywords$edited, "tetrahymena tetrahymena", "tetrahymena")
+  keywords$edited<-str_replace(keywords$edited, "th ermoregulation", "thermoregulation")
+  keywords$edited<-str_replace(keywords$edited, "thermal co adaptation", "thermal coadaptation")
+  keywords$edited<-str_replace(keywords$edited, "thermo tolerance", "thermotolerance")
+  keywords$edited<-str_replace(keywords$edited, "time scale", "timescale")
+  keywords$edited<-str_replace(keywords$edited, "time scales", "timescale")
+  keywords$edited<-str_replace(keywords$edited, "time-activity budgets", "time activity budgets")
+  keywords$edited<-str_replace(keywords$edited, "tolerance fecundity trade-off", "tolerance-fecundity trade off")
+  keywords$edited<-str_replace(keywords$edited, "top down vs bottom up effects", "top=down vs bottom-up effects")
+  keywords$edited<-str_replace(keywords$edited, "top down vs bottom-up effects", "top=down vs bottom-up effects")
+  keywords$edited<-str_replace(keywords$edited, "top kill", "topkill")
+  keywords$edited<-str_replace(keywords$edited, "top soil", "topsoil")
+  keywords$edited<-str_replace(keywords$edited, "topdown forces", "top-down forces")
+  keywords$edited<-str_replace(keywords$edited, "topdown limitation", "top-down limitation")
+  keywords$edited<-str_replace(keywords$edited, "toppredator", "top predator")
+  keywords$edited<-str_replace(keywords$edited, "torus translations", "torus translation")
+  keywords$edited<-str_replace(keywords$edited, "tracking climate", "climate tracking")
+  keywords$edited<-str_replace(keywords$edited, "trade offs of food and safety", "tradeoffs of food and safety")
+  keywords$edited<-str_replace(keywords$edited, "trait environment interaction", "trait-environment interaction")
+  keywords$edited<-str_replace(keywords$edited, "trait shifts", "trait shift")
+  keywords$edited<-str_replace(keywords$edited, "traitmediated indirect interaction", "trait-mediated indirect interaction")
+  keywords$edited<-str_replace(keywords$edited, "trans generation", "transgeneration")
+  keywords$edited<-str_replace(keywords$edited, "transfer functions", "transfer function")
+  keywords$edited<-str_replace(keywords$edited, "transformations", "transformation")
+  keywords$edited<-str_replace(keywords$edited, "transgressive over yielding", "transgressive overyielding")
+  keywords$edited<-str_replace(keywords$edited, "translocations", "translocation")
+  keywords$edited<-str_replace(keywords$edited, "transmis sion", "transmission")
+  keywords$edited<-str_replace(keywords$edited, "transmission virulence tradeoff", "transmission virulence trade-off")
+  keywords$edited<-str_replace(keywords$edited, "tree grass balance", "tree-grass coexistance")
+  keywords$edited<-str_replace(keywords$edited, "tree liana competition", "liana-tree competition")
+  keywords$edited<-str_replace(keywords$edited, "tree liana interaction", "liana-tree interaction")
+  keywords$edited<-str_replace(keywords$edited, "tree regression analysis", "regression tree analysis")
+  keywords$edited<-str_replace(keywords$edited, "tree survival and growth", "tree growth and survival")
+  keywords$edited<-str_replace(keywords$edited, "tree-grass balance", "tree-grass coexistance")
+  keywords$edited<-str_replace(keywords$edited, "tree-grass co existence", "tree-grass coexistence")
+  keywords$edited<-str_replace(keywords$edited, "tree-grass interactions", "tree-grass interactions")
+  keywords$edited<-str_replace(keywords$edited, "tree-grass interactions", "tree-grass interactions")
+  keywords$edited<-str_replace(keywords$edited, "tri trophic", "tritrophic")
+  keywords$edited<-str_replace(keywords$edited, "tri trophic system", "tritrophic system")
+  keywords$edited<-str_replace(keywords$edited, "tropical agro ecosystem", "tropical agroecosystem")
+  keywords$edited<-str_replace(keywords$edited, "tropical high mountains", "high tropical mountains")
+  keywords$edited<-str_replace(keywords$edited, "tropical primary forest", "primary tropical forest")
+  keywords$edited<-str_replace(keywords$edited, "tropical sub montane forest", "tropical submontane forest")
+  keywords$edited<-str_replace(keywords$edited, "truss box", "box truss")
+  keywords$edited<-str_replace(keywords$edited, "tube worm", "tubeworm")
+  keywords$edited<-str_replace(keywords$edited, "térraba", "terraba")
+  keywords$edited<-str_replace(keywords$edited, "túngara frog", "tungara frog")
+  keywords$edited<-str_replace(keywords$edited, "ultra structure", "ultrastructure")
+  keywords$edited<-str_replace(keywords$edited, "under dispersion", "underdispersion")
+  keywords$edited<-str_replace(keywords$edited, "under sampling", "undersampling")
+  keywords$edited<-str_replace(keywords$edited, "up scaling", "scaling up")
+  keywords$edited<-str_replace(keywords$edited, "urban rural gradient", "urban-rural gradient")
+  keywords$edited<-str_replace(keywords$edited, "variance mean relationship", "mean-variance relationship")
+  # keywords$edited<-str_replace(keywords$edited, "viability ", "viability")
+  keywords$edited<-str_replace(keywords$edited, "walkingsticks", "walking sticks")
+  keywords$edited<-str_replace(keywords$edited, "water borne cues", "waterborne cues")
+  keywords$edited<-str_replace(keywords$edited, "water frogs", "waterfrogs")
+  keywords$edited<-str_replace(keywords$edited, "water holes", "waterholes")
+  keywords$edited<-str_replace(keywords$edited, "waterstress", "water stress")
+  keywords$edited<-str_replace(keywords$edited, "weaver spiders", "weaver spider")
+  keywords$edited<-str_replace(keywords$edited, "weddell seals", "weddell seal")
+  keywords$edited<-str_replace(keywords$edited, "weight length relationship", "length-weight relationship")
+  keywords$edited<-str_replace(keywords$edited, "west central méxico", "west central mexico")
+  keywords$edited<-str_replace(keywords$edited, "wet evergreen tropical forest", "tropical wet evergreen forest")
+  keywords$edited<-str_replace(keywords$edited, "white spruce  picea glauca ", "white spruce picea glauca ")
+  keywords$edited<-str_replace(keywords$edited, "white spruce picea glauca", "white spruce picea glauca ")
+  keywords$edited<-str_replace(keywords$edited, "wild fires", "wildfires")
+  keywords$edited<-str_replace(keywords$edited, "wind speeds", "wind speed")
+  keywords$edited<-str_replace(keywords$edited, "wind storm", "windstorm")
+  keywords$edited<-str_replace(keywords$edited, "wind throw", "windthrow")
+  keywords$edited<-str_replace(keywords$edited, "wing thorax ratio", "wing:thorax ratio")
+  keywords$edited<-str_replace(keywords$edited, "winner loser effect", "winner-loser effect")
+  keywords$edited<-str_replace(keywords$edited, "within host in-teractions", "within host interactions")
+  keywords$edited<-str_replace(keywords$edited, "withinhost dynamics", "within-host dynamics")
+  keywords$edited<-str_replace(keywords$edited, "within-hostdynamics", "within-host dynamics")
+  # keywords$edited<-str_replace(keywords$edited, "wood ", "wood")
+  keywords$edited<-str_replace(keywords$edited, "x y recombination", "xy recombination")
+  keywords$edited<-str_replace(keywords$edited, "xel há", "xel ha")
+  keywords$edited<-str_replace(keywords$edited, "y ield", "yield")
+  keywords$edited<-str_replace(keywords$edited, "yplant", "y plant")
+  keywords$edited<-str_replace(keywords$edited, "yucatán península", "yucatan peninsula")
+  keywords$edited<-str_replace(keywords$edited, "yucca yucca moth", "yucca moth")
+  keywords$edited<-str_replace(keywords$edited, "z imbabwe", "zimbabwe")
+  keywords$edited<-str_replace(keywords$edited, "zvariegatus", "z variegatus")
+  keywords$edited<-str_replace(keywords$edited, "δ n natural abundance 15", "natural abundance delta n15")
+  keywords$edited<-str_replace(keywords$edited, "delta n natural abundance 15", "natural abundance delta n15")
+  keywords$edited<-str_replace(keywords$edited, "ecosystem functioning", "ecosystem function")
+  # keywords$edited<-str_replace(keywords$edited, "amazon", "amazonia")
+  keywords$edited<-str_replace(keywords$edited, "modeling", "model")
+  keywords$edited<-str_replace(keywords$edited, "biodiversity and ecosystem function", "biodiversity-ecosystem function")
+  keywords$edited<-str_replace(keywords$edited, "biodiversity and ecosystem service", "biodiversity-ecosystem function")
+  keywords$edited<-str_replace(keywords$edited, "biodiversity and ecosystem function relationship", "biodiversity-ecosystem function")
+  keywords$edited<-str_replace(keywords$edited, "biodiversity and ecosystem functioning theory", "biodiversity-ecosystem function")
+  keywords$edited<-str_replace(keywords$edited, "biodiversity ecosystem function bdef", "biodiversity-ecosystem function")
+  keywords$edited<-str_replace(keywords$edited, "biodiversity-ecosystem function bef", "biodiversity-ecosystem function")
+  keywords$edited<-str_replace(keywords$edited, "yasuni ecological research station", "yasuni")
+  keywords$edited<-str_replace(keywords$edited, "la selva biological station", "la selva")
+  keywords$edited<-str_replace(keywords$edited, "santa rosa", "santa rosa national park")
+  keywords$edited<-str_replace(keywords$edited, "trade offs", "tradeoff")
+  keywords$edited<-str_replace(keywords$edited, "trade off", "tradeoff")
+  
+  
+  
+  
+  
+  keywords$edited<-str_replace(keywords$edited, "δ", "delta")
+  keywords$edited<-str_replace(keywords$edited, "β", "beta")
+  keywords$edited<-str_replace(keywords$edited, "φ", "phi")
+  keywords$edited<-str_replace(keywords$edited, "α", "alpha")
+  keywords$edited<-str_replace(keywords$edited, "φ", "phi")
+  keywords$edited<-str_replace(keywords$edited, "ψ", "psi")
+  keywords$edited<-str_replace(keywords$edited, "λ", "lambda")
+  keywords$edited<-str_replace(keywords$edited, "γ", "gamma")
+  keywords$edited<-str_replace(keywords$edited, "θ", "theta")
+  
+  
+  # keywords$singular<-str_replace(keywords$edited, "\\-", " ")
+  keywords$edited<-gsub("-", " ",keywords$edited)
+  keywords$edited<-gsub(":", " ",keywords$edited)
+  keywords$edited<-gsub('"', "",keywords$edited)
+  
+  
+  keywords<-keywords %>% mutate_all(trimws)    
+  
+  return(keywords)
+}
+
+
+
+
+
+
+# changes to reconsider ---------------------------------------------------
+# edited == "rainforest (christmas island" ~ "rainforest, christmas island",
+# edited == "longleaf pine savanna, southeastern usa"~"longleaf pine savanna",
+# edited == "ots" ~ "ots-oet",
+# edited == "c grassland composition 4" ~ " c4 grassland composition",
+# edited == "c grassland composition 3" ~ " c3 grassland composition",
+# edited == "zostera-capricorni" ~ "zostera capricorni",
+# edited == "zooplancton" ~ "zooplankton",
+# edited == "zooplancton" ~ "zooplankton",
+# edited == "alaska (usa)" ~ "alaska",
+# edited == "alaska (usa)" ~ "usa",
+# edited == "akaikes information criteria" ~ "aic",
+# edited == "akaike's information criterion (aic)" ~ "aic",
+# edited == "akaike's information criterion" ~ "aic",
+# edited == "akaike's information criteria" ~ "aic",
+# edited == "akaike weights" ~ "aic",
+# edited == "akaike information criterion (aic)" ~ "aic",
+# edited == "akaike information criteria" ~ "aic",
+# edited == "akaike criterion" ~ "aic",
+# edited == "akaike" ~ "aic",
+# edited == "manu national park, peru"~"manu national park (peru)",
+# edited == "manu national park (peru)" ~ "manu national park, peru",
+# edited == "manu national park (peru)"~"manu national park",
+# edited == "yasuni national park, amazonian ecuador"~"yasuni",
+# edited == "yasuni ecological research station, ecuador"~"yasuni ecological research station",
+# edited == "acer-saccharum" ~ "acer saccharum",
+# edited == "acer-rubrum" ~ "acer rubrum",
+# edited == "acer-negundo" ~ "acer negundo",
+# edited == "agro-forest system" ~ "agroforest system",
+# # edited == "tropical forest" ~ "tropical forest(s)",
+# edited == "aboveground/belowground interactions" ~ "above- and belowground interactions",
+# edited == "aboveground/belowground interactions" ~ "above- and belowground interactions",
+# edited == "longleaf pine savanna, southeastern usa"~"longleaf pine savanna",
+# edited == "ots" ~ "ots-oet",
+# edited == "ots" ~ "ots-oet",
+# edited == "alaska (usa)" ~ "alaska",
+# edited == "alaska (usa)" ~ "usa",
+# edited == "manu national park, peru"~"manu national park",
+# edited == "manu national park (peru)" ~ "manu national park, peru",
+# edited == "manu national park (peru)"~"manu national park",
+# edited == "yasuni national park, amazonian ecuador"~"yasuni national park",
+# edited == "yasuni ecological research station, ecuador"~"yasuni ecological research station",
+# edited == "acer-saccharum" ~ "acer saccharum",
+# edited == "acer-rubrum" ~ "acer rubrum",
+# edited == "acer-negundo" ~ "acer negundo",
+# edited == "tropical forest"~"tropical forest(s)",
+# edited == "anadromous fish" ~ "anadromous fishes",
+# edited == "arciidae" ~ "ariidae",
+# edited == "coastal temperate rain forests" ~ "coastal temperate rainforest",
+# edited == "c4 grassland" ~ "c4 grasslands",
+# edited == "coadapted gene complex" ~ "coadapted gene complexes",
+# edited == "comparative approach" ~ "comparative approaches",
+# edited == "capreolus capreolus" ~ "capreolus capreolus l",
+# edited == "cedar creek natural history area, minnesota" ~ "cedar creek natural history area, minnesota (usa)",
+# edited == "branching process" ~ "branching processes",
+# edited == "colombian amazonia" ~ "colombian amazon",
+# edited == "complementary resource use" ~ "complementary resources",
+# edited == "catastrophic regime shifts" ~ "catastrophic regime shift",
+# edited == "coefficient of additive genetic variance" ~ "coefficient of additive genetic variation",
+# edited == "bodega marine reserve, california" ~ "bodega marine reserve, california (usa)",
+# edited == "body size distribution" ~ "brood size distribution",
+# edited == "coastal marsh" ~ "coastal marshes",
+# edited == "community function" ~ "community functioning",
+# edited == "california floristic province, usa" ~ "california floristic province (usa)",
+# edited == "chihuahuan desert, new mexico" ~ "chihuahuan desert, new mexico (usa)",
+# edited == "breeding age" ~ "breeding range",
+# edited == "compensatory growth" ~ "compensatory regrowth",
+# edited == "community dynamic model" ~ "community dynamic modeling",
+# edited == "competition for pollination" ~ "competition for pollinators",
+# edited == "abandoned pasture" ~ "abandoned pastures",
+# edited == "abandoned farmland" ~ "abandoned fields",
+# edited == "smithsonian tropical research institute, gamboa, panama" ~ "stri, panama",
+# edited == "baetids" ~ "baetis",
+
+# edited == "rain forest" ~ "tropical rain forest",
+# edited == "species diversity" ~ "diversity",
+# edited == "tropical rainforest" ~ "tropical rain forest",
+# edited == "megafaunal-dispersal syndrome" ~ "megafaunal dispersal syndrome",
+# edited == "land use" ~ "land-use",
+# edited == "oil-palm" ~ "oil palm",
+# edited == "reduced impact logging" ~ "reduced-impact logging",
+# edited == "land use history" ~ "land-use history",
+# edited == "leaf litterfall" ~ "litter",
+# edited == "liana-tree interaction network" ~ "liana-tree interaction (network)",
+# edited == "atlantic rainforest" ~ "atlantic rain forest",
+# edited == "land use change" ~ "land-use change",
+# edited == "psittacidae" ~ "psittacids",
+# edited == "psittacines" ~ "psittacids",
+# edited == "albertine rift eco-region" ~ "albertine rift region",
+# edited == "long distance dispersal" ~ "long-distance dispersal",
+# edited == "twig-nesting ant species" ~ "twig-nesting ants",
+# edited == "dry-season flushing" ~ "dry season flushing",
+# edited == "termitidae" ~ "termite",
+# edited == "tropical montane" ~ "tropical montane",
+# edited == "atlantic rain forest biome" ~ "atlantic rain forest",
+# edited == "symbiotic microbiota" ~ "symbiotic microbes",
+# edited == "post-dispersal predation" ~ "postdispersal predation",
+# edited == "phyllostomid bats" ~ "phyllostomidae",
+# edited == "life table response experiment" ~ "life table response experiments",
+# edited == "b matrix" ~ "b-matrix",
+# edited == "varillales" ~ "varillal",
+# edited == "g matrix" ~ "g-matrix",
+# edited == "b matrix" ~ "b-matrix",
+# edited == "m matrix" ~ "m-matrix",
+# edited == "p matrix" ~ "p-matrix",
+# edited == "site-dependence" ~ "site-dependence",
+# edited == "barley and cereal yellow dwarf virus" ~ "barley and cereal yellow dwarf viruses",
+# edited == "australian monsoon tropics" ~ "australian monsoonal tropics",
+# edited == "adaptation and trade-off" ~ "adaptations and trade-offs",
+
+
+
+
+
+# edited ==  "bird community" ~ "bird communities",
+# edited ==  "insectivores" ~ "insectivores/insectivory",
+# edited ==  "insectivory" ~ "insectivores/insectivory", # edited ==  "amazon" ~ "amazon(ia)",
+# edited ==  "plant community" ~ "plant communities",
+# edited ==  "biodiversity" ~ "(species) diversity/biodiversity",
+# edited ==  "tropical rainforest"~"(tropical) rain forest(s)",
+# edited ==  "pinus plantations"~"pine plantation(s)",
+# edited ==  "pinus plantation"~"pine plantation(s)",
+# edited ==  "lowland tropical forest" ~ "lowland tropical rain forest",
+# edited ==  "vapour pressure deficits" ~ "vapor pressure deficit",
+# edited ==  "ant" ~ "ant(s)",
+# edited ==  "ants" ~ "ant(s)",
+# edited ==  "mammal" ~ "mammalia",
+# edited ==  "mammals" ~ "mammalia",
+# edited ==  "fig" ~ "fig(s)",
+# edited ==  "rodent" ~ "rodentia",
+# edited ==  "relative growth" ~ "relative growth (rate)",
+# edited ==  "relative growth rate" ~ "relative growth (rate)",
+# edited ==  "tropical montane cloud forest"~"tropical montane forest",
+# edited ==  "tropical forest succession" ~ "tropical forest succession/regeneration",
+# edited ==  "tropical forest regeneration" ~ "tropical forest succession/regeneration",
+# edited ==  "tropical forests" ~ "tropical forest(s)",
+# edited ==  "tropical forest" ~ "tropical forest(s)",
+# edited ==  "tropical forest fragmentation" ~ "tropical forest fragments/fragmentation",
+# edited ==  "tropical forest fragments" ~ "tropical forest fragmentation",
+# edited ==  "tropical forest fragment" ~"tropical forest fragmentation",
+# edited ==  "tropical forest fragments" ~ "tropical forest fragments/fragmentation",
+# edited ==  "tropical forest fragment" ~"tropical forest fragments/fragmentation",
+# edited ==  "invertebrate herbivory" ~ "invertebrate herbivory/herbivore(s)",
+# edited ==  "invertebrate herbivores" ~ "invertebrate herbivory/herbivore(s)",
+# edited ==  "invertebrate community structure" ~ "invertebrate communities/structure",
+# edited ==  "invertebrate communities" ~ "invertebrate communities/structure",
+# edited ==  "invertebrate predators" ~ " invertebrate predator(s)",
+# edited ==  "invertebrate predator" ~ " invertebrate predator(s)",
+# edited ==  "seed dispersal networks" ~ "seed dispersal network(s)",
+# edited ==  "seed dispersal network" ~ "seed dispersal network(s)",
+# edited ==  "seed dispersal kernels" ~ "seed dispersal kernel(s)",
+# edited ==  "seed dispersal kernel" ~ "seed dispersal kernel(s)",
+# edited ==  "seed-dispersal mutualism" ~ "seed dispersal mutualism(s)",
+# edited ==  "seed dispersal mutualisms" ~ "seed dispersal mutualism(s)",
+# edited ==  "drosophila" ~ "drosophila / d melanogaster",
+# edited ==  "drosophila melanogaster" ~ "drosophila / d melanogaster",
+# edited ==  "dispersal modes" ~ "dispersal mode(s)",
+# edited ==  "dispersal mode" ~ "dispersal mode(s)",
+# edited ==  "dispersal models" ~ "dispersal model(s)",
+# edited ==  "dispersal model" ~ "dispersal model(s)",
+# edited ==  "foraging mode" ~ "foraging mode(s)",
+# edited ==  "foraging models" ~ "foraging model(s)",
+# edited ==  "foraging model" ~ "foraging model(s)",
+# edited ==  "feather" ~ "feather(s)",
+# edited ==  "feathers" ~ "feather(s)",
+# edited ==  "p ratio" ~ "P ratio(s)",
+# edited ==  "p ratios" ~ "P ratio(s)",
+# edited ==  "x choromosomes" ~ "x choromosomes",
+# edited ==  "rain forest" ~ "(tropical) rain forest(s)",
+# edited ==  "diversity" ~ "(species) diversity/biodiversity",
+# edited ==  "species diversity" ~ "(species) diversity/biodiversity",
+# edited ==  "camera trapping" ~ "camera trap(ping)",
+# edited ==  "camera trap" ~ "camera trap(ping)",
+# edited ==  "leaf litterfall" ~ "leaf litter",
+# edited ==  "liana-tree interaction" ~ "liana-tree interaction (network)",
+# edited ==  "canopy openness" ~ "canopy openness/openings",
+# edited ==  "canopy openings" ~ "canopy openness/openings",
+# edited ==  "insect-plant interactions" ~ "plant-insect interaction",
+# edited ==  "thermal performance" ~ "thermal performance (curves)",
+# edited ==  "thermal performance curves" ~ "thermal performance (curves)",
+# edited ==  "atlantic rain forest biome" ~ "atlantic rain forest",
+# edited ==  "arboreal" ~ "arboreal/arboreality",
+# edited ==  "arboreality" ~ "arboreal/arboreality",
+# edited ==  "resprout" ~ "resprout(ing)",
+# edited ==  "resprouting" ~ "resprout(ing)",
+
+# edited ==  "forest canopies" ~ "forest canopy",
+# edited ==  "decomposition" ~ "decomposition rate",
+# edited ==  "neotropical" ~ "neotropics",
+# edited ==  "life histories" ~ "life history",
+# edited ==  "photosynthesis rates" ~ "photosynthesis (rates)",
+# edited ==  "photosynthesis" ~ "photosynthesis (rates)",
+# edited ==  "tropical lowland forests" ~ "tropical lowland rain forest(s)",
+# edited ==  "tropical rainforest" ~ "tropical rain forest(s)",
+# edited ==  "np ratio"~"np ratio(s)",
+# edited ==  "np ratios"~"np ratio(s)",
+# edited ==  "noninvasive sample"~"noninvasive sample/sampling",
+# edited ==  "noninvasive sampling"~"noninvasive sample/sampling",
+# edited ==  "road"~"roads",
+# edited ==  "palm"~"palm(s)",
+# edited ==  "palms"~"palm(s)",
+# edited ==  "bird"~"bird(s)",
+# edited ==  "birds"~"bird(s)",
+#  edited ==  abiotic&#8208~"abiotic",
+# edited == "ant assemblages"~"bat assemblages",
+# edited == "ant pollination"~"bat pollination",
+# edited == "arboreal ants"~"arboreal plants",
+# edited == "annual grass"~"annual grasses",
+# edited == "bioenergetic model"~"bioenergetic modeling",
+# edited == "GxE interactions(s)"~"GxE interaction(s)",
+# edited == "age-specific reproduction"~"age-specific reproduction/survival",
+# edited == "age-specific reproduction and survival"~"age-specific reproduction/survival",
+# edited == "age-specific reproductive success"~"age-specific reproduction/survival",
+# edited == "age-specific survival"~"age-specific reproduction/survival",
+# edited == "16s rdna"~"16s rdna/rrna",
+# edited == "16s rdna"~"16s rdna/rrna",
+# edited == "16s"~"16s rdna/rrna",
+# edited == "16s rdna sequencing"~"16s rdna/rrna",
+# edited == "16s rrna"~"16s rdna/rrna",
+# edited == "16s rrna genes"~"16s rdna/rrna",
+# edited == "16s-rrna and its gene sequencing"~"16s rdna/rrna",
+# edited ==  "smithsonian tropical research institute"~"bci",
+# edited ==  "smithsonian tropical research institute, gamboa, panama"~"bci",
+# edited ==  ", usa"~"",
+
+# open refine (no longer used)  -------------------------------------------
+
+
+# write_csv(keywords_to_refine,"./bibliometrics/data_intermediate/to_refine2.csv")
+# rm(keywords_to_refine)
+#
+# refined_kw<-read_csv("./bibliometrics/data_intermediate/kw-to-refine2.csv") %>%
+#   rename(edited=kw) %>%
+#   filter(!str_detect(edited, 'frailty model, hierarchical model,')) %>%
+#   filter(!str_detect(edited, 'reproductive activity, sierra nevada de santa marta')) %>%
+#   filter(!str_detect(edited, 'assemblages, extinction,')) %>%
+#   filter(!str_detect(edited, 'photosynthesis, path')) %>%
+#   filter(!str_detect(edited, 'georgia, usa, geostatistics'))

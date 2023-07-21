@@ -121,7 +121,9 @@ Instead, my goal is to stimulate discussion about the fundamental yet generally 
 ## 1. Why the answer might be *'No'*
 
 <!-- 1. The adjective "Tropical" in our Association's name implies specialization.  -->
-1. There are different way in which  
+1. One way to determine if tropical biology is a distinct discipline is by evaluating how researchers self-associate.
+
+There are different way in which  
 1. This specialization could be one of (specialization of approach and tools, conceptual domain, or study system). Figure 1.
 
 1. 'Tropical' transcends all of these. 
@@ -349,9 +351,9 @@ Their existence in the colloquial sense - as a distinct region - is actually a h
 
 ## 2. Why the answer might be *'Maybe'*
 
-1. Despite its origins as a colonial construct, Tropical Biology could still be a conceptually distinct field if the scientists studying tropical systems address a distinct suite of topics than those working in other regions. 
+1. Despite its origins as a colonial construct, Tropical Biology could still be a conceptually distinct field if the scientists studying tropical systems chose to investigate a suite of topics distinct from those studied by scientists working in other global regions. 
 
-1. To assess this possibility, I compared the titles and keywords of articles published from 1960-2022 four 'Tropical Journals' (_Journal of Tropical Ecology_, _Biotropica_, _Tropical Ecology_, and _Tropical Conservation Science_) with those of research from both tropical and extra-tropical locations that had been published in six 'General Journals' (_The American Naturalist_, _Evolution_, _Journal of Evolutionary Biology_, _Journal of Ecology_, _Ecology_, and _Journal of Animal Ecology_)  <!-- titles: , Keywords: 1976-2022   -->
+1. To assess this possibility I compared the titles and keywords of articles published from 1960-2022 in four 'Tropical' journals' (_Journal of Tropical Ecology_, _Biotropica_, _Tropical Ecology_, and _Tropical Conservation Science_) with those of tropical- and non-tropical articles from six journals  (_The American Naturalist_, _Evolution_, _Journal of Evolutionary Biology_, _Journal of Ecology_, _Ecology_, and _Journal of Animal Ecology_)  <!-- titles: , Keywords: 1976-2022   -->
 
 2. (N=62,750 and N = 220,612, respectively)
 <!-- 1. After downloading the records for these articles from either the Web of Science or SCOPUS, I extracted the titles from all articles and the N = 220,612 keywords from articles published after 1976 using the `refsplitr` package for the R statistical programming language.  -->
@@ -363,7 +365,7 @@ Their existence in the colloquial sense - as a distinct region - is actually a h
 <!-- Key Words: frequency analysis -->
 I found that 10 of the top 20 key words for articles published in "Tropical Journals" were either a geographic location (e.g., _Costa Rica_, _Amazonia_) or the ecosystem in which the study was conducted (e.g., _tropical dry forest_, _savanna_). 
 
-In contrast, the the 20 most common key words in the "General Journals" were conceptual (e.g., _compeititon_, _species diversity_, _climate change_, _sexual selection_). The exception were articles based on research conducted in the tropics, which also emphasized the location or system. 
+In contrast, the the 20 most common key words in the "General Journals" were conceptual (e.g., _competiton_, _species diversity_, _climate change_, _sexual selection_). The exception were articles based on research conducted in the tropics, which also emphasized the location or system. 
 
 The only overlap is in....
 
@@ -390,7 +392,7 @@ What makes 'Tropical Biology" distinct is not the science _per se_, but rather t
 
 ## 4. The Future of (Tropical) Biology
 
-How then to resolve this conundrum? I believe that the solution is neither dropping the adjective that inspires so many of us, nor keeping it and accepting status as complementary subdiscipline. Instead, I call on our members to **_reclaim and reshape the Tropical narrative_** by continuing to emphasize what makes tropical biology distinct - place and context - while also repositioning tropical ecosystems as the biological baseline. Here are six simple ways that anyone can contribute to this movement:  
+How then to resolve this conundrum? I believe that the solution is neither dropping the adjective that inspires so many of us, nor keeping it and accepting status as complementary subdiscipline. Instead, I call on ATBC members to **_reclaim and reshape the Tropical narrative_** by continuing to emphasize what makes tropical biology distinct - place and context - while also repositioning tropical ecosystems as the biological baseline. Here are six simple ways that anyone can contribute to this movement:  
 
 1. **_Cite with purpose._** Citation is a powerful and political act: it conveys legitimacy on the scholarship in the article being cited as well as its author, helps elevate the profile of the author and study system, and those reading your work will cite these articles when writing their own. For many scientists it also plays an important role in their professional advancement. Be mindful of this power and the opportunity it presents when choosing which articles to cite. Cite scientists whose work or approach you feel is undervalued or overlooked. Cite scientists from countries or institutions that have been ignored by the broader scientific community. Cite scientists whose approach to research you feel others should emulate. Cite studies conducted in the tropics.  
 
