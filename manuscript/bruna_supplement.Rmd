@@ -1,0 +1,53 @@
+---
+title: "Supplement to Bruna: Is there really such a thing as _Tropical_ Biology?"
+author: "Emilio M. Bruna"
+email: embruna@ufl.edu
+web: www.BrunaLab.org
+github: embruna
+twitter: BrunaLab
+phone: "(352) 846-0634"
+# date: "`r format(Sys.time(), '%B %Y')`"
+geometry: margin=1in
+# tables: true
+# fontawesome: yes
+header-includes:
+- \usepackage{fancyhdr}
+- \pagestyle{fancy}
+- \fancyfoot{} # remove page number bottom of the page
+- \fancyhead[L]{Bruna (Supplement)}
+- \fancyhead[R]{p. \thepage}
+- \usepackage{setspace}
+- \usepackage{parskip} 
+- \usepackage{pdflscape}
+- \newcommand{\blandscape}{\begin{landscape}}
+- \newcommand{\elandscape}{\end{landscape}}
+
+- \usepackage{caption}                            
+- \DeclareCaptionLabelFormat{Sformat}{#1 S#2}     
+- \captionsetup[table]{labelformat=Sformat}  
+- \captionsetup[figure]{labelformat=Sformat}  
+  
+output: 
+  pdf_document:
+    keep_tex: true
+   # html_document:
+   # df_print: paged
+   # toc: true
+
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = FALSE,message=FALSE,warning=FALSE)
+library(tidyverse)
+library(gridExtra)
+library(kableExtra)
+library(here)
+library(egg)
+# library(citr)
+```
+
+
+
+
+

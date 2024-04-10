@@ -15,7 +15,13 @@ complete_data<-read_csv("./bibliometrics/data_clean/complete_data.csv") %>%
   mutate(index = row_number()) 
 
 
+trop_countries<- read_csv("./bibliometrics/code_data_processing/tropical-countries-2023.csv") %>% 
+  mutate(country=tolower(country))
 
+
+# extract tropical field stations?
+# data from https://academic.oup.com/bioscience/article/66/2/164/2468674
+# txt <- pdf_text("./bibliometrics/code_data_processing/Table S3 - Global database on biological field stations.pdf")
 
 all_refs_count<-complete_data %>%
   group_by(DI,TI) %>% 
@@ -46,14 +52,19 @@ tropical_terms = c("tropical",
                    "tropics", 
                    "amazon",
                    "congo",
+                   "andean",
+                   "andes",
                    "cerrado",
                    "caatinga",
                    "caatinga",
                    "hawaii",
                    "puerto rico",
-                   "puerto rico",
-                   "cuba",
-                   "malaysia",
+                   "chamela",
+                   "tuxtlas",
+                   "nouragues",
+                   "kruger",
+                   # "cuba",
+                   # "malaysia",
                    "amazonia",
                    "bci",
                    "rainforest",
@@ -65,92 +76,90 @@ tropical_terms = c("tropical",
                    "paleotropic",
                    "manu national",
                    "yasuni",
-                   "costa rica",
-                   "kenya",
-                   "tanzania",
-                   "cameroon",
-                   "nigeria",
-                   "belize",
-                   "venezuela",
-                   "colombia",
-                   "peru",
+                   # "costa rica",
+                   # "kenya",
+                   # "tanzania",
+                   # "cameroon",
+                   # "nigeria",
+                   # "belize",
+                   # "venezuela",
+                   # "colombia",
+                   # "peru",
                    "serengeti",
-                   "ecuador",
-                   "panama",
+                   # "ecuador",
+                   # "panama",
                    "bornean",
                    "borneo",
                    "barro colorado",
                    "janzen-connell",
-                   "el salvador",
-                   "guatemala",
-                   "honduras",
+                   # "el salvador",
+                   # "guatemala",
+                   # "honduras",
                    "galapagos",
-                   "nicaragua",
-                   "guatemala",
-                   "honduras",
-                   "nicaragua",
-                   "bolivia",
-                   "french guiana",
-                   "guyana",
-                   "paraguay",
-                   "suriname",
-                   "aruba",
-                   "bahamas",
+                   # "nicaragua",
+                   "bolivian",
+                   # "french guiana",
+                   # "guyana",
+                   # "paraguay",
+                   # "suriname",
+                   # "aruba",
+                   # "bahamas",
                    "virgin islands",
                    "cayman islands",
-                   "dominica",
+                   # "dominica",
                    "western ghats",
-                   "dominican republic",
-                   "grenada",
-                   "guadeloupe",
-                   "haiti",
-                   "jamaica",
-                   "martinique",
+                   # "dominican republic",
+                   # "grenada",
+                   # "guadeloupe",
+                   # "haiti",
+                   # "jamaica",
+                   # "martinique",
                    "netherlands antilles",
-                   "saint lucia",
+                   # "saint lucia",
                    "trinidad",
-                   "angola",
-                   "equatorial guinea",
-                   "gabon",
-                   "zambia",
-                   "burundi",
-                   "comoros",
-                   "ethiopia",
-                   "kenya",
-                   "madagascar",
-                   "malawi",
-                   "mauritius",
+                   # "angola",
+                   # "equatorial guinea",
+                   # "gabon",
+                   # "zambia",
+                   # "burundi",
+                   # "comoros",
+                   # "ethiopia",
+                   # "kenya",
+                   # "madagascar",
+                   # "malawi",
+                   # "mauritius",
                    # Mayotte
-                   "mozambique",
+                   # "mozambique",
                    "reunion",
-                   "rwanda",
-                   "seychelles",
-                   "uganda",
-                   "benin",
-                   "burkina faso",
-                   "ivory coast",
-                   "ghana",
-                   "philippines",
-                   "singapore",
-                   "thailand",
-                   "vietnam",
-                   "indonesia",
+                   # "rwanda",
+                   # "seychelles",
+                   # "uganda",
+                   # "benin",
+                   # "burkina faso",
+                   # "ivory coast",
+                   # "ghana",
+                   # "philippines",
+                   # "singapore",
+                   # "thailand",
+                   # "vietnam",
+                   # "indonesia",
                    "papua new",
                    "indian ", 
                    "australian wet",
                    "african savanna",
                    "african",
-                   "togo",
+                   # "togo",
                    "brunei",
                    "burma", 
-                   "myanmar",
-                   "cambodia",
+                   # "myanmar",
+                   # "cambodia",
+                   "brazilian",
                    "saint maarten",
                    "heliconia",
                    "myrmecophyte",
                    "guam",
-                   "east timor",
-                   "brazil")
+                   "east timor"
+                   )
 
 # anguilla
 # Antigua and Barbuda
@@ -165,7 +174,6 @@ tropical_terms = c("tropical",
 # Senegal
 # Sierra Leone
 # Montserrat
-
 # Sudan
 # Somalia
 # djibouti
@@ -197,6 +205,12 @@ temperate_terms = c("temperate rain forest",
                    "new zealand"
                    )
 #   
+
+
+full_trop_countries<-trop_countries %>% filter(fullyTropical==TRUE) %>% select(country)
+full_trop_countries<-pull(full_trop_countries, country)
+tropical_terms<-c(full_trop_countries,tropical_terms)
+
 complete_data_clean<-complete_data %>% select(pub_cat,jrnl_cat,PY,AF,AB,TI,SO,DE,refID,DI)  
   complete_data_clean<-complete_data_clean %>% 
    mutate(pub_cat_2 = case_when(
@@ -285,7 +299,8 @@ complete_data_clean<-left_join(complete_data_clean,na_to_trop) %>%
   TRUE ~ as.character(pub_cat_2)
 )) %>% 
   select(-trop) %>% 
-  replace_na(list(pub_cat_2="general"))
+  replace_na(list(pub_cat_2="general")) %>%
+  relocate(pub_cat_2,.after="pub_cat")
 
 
 complete_data_clean %>% count(jrnl_cat,pub_cat,pub_cat_2)
@@ -298,7 +313,6 @@ complete_data_clean <- complete_data_clean %>%
 #   group_by(refID,TI) %>% 
 #   tally() %>% arrange(desc(n)) %>% 
 #   filter(n>1)
-
 
 write_csv(complete_data_clean,"./bibliometrics/data_clean/complete_data_clean.csv")
   # library(countrycode)

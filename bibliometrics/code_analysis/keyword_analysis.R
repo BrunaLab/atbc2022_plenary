@@ -1,172 +1,824 @@
-
 # load libraries ----------------------------------------------------------
 
 library(tidyverse)
-library(stopwords)
-library(ngram)
+# library(stopwords)
+# library(ngram)
 library(tidytext)
-library(igraph)
+# library(igraph)
 library(janitor)
-library(tidystringdist)
-
+# library(tidystringdist)
+library(here)
 
 
 # load data ---------------------------------------------------------------
 
+# filter out RBT and TREC
 
-kw<-read_csv("./bibliometrics/data_clean/keywords.csv") %>% 
-  filter(SO!="rbt") %>% 
-  filter(SO!="trec") 
+kw <- read_csv(here("bibliometrics", "data_clean", "keywords.csv")) 
 
-# %>% 
+# %>%
+#   filter(SO != "rbt") %>%
+#   filter(SO != "trec")
+
+# how much data to we have? -----------------------------------------------
+
+
+
+jrnl_yrs <- kw %>%
+  group_by(SO, PY, jrnl_cat) %>%
+  tally() %>%
+  arrange(
+    jrnl_cat,
+    SO,
+    PY
+  )
+
+
+jrnl_yrs$SO <- factor(jrnl_yrs$SO, levels = unique(jrnl_yrs$SO[order(jrnl_yrs$jrnl_cat, jrnl_yrs$SO)]))
+jrnl_yrs$PY <- factor(jrnl_yrs$PY, levels = unique(jrnl_yrs$PY[order(jrnl_yrs$jrnl_cat, jrnl_yrs$PY)]))
+
+p1 <- ggplot(jrnl_yrs, aes(x = PY, y = SO, fill = jrnl_cat, alpha = n)) +
+  geom_tile(color = "black") +
+  scale_fill_manual(values = c(tropical = "darkgreen", general = "black")) +
+  theme_bw()
+p1
+
+jrnl_count <- kw %>%
+  group_by(SO, PY) %>%
+  tally() %>%
+  mutate(SO = as.factor(SO))
+
+p2 <- ggplot(jrnl_count, aes(PY, n)) +
+  geom_point()
+p2 <- p2 + facet_wrap(vars(SO))
+p2
+
+
+# years of coverage -------------------------------------------------------
+kw %>%
+  select(SO, PY) %>%
+  arrange(SO, PY) %>%
+  group_by(SO) %>%
+  slice(1) %>%
+  arrange(PY)
+
+
+#
+# kw<-read_csv("./bibliometrics/data_clean/keywords.csv") %>%
+#   filter(SO!="tcs") %>%
+#   filter(SO!="amnat") %>%
+#   filter(PY>1991)
+
+# %>%
 #   filter(PY>2000)
 
 # Papers per journal
 
-pubs_per_jrnl<-kw %>% 
-  group_by(SO) %>% 
-  summarise(n_pubs=n_distinct(refID)) %>% 
-  arrange(desc(n_pubs))
+pubs_per_jrnl <- kw %>%
+  group_by(jrnl_cat, SO) %>%
+  summarise(n_pubs = n_distinct(refID)) %>%
+  arrange(desc(n_pubs)) %>%
+  arrange(jrnl_cat, desc(n_pubs))
+
+# papers per journal by pub_cat
+
+
+pubs_per_cat <- kw %>%
+  group_by(pub_cat_2) %>%
+  summarise(n_pubs = n_distinct(refID)) %>%
+  ungroup() %>%
+  arrange(desc(pub_cat_2))
+pubs_per_cat
+
+pubs_per_pub_cat <- kw %>%
+  group_by(jrnl_cat, pub_cat_2) %>%
+  summarise(n_pubs = n_distinct(refID)) %>%
+  ungroup() %>%
+  arrange(jrnl_cat, pub_cat_2, desc(n_pubs))
+pubs_per_pub_cat
+
+
+pubs_per_jrnl_pub_cat <- kw %>%
+  group_by(jrnl_cat, pub_cat_2, SO) %>%
+  summarise(n_pubs = n_distinct(refID)) %>%
+  ungroup() %>%
+  arrange(jrnl_cat, SO, pub_cat_2, desc(n_pubs))
+pubs_per_jrnl_pub_cat
+
+pubs_per_jrnl_pub_cat_wide<-pubs_per_jrnl_pub_cat %>% 
+  filter(jrnl_cat=="general") %>% 
+  pivot_wider(
+    names_from = pub_cat_2,
+    values_from = n_pubs) %>% 
+  mutate(perc_trop=tropical/(general+tropical)*100)
+
+overall_perc_trop<-((sum(pubs_per_jrnl_pub_cat_wide$tropical))/sum(pubs_per_jrnl_pub_cat_wide$general))*100
+avg_perc_trop<-mean(pubs_per_jrnl_pub_cat_wide$perc_trop)
+var_perc_trop<-sd(pubs_per_jrnl_pub_cat_wide$perc_trop)
+
 
 # Total Distinct Keywords
 
 kw %>% summarize(n_distinct(final))
 
+# top kw overalll
+
+top_kw_overall <- kw %>%
+  group_by(final) %>%
+  summarize(n = n()) %>%
+  arrange(desc(n)) %>%
+  mutate(perc = n / sum(n) * 100) %>%
+  mutate(cum_perc = cumsum(perc))
+top_kw_overall
+
+
 # Total Distinct Keywords by Journal
 
-kw_jrnl<-kw %>% 
-  group_by(SO) %>% 
-  summarize(n_kw=n_distinct(final)) %>% 
+kw_jrnl <- kw %>%
+  group_by(SO, pub_cat_2) %>%
+  summarize(n_kw = n_distinct(final)) %>%
   arrange(desc(n_kw))
+kw_jrnl
+
 
 # Top Keywords by Journal
-top_kw_jrnl<-kw %>% 
-  group_by(SO,final) %>% 
-  tally() %>% 
-  arrange(SO,desc(n))
+top_kw_jrnl <- kw %>%
+  group_by(SO, final) %>%
+  tally() %>%
+  arrange(SO, desc(n))
+
+
+# Top Keywords by Journal (pub cat/jrnl cat)
+top_kw_jrnl_2 <- kw %>%
+  group_by(jrnl_cat, pub_cat_2, SO, final) %>%
+  tally() %>%
+  arrange(jrnl_cat, SO, pub_cat_2, desc(n)) %>%
+  group_by(pub_cat_2, SO) %>%
+  # slice_head(n=100) %>%
+  arrange(desc(jrnl_cat), SO, pub_cat_2, desc(n)) %>%
+  left_join(pubs_per_jrnl_pub_cat) %>%
+  group_by(jrnl_cat, SO, pub_cat_2) %>%
+  mutate(perc_pubs_wth_kw = (n / n_pubs * 100)) %>%
+  group_by(pub_cat_2, SO) %>%
+  arrange(jrnl_cat, SO, pub_cat_2, desc(n)) %>%
+  mutate(rank_perc = row_number()) %>%
+  # arrange(rank_perc,jrnl_cat,desc(pub_cat_2))
+  arrange(rank_perc, desc(pub_cat_2), jrnl_cat)
+top_kw_jrnl_2
+
+words <- top_kw_jrnl_2 %>%
+  mutate(source = paste(SO, pub_cat_2, sep = "_")) %>%
+  select(jrnl_cat, source, word = final, n)
+
+levels_source <- c(unique(words$source))
+
+plot_words <- words %>%
+  bind_tf_idf(word, source, n) %>%
+  arrange(desc(tf_idf)) %>%
+  mutate(word = factor(word, levels = rev(unique(word)))) %>%
+  mutate(source = factor(source, levels = levels_source))
+
+plot_words %>%
+  group_by(source) %>%
+  top_n(15, tf_idf) %>%
+  ungroup() %>%
+  mutate(word = reorder(word, tf_idf)) %>%
+  ggplot(aes(word, tf_idf, fill = source)) +
+  geom_col(show.legend = FALSE) +
+  labs(x = NULL, y = "tf_idf") +
+  facet_wrap(~source, ncol = 2, scales = "free") +
+  coord_flip()
+
+# DONT RANK BY JOURNAL
+
+
+# Top Keywords by pub cat/jrnl cat
+top_kw_jrnl_3 <- kw %>%
+  group_by(jrnl_cat, pub_cat_2, final) %>%
+  tally() %>%
+  arrange(jrnl_cat, pub_cat_2, desc(n)) %>%
+  group_by(pub_cat_2) %>%
+  # slice_head(n=100) %>%
+  arrange(desc(jrnl_cat), pub_cat_2, desc(n)) %>%
+  left_join(pubs_per_pub_cat) %>%
+  group_by(jrnl_cat, pub_cat_2) %>%
+  mutate(perc_pubs_wth_kw = (n / n_pubs * 100)) %>%
+  group_by(jrnl_cat, pub_cat_2) %>%
+  arrange(jrnl_cat, pub_cat_2, desc(n)) %>%
+  mutate(rank_perc = row_number()) %>%
+  # arrange(rank_perc,jrnl_cat,desc(pub_cat_2))
+  arrange(rank_perc, desc(pub_cat_2), jrnl_cat)
+top_kw_jrnl_3
+
+
+top_kw_jrnl_3 %>%
+  filter(jrnl_cat == "general") %>%
+  filter(pub_cat_2 == "general") %>%
+  filter(str_detect(final, "temperate"))
+top_kw_jrnl_3 %>%
+  filter(jrnl_cat == "general") %>%
+  filter(pub_cat_2 == "general") %>%
+  filter(str_detect(final, "tropical"))
+top_kw_jrnl_3 %>%
+  filter(jrnl_cat == "general") %>%
+  filter(pub_cat_2 == "tropical") %>%
+  filter(str_detect(final, "tropical"))
+top_kw_jrnl_3 %>%
+  filter(jrnl_cat == "tropical") %>%
+  filter(pub_cat_2 == "tropical") %>%
+  filter(str_detect(final, "tropical"))
+
+top_kw_jrnl_3 %>% filter(str_detect(final, "tropical"))
+
+
+# average word ranking by jrnsal and article type
+
+avg_rank <- top_kw_jrnl_2 %>%
+  group_by(final, jrnl_cat, pub_cat_2) %>%
+  summarize(avg_rank = mean(rank_perc)) %>%
+  arrange(final)
+avg_rank
+
+
+avg_rank_wide <- avg_rank %>%
+  pivot_wider(
+    names_from = c(jrnl_cat, pub_cat_2),
+    values_from = c(avg_rank)
+  ) %>%
+  replace_na(list(
+    "tropical_tropical" = 0,
+    "general_general" = 0,
+    "general_tropical" = 0
+  ))
+#
+# ggplot(avg_rank_wide, aes(x=general_general, y=tropical_tropical)) +
+#   geom_point(size=6)
+
+
+
+
+###
+# plot_data<-avg_rank %>% mutate(cat=paste(jrnl_cat,pub_cat_2,sep="-")) %>%
+#   filter(cat!="general-tropical")
+
+
+system <- c(
+  "mammal",
+  "usa",
+  "grassland",
+  "tropical forest",
+  "panama",
+  "costa rica",
+  "tropical rainforest",
+  "bci",
+  "bird",
+  "drosophila melanogaster",
+  "brazil",
+  "mexico",
+  "tropical dryforest",
+  "borneo",
+  "cerrado",
+  "ecuador",
+  "cloud forest",
+  "ant",
+  "epiphyte",
+  "amazonia",
+  "secondary forest",
+  "tropic",
+  "chiroptera",
+  "rodent",
+  "colombia",
+  "atlantic forest",
+  "rainforest",
+  "puerto rico",
+  "savanna",
+  "africa",
+  "neotropic",
+  "amazon",
+  "usa",
+  "tanzania"
+)
+system <- as_tibble(system)
+
+top_kw_jrnl_3_fig <- top_kw_jrnl_3 %>%
+  mutate(cat = paste(jrnl_cat, pub_cat_2, sep = "-")) %>%
+  mutate(system = if_else((final %in% system$value == TRUE), "Y", "N")) %>%
+  filter(rank_perc <= 30) %>% 
+  filter(cat != "general-tropical")
+
+
+in_both <- top_kw_jrnl_3_fig %>%
+  group_by(final) %>%
+  summarise(n2 = n()) %>%
+  filter(n2 > 1) %>%
+  mutate(both = "Yes")
+
+plot_data<-full_join(top_kw_jrnl_3_fig, in_both, by = "final") %>% 
+  select(-n2) %>% 
+  replace_na(list(both = "No")) 
+
+
+TT <- plot_data %>%
+  filter(cat == "tropical-tropical") %>%
+  select(final, cat, rank_perc, system, both) %>%
+  # mutate(final=paste(rank_perc,final,sep=": "))
+  mutate(final = paste("(", rank_perc, ") ", final, sep = ""))
+
+GG <- plot_data %>%
+  filter(cat == "general-general") %>%
+  select(final, cat, rank_perc, system, both) %>%
+  mutate(final = paste(final, " (", rank_perc, ")", sep = ""))
+
+GT <- plot_data %>%
+  filter(cat == "general-tropical") %>%
+  select(final, cat, rank_perc, system, both) %>%
+  mutate(final = paste(final, " (", rank_perc, ")", sep = ""))
+
+plot_data<-plot_data %>% 
+group_by(cat) %>%
+  mutate(word = reorder(final, rank_perc))
+
+
+
+ggplot(plot_data, aes(x=word, y=perc_pubs_wth_kw)) + 
+  geom_bar(stat = "identity") +
+  coord_flip()+
+facet_wrap(~cat, ncol = 2, scales = "free") 
+
+
++
+plot_data %>%
+  ungroup() %>%
+  
+  aes(x=as.factor(final), fill=as.factor(both)) + 
+  geom_bar()
+  ggplot(aes(word,fill = both)) +
+  geom_bar(show.legend = FALSE) +
+  labs(x = NULL, y = "tf_idf") +
+  
+  coord_flip()
+
+# %>%
+# filter(cat!="general-general")
+# filter(cat!="tropical-tropical") %>%
+
+
+# CHANGE SO THAT WORDS IN COMMON have fiklled circles, all others are color
+
+
+GGTT_fig <- ggplot(data = plot_data, aes(x = cat, y = rank_perc, group = final)) +
+  # geom_line(arrow = arrow(angle = 12, ends = "both", type = "closed"),linetype = "solid",linewidth=0.7, color="darkgray")+
+  # geom_line(linetype = "dashed", linewidth = 0.7, color = "darkgray") +
+  # geom_point(size=4, aes(color=both))+
+  # geom_label(aes(label = final),nudge_x = 1,)+
+  geom_text(
+    data = TT, aes(
+      x = cat, y = rank_perc, label = final, color = factor(both),
+      # fontface = "bold"),
+      fontface = ifelse(both == "Yes", "bold", "plain")
+    ),
+    hjust = "left", vjust = 0, nudge_x = 0.04, nudge_y = -0.1
+  ) +
+  geom_text(
+    data = GG, aes(x = cat, y = rank_perc, label = final, color = factor(both),
+                   fontface = ifelse(both == "Yes", "bold", "plain")),
+    hjust = "right", vjust = 0, nudge_x = -0.04, nudge_y = -0.1
+  ) +
+  # geom_text(data=GT, aes(x=cat, y=rank_perc,label=final,color=factor(system)),
+  #            hjust = "right", vjust = 0, nudge_x = -0.02)+
+  scale_x_discrete(expand = c(4, 0), guide = guide_axis(n.dodge = 3)) +
+  scale_y_reverse() +
+  xlab("Journal Category") +
+  ylab("Keyword\nRank") +
+  # scale_y_continuous(limit=c(20, 0))+
+  scale_colour_manual(values = c("darkslategray", "#000066"))
+GGTT_fig
+
+GGTT_fig <- GGTT_fig + theme_classic() + theme(
+  panel.border = element_blank(), panel.grid.major = element_blank(),
+  axis.line.y = element_line(color = "black", size = 0.0, lineend = "square"),
+  axis.line.x = element_line(color = "black", size = 0.5, lineend = "square"),
+  panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"), # sets colors of axes
+  plot.title = element_text(hjust = 0.05, vjust = -1.8, face = "bold", size = 22), # Sets title size, style, location
+  axis.title.x = element_text(colour = "black", size = 20, vjust = -2), # sets x axis title size, style, distance from axis #add , face = "bold" if you want bold
+  axis.title.y = element_text(colour = "black", size = 20, angle = 0, vjust = 0.5), # sets y axis title size, style, distance from axis #add , face = "bold" if you want bold
+  legend.position = "none",
+  axis.ticks = element_blank(),
+  axis.text.x = element_text(colour = "black", size = 16), # sets size and style of labels on axes
+  axis.text.y = element_text(colour = "black", size = 0), # sets size and style of labels on axes
+  plot.margin = unit(c(0, 2, 2, 1), "cm")
+)
+GGTT_fig
+
+###
+
+
+# CHANGE SO THAT WORDS IN COMMON have fiklled circles, all others are color
+
+
+
+
+GGTT_fig <- ggplot(data = plot_data, aes(x = cat, y = rank_perc, group = final)) +
+  # geom_line(arrow = arrow(angle = 12, ends = "both", type = "closed"),linetype = "solid",linewidth=0.7, color="darkgray")+
+  # geom_line(linetype = "dashed", linewidth = 0.7, color = "darkgray") +
+  # geom_point(size=4, aes(color=both))+
+  # geom_label(aes(label = final),nudge_x = 1,)+
+  geom_text(
+    data = TT, aes(
+      x = cat, y = rank_perc, label = final, color = factor(system),
+      # fontface = "bold"),
+      fontface = ifelse(system == "Y", "bold", "plain")
+    ),
+    hjust = "left", vjust = 0, nudge_x = 0.04, nudge_y = -0.1
+  ) +
+  geom_text(
+    data = GG, aes(x = cat, y = rank_perc, label = final, color = factor(system)),
+    hjust = "right", vjust = 0, nudge_x = -0.04, nudge_y = -0.1
+  ) +
+  # geom_text(data=GT, aes(x=cat, y=rank_perc,label=final,color=factor(system)),
+  #            hjust = "right", vjust = 0, nudge_x = -0.02)+
+  scale_x_discrete(expand = c(4, 0), guide = guide_axis(n.dodge = 3)) +
+  scale_y_reverse() +
+  xlab("Journal Category") +
+  ylab("Keyword\nRank") +
+  # scale_y_continuous(limit=c(20, 0))+
+  scale_colour_manual(values = c("darkslategray", "#000066"))
+GGTT_fig
+
+GGTT_fig <- GGTT_fig + theme_classic() + theme(
+  panel.border = element_blank(), panel.grid.major = element_blank(),
+  axis.line.y = element_line(color = "black", size = 0.0, lineend = "square"),
+  axis.line.x = element_line(color = "black", size = 0.5, lineend = "square"),
+  panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"), # sets colors of axes
+  plot.title = element_text(hjust = 0.05, vjust = -1.8, face = "bold", size = 22), # Sets title size, style, location
+  axis.title.x = element_text(colour = "black", size = 20, vjust = -2), # sets x axis title size, style, distance from axis #add , face = "bold" if you want bold
+  axis.title.y = element_text(colour = "black", size = 20, angle = 0, vjust = 0.5), # sets y axis title size, style, distance from axis #add , face = "bold" if you want bold
+  legend.position = "none",
+  axis.ticks = element_blank(),
+  axis.text.x = element_text(colour = "black", size = 16), # sets size and style of labels on axes
+  axis.text.y = element_text(colour = "black", size = 0), # sets size and style of labels on axes
+  plot.margin = unit(c(0, 2, 2, 1), "cm")
+)
+GGTT_fig
+
+
+
+
+
+
+#############
+
+# gg vs gt
+
+plot_data <-
+  top_kw_jrnl_3_fig %>%
+  # filter(cat!="general-tropical")
+  # %>%
+  # filter(cat!="general-general")
+  filter(cat != "tropical-tropical")
+
+general_fig <- ggplot(data = plot_data, aes(x = cat, y = rank_perc, group = final)) +
+  # geom_line(arrow = arrow(angle = 12, ends = "both", type = "closed"),linetype = "solid",linewidth=0.7, color="darkgray")+
+  geom_line(linetype = "solid", linewidth = 0.7, color = "darkgray") +
+  geom_point(size = 4, aes(colour = jrnl_cat)) +
+  # geom_label(aes(label = final),nudge_x = 1,)+
+  # geom_text(data=TT, aes(x=cat, y=rank_perc,label=final,color=factor(system),
+  #                        # fontface = "bold"),
+  #                        fontface = ifelse(system =="Y", "bold", "plain")),
+  #           hjust = "left", vjust = 0, nudge_x = 0.04, nudge_y = -0.1)+
+  geom_text(
+    data = GG, aes(x = cat, y = rank_perc, label = final, color = factor(system)),
+    hjust = "right", vjust = 0, nudge_x = -0.04, nudge_y = -0.1
+  ) +
+  geom_text(
+    data = GT, aes(
+      x = cat, y = rank_perc, label = final, color = factor(system),
+      # fontface = "bold"),
+      fontface = ifelse(system == "Y", "bold", "plain")
+    ),
+    hjust = "left", vjust = 0, nudge_x = 0.04, nudge_y = -0.1
+  ) +
+  scale_y_reverse() +
+  xlab("Journal Category") +
+  ylab("Keyword\nRank") +
+  # scale_y_continuous(limit=c(20, 0))+
+  scale_colour_manual(values = c("darkslategray", "#000066", "#006633", "#000000"))
+general_fig
+general_fig <- general_fig + theme_classic() + theme(
+  panel.border = element_blank(), panel.grid.major = element_blank(),
+  axis.line.y = element_line(color = "black", size = 0.0, lineend = "square"),
+  axis.line.x = element_line(color = "black", size = 0.5, lineend = "square"),
+  panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"), # sets colors of axes
+  plot.title = element_text(hjust = 0.05, vjust = -1.8, face = "bold", size = 22), # Sets title size, style, location
+  axis.title.x = element_text(colour = "black", size = 20, vjust = -2), # sets x axis title size, style, distance from axis #add , face = "bold" if you want bold
+  axis.title.y = element_text(colour = "black", size = 20, angle = 0, vjust = 0.5), # sets y axis title size, style, distance from axis #add , face = "bold" if you want bold
+  legend.position = "none",
+  axis.text.x = element_text(colour = "black", size = 16), # sets size and style of labels on axes
+  axis.text.y = element_text(colour = "black", size = 0), # sets size and style of labels on axes
+  plot.margin = unit(c(0, 2, 2, 1), "cm")
+)
+general_fig
+
+
+###############
+
+####
+# plot_data_gg <- plot_data %>% filter(cat=="general-general")
+# plot_data_gt1 <- plot_data %>% filter(cat=="general-tropical") %>% mutate(cat="general-tropical1")
+# plot_data_gt1.5 <- plot_data %>% filter(cat=="general-tropical") %>% mutate(cat="general-tropical1.5")
+# plot_data_gt2 <- plot_data %>% filter(cat=="general-tropical") %>% mutate(cat="general-tropical2")
+# plot_data_tt<-plot_data %>% filter(cat=="tropical-tropical")
+#
+# plot_data2<-bind_rows(plot_data_gg,plot_data_gt1,plot_data_gt1.5,plot_data_gt2,plot_data_tt)
+#
+# GT<-plot_data2 %>%
+#   filter(cat=='general-tropical1.5') %>%
+#   select(final,cat,rank_perc) %>%
+#   mutate(final=paste("(",rank_perc,") ",final," (",rank_perc,")", sep=""))
+#
+#
+# unique(plot_data2$cat)
+# cover.fig.location<-ggplot(data=plot_data2, aes(x=cat, y=rank_perc,group=final))+
+#   geom_line(linewidth=0.5) +
+#   geom_point(size=4, aes(colour=jrnl_cat))+
+#   # geom_label(aes(label = final),nudge_x = 1,)+
+#   geom_text(data=TT, aes(x=cat, y=rank_perc,label=final),
+#             hjust = "left", vjust = 0, nudge_x = 0.02)+
+#   geom_text(data=GG, aes(x=cat, y=rank_perc,label=final),
+#             hjust = "right", vjust = 0, nudge_x = -0.02)+
+#   geom_text(data=GT, aes(x=cat, y=rank_perc,label=final),
+#             hjust = "center", vjust = 0, nudge_x = -0.02)+
+#   scale_y_reverse()+
+#   xlab("Journal Category")+
+#   ylab("Rank")+
+#   # scale_y_continuous(limit=c(20, 0))+
+#   scale_colour_manual(values=c("#000066","#006633"))
+# cover.fig.location
+# # +
+# #   annotate ("text", x=0.6, y=99, label="B", fontface="bold", size=8, color="black")
+#
+# cover.fig.location<-cover.fig.location + theme_classic() + theme(panel.border = element_blank(), panel.grid.major = element_blank(),
+#                                                                  axis.line.y = element_line(color="black", size = 0.5, lineend="square"),
+#                                                                  axis.line.x = element_line(color="black", size = 0.5, lineend="square"),
+#                                                                  panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"), #sets colors of axes
+#                                                                  plot.title = element_text(hjust=0.05, vjust=-1.8, face="bold", size=22),        #Sets title size, style, location
+#                                                                  axis.title.x=element_text(colour="black", size = 20, vjust=-2),            #sets x axis title size, style, distance from axis #add , face = "bold" if you want bold
+#                                                                  axis.title.y=element_text(colour="black", size = 20, vjust=2),            #sets y axis title size, style, distance from axis #add , face = "bold" if you want bold
+#                                                                  legend.position = "none",
+#                                                                  axis.text=element_text(colour="black", size = 16),                              #sets size and style of labels on axes
+#                                                                  plot.margin = unit(c(0,2,2,1), "cm"))
+# cover.fig.location
+
+
+#####
+
+####
+
+
+
+####
+
+
+
+#####
+
+###
+
+
+
+
+
+
+####
+
+#### as rank abundance plot
+
+lineplot <- ggplot(data = plot_data, aes(x = rank_perc, y = perc_pubs_wth_kw, group = cat)) +
+  geom_line(linewidth = 0.5) +
+  geom_point(size = 2, aes(colour = jrnl_cat)) +
+  geom_text(
+    data = plot_data, aes(x = rank_perc, y = perc_pubs_wth_kw, label = final),
+    hjust = "left", vjust = 0, nudge_x = 0.02
+  )
+lineplot
+
+#####
+
+
+
+
+
+avg_rank %>%
+  ungroup() %>%
+  count(final) %>%
+  arrange(desc(n))
+
+# KW20<-unique(top_kw_jrnl_2$final) %>% as_tibble()
+
+
+system <- c(
+  "mammal",
+  "usa",
+  "grassland",
+  "tropical forest",
+  "panama",
+  "costa rica",
+  "tropical rainforest",
+  "bci",
+  "bird",
+  "drosophila melanogaster",
+  "brazil",
+  "mexico",
+  "tropical dryforest",
+  "atlantic forest",
+  "rainforest",
+  "puerto rico",
+  "savanna",
+  "africa",
+  "neotropic",
+  "amazon",
+  "tanzania"
+)
+system <- as_tibble(system)
+
+top_kw_jrnl_2 <- top_kw_jrnl_2 %>%
+  mutate(system = if_else((final %in% system$value == TRUE), "Y", "N"))
+
+top_kw_jrnl_2 %>%
+  filter(system == "Y") %>%
+  group_by(jrnl_cat, pub_cat_2, system) %>%
+  tally()
+
+top_kw_jrnl_2 %>%
+  group_by(jrnl_cat, pub_cat_2) %>%
+  tally()
+
+# TODO: (USA) vs USA in KW - extract
+
+
+
+
 
 # Top Keywords by Journal as N and %
-top_kw_summ <-  top_kw_jrnl %>% 
-  left_join(kw_jrnl,by="SO") %>% 
-  mutate(perc_of_kw=n/n_kw*100) %>% 
-  arrange(SO,desc(perc_of_kw)) %>% 
-  group_by(SO) %>% 
-  mutate(rank_perc_kw = row_number()) %>% 
-  left_join(pubs_per_jrnl,by="SO") %>%
-  mutate(perc_of_pubs=n/n_pubs*100)  %>% 
-  arrange(SO,desc(perc_of_pubs)) %>% 
-  group_by(SO) %>% 
-  mutate(rank_perc_pubs = row_number()) %>% 
-  select(-rank_perc_kw) %>% 
-  rename(rank=rank_perc_pubs)
-  
-
-
-# Top Keywords by Journal
-
-top_kw_summ %>% 
-  group_by(SO) %>% 
-  slice_head(n = 5)
+top_kw_summ <- top_kw_jrnl %>%
+  left_join(pubs_per_jrnl, by = "SO") %>%
+  mutate(perc_of_kw = n / n_kw * 100) %>%
+  arrange(SO, desc(perc_of_kw)) %>%
+  group_by(SO) %>%
+  mutate(rank_perc_kw = row_number()) %>%
+  left_join(pubs_per_jrnl, by = "SO") %>%
+  mutate(perc_of_pubs = n / n_pubs * 100) %>%
+  arrange(SO, desc(perc_of_pubs)) %>%
+  group_by(SO) %>%
+  mutate(rank_perc_pubs = row_number()) %>%
+  select(-rank_perc_kw) %>%
+  rename(rank = rank_perc_pubs)
 
 
 
 # Top Keywords by Journal
 
-top_kw_jrnl %>% 
-  group_by(SO) %>% 
+top20_rank <- top_kw_summ %>%
+  filter(rank < 21)
+
+top5 %>% arrange(final)
+
+
+
+# Top Keywords by Journal
+
+top_kw_jrnl %>%
+  group_by(SO) %>%
   slice_head(n = 3)
 
 # Top Keywords by Journal
 
 
+# KW by DECADE ------------------------------------------------------------
+
+
 # Total Distinct Keywords by Decade
 
-binned_time<-kw %>% 
-  select(final, SO,jrnl_cat,pub_cat_2,PY) %>% 
-  mutate(decade = cut_width(PY, 6)) %>% 
-  relocate(decade,.before=PY)
+binned_kw <- kw %>%
+  # select(final, SO,jrnl_cat,pub_cat_2,PY) %>%
+  mutate(decade = cut_width(PY, 6)) %>%
+  relocate(decade, .before = PY)
 
-binned_time %>% 
-  group_by(decade) %>% 
-  summarize(n=n_distinct(final)) %>% 
-  arrange(desc(decade))
+# binned_time %>%
+#   group_by(decade) %>%
+#   summarize(n=n_distinct(final)) %>%
+#   arrange(desc(decade))
+
+pubs_per_jrnl_cat_binned <- binned_kw %>%
+  group_by(decade, jrnl_cat, pub_cat_2, SO) %>%
+  summarise(n_pubs = n_distinct(refID)) %>%
+  ungroup() %>%
+  arrange(pub_cat_2, jrnl_cat, desc(n_pubs))
 
 
 
 
 
-kw_table<-kw %>% 
-  # filter(PY>1970) %>% 
-  # filter(pub_cat_2=="tropical") %>% 
-  group_by(jrnl_cat,pub_cat_2,SO,final) %>% 
-  tally() %>% 
-  group_by(SO) %>% 
-  mutate(total=sum(n),
-         perc=n/total*100) %>% 
-  arrange(jrnl_cat,pub_cat_2,SO,desc(perc)) 
-kw_table
 
-fig_data<-kw_table %>% 
-  group_by(jrnl_cat,pub_cat_2,SO) %>% 
+# Top Keywords by Journal (pub cat/jrnl cat)
+top_kw_jrnl_binned <- binned_kw %>%
+  group_by(jrnl_cat, pub_cat_2, SO, decade, final) %>%
+  tally() %>%
+  arrange(jrnl_cat, pub_cat_2, SO, decade, desc(n)) %>%
+  group_by(decade, pub_cat_2, SO) %>%
+  slice_head(n = 10) %>%
+  arrange(decade, desc(jrnl_cat), SO, pub_cat_2, desc(n)) %>%
+  left_join(pubs_per_jrnl_cat_binned) %>%
+  mutate(perc_pubs_wth_kw = (n / n_pubs * 100))
+
+
+top_kw_jrnl_binned
+
+graph_data <- top_kw_jrnl_binned %>%
+  filter(decade != "[1983,1989]") %>%
+  filter(decade == "(1989,1995]")
+# %>%
+# filter(SO=="amnat")
+
+
+ggplot(graph_data, aes(x = final, y = perc_pubs_wth_kw)) +
+  geom_bar(stat = "identity") +
+  coord_flip() +
+  # facet_grid(vars(SO), vars(decade))
+  facet_grid(cols = vars(SO))
+
+
+# figures -----------------------------------------------------------------
+
+
+fig_data <- kw_table %>%
+  group_by(jrnl_cat, pub_cat_2, SO) %>%
   slice(1:20)
-# %>% mutate(rank=row_number())  
+# %>% mutate(rank=row_number())
 
 
-ggplot(fig_data, aes(x=final, y=perc)) + 
-  geom_bar(stat = "identity")+
+ggplot(fig_data, aes(x = final, y = perc)) +
+  geom_bar(stat = "identity") +
   facet_grid(pub_cat_2 ~ SO)
 
 
 
 
-trop_sum<-kw %>% 
-  filter(pub_cat_2=="tropical") %>% 
-  group_by(SO,final) %>% 
-  tally() %>% 
-  arrange(desc(n)) %>% 
-  rename(n_trop=n) %>% 
-  mutate(trop_rank=row_number())  
+trop_sum <- kw %>%
+  filter(pub_cat_2 == "tropical") %>%
+  group_by(SO, final) %>%
+  tally() %>%
+  arrange(desc(n)) %>%
+  rename(n_trop = n) %>%
+  mutate(trop_rank = row_number()) %>%
+  arrange(SO, trop_rank)
 trop_sum
 
+avg_rank_trop <- trop_sum %>%
+  group_by(final) %>%
+  mutate(avg_rank = mean(trop_rank)) %>%
+  mutate(median_rank = median(trop_rank)) %>%
+  arrange(median_rank)
 
-general_sum<-kw %>% 
-  filter(pub_cat_2=="general") %>% 
-  group_by(SO,final) %>% 
-  tally() %>% 
-  arrange(desc(n)) %>% 
-  mutate(gen_rank=row_number()) %>% 
-  rename(n_gen=n) 
+
+general_sum <- kw %>%
+  filter(pub_cat_2 == "general") %>%
+  group_by(SO, final) %>%
+  tally() %>%
+  arrange(desc(n)) %>%
+  mutate(gen_rank = row_number()) %>%
+  rename(n_gen = n)
 general_sum
-# 
-# NA_sum<-kw %>% 
-#   filter(is.na(pub_cat_2)) %>% 
-#   group_by(final) %>% 
-#   tally() %>% 
-#   arrange(desc(n)) %>% 
-#   mutate(NA_rank=row_number()) %>% 
-#   rename(n_NA=n) 
+#
+# NA_sum<-kw %>%
+#   filter(is.na(pub_cat_2)) %>%
+#   group_by(final) %>%
+#   tally() %>%
+#   arrange(desc(n)) %>%
+#   mutate(NA_rank=row_number()) %>%
+#   rename(n_NA=n)
 # NA_sum
 
-kw_ranks<-full_join(trop_sum,general_sum,by="final") %>% 
-  relocate(n_gen,n_trop,.after=1) %>% 
-  relocate(gen_rank,trop_rank,.after=4)
+kw_ranks <- full_join(trop_sum, general_sum, by = "final") %>%
+  relocate(n_gen, n_trop, .after = 1) %>%
+  relocate(gen_rank, trop_rank, .after = 4)
 
 kw_ranks
-# %>% 
-#   mutate(diff=trop_rank-gen_rank) %>% 
+# %>%
+#   mutate(diff=trop_rank-gen_rank) %>%
 #   filter(diff<100 & diff>-100)
 # kw similarity -----------------------------------------------------------
 
-# 
-# 
+#
+#
 # kw_summary <- keywords %>%
 #   group_by(final) %>%
 #   tally() %>%
 #   arrange(desc(n))
 # kw_summary
-# 
-# 
-# 
+#
+#
+#
 
 
 
@@ -189,101 +841,101 @@ kw_ranks
 #   arrange(desc(n))
 # kw_summary
 
-#TODO: can also do n_grams on the kw themselves
+# TODO: can also do n_grams on the kw themselves
 
 
 
 # kw_to_grams
-grams_split<-kw_summary %>% 
+grams_split <- kw_summary %>%
   # filter(str_detect(kw_summary$final,".*[0-9].*")==TRUE)
-  mutate(kw_id=row_number(),.before=1) %>% 
+  mutate(kw_id = row_number(), .before = 1) %>%
   mutate(gram = strsplit(final, " ")) %>%
   unnest(gram) %>%
   group_by(kw_id) %>%
   mutate(row = row_number()) %>%
-  pivot_wider(names_from=row, values_from=gram,names_prefix = "gram_") %>% 
+  pivot_wider(names_from = row, values_from = gram, names_prefix = "gram_") %>%
   # spread(row, gram) %>%
   ungroup()
 
 
 
-gram_tally<-kw_summary %>% 
+gram_tally <- kw_summary %>%
   # filter(str_detect(kw_summary$final,".*[0-9].*")==TRUE)
-  mutate(kw_id=row_number(),.before=1) %>% 
+  mutate(kw_id = row_number(), .before = 1) %>%
   mutate(gram = strsplit(final, " ")) %>%
   unnest(gram) %>%
-  group_by(gram) %>% 
-  tally() %>% 
-  arrange(desc(n)) %>% 
-  mutate(chars=nchar(gram)) %>% 
-  filter(chars>0)
+  group_by(gram) %>%
+  tally() %>%
+  arrange(desc(n)) %>%
+  mutate(chars = nchar(gram)) %>%
+  filter(chars > 0)
 gram_tally
 # TODO: TO FIX: co2, n/nitorgen p/phosphorous c/carbon, seedlingtrategy c c 3 4
 # compositiondispersal
 
-# most frequent 1st word 
-gram1<-kw_summary %>% 
+# most frequent 1st word
+gram1 <- kw_summary %>%
   # filter(str_detect(kw_summary$final,".*[0-9].*")==TRUE)
-  mutate(kw_id=row_number(),.before=1) %>% 
+  mutate(kw_id = row_number(), .before = 1) %>%
   mutate(gram = strsplit(final, " ")) %>%
   unnest(gram) %>%
   group_by(kw_id) %>%
   mutate(row = row_number()) %>%
-  pivot_wider(names_from=row, values_from=gram,names_prefix = "gram_") %>% 
+  pivot_wider(names_from = row, values_from = gram, names_prefix = "gram_") %>%
   # spread(row, gram) %>%
   ungroup() %>%
   # filter_at(vars(gram_2:gram_11),all_vars(is.na(.)))
-  count(gram_1, sort = TRUE) %>% 
-  rename(n_gram1=n)
+  count(gram_1, sort = TRUE) %>%
+  rename(n_gram1 = n)
 gram1
 
 
-# 1st-2nd combos 
-gram2<-kw_summary %>% 
+# 1st-2nd combos
+gram2 <- kw_summary %>%
   # filter(str_detect(kw_summary$final,".*[0-9].*")==TRUE)
-  mutate(kw_id=row_number(),.before=1) %>% 
+  mutate(kw_id = row_number(), .before = 1) %>%
   mutate(gram = strsplit(final, " ")) %>%
   unnest(gram) %>%
   group_by(kw_id) %>%
   mutate(row = row_number()) %>%
-  pivot_wider(names_from=row, values_from=gram,names_prefix = "gram_") %>% 
+  pivot_wider(names_from = row, values_from = gram, names_prefix = "gram_") %>%
   # spread(row, gram) %>%
   ungroup() %>%
   # filter_at(vars(gram_3:gram_11),all_vars(is.na(.)))
-  count(gram_1, gram_2, sort = TRUE) %>% 
-  rename(n_pairs=n)
+  count(gram_1, gram_2, sort = TRUE) %>%
+  rename(n_pairs = n)
 gram2
 
 
 
-# 1st-2nd-third combos 
-gram3<-kw_summary %>% 
+# 1st-2nd-third combos
+gram3 <- kw_summary %>%
   # filter(str_detect(kw_summary$final,".*[0-9].*")==TRUE)
-  mutate(kw_id=row_number(),.before=1) %>% 
+  mutate(kw_id = row_number(), .before = 1) %>%
   mutate(gram = strsplit(final, " ")) %>%
   unnest(gram) %>%
   group_by(kw_id) %>%
   mutate(row = row_number()) %>%
-  pivot_wider(names_from=row, values_from=gram,names_prefix = "gram_") %>% 
+  pivot_wider(names_from = row, values_from = gram, names_prefix = "gram_") %>%
   # spread(row, gram) %>%
   ungroup() %>%
-  drop_na("gram_3") %>% 
-  filter(gram_3!="") %>% 
+  drop_na("gram_3") %>%
+  filter(gram_3 != "") %>%
   # filter_at(vars(gram_4:gram_11),all_vars(is.na(.)))
-  count(gram_1, gram_2, gram_3,sort = TRUE) %>% 
-  rename(n_trips=n) 
+  count(gram_1, gram_2, gram_3, sort = TRUE) %>%
+  rename(n_trips = n)
 
 gram3
 
-combos<-left_join(gram2,gram1,by="gram_1") %>% 
-  relocate(n_gram1,.after=gram_1) %>% 
-  relocate(n_pairs,.after=gram_2) %>% 
+combos <- left_join(gram2, gram1, by = "gram_1") %>%
+  relocate(n_gram1, .after = gram_1) %>%
+  relocate(n_pairs, .after = gram_2) %>%
   arrange(desc(n_gram1))
 
-trips<-left_join(gram3,combos,by=c("gram_1","gram_2")) %>% 
-  relocate(n_gram1,.after=gram_1) %>% 
-  relocate(n_pairs,.after=gram_2) %>% 
-  arrange(desc(n_gram1),desc(n_pairs),desc(n_trips))
+trips <- left_join(gram3, combos, by = c("gram_1", "gram_2")) %>%
+  relocate(n_gram1, .after = gram_1) %>%
+  relocate(n_pairs, .after = gram_2) %>%
+  arrange(desc(n_gram1), desc(n_pairs), desc(n_trips))
 
 
 
@@ -313,7 +965,7 @@ select(-original) %>%
   mutate(original = trimws(original)) %>%
   mutate(original = gsub("\n", " ", original)) %>% # none of these, can delete?
   # mutate(original=str_replace('\\n"', '')) %>%
-  mutate(original = tolower(original)) %>% 
+  mutate(original = tolower(original)) %>%
   mutate(original = trimws(original))
 
 
@@ -471,8 +1123,8 @@ tokens <- unnest_tokens(
   pattern = "  |\\, |\\.|\\,|\\;"
 )
 tokens$token <- trimws(tokens$token,
-                       which = c("both", "left", "right"),
-                       whitespace = "[ \t\r\n]"
+  which = c("both", "left", "right"),
+  whitespace = "[ \t\r\n]"
 )
 
 # Remove empty features
@@ -520,20 +1172,20 @@ for (i in 1:length(cuelist)) {
   temp.tag <- suppressWarnings(
     suppressMessages(
       treetag(c(X$feature[X$cue == cuelist[i]], "NULL"),
-              treetagger = "manual", format = "obj",
-              TT.tknz = FALSE, lang = "en", doc_id = cuelist[i],
-              # These parameters are based on your computer
-              TT.options = list(path = "~/downloads/TreeTagger", preset = "en")
+        treetagger = "manual", format = "obj",
+        TT.tknz = FALSE, lang = "en", doc_id = cuelist[i],
+        # These parameters are based on your computer
+        TT.options = list(path = "~/downloads/TreeTagger", preset = "en")
       )
     )
   )
-  
+
   temp.tag <- temp.tag@TT.res %>%
     mutate_if(is.factor, as.character)
-  
+
   tokens.tagged <- tokens.tagged %>%
     bind_rows(temp.tag %>%
-                select(doc_id, token, wclass, lemma))
+      select(doc_id, token, wclass, lemma))
 }
 
 tokens.tagged <- tokens.tagged %>%
@@ -831,9 +1483,9 @@ stats <- keywords_rake(
 stats$key <- factor(stats$keyword, levels = rev(stats$keyword))
 library(lattice)
 barchart(key ~ rake,
-         data = head(subset(stats, freq > 3), 20), col = "cadetblue",
-         main = "Keywords identified by RAKE",
-         xlab = "Rake"
+  data = head(subset(stats, freq > 3), 20), col = "cadetblue",
+  main = "Keywords identified by RAKE",
+  xlab = "Rake"
 )
 
 
@@ -842,8 +1494,8 @@ stats <- subset(x, upos %in% c("NOUN"))
 stats <- txt_freq(stats$token)
 stats$key <- factor(stats$key, levels = rev(stats$key))
 barchart(key ~ freq,
-         data = head(stats, 20), col = "cadetblue",
-         main = "Most occurring nouns", xlab = "Freq"
+  data = head(stats, 20), col = "cadetblue",
+  main = "Most occurring nouns", xlab = "Freq"
 )
 
 ## most ocurring ADJECTIVES
@@ -851,8 +1503,8 @@ stats <- subset(x, upos %in% c("ADJ"))
 stats <- txt_freq(stats$token)
 stats$key <- factor(stats$key, levels = rev(stats$key))
 barchart(key ~ freq,
-         data = head(stats, 20), col = "cadetblue",
-         main = "Most occurring adjectives", xlab = "Freq"
+  data = head(stats, 20), col = "cadetblue",
+  main = "Most occurring adjectives", xlab = "Freq"
 )
 
 # Nouns / adjectives used in same sentence
@@ -971,7 +1623,7 @@ final_counts <- keywords_clean %>%
   group_by(final) %>%
   summarise(n = n()) %>%
   arrange(desc(n)) %>%
-  keywords$final<-str_replace(keywords$final, "-", " ")
+  keywords$final <- str_replace(keywords$final, "-", " ")
 mutate(to = strsplit(final, " ")) %>%
   unnest(to) %>%
   group_by(final) %>%
@@ -1116,10 +1768,10 @@ Name.check <- function(DataToClean) {
     Name1 = rep(names(NamesList), lapply(NamesList, length)),
     Name2 = unlist(NamesList)
   )
-  
+
   # summary(NamesDF)
   # str(NamesDF)
-  
+
   # Create a column to which you will add a logical condition telling you if the names are an EXACT match
   NamesDF$match <- NA
   NamesDF$match <- NamesDF$Name1 == NamesDF$Name2
@@ -1134,25 +1786,25 @@ Name.check <- function(DataToClean) {
   NamesDF$Name1 <- as.character(NamesDF$Name1)
   NamesDF$Name2 <- as.character(NamesDF$Name2)
   str(NamesDF)
-  
+
   # Calclulate the proportional similarity and # changes required to go from one name to another. Package RecordLinkage
   NamesDF$Name_sim <- levenshteinSim(NamesDF$Name1, NamesDF$Name2)
   NamesDF$Name_dist <- levenshteinDist(NamesDF$Name1, NamesDF$Name2)
-  
+
   # Because this does all pairwise comparisons, it results in redundancy: "e bruna vs emilio bruna" and "emilio bruna vs e bruna"
   # are in different rows, even though they are the same "comparison". This deletes one of the two
   NamesDF <- NamesDF[!duplicated(t(apply(NamesDF, 1, sort))), ]
   # this arranges them in order from most similar (1 change required) to least similar.
   # look carefully at those with a few changes, as they are likely to be a tiny spelling mistake or difference in intials
-  
-  
+
+
   NamesDF$index <- seq.int(nrow(NamesDF)) # adds a column with an index to make it easier to id which row you need'
   NamesDF <- NamesDF %>% select(index, Name1, Name2, Name_sim, Name_dist) # It's kinda ugly, but this rearranges columns (and dumps the "FALSE")
   NamesDF <- arrange(NamesDF, desc(Name_sim))
   # head(NamesDF)
   write_csv(NamesDF, file = "./bibliometrics/data_intermediate/kw_similarity.csv") # export it as a csv file
-  
-  
+
+
   return(NamesDF)
 }
 
@@ -1293,16 +1945,16 @@ foo <- txt_df %>% unnest_tokens(word, text)
 # install.packages("widyr")
 library(widyr)
 (word_pairs <- foo %>%
-    pairwise_count(word, line, sort = TRUE))
+  pairwise_count(word, line, sort = TRUE))
 
 
 
 (word_cor <- foo %>%
-    arrange(line) %>%
-    group_by(line) %>%
-    filter(n() >= 3) %>%
-    pairwise_cor(word, line) %>%
-    filter(!is.na(correlation)))
+  arrange(line) %>%
+  group_by(line) %>%
+  filter(n() >= 3) %>%
+  pairwise_cor(word, line) %>%
+  filter(!is.na(correlation)))
 
 
 
@@ -1365,14 +2017,14 @@ family_id <- vector("integer", length(parents_name))
 # Looping through unassigned family ids
 while (sum(family_id == 0) > 0) {
   ids <- person_id[family_id == 0]
-  
+
   dists <- stringdist(parents_name[family_id == 0][1],
-                      parents_name[family_id == 0],
-                      method = "lv"
+    parents_name[family_id == 0],
+    method = "lv"
   )
-  
+
   matches <- ids[dists <= 2]
-  
+
   family_id[matches] <- max(family_id) + 1
 }
 
@@ -1807,8 +2459,8 @@ hc <- hclust(cdist, "ward.D")
 clustering <- cutree(hc, 4)
 
 plot(hc,
-     main = "Hierarchical clustering of 100 NIH grant abstracts",
-     ylab = "", xlab = "", yaxt = "n"
+  main = "Hierarchical clustering of 100 NIH grant abstracts",
+  ylab = "", xlab = "", yaxt = "n"
 )
 
 rect.hclust(hc, 10, border = "red")
@@ -1818,10 +2470,10 @@ p_words <- colSums(dtm) / sum(dtm)
 
 cluster_words <- lapply(unique(clustering), function(x) {
   rows <- dtm[clustering == x, ]
-  
+
   # for memory's sake, drop all words that don't appear in the cluster
   rows <- rows[, colSums(rows) > 0]
-  
+
   colSums(rows) / sum(rows) - p_words[colnames(rows)]
 })
 
@@ -1916,22 +2568,24 @@ clean <- textcleaner(
 
 
 
-bitr<-complete_data %>% 
-  filter(SO=="bitr") %>% 
-  filter(is.na(DE)) %>% 
-  filter(PY>1991) %>% 
-  arrange(desc(PY)) %>% 
-  relocate(DI,DE,.before=1) 
+bitr <- complete_data %>%
+  filter(SO == "bitr") %>%
+  filter(is.na(DE)) %>%
+  filter(PY > 1991) %>%
+  arrange(desc(PY)) %>%
+  relocate(DI, DE, .before = 1)
 
-analysis_refs<-complete_data %>% 
-  relocate(refID,source,SO,PY,DI,DE,AU,.before=1)
+analysis_refs <- complete_data %>%
+  relocate(refID, source, SO, PY, DI, DE, AU, .before = 1)
 
 names(analysis_refs)
 
 unique(analysis_refs$jrnl_cat)
 
 
-analysis_refs %>% group_by(jrnl_cat,SO,pub_cat) %>% tally()
+analysis_refs %>%
+  group_by(jrnl_cat, SO, pub_cat) %>%
+  tally()
 
 
 
@@ -1940,62 +2594,63 @@ analysis_refs %>% group_by(jrnl_cat,SO,pub_cat) %>% tally()
 
 # how many are missing
 
-jrnl_artciles<-analysis_refs %>% 
-  filter(PY>1990) %>% 
-  group_by(SO) %>% 
-  summarize(tot=n()) %>%
+jrnl_artciles <- analysis_refs %>%
+  filter(PY > 1990) %>%
+  group_by(SO) %>%
+  summarize(tot = n()) %>%
   arrange(desc(tot))
 
-jrnl_no_kw<-analysis_refs %>% 
-  filter(is.na(DE)==TRUE) %>% 
-  filter(PY>1990) %>% 
-  group_by(SO) %>% 
-  summarize(n=n()) %>%
-  arrange(desc(n)) 
-  
-jrnl_summs<-left_join(jrnl_artciles,jrnl_no_kw) %>% 
-  mutate(perc=n/tot*100) %>% 
-  arrange(desc(perc)) 
+jrnl_no_kw <- analysis_refs %>%
+  filter(is.na(DE) == TRUE) %>%
+  filter(PY > 1990) %>%
+  group_by(SO) %>%
+  summarize(n = n()) %>%
+  arrange(desc(n))
+
+jrnl_summs <- left_join(jrnl_artciles, jrnl_no_kw) %>%
+  mutate(perc = n / tot * 100) %>%
+  arrange(desc(perc))
 
 
 # coverage - overall
-jrnl_yrs<-analysis_refs %>% 
-  filter(is.na(DE)==TRUE) %>% 
-  filter(PY>1990) %>% 
-  # filter(SO!="amnat") %>% 
-  group_by(SO,PY,jrnl_cat) %>% 
-  tally() %>% 
-  arrange (jrnl_cat,SO,PY)
+jrnl_yrs <- analysis_refs %>%
+  filter(is.na(DE) == TRUE) %>%
+  filter(PY > 1990) %>%
+  # filter(SO!="amnat") %>%
+  group_by(SO, PY, jrnl_cat) %>%
+  tally() %>%
+  arrange(jrnl_cat, SO, PY)
 jrnl_yrs$SO <- factor(jrnl_yrs$SO, levels = unique(jrnl_yrs$SO[order(jrnl_yrs$jrnl_cat, jrnl_yrs$SO)]))
 jrnl_yrs$PY <- factor(jrnl_yrs$PY, levels = unique(jrnl_yrs$PY[order(jrnl_yrs$jrnl_cat, jrnl_yrs$PY)]))
 
-ggplot(jrnl_yrs, aes(x = PY, y = SO, fill=jrnl_cat, alpha=n)) +
-  geom_tile(color = "black")+
-  scale_fill_manual(values=c(tropical="red2", general="navyblue")) +
+ggplot(jrnl_yrs, aes(x = PY, y = SO, fill = jrnl_cat, alpha = n)) +
+  geom_tile(color = "black") +
+  scale_fill_manual(values = c(tropical = "red2", general = "navyblue")) +
   theme_bw()
 
 
 
 # coverage - key words
-jrnl_yrs<-analysis_refs %>% 
-  drop_na(DE) %>% 
-  group_by(SO,PY,jrnl_cat) %>% 
-  tally() %>% 
-  arrange (jrnl_cat,SO,PY)
+jrnl_yrs <- analysis_refs %>%
+  drop_na(DE) %>%
+  group_by(SO, PY, jrnl_cat) %>%
+  tally() %>%
+  arrange(jrnl_cat, SO, PY)
 jrnl_yrs$SO <- factor(jrnl_yrs$SO, levels = unique(jrnl_yrs$SO[order(jrnl_yrs$jrnl_cat, jrnl_yrs$SO)]))
 jrnl_yrs$PY <- factor(jrnl_yrs$PY, levels = unique(jrnl_yrs$PY[order(jrnl_yrs$jrnl_cat, jrnl_yrs$PY)]))
 
-ggplot(jrnl_yrs, aes(x = PY, y = SO, fill=jrnl_cat, alpha=n)) +
-  geom_tile(color = "black")+
-  scale_fill_manual(values=c(tropical="red2", general="navyblue")) +
+ggplot(jrnl_yrs, aes(x = PY, y = SO, fill = jrnl_cat, alpha = n)) +
+  geom_tile(color = "black") +
+  scale_fill_manual(values = c(tropical = "red2", general = "navyblue")) +
   theme_bw()
 
-jrnl_count<-analysis_refs %>% 
-  group_by(SO,PY) %>% 
-  tally() %>% 
-  mutate(SO=as.factor(SO))
+jrnl_count <- analysis_refs %>%
+  group_by(SO, PY) %>%
+  tally() %>%
+  mutate(SO = as.factor(SO))
 
-p <- ggplot(jrnl_count, aes(PY, n)) + geom_point()
+p <- ggplot(jrnl_count, aes(PY, n)) +
+  geom_point()
 p <- p + facet_wrap(vars(SO))
 p
 
@@ -2007,83 +2662,86 @@ p
 
 
 
-  
-  foo<-str_split_fixed(foo$DE,";",n=20) 
-  foo<-foo %>% as_tibble() 
+
+foo <- str_split_fixed(foo$DE, ";", n = 20)
+foo <- foo %>% as_tibble()
 
 # Load keyword records  -----------------
 
-kw_refined<-read_csv("./keyword_analysis/kw_refined.csv") %>% 
-  rename(kw=kw_refined) 
-  # mutate(TI=gsub(" - "," ",TI))
+kw_refined <- read_csv("./keyword_analysis/kw_refined.csv") %>%
+  rename(kw = kw_refined)
+# mutate(TI=gsub(" - "," ",TI))
 unique(kw_refined$SO)
 
 
 
 range(kw_refined$PY)
-kw_refined %>% distinct(refID) %>% count(DI,jrnl_cat)
+kw_refined %>%
+  distinct(refID) %>%
+  count(DI, jrnl_cat)
 
 
-top_kw<-kw_refined %>% 
+top_kw <- kw_refined %>%
   group_by(kw) %>%
-  tally() %>% 
+  tally() %>%
   arrange(desc(n))
 top_kw
 
 
-top_kw_trop<-kw_refined %>% 
-  filter(jrnl_cat=="tropical") %>% 
+top_kw_trop <- kw_refined %>%
+  filter(jrnl_cat == "tropical") %>%
   group_by(kw) %>%
-  tally() %>% 
+  tally() %>%
   arrange(desc(n))
 top_kw_trop %>% slice(1:20)
 
-top_kw_global<-kw_refined %>% 
-  filter(jrnl_cat=="global") %>% 
+top_kw_global <- kw_refined %>%
+  filter(jrnl_cat == "global") %>%
   group_by(kw) %>%
-  tally() %>% 
+  tally() %>%
   arrange(desc(n))
 top_kw_global %>% slice(1:20)
 
 
-ecoevo_trop_DI<-read_csv("./bibliometrics/data_clean/ecoevo_trop.csv")  %>%
-  mutate_all(as.character) %>% 
-  mutate_all(tolower) %>% 
-  mutate_all(trimws) %>% 
-  select(DI,PY,SO,refID) %>% 
-  drop_na() %>% 
-  # mutate(PY=as.numeric(PY)) %>% 
+ecoevo_trop_DI <- read_csv("./bibliometrics/data_clean/ecoevo_trop.csv") %>%
+  mutate_all(as.character) %>%
+  mutate_all(tolower) %>%
+  mutate_all(trimws) %>%
+  select(DI, PY, SO, refID) %>%
+  drop_na() %>%
+  # mutate(PY=as.numeric(PY)) %>%
   mutate(SO = case_when(
-    SO ==  "biotropica" ~ "bitr",
-    SO ==  "evolution" ~ "evol",
-    SO ==  "journal of animal ecology" ~ "jae",
-    SO ==  "ecology" ~ "ecology",
-    SO ==  "journal of ecology" ~ "jecol",  
-    SO ==  "journal of applied ecology" ~ "jappecol",  
-    SO ==  "journal of tropical ecology" ~ "jte",
-    SO ==  "tropical ecology" ~ "trop_ecol",
-    SO ==  "american naturalist" ~ "amnat",
-    SO ==  "revista de biologia tropical" ~ "rbt",
-    SO ==  "tropical conservation science" ~ "tcs",
-    TRUE ~ as.character(SO))) %>% 
-  mutate(pub_cat="tropical") %>% 
-  tibble() %>% 
-  mutate_all(as.character) %>% 
-  mutate(DI2=gsub(" ","",DI)) %>% 
-  mutate(DI=substr(DI, start = 1, stop = 12))
+    SO == "biotropica" ~ "bitr",
+    SO == "evolution" ~ "evol",
+    SO == "journal of animal ecology" ~ "jae",
+    SO == "ecology" ~ "ecology",
+    SO == "journal of ecology" ~ "jecol",
+    SO == "journal of applied ecology" ~ "jappecol",
+    SO == "journal of tropical ecology" ~ "jte",
+    SO == "tropical ecology" ~ "trop_ecol",
+    SO == "american naturalist" ~ "amnat",
+    SO == "revista de biologia tropical" ~ "rbt",
+    SO == "tropical conservation science" ~ "tcs",
+    TRUE ~ as.character(SO)
+  )) %>%
+  mutate(pub_cat = "tropical") %>%
+  tibble() %>%
+  mutate_all(as.character) %>%
+  mutate(DI2 = gsub(" ", "", DI)) %>%
+  mutate(DI = substr(DI, start = 1, stop = 12))
 
 
 
-kw_global<-kw_refined %>% 
-  filter(jrnl_cat=="global") %>% 
-  mutate_all(as.character) %>% 
-  mutate(DI=substr(DI, start = 1, stop = 12))
-kw_global2<-semi_join(kw_global,ecoevo_trop_DI,by="DI")
+kw_global <- kw_refined %>%
+  filter(jrnl_cat == "global") %>%
+  mutate_all(as.character) %>%
+  mutate(DI = substr(DI, start = 1, stop = 12))
+kw_global2 <- semi_join(kw_global, ecoevo_trop_DI, by = "DI")
 
-kw<-kw_refined %>% filter(!is.na(jrnl_cat))
+kw <- kw_refined %>% filter(!is.na(jrnl_cat))
 # https://stackoverflow.com/questions/66030942/tidytext-clustering
-kw_cluster<-kw %>% 
-  count(jrnl_cat, SO,kw, sort = TRUE) %>%
+kw_cluster <- kw %>%
+  count(jrnl_cat, SO, kw, sort = TRUE) %>%
   cast_sparse(SO, kw, n)
 
 
@@ -2105,19 +2763,19 @@ enframe(kfit$cluster, value = "cluster") %>%
 # library(topicmodels)
 # data("AssociatedPress")
 unique(kw_refined$SO)
-kw<-kw_refined %>% filter(!is.na(jrnl_cat))
+kw <- kw_refined %>% filter(!is.na(jrnl_cat))
 
 
 kw_refined %>% count(SO)
 
-# kw_dtm<-kw %>% 
-#   count(SO,kw) %>% 
-#   rename(document=SO,term=kw, count=n) %>% 
+# kw_dtm<-kw %>%
+#   count(SO,kw) %>%
+#   rename(document=SO,term=kw, count=n) %>%
 #   cast_dtm(document,term,count)
-kw_dtm<-kw %>% 
-  count(jrnl_cat,kw) %>% 
-  rename(document=jrnl_cat,term=kw, count=n) %>% 
-  cast_dtm(document,term,count)
+kw_dtm <- kw %>%
+  count(jrnl_cat, kw) %>%
+  rename(document = jrnl_cat, term = kw, count = n) %>%
+  cast_dtm(document, term, count)
 library(topicmodels)
 # set a seed so that the output of the model is predictable
 kw_lda <- LDA(kw_dtm, k = 4, control = list(seed = 1234))
@@ -2128,7 +2786,7 @@ kw_topics
 
 kw_top_terms <- kw_topics %>%
   group_by(topic) %>%
-  slice_max(beta, n = 10) %>% 
+  slice_max(beta, n = 10) %>%
   ungroup() %>%
   arrange(topic, -beta)
 kw_top_terms
@@ -2138,22 +2796,22 @@ kw_top_terms %>%
   mutate(term = reorder_within(term, beta, topic)) %>%
   ggplot(aes(beta, term, fill = factor(topic))) +
   geom_col(show.legend = FALSE) +
-  facet_wrap(~ topic, scales = "free") +
+  facet_wrap(~topic, scales = "free") +
   scale_y_reordered()
 
 
 
 beta_wide <- kw_topics %>%
   mutate(topic = paste0("topic", topic)) %>%
-  pivot_wider(names_from = topic, values_from = beta) %>% 
+  pivot_wider(names_from = topic, values_from = beta) %>%
   filter(topic1 > .001 | topic2 > .001) %>%
   mutate(log_ratio = log2(topic2 / topic1))
 
 beta_wide %>%
-  slice(1:30) %>% 
-  select(term,log_ratio) %>% 
-  arrange(log_ratio) %>% 
-  mutate(term = reorder(term,log_ratio)) %>%
+  slice(1:30) %>%
+  select(term, log_ratio) %>%
+  arrange(log_ratio) %>%
+  mutate(term = reorder(term, log_ratio)) %>%
   ggplot(aes(log_ratio, term)) +
   geom_col(show.legend = FALSE) +
   scale_y_reordered()
@@ -2177,18 +2835,19 @@ tidy(kw_dtm) %>%
 
 # wordclouds
 library(wordcloud)
-set.seed(1234) # for reproducibility 
+set.seed(1234) # for reproducibility
 wordcloud(
-  words = kw_comp$all_non_trop_pubs, 
-  # words = kw_trop$kw, 
-  freq = kw_comp$n.x, 
+  words = kw_comp$all_non_trop_pubs,
+  # words = kw_trop$kw,
+  freq = kw_comp$n.x,
   min.freq = 1,
-  max.words=50, 
-  random.order=FALSE, 
+  max.words = 50,
+  random.order = FALSE,
   # rot.per=0.35,
-  colors=brewer.pal(8, "Dark2"))
-# 
-# 
+  colors = brewer.pal(8, "Dark2")
+)
+#
+#
 # setdiff(kw_trop$kw,kw_not$kw)
 # setdiff(kw_not$kw,kw_trop$kw)
 # intersect(kw_trop$kw,kw_not$kw)
@@ -2200,88 +2859,90 @@ wordcloud(
 
 # clean up the titles ----------------------------------------------------
 
-range(merged_refs$PY,na.rm=TRUE)
-merged_refs<-merged_refs %>% select(refID,jrnl_cat,SO,PY,TI) %>% 
-  # drop_na(TI) %>% 
-  mutate(TI=gsub(" - "," ",TI)) %>%
-mutate(TI=gsub(":","",TI)) %>% 
-  mutate(TI=gsub(",","",TI)) %>% 
-  mutate(TI=gsub(";","",TI)) %>% 
-  mutate(TI=gsub("species diversity","species-diversity",TI)) %>% 
-  mutate(TI=gsub("tropical forest","tropical-forest",TI)) %>% 
-  mutate(TI=gsub("dry forest","dry-forest",TI)) %>% 
-  mutate(TI=gsub("rain forest","rain-forest",TI)) %>% 
-  mutate(TI=gsub("seed forest","seed-forest",TI))
+range(merged_refs$PY, na.rm = TRUE)
+merged_refs <- merged_refs %>%
+  select(refID, jrnl_cat, SO, PY, TI) %>%
+  # drop_na(TI) %>%
+  mutate(TI = gsub(" - ", " ", TI)) %>%
+  mutate(TI = gsub(":", "", TI)) %>%
+  mutate(TI = gsub(",", "", TI)) %>%
+  mutate(TI = gsub(";", "", TI)) %>%
+  mutate(TI = gsub("species diversity", "species-diversity", TI)) %>%
+  mutate(TI = gsub("tropical forest", "tropical-forest", TI)) %>%
+  mutate(TI = gsub("dry forest", "dry-forest", TI)) %>%
+  mutate(TI = gsub("rain forest", "rain-forest", TI)) %>%
+  mutate(TI = gsub("seed forest", "seed-forest", TI))
 
 
 
 # parse titles and clean --------------------------------------------------
 
 
-tw<-merged_refs %>% 
-  drop_na(TI) %>% 
-  rename(tw=TI) %>%   
-  separate(tw,c(LETTERS[seq( from = 1, to = 60 )]), sep = " ") %>% 
-  pivot_longer(!refID:PY, names_to = "letter", values_to = "tw") %>% 
-  select(-letter) %>% 
-  drop_na(tw) %>% 
-  mutate(tw=trimws(tw)) %>% 
-  mutate(tw=gsub("\n"," ",tw)) %>% 
-  filter(!(tw %in% stopwords(source = "snowball"))) %>%  # deletes the stopwords
-  mutate(tw=tolower(tw))
+tw <- merged_refs %>%
+  drop_na(TI) %>%
+  rename(tw = TI) %>%
+  separate(tw, c(LETTERS[seq(from = 1, to = 60)]), sep = " ") %>%
+  pivot_longer(!refID:PY, names_to = "letter", values_to = "tw") %>%
+  select(-letter) %>%
+  drop_na(tw) %>%
+  mutate(tw = trimws(tw)) %>%
+  mutate(tw = gsub("\n", " ", tw)) %>%
+  filter(!(tw %in% stopwords(source = "snowball"))) %>% # deletes the stopwords
+  mutate(tw = tolower(tw))
 
 
 
 
 
-tw<-merged_refs %>% select(refID,jrnl_cat,SO,PY,TI) %>% 
-  
-  rename(tw=TI) %>% 
-  mutate(tw=gsub(" - "," ",tw)) %>% 
-  separate(tw,c(LETTERS[seq( from = 1, to = 60 )]), sep = " ") %>% 
-  pivot_longer(!refID:PY, names_to = "letter", values_to = "tw") %>% 
-  select(-letter) %>% 
-  drop_na(tw) %>% 
-  mutate(tw=trimws(tw)) %>% 
-  filter(!(tw %in% stopwords(source = "snowball"))) %>%  # deletes the stopwords
-  mutate(tw=tolower(tw)) %>% 
-  mutate(tw=gsub("\n"," ",tw))
+tw <- merged_refs %>%
+  select(refID, jrnl_cat, SO, PY, TI) %>%
+  rename(tw = TI) %>%
+  mutate(tw = gsub(" - ", " ", tw)) %>%
+  separate(tw, c(LETTERS[seq(from = 1, to = 60)]), sep = " ") %>%
+  pivot_longer(!refID:PY, names_to = "letter", values_to = "tw") %>%
+  select(-letter) %>%
+  drop_na(tw) %>%
+  mutate(tw = trimws(tw)) %>%
+  filter(!(tw %in% stopwords(source = "snowball"))) %>% # deletes the stopwords
+  mutate(tw = tolower(tw)) %>%
+  mutate(tw = gsub("\n", " ", tw))
 
 
 
-pubs_with_kw_tw<-merged_refs %>% select(refID,jrnl_cat,SO,PY,TI) %>% 
-  drop_na(TI) %>% 
-  rename(tw=TI) 
+pubs_with_kw_tw <- merged_refs %>%
+  select(refID, jrnl_cat, SO, PY, TI) %>%
+  drop_na(TI) %>%
+  rename(tw = TI)
 
-tw_both<-pubs_with_kw_tw %>% 
-  select(-kw) %>% 
-  mutate(tw=gsub(":","",tw)) %>% 
-  mutate(tw=gsub(",","",tw)) %>% 
-  mutate(tw=gsub(";","",tw)) %>% 
-  mutate(tw=gsub("species diversity","species-diversity",tw)) %>% 
-  mutate(tw=gsub("tropical forest","tropical-forest",tw)) %>% 
-  mutate(tw=gsub("dry forest","dry-forest",tw)) %>% 
-  mutate(tw=gsub("rain forest","rain-forest",tw)) %>% 
-  mutate(tw=gsub("seed forest","seed-forest",tw)) %>% 
-  separate(tw,c(LETTERS[seq( from = 1, to = 60 )]), sep = " ") %>% 
-  pivot_longer(!refID:PY, names_to = "letter", values_to = "tw") %>% 
-  select(-letter) %>% 
-  drop_na(tw) %>% 
-  mutate(tw=trimws(tw)) %>% 
-  mutate(tw=gsub("\n"," ",tw)) %>% 
-  filter(!(tw %in% stopwords(source = "snowball"))) %>%  # deletes the stopwords
-  mutate(tw=tolower(tw))
+tw_both <- pubs_with_kw_tw %>%
+  select(-kw) %>%
+  mutate(tw = gsub(":", "", tw)) %>%
+  mutate(tw = gsub(",", "", tw)) %>%
+  mutate(tw = gsub(";", "", tw)) %>%
+  mutate(tw = gsub("species diversity", "species-diversity", tw)) %>%
+  mutate(tw = gsub("tropical forest", "tropical-forest", tw)) %>%
+  mutate(tw = gsub("dry forest", "dry-forest", tw)) %>%
+  mutate(tw = gsub("rain forest", "rain-forest", tw)) %>%
+  mutate(tw = gsub("seed forest", "seed-forest", tw)) %>%
+  separate(tw, c(LETTERS[seq(from = 1, to = 60)]), sep = " ") %>%
+  pivot_longer(!refID:PY, names_to = "letter", values_to = "tw") %>%
+  select(-letter) %>%
+  drop_na(tw) %>%
+  mutate(tw = trimws(tw)) %>%
+  mutate(tw = gsub("\n", " ", tw)) %>%
+  filter(!(tw %in% stopwords(source = "snowball"))) %>% # deletes the stopwords
+  mutate(tw = tolower(tw))
 # tw_both$tw<-gsub("\n"," ",tw_both$tw)
 
-kw_both<-pubs_with_kw_tw %>% 
-  select(-tw) %>% 
-  separate(kw,c(LETTERS[seq( from = 1, to = 20 )]), sep = ";") %>% 
-  pivot_longer(!refID:PY, names_to = "letter", values_to = "kw") %>% 
-  select(-letter) %>% 
-  drop_na(kw) %>% 
-  mutate(kw=trimws(kw)) %>% 
-  mutate(kw=gsub("\n"," ",kw)) %>% 
-  mutate(kw=tolower(kw))
+kw_both <- pubs_with_kw_tw %>%
+  select(-tw) %>%
+  separate(kw, c(LETTERS[seq(from = 1, to = 20)]), sep = ";") %>%
+  pivot_longer(!refID:PY, names_to = "letter", values_to = "kw") %>%
+  select(-letter) %>%
+  drop_na(kw) %>%
+  mutate(kw = trimws(kw)) %>%
+  mutate(kw = gsub("\n", " ", kw)) %>%
+  mutate(kw = tolower(kw))
 # kw_both$kw<-gsub("\n"," ",kw_both$kw)
 
 
@@ -2289,51 +2950,51 @@ kw_both<-pubs_with_kw_tw %>%
 # no_kw<-together %>% filter(is.na(kw))
 # both<-together %>% filter(is.na(kw))
 # summary(together$tw==together$kw)
-# 
+#
 # kw$kw<-gsub("\n"," ",kw$kw)
 
 # unique(together$kw)
 # unique(together$tw)
-kw_bitr<-kw_both %>% 
-  filter(SO=="bitr") %>% 
-  drop_na(kw) %>% 
-  group_by(jrnl_cat,kw) %>%
-  tally() %>% 
+kw_bitr <- kw_both %>%
+  filter(SO == "bitr") %>%
+  drop_na(kw) %>%
+  group_by(jrnl_cat, kw) %>%
+  tally() %>%
   arrange(desc(n))
 kw_bitr
 
-tw_bitr<-tw_both %>% 
-  filter(SO=="bitr") %>% 
-  drop_na(tw) %>% 
-  group_by(jrnl_cat,tw) %>%
-  tally() %>% 
+tw_bitr <- tw_both %>%
+  filter(SO == "bitr") %>%
+  drop_na(tw) %>%
+  group_by(jrnl_cat, tw) %>%
+  tally() %>%
   arrange(desc(n))
 tw_bitr
 
 kw_bitr
 tw_bitr
 
-kw_bitr_2join<-kw_both %>% 
-  # filter(SO=="bitr") %>% 
-  drop_na(kw) %>% 
-  rename(tw_kw=kw)
+kw_bitr_2join <- kw_both %>%
+  # filter(SO=="bitr") %>%
+  drop_na(kw) %>%
+  rename(tw_kw = kw)
 
-tw_bitr_2join<-tw_both %>% 
-  # filter(SO=="bitr") %>% 
-  drop_na(tw) %>% 
-  rename(tw_kw=tw)
+tw_bitr_2join <- tw_both %>%
+  # filter(SO=="bitr") %>%
+  drop_na(tw) %>%
+  rename(tw_kw = tw)
 
-joint_tw_kw<-bind_rows(kw_bitr_2join,tw_bitr_2join) 
+joint_tw_kw <- bind_rows(kw_bitr_2join, tw_bitr_2join)
 
-joint_tw_kw_global<-joint_tw_kw %>% 
-  filter(jrnl_cat=="global") %>% 
+joint_tw_kw_global <- joint_tw_kw %>%
+  filter(jrnl_cat == "global") %>%
   group_by(tw_kw) %>%
-  tally() %>% 
+  tally() %>%
   arrange(desc(n))
-joint_tw_kw_tropical<-joint_tw_kw %>% 
-  filter(jrnl_cat=="tropical") %>% 
+joint_tw_kw_tropical <- joint_tw_kw %>%
+  filter(jrnl_cat == "tropical") %>%
   group_by(tw_kw) %>%
-  tally() %>% 
+  tally() %>%
   arrange(desc(n))
 joint_tw_kw_global
 joint_tw_kw_tropical
@@ -2344,41 +3005,41 @@ joint_tw_kw
 
 
 
-top_kw_trop<-kw %>%
-  filter(jrnl_cat=="tropical") %>% 
+top_kw_trop <- kw %>%
+  filter(jrnl_cat == "tropical") %>%
   group_by(kw) %>%
-  tally() %>% 
+  tally() %>%
   arrange(desc(n))
-top_kw_trop<-top_kw_trop %>% slice(1:30)
+top_kw_trop <- top_kw_trop %>% slice(1:30)
 
-top_kw_global<-kw %>%
-  filter(jrnl_cat=="global") %>% 
+top_kw_global <- kw %>%
+  filter(jrnl_cat == "global") %>%
   group_by(kw) %>%
-  tally() %>% 
+  tally() %>%
   arrange(desc(n))
-top_kw_global<-top_kw_global %>% slice(1:30)
+top_kw_global <- top_kw_global %>% slice(1:30)
 
 
 # top ttitle words --------------------------------------------------------
 
 
-top_tw<-tw %>% 
+top_tw <- tw %>%
   group_by(tw) %>%
-  tally() %>% 
+  tally() %>%
   arrange(desc(n))
 top_tw
 
-top_tw_trop<-tw %>%
-  filter(jrnl_cat=="tropical") %>% 
+top_tw_trop <- tw %>%
+  filter(jrnl_cat == "tropical") %>%
   group_by(tw) %>%
-  tally() %>% 
+  tally() %>%
   arrange(desc(n))
 
 
-top_tw_global<-tw %>%
-  filter(jrnl_cat=="global") %>% 
+top_tw_global <- tw %>%
+  filter(jrnl_cat == "global") %>%
   group_by(tw) %>%
-  tally() %>% 
+  tally() %>%
   arrange(desc(n))
 top_tw_global
 
@@ -2387,94 +3048,95 @@ top_tw_global
 
 # attempte to parse ngrams from title (not sep by ; like kw are) ----------
 # https://www.tidytextmining.com/ngrams.html
-ngram_data<-merged_refs %>% filter(jrnl_cat=="tropical")
-ngram_data<-merged_refs %>% filter(jrnl_cat=="global")
-ngram_data<-merged_refs
+ngram_data <- merged_refs %>% filter(jrnl_cat == "tropical")
+ngram_data <- merged_refs %>% filter(jrnl_cat == "global")
+ngram_data <- merged_refs
 
-tw<-ngram_data %>% select(refID,jrnl_cat,SO,PY,TI) %>% 
-  drop_na(TI) %>% 
-  rename(tw=TI) %>% 
-  mutate(tw=gsub(" - "," ",tw)) 
+tw <- ngram_data %>%
+  select(refID, jrnl_cat, SO, PY, TI) %>%
+  drop_na(TI) %>%
+  rename(tw = TI) %>%
+  mutate(tw = gsub(" - ", " ", tw))
 
-tw_bigrams <-tw %>% 
-  select(tw) %>% 
-  # slice(1:10) %>% 
-  unnest_tokens(bigram, tw, token = "ngrams", n = 2) %>% 
-  count(bigram, sort = TRUE) 
-bigrams_separated <- tw_bigrams %>% 
+tw_bigrams <- tw %>%
+  select(tw) %>%
+  # slice(1:10) %>%
+  unnest_tokens(bigram, tw, token = "ngrams", n = 2) %>%
+  count(bigram, sort = TRUE)
+bigrams_separated <- tw_bigrams %>%
   separate(bigram, c("word1", "word2"), sep = " ")
-bigrams_filtered <- bigrams_separated  %>%
+bigrams_filtered <- bigrams_separated %>%
   filter(!word1 %in% stop_words$word) %>%
-  filter(!word2 %in% stop_words$word) %>% 
-  arrange(desc(n)) %>% 
+  filter(!word2 %in% stop_words$word) %>%
+  arrange(desc(n)) %>%
   slice(1:1000)
 bigrams_filtered
 
-tw_trigrams <-tw %>% 
-  select(tw) %>% 
-  # slice(1:10) %>% 
-  unnest_tokens(trigram, tw, token = "ngrams", n = 3) %>% 
-  count(trigram, sort = TRUE) 
-trigrams_separated <- tw_trigrams %>% 
-  separate(trigram, c("word1", "word2","word3"), sep = " ")
-trigrams_filtered <- trigrams_separated  %>%
+tw_trigrams <- tw %>%
+  select(tw) %>%
+  # slice(1:10) %>%
+  unnest_tokens(trigram, tw, token = "ngrams", n = 3) %>%
+  count(trigram, sort = TRUE)
+trigrams_separated <- tw_trigrams %>%
+  separate(trigram, c("word1", "word2", "word3"), sep = " ")
+trigrams_filtered <- trigrams_separated %>%
   filter(!word1 %in% stop_words$word) %>%
-  filter(!word2 %in% stop_words$word) %>% 
-  filter(!word3 %in% stop_words$word) %>% 
-  arrange(desc(n)) %>% 
+  filter(!word2 %in% stop_words$word) %>%
+  filter(!word3 %in% stop_words$word) %>%
+  arrange(desc(n)) %>%
   slice(1:1000)
 trigrams_filtered
 
 
-tw_fourgrams <-tw %>% 
-  select(tw) %>% 
-  # slice(1:10) %>% 
-  unnest_tokens(fourgram, tw, token = "ngrams", n = 4) %>% 
-  count(fourgram, sort = TRUE) 
-fourgrams_separated <- tw_fourgrams %>% 
-  separate(fourgram, c("word1", "word2","word3","word4"), sep = " ")
-fourgrams_filtered <- fourgrams_separated  %>%
+tw_fourgrams <- tw %>%
+  select(tw) %>%
+  # slice(1:10) %>%
+  unnest_tokens(fourgram, tw, token = "ngrams", n = 4) %>%
+  count(fourgram, sort = TRUE)
+fourgrams_separated <- tw_fourgrams %>%
+  separate(fourgram, c("word1", "word2", "word3", "word4"), sep = " ")
+fourgrams_filtered <- fourgrams_separated %>%
   filter(!word1 %in% stop_words$word) %>%
-  filter(!word2 %in% stop_words$word) %>% 
-  filter(!word3 %in% stop_words$word) %>% 
-  filter(!word4 %in% stop_words$word) %>% 
-  arrange(desc(n)) %>% 
+  filter(!word2 %in% stop_words$word) %>%
+  filter(!word3 %in% stop_words$word) %>%
+  filter(!word4 %in% stop_words$word) %>%
+  arrange(desc(n)) %>%
   slice(1:1000)
 fourgrams_filtered
 
-tw_fivegrams <-tw %>% 
-  select(tw) %>% 
-  # slice(1:10) %>% 
-  unnest_tokens(fivegram, tw, token = "ngrams", n = 5) %>% 
-  count(fivegram, sort = TRUE) 
-fivegrams_separated <- tw_fivegrams %>% 
-  separate(fivegram, c("word1", "word2","word3","word4","word5"), sep = " ")
-fivegrams_filtered <- fivegrams_separated  %>%
+tw_fivegrams <- tw %>%
+  select(tw) %>%
+  # slice(1:10) %>%
+  unnest_tokens(fivegram, tw, token = "ngrams", n = 5) %>%
+  count(fivegram, sort = TRUE)
+fivegrams_separated <- tw_fivegrams %>%
+  separate(fivegram, c("word1", "word2", "word3", "word4", "word5"), sep = " ")
+fivegrams_filtered <- fivegrams_separated %>%
   filter(!word1 %in% stop_words$word) %>%
-  filter(!word2 %in% stop_words$word) %>% 
-  filter(!word3 %in% stop_words$word) %>% 
-  filter(!word4 %in% stop_words$word) %>% 
-  filter(!word5 %in% stop_words$word) %>% 
-  arrange(desc(n)) %>% 
+  filter(!word2 %in% stop_words$word) %>%
+  filter(!word3 %in% stop_words$word) %>%
+  filter(!word4 %in% stop_words$word) %>%
+  filter(!word5 %in% stop_words$word) %>%
+  arrange(desc(n)) %>%
   slice(1:1000)
 fivegrams_filtered
 
 
-tw_sixgrams <-tw %>% 
-  select(tw) %>% 
-  # slice(1:10) %>% 
-  unnest_tokens(sixgram, tw, token = "ngrams", n = 6) %>% 
-  count(sixgram, sort = TRUE) 
-sixgrams_separated <- tw_sixgrams %>% 
-  separate(sixgram, c("word1", "word2","word3","word4","word5","word6"), sep = " ")
-sixgrams_filtered <- sixgrams_separated  %>%
+tw_sixgrams <- tw %>%
+  select(tw) %>%
+  # slice(1:10) %>%
+  unnest_tokens(sixgram, tw, token = "ngrams", n = 6) %>%
+  count(sixgram, sort = TRUE)
+sixgrams_separated <- tw_sixgrams %>%
+  separate(sixgram, c("word1", "word2", "word3", "word4", "word5", "word6"), sep = " ")
+sixgrams_filtered <- sixgrams_separated %>%
   filter(!word1 %in% stop_words$word) %>%
-  filter(!word2 %in% stop_words$word) %>% 
-  filter(!word3 %in% stop_words$word) %>% 
-  filter(!word4 %in% stop_words$word) %>% 
-  filter(!word5 %in% stop_words$word) %>% 
-  filter(!word6 %in% stop_words$word) %>% 
-  arrange(desc(n)) %>% 
+  filter(!word2 %in% stop_words$word) %>%
+  filter(!word3 %in% stop_words$word) %>%
+  filter(!word4 %in% stop_words$word) %>%
+  filter(!word5 %in% stop_words$word) %>%
+  filter(!word6 %in% stop_words$word) %>%
+  arrange(desc(n)) %>%
   slice(1:1000)
 sixgrams_filtered
 
@@ -2499,9 +3161,10 @@ set.seed(2020)
 a <- grid::arrow(type = "closed", length = unit(.15, "inches"))
 
 ggraph(bigram_graph, layout = "fr") +
-  geom_edge_link(aes(edge_alpha = n), show.legend = FALSE,
-                 arrow = a, end_cap = circle(.07, 'inches')) +
+  geom_edge_link(aes(edge_alpha = n),
+    show.legend = FALSE,
+    arrow = a, end_cap = circle(.07, "inches")
+  ) +
   geom_node_point(color = "lightblue", size = 5) +
   geom_node_text(aes(label = name), vjust = 1, hjust = 1) +
   theme_void()
-
