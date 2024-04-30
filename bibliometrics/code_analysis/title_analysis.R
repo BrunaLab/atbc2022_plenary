@@ -43,7 +43,22 @@ rbt<-tw_all %>% filter(SO=="rbt") %>% group_by(final) %>% tally() %>% arrange(de
 
 unique(tw$SO)
 
-# how much data to we have? -----------------------------------------------
+
+# articles for TW analysis ------------------------------------------------
+
+tw_articles<-tw %>% 
+  group_by(refID,SO,PY,jrnl_cat) %>% 
+  tally() %>% 
+  arrange (jrnl_cat,SO,PY) %>% 
+  group_by(SO,PY) %>% 
+  tally() %>% 
+  mutate(SO=as.factor(SO))
+
+p <- ggplot(tw_articles, aes(PY, n)) + geom_point()
+p <- p + facet_wrap(vars(SO))
+p
+
+# how many tw do we have? -----------------------------------------------
 
 jrnl_yrs<-tw %>% group_by(SO,PY,jrnl_cat) %>% tally() %>% arrange (jrnl_cat,SO,PY)
 jrnl_yrs$SO <- factor(jrnl_yrs$SO, levels = unique(jrnl_yrs$SO[order(jrnl_yrs$jrnl_cat, jrnl_yrs$SO)]))
@@ -79,6 +94,52 @@ p <- p + facet_wrap(vars(SO))
 p
 
 
+# first / last year by journal category ------------------------------------------
+jrnl_years_last<-tw %>% 
+  group_by(SO,PY) %>% 
+  tally() %>% 
+  mutate(SO=as.factor(SO)) %>% 
+  group_by(SO) %>% 
+  slice_max(PY) %>% 
+  rename(yr_last=PY,,n_last=n)
+
+jrnl_years_first<-tw %>% 
+  group_by(SO,PY) %>% 
+  tally() %>% 
+  mutate(SO=as.factor(SO)) %>% 
+  group_by(SO) %>% 
+  slice_min(PY) %>% 
+  rename(yr_first=PY,n_first=n)
+
+jrnl_yrs<-full_join(jrnl_years_first,jrnl_years_last,by="SO")
+
+yr_last<-kw %>% select(PY) %>% max() 
+yr_first<-kw %>% select(PY) %>% min() 
+
+
+
+# tw in each pub cat over time --------------------------------------
+
+
+
+
+cat_years<-tw %>% 
+  group_by(pub_cat_2,PY) %>% 
+  tally()
+# %>% 
+#   mutate(SO=as.factor(SO))
+
+
+p_cat_yrs <- ggplot(cat_years, aes(PY, n,shape = pub_cat_2,color = pub_cat_2)) + geom_point()
+p_cat_yrs <- p_cat_yrs + facet_wrap(vars(pub_cat_2))
+
+
+p_cat_yrs
+
+
+
+
+
 # how many tw by cat? -----------------------------------------------------
 
 
@@ -100,69 +161,70 @@ unique(uncat$SO)
 
 # analysis - title words --------------------------------------------------
 
-system <- c(
-  "mammal",
-  "usa",
-  "grassland",
-  "tropical forest",
-  "panama",
-  "costa rica",
-  "tropical rainforest",
-  "bci",
-  "bird",
-  "drosophila melanogaster",
-  "brazil",
-  "mexico",
-  "tropical dryforest",
-  "borneo",
-  "cerrado",
-  "ecuador",
-  "cloud forest",
-  "drosophila",
-  "drosophila melanogaster",
-  "ant",
-  "costarica",
-  "epiphyte",
-  "amazonia",
-  "secondary forest",
-  "tropic",
-  "chiroptera",
-  "rodent",
-  "colombia",
-  "atlantic forest",
-  "rainforest",
-  "puerto rico",
-  "savanna",
-  "africa",
-  "neotropic",
-  "amazon",
-  "usa",
-  "tanzania",
-  "malaysia",
-  "french guiana",
-  "hawaii",
-  "peru",
-  "australia",
-  "amphibian",
-  "lepidoptera",
-  "venezuela",
-  "andes",
-  "bats",
-  "formicidae",
-  "la selva",
-  "mangrove",
-  "india",
-  "primate",
-  "bolivia",
-  "anuran",
-  "madagascar",
-  "indonesia", 
-  "reptile",
-  "caribbean",
-  "kenya",
-  "ficus",
-  "hummingbird"
-)
+  system <- c(
+    "mammal",
+    "usa",
+    "grassland",
+    "tropical forest",
+    "panama",
+    "costa rica",
+    "tropical rainforest",
+    "bci",
+    "bird",
+    "drosophila melanogaster",
+    "brazil",
+    "mexico",
+    "tropical dryforest",
+    "borneo",
+    "cerrado",
+    "ecuador",
+    "cloud forest",
+    "drosophila",
+    "drosophila melanogaster",
+    "ant",
+    "epiphyte",
+    "amazonia",
+    "secondary forest",
+    "tropic",
+    "chiroptera",
+    "rodent",
+    "colombia",
+    "atlantic forest",
+    "rainforest",
+    "puerto rico",
+    "savanna",
+    "africa",
+    "neotropic",
+    "amazon",
+    "usa",
+    "tanzania",
+    "malaysia",
+    "french guiana",
+    "hawaii",
+    "peru",
+    "australia",
+    "amphibian",
+    "lepidoptera",
+    "venezuela",
+    "andes",
+    "bats",
+    "formicidae",
+    "la selva",
+    "mangrove",
+    "india",
+    "primate",
+    "bolivia",
+    "anuran",
+    "madagascar",
+    "indonesia", 
+    "reptile",
+    "caribbean",
+    "kenya",
+    "ficus",
+    "hummingbird",
+    "african",
+    "pacific")
+  
 system <- as_tibble(system)
 # top title words --------------------------------------------------------
 
@@ -423,7 +485,7 @@ tw1_nontrop_bar
 tw_fig<-plot_grid(tw1_trop_bar, tw1_nontrop_bar,
                        nrow = 1,
                        # labels = "AUTO",
-                  labels=(c("A) Tropics", "B) Non-Tropical")),
+                  labels=(c("a. Tropics", "b. Non-Tropical")),
                        label_size = 12
                        # align = "h"
 )
@@ -499,6 +561,7 @@ ggsave("venn_tw.jpeg",
 #     values_from=c(n,perc,rank)
 #     )
 # single_tw_wide
+
 # NGRAMS
 
 extract_ngram_data <- function(tw) {
@@ -650,8 +713,76 @@ Trop_bigrams<-Trop_bigrams %>%
 #################
 
 
+# NonTrop_bigrams$bigram
+# Trop_bigrams$bigram
+
+system_bigrams<-c(
+  "drosophila melanogaster",
+"north american",
+"salt marsh",
+"british isles" ,
+"north america",
+"drosophila pseudoobscura",
+"boreal forest",
+"tropical forest",
+"tropical rainforest",
+"dry forest",
+"national park", 
+"tropical dry",
+"atlantic forest", 
+"tropical tree",
+"puerto rico",
+"cloud forest",
+"coral reef",
+"tropical montane",
+"deciduous forest",
+"rainforest tree",
+"african savanna",
+"neotropical forest",
+"pacific coast",   
+"dung beetle",
+"veracruz mexico",
+"wet forest",  
+"amazonian forest",
+"lowland tropical",
+"french guiana",   
+"western ghats",   
+"brazilian atlantic",  
+"dry tropical",
+"lowland rainforest",  
+"evergreen forest",
+"baja california", 
+"cutting ant",
+"nicoya costarica",
+"ant plant",  
+"litter decomposition",
+"montane rainforest",
+"montane forest",
+"hymenoptera formicidae",
+"mangrove forest",
+"sea urchin",
+"california mexico",
+"dipterocarp forest",
+"central amazonia", 
+"chiapas mexico",  
+"eastern pacific", 
+"southeastern brazil",
+"neotropical rainforest",  
+"arbuscular mycorrhizal", 
+"lowland forest",  
+"tree community",
+"colombian caribbean", 
+"tropical wet",
+"bird community",
+"ghats india", 
+"golfo dulce",
+"park costarica",
+"south eastern"
+)
+# system_bigrams <- as_tibble(system_bigrams)
 
 
+system<-bind_rows(system_bigrams,system)
 
 rankings_pub<-bind_rows(Trop_bigrams,NonTrop_bigrams)
 

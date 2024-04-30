@@ -1,7 +1,6 @@
 keyword_editor <- function(keywords) {
   library(tidyverse)
   library(stringr)
-  
   keywords <- keywords %>%
     mutate(edited = original) %>% 
     mutate(edited = gsub("r  theory *", "rstar theory", edited)) %>%
@@ -147,6 +146,7 @@ keyword_editor <- function(keywords) {
   keywords <- keywords %>% mutate(edited = case_when(
     (str_detect(edited, "trait mediated indirect interaction") == TRUE) ~ "trait mediated indirect interaction",
     (str_detect(edited, "jena experiment") == TRUE) ~ "jena experiment",
+    (str_detect(edited, "acyrthosiphon pisum") == TRUE) ~ "pea aphid",
     (str_detect(edited, "enso event") == TRUE) ~ "enso",
     (str_detect(edited, "enso phenom") == TRUE) ~ "enso",
     (str_detect(edited, "enso south oscillation") == TRUE) ~ "enso",
@@ -769,8 +769,29 @@ keyword_editor <- function(keywords) {
   keywords$edited<-str_replace(keywords$edited, "transposons", "transposon")
   keywords$edited<-str_replace(keywords$edited, "tree falls", "treefalls")
   
-  
-  keywords$edited<-str_replace(keywords$edited, "tree grass coexistence", "tree-grass coexistence")
+    keywords$edited<-str_replace(keywords$edited, "co 2", "co2")
+    keywords$edited<-str_replace(keywords$edited, "co  fluxes 2", "co2  fluxes")
+    keywords$edited<-str_replace(keywords$edited, " [co ] 2", "co2")
+    keywords$edited<-str_replace(keywords$edited, "[co ] 2", "co2")
+    keywords$edited<-str_replace(keywords$edited, "co   efflux 2", "co2 efflux")
+    keywords$edited<-str_replace(keywords$edited, " co ", " co2 ")
+    keywords$edited<-str_replace(keywords$edited, "co  ", " co2 ")
+    keywords$edited<-str_replace(keywords$edited, "carbon dioxide (co ) 2", "co2 ")
+    keywords$edited<-str_replace(keywords$edited, "free-air co2  enrichment 2", "free-air co2  enrichment")
+    keywords$edited<-str_replace(keywords$edited, "carbon dioxide", "co2 ")
+    keywords$edited<-str_replace(keywords$edited, "co2  (co ) 2", "co2 ")
+    keywords$edited<-str_replace(keywords$edited, "co  efflux 2", "co2 efflux")
+    keywords$edited<-str_replace(keywords$edited, "free air co  enrichment 2", "free air co2 enrichment")
+    keywords$edited<-str_replace(keywords$edited, "co  flux 2","co2 flux")
+    keywords$edited<-str_replace(keywords$edited, "face (free-air co  enrichment) 2","face (free-air co2 enrichment)")
+    keywords$edited<-str_replace(keywords$edited, "elevated co ","elevated co2")
+    keywords$edited<-str_replace(keywords$edited, "co  flux 2","co2 flux")
+    keywords$edited<-str_replace(keywords$edited, "free air co2  enrichment (face) 2", "free air co2  enrichment")
+    keywords$edited<-str_replace(keywords$edited, "forest free air co2  enrichment face experiment 2", "free air co2  enrichment")
+    keywords$edited<-str_replace(keywords$edited, "free air co2  enrichment", "free air co2  enrichment")
+    keywords$edited<-str_replace(keywords$edited, "face free air co2  enrichment 2", "free air co2  enrichment")
+    keywords$edited<-str_replace(keywords$edited, "free air co2  enrichment face 2", "free air co2  enrichment")
+    keywords$edited<-str_replace(keywords$edited, "tree grass coexistence", "tree-grass coexistence")
   keywords$edited<-str_replace(keywords$edited, "tropical lowland forest", "lowland tropical forest")
   keywords$edited<-str_replace(keywords$edited, "túngara frogs", "tungara frogs")
   keywords$edited<-str_replace(keywords$edited, "abiotic and biotic factors", "biotic and abiotic factors")
@@ -2399,8 +2420,26 @@ keyword_editor <- function(keywords) {
   keywords$edited<-str_replace(keywords$edited, "santa rosa", "santa rosa national park")
   keywords$edited<-str_replace(keywords$edited, "trade offs", "tradeoff")
   keywords$edited<-str_replace(keywords$edited, "trade off", "tradeoff")
+  keywords$edited<-str_replace(keywords$edited, "trade off", "tradeoff")
   
+  keywords$edited<-str_replace(keywords$edited, "barro colorado natural monument", "barro colorado nature monument")
+  keywords$edited<-str_replace(keywords$edited, "yasuní", "yasuni")
+  keywords$edited<-str_replace(keywords$edited, "keywords: angola", "angola")
+  keywords$edited<-str_replace(keywords$edited, "doñ ana national park", "donana")
+  keywords$edited<-str_replace(keywords$edited, "los tuxtlas forest", "los tuxtlas")
+  keywords$edited<-str_replace(keywords$edited, "united states", "usa")
   
+
+  keywords$edited<-str_replace(keywords$edited, "yasuni ecuador", "yasuni,ecuador")
+  keywords$edited<-str_replace(keywords$edited, "united kingdom", "uk")
+  keywords$edited<-str_replace(keywords$edited, "united state of america", "usa")
+  keywords$edited<-str_replace(keywords$edited, "united states", "usa")
+  keywords$edited<-str_replace(keywords$edited, "cote d", "ivory coast")
+  keywords<-keywords %>% filter(edited!="ivoire")
+  keywords$edited<-str_replace(keywords$edited, "cocos islands", "cocos island")
+  keywords$edited<-str_replace(keywords$edited, "dr congo", "drc")
+  keywords$edited<-str_replace(keywords$edited, "democratic republic of congo", "drc")
+  keywords$edited<-str_replace(keywords$edited, "the bahamas", "bahamas")
   
   
   
@@ -2419,6 +2458,10 @@ keyword_editor <- function(keywords) {
   keywords$edited<-gsub("-", " ",keywords$edited)
   keywords$edited<-gsub(":", " ",keywords$edited)
   keywords$edited<-gsub('"', "",keywords$edited)
+  
+  
+  
+  
   
   
   keywords<-keywords %>% mutate_all(trimws)    

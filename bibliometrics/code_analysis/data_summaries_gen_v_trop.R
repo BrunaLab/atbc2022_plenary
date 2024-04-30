@@ -149,8 +149,10 @@ system <- c(
   "caribbean",
   "kenya",
   "ficus",
-  "hummingbird"
-  )
+  "hummingbird",
+  "african",
+  "pacific"
+)
 system <- as_tibble(system)
 
 rankings_pub <- rankings_pub %>%
