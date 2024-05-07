@@ -393,7 +393,7 @@ tw1_trop_bar <- Trop_tw %>%   # This trick update the factor levels
   # ggplot(aes(x=final, y=perc_pubs_wth_kw))+
   geom_bar(stat="identity", color="black") +
   scale_fill_manual(values = c("darkgray","lightgray"))+
-  scale_y_continuous(limits = c(-3, 20), breaks = seq(0, 20, by = 1))+
+  scale_y_continuous(limits = c(-3, 30), breaks = seq(0, 20, by = 1))+
   ylab("Articles with Word in Title (%)")+
   # ggtitle("Tropics")+
   # ylim(0, 4)+

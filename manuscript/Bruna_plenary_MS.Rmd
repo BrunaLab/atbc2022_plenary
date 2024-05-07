@@ -36,6 +36,7 @@ authornote: |
 keywords          : "up to eight"
 wordcount         : "X"
 bibliography      : "ATBC_2022_Plenary.bib"
+
 nocite: |
   @ripleyPerspectivesTropicalBiology1967, @janzenWhitherTropicalEcology1972, @richardsNeedDevelopmentTropical1946,@richardsWhatTropicsCan1963, @richardsProgrammeTropicalBiology1964, @webbBiologyTropics1960, @robinson1978tropical
 floatsintext      : yes
@@ -50,13 +51,12 @@ appendix: "./manuscript/bruna_supplement.Rmd"
 # output            : papaja::apa6_pdf
 output:
   papaja::apa6_pdf:
-  keep_tex: true   
+    keep_tex: true
 mainfont: Times New Roman
 fontsize: 12pt
 csl: "biotropica.csl"
 fig_caption: yes
 always_allow_html: yes
-# keep_tex: yes
 header-includes:
   - \usepackage{fancyhdr}
   - \pagestyle{empty} # this supresses running head on title page along with next
@@ -325,8 +325,8 @@ system<-bind_rows(system,system_bigrams)
 ```
 
 \onehalfspacing
-\singlespacing
-
+<!-- \singlespacing -->
+\doublespacing
 
 ## 1. INTRODUCTION
 
@@ -1091,8 +1091,6 @@ The author confirms that there have been no involvements that might raise the qu
 # References  
 
 &nbsp;
-
-
 
 ::: {#refs custom-style="Bibliography"}
 :::

@@ -12,7 +12,7 @@ library(cowplot)
 
 # Load keyword records  -----------------
 kw<-read_csv(here("bibliometrics","data_clean","keywords.csv")) %>% 
-  filter(SO!="rbt") %>% 
+  # filter(SO!="rbt") %>% 
   filter(SO!="trec") 
 
 # N of publications

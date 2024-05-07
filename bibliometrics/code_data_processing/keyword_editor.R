@@ -2453,6 +2453,24 @@ keyword_editor <- function(keywords) {
   keywords$edited<-str_replace(keywords$edited, "γ", "gamma")
   keywords$edited<-str_replace(keywords$edited, "θ", "theta")
   
+  keywords$edited<-str_replace(keywords$edited, "forest fragmentation", "fragmentation")
+  keywords$edited<-str_replace(keywords$edited, "habitat fragmentation", "fragmentation")
+  keywords$edited<-str_replace(keywords$edited, "key words  fragmentation", "fragmentation")
+  keywords$edited<-str_replace(keywords$edited, "rainfragmentation", "fragmentation")
+  keywords$edited<-str_replace(keywords$edited, "rainfragmentation", "fragmentation")
+  keywords$edited<-str_replace(keywords$edited, "tropical fragmentation", "fragmentation")
+  keywords$edited<-str_replace(keywords$edited, "tropical moist fragmentation", "fragmentation")
+  keywords$edited<-str_replace(keywords$edited, "historical fragmentation", "fragmentation")
+  keywords$edited<-str_replace(keywords$edited, "key words: fragmentation", "fragmentation")
+  keywords$edited<-str_replace(keywords$edited, "key words: forest fragmentation", "fragmentation")
+  keywords$edited<-str_replace(keywords$edited, "key words forest fragmentation", "fragmentation")
+  
+  
+  keywords$edited<-str_replace(keywords$edited, "atlantic rainforest fragment", "forest fragment")
+  keywords$edited<-str_replace(keywords$edited, "rainforest fragment", "forest fragment")
+  keywords$edited<-str_replace(keywords$edited, "tropical forest fragment", "forest fragment")
+  keywords$edited<-str_replace(keywords$edited, "forest fragment", "fragment")
+  
   
   # keywords$singular<-str_replace(keywords$edited, "\\-", " ")
   keywords$edited<-gsub("-", " ",keywords$edited)
