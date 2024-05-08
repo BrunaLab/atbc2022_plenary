@@ -1,44 +1,44 @@
 ---
-title             : "Is there really such a thing as _Tropical_ Biology?^[Inspired by the provocative title of an essay by M. H. Robinson.]"
-shorttitle        : "LRH: Bruna /nRRH: On Tropical Biology"
+title             : "\\flushleft \\textbf{Is there really such a thing as \\textit{Tropical} Biology?}^[Inspired by the provocative title of an essay by M. H. Robinson.]"
+shorttitle        : "LRH and RRH: Bruna"
 
 author: 
   - name          : "Emilio M. Bruna"
-    affiliation   : "1, 2"
-    corresponding : yes    # Define only one corresponding author
+    affiliation   : "1, 2, 3"
+    corresponding : no    # Define only one corresponding author
     address       : "Department of Wildlife Ecology and Conservation, University of Florida, PO Box 110430, Gainesville, FL 32611-0430, USA"
     email         : "embruna@ufl.edu"
-    role: # Contributorship roles (e.g., CRediT, https://credit.niso.org/)
-      - Methodology
-      - Data curation
-      - Investigation
-      - Conceptualization
-      - Formal analysis
-      - Project administration
-      - Resources
-      - Software
-      - Validation
-      - Visualization
-      - Writing – original draft
-      
+    
 affiliation:
   - id            : "1"
     institution   : "Department of Wildlife Ecology and Conservation, University of Florida, PO Box 110430, Gainesville, FL 32611-0430, USA"
   - id            : "2"
     institution   : "Center for Latin American Studies, University of Florida, PO Box 115530, Gainesville, FL 32611-5530, USA"
+  - id            : "3"
+    institution   : "Email for Correspondence: embruna@ufl.edu"
+  
 
-authornote: |
+note: |
   
-  Received:______; Revised:______; Accepted:______.  
+  <!-- supress the words "Running Head" in the header https://tex.stackexchange.com/questions/283448/apa6-package-in-man-mode-getting-rid-of-running-head-on-first-page -->
   
-  \bigskip
+  \thispagestyle{otherpage}
   
+  
+  \vspace{7cm} 
+  
+  \flushleft Received:______; Revised:______; Accepted:______.  
+  
+
+abstract:    "Abstract, followed by up to eight keywords separated by a comma.  Keywords should be in English (with the exception of taxonomic information) and listed alphabetically."
+
 keywords          : "up to eight"
 wordcount         : "X"
 bibliography      : "ATBC_2022_Plenary.bib"
 
 nocite: |
   @ripleyPerspectivesTropicalBiology1967, @janzenWhitherTropicalEcology1972, @richardsNeedDevelopmentTropical1946,@richardsWhatTropicsCan1963, @richardsProgrammeTropicalBiology1964, @webbBiologyTropics1960, @robinson1978tropical
+  
 floatsintext      : yes
 linenumbers       : yes
 draft             : no
@@ -60,7 +60,7 @@ always_allow_html: yes
 header-includes:
   - \usepackage{fancyhdr}
   - \pagestyle{empty} # this supresses running head on title page along with next
-  - \thispagestyle{empty} # this supresses running head 
+#  - \thispagestyle{empty} # this supresses running head 
   - \pagestyle{fancy} # now can add the headers on subsequent pages
   - \fancyfoot[C]{\thepage} # remove page number bottom of the page
   - \fancyhead[L]{Bruna}
@@ -1045,21 +1045,21 @@ df_table2 %>%
 
 ```
 
-```{r fig-org, fig.align="center", out.width = "100%", fig.cap='(A) Alternative ways in which researchers self-organize: scholarly societies focused on (a) Conceptual Domains, (b) Systemic Domains, or (c) Methodological Domains. The Association for Tropical Biology transcends these three, as it has members that study a wide variety of systems using different conceptual approaches and tools.'}
-ggdraw() + draw_image('./manuscript/figures_2/slide4.png', scale = 1)
+```{r fig-org, fig.align="center", out.width = "100%", fig.cap='(A) Alternative ways in which researchers self-organize: scholarly societies focused on Conceptual Domains, Systemic Domains, or Methodological Domains. The Association for Tropical Biology transcends these three, as it has members that study a wide variety of systems using different conceptual approaches and tools.'}
+ggdraw() + draw_image('./manuscript/figures/slide1.png', scale = 1)
 ```
 
 
 \newpage
 
 ```{r fig-temp, fig.align="center", out.width = "100%", fig.cap='The logo for a proposed new scholarly society for researchers specializing on temperate ecosystems.'}
-ggdraw() + draw_image("./manuscript/figures_2/slide2.png", scale = 1)
+ggdraw() + draw_image("./manuscript/figures/slide2.png", scale = 1)
 ```
 
 \newpage
 
 ```{r fig-pubs, fig.align="center", out.width = "100%", fig.cap='Alternative publication titles whose framing assumes the \'reference\' ecosystem is (A) the Temperate Zone (B) the Tropics.'}
-ggdraw() + draw_image("./manuscript/figures_2/slide1.png", scale = 1)
+ggdraw() + draw_image("./manuscript/figures/slide3.png", scale = 1)
 ```
 \newpage
 
@@ -1084,6 +1084,10 @@ The complete data set used in this article is available in Dryad at <_DOI added 
 
 ## DISCLOSURE STATEMENT  
 The author confirms that there have been no involvements that might raise the question of bias in the work reported or in the conclusions, implications, or opinions stated.
+
+## AUTHOR CONTRIBUTION STATEMENT
+E.M.B conceived the study and is responsible for the methodology, data collection, data curation, formal analysis, validation, visualization, software, and writing.
+
 
 \newpage
 
