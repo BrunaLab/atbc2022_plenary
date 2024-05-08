@@ -9,126 +9,6 @@ library(tidyverse)
 library(here)
 library(cowplot)
 
-cutoff=75
-start_yr<-1990
-end_yr<-2022
-
-
-# Journals
-
-title<-c("Journal of Evolutionary Biology",
-         "Ecology",
-         "Journal of Applied Ecology",
-         "Evolution", 
-         "Biotropica",
-         "Journal of Ecology",
-         "Tropical Conservation Science",
-         "American Naturalist",
-         "Tropical Ecology",
-         "Journal of Tropical Ecology",
-         "Revista de Biologia Tropical")
-
-SO<-c("jeb", 
-      "ecology",
-      "jae",
-      "evol",
-      "bitr",
-      "jecol",
-      "tcs",
-      "amnat",
-      "trec",
-      "jte",
-      "rbt")
-
-jrnl_cat<-c("general", 
-            "general",
-            "general",
-            "general",
-            "tropical",
-            "general",
-            "tropical",
-            "general",
-            "tropical",
-            "tropical",
-            "tropical")
-
-titles<-tibble(title,SO,jrnl_cat) 
-
-
-
-# Identify "system" words
-
-system_bigrams<-c(
-  "drosophila melanogaster",
-  "north american",
-  "salt marsh",
-  "british isles" ,
-  "north america",
-  "drosophila pseudoobscura",
-  "boreal forest",
-  "tropical forest",
-  "tropical rainforest",
-  "dry forest",
-  "national park", 
-  "tropical dry",
-  "atlantic forest", 
-  "tropical tree",
-  "puerto rico",
-  "cloud forest",
-  "coral reef",
-  "tropical montane",
-  "deciduous forest",
-  "rainforest tree",
-  "african savanna",
-  "neotropical forest",
-  "pacific coast",   
-  "dung beetle",
-  "veracruz mexico",
-  "wet forest",  
-  "amazonian forest",
-  "lowland tropical",
-  "french guiana",   
-  "western ghats",   
-  "brazilian atlantic",  
-  "dry tropical",
-  "lowland rainforest",  
-  "evergreen forest",
-  "baja california", 
-  "cutting ant",
-  "nicoya costarica",
-  "ant plant",  
-  "litter decomposition",
-  "montane rainforest",
-  "montane forest",
-  "hymenoptera formicidae",
-  "mangrove forest",
-  "sea urchin",
-  "california mexico",
-  "dipterocarp forest",
-  "central amazonia", 
-  "chiapas mexico",  
-  "eastern pacific", 
-  "southeastern brazil",
-  "neotropical rainforest",  
-  "arbuscular mycorrhizal", 
-  "lowland forest",  
-  "tree community",
-  "colombian caribbean", 
-  "tropical wet",
-  "bird community",
-  "ghats india", 
-  "golfo dulce",
-  "park costarica",
-  "south eastern"
-)
-
-# EXCLUDE JOURNALS FROM ANALYSIS HERE
-
-titles_analyzed<-titles %>% 
-  # filter(SO!="jeb") %>% 
-  # filter(SO!="evol") %>% 
-  filter(SO!="rbt") 
-
 
 
 
@@ -284,19 +164,19 @@ Trop_bigrams<-generate_bigrams(ngram_data_trop) %>%
   mutate(bigram=paste(word1,word2,sep=" ")) %>% 
   ungroup() %>% 
   mutate(rank_perc = rank(desc(perc), ties.method = "random")) %>% 
-  mutate(system = if_else((bigram %in% system_bigrams == TRUE), "Y", "N")) %>%
+  mutate(system = if_else((bigram %in% system_list$system == TRUE), "Y", "N")) %>%
   mutate(system = as.factor(system)) %>% 
   filter(rank_perc<=cutoff)
 
 
-
+system_list$system
 NonTrop_bigrams<-generate_bigrams(ngram_data_gen) %>% 
   mutate(cat="non-tropical") %>% 
   mutate(bigram=paste(word1,word2,sep=" ")) %>% 
   mutate(bigram=paste(word1,word2,sep=" ")) %>% 
   ungroup() %>% 
   mutate(rank_perc = rank(desc(perc), ties.method = "random")) %>% 
-  mutate(system = if_else((bigram %in% system_bigrams == TRUE), "Y", "N")) %>%
+  mutate(system = if_else((bigram %in% system_list$system == TRUE), "Y", "N")) %>%
   mutate(system = as.factor(system)) %>% 
   filter(rank_perc<=cutoff)
 

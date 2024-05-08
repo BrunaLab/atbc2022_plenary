@@ -126,189 +126,11 @@ cutoff=75
 start_yr<-1990
 end_yr<-2022
 
-
-system <- c(
-  "mammal",
-  "usa",
-  "grassland",
-  "tropical forest",
-  "panama",
-  "costa rica",
-  "liana",
-  "litter",
-  "seedling",
-  "forest",
-  "tree",
-  "tropical wet forest",
-  "zooplankton",
-  "dipterocarpaceae",
-  "tropical rainforest",
-  "bci",
-  "bird",
-  "drosophila melanogaster",
-  "brazil",
-  "mexico",
-  "tropical dryforest",
-  "borneo",
-  "cerrado",
-  "ecuador",
-  "cloud forest",
-  "drosophila",
-  "drosophila melanogaster",
-  "ant",
-  "epiphyte",
-  "amazonia",
-  "secondary forest",
-  "tropic",
-  "elephant",
-  "chiroptera",
-  "rodent",
-  "colombia",
-  "atlantic forest",
-  "rainforest",
-  "puerto rico",
-  "savanna",
-  "africa",
-  "neotropic",
-  "amazon",
-  "usa",
-  "tanzania",
-  "malaysia",
-  "french guiana",
-  "hawaii",
-  "peru",
-  "australia",
-  "amphibian",
-  "lepidoptera",
-  "venezuela",
-  "andes",
-  "bats",
-  "formicidae",
-  "la selva",
-  "mangrove",
-  "india",
-  "primate",
-  "bolivia",
-  "anuran",
-  "madagascar",
-  "indonesia", 
-  "reptile",
-  "caribbean",
-  "kenya",
-  "ficus",
-  "hummingbird",
-  "african",
-  "pacific"
-  )
-
-system <- as_tibble(system)
-
-
-system_bigrams<-c(
-"drosophila melanogaster",
-"north american",
-"salt marsh",
-"british isles" ,
-"north america",
-"drosophila pseudoobscura",
-"boreal forest",
-"tropical forest",
-"tropical rainforest",
-"dry forest",
-"national park", 
-"tropical dry",
-"atlantic forest", 
-"tropical tree",
-"puerto rico",
-"cloud forest",
-"coral reef",
-"tropical montane",
-"deciduous forest",
-"rainforest tree",
-"african savanna",
-"neotropical forest",
-"pacific coast",   
-"dung beetle",
-"veracruz mexico",
-"wet forest",  
-"amazonian forest",
-"lowland tropical",
-"french guiana",   
-"western ghats",   
-"brazilian atlantic",  
-"dry tropical",
-"lowland rainforest",  
-"evergreen forest",
-"baja california", 
-"cutting ant",
-"nicoya costarica",
-"ant plant",  
-"litter decomposition",
-"montane rainforest",
-"montane forest",
-"hymenoptera formicidae",
-"mangrove forest",
-"sea urchin",
-"california mexico",
-"dipterocarp forest",
-"central amazonia", 
-"chiapas mexico",  
-"eastern pacific", 
-"southeastern brazil",
-"neotropical rainforest",  
-"arbuscular mycorrhizal", 
-"lowland forest",  
-"tree community",
-"colombian caribbean", 
-"tropical wet",
-"bird community",
-"ghats india", 
-"golfo dulce",
-"park costarica",
-"south eastern"
-)
+system_list<-read_csv(here("bibliometrics","code_analysis","system.csv"), col_names = FALSE) %>% rename("system"="X1")
 
 # Journals
-
-title<-c("Journal of Evolutionary Biology",
-          "Ecology",
-          "Journal of Applied Ecology",
-          "Evolution", 
-          "Biotropica",
-          "Journal of Ecology",
-          "Tropical Conservation Science",
-          "American Naturalist",
-          "Tropical Ecology",
-          "Journal of Tropical Ecology",
-          "Revista de Biologia Tropical")
- 
-SO<-c("jeb", 
-         "ecology",
-         "jae",
-         "evol",
-         "bitr",
-         "jecol",
-         "tcs",
-         "amnat",
-         "trec",
-         "jte",
-         "rbt")
-
-  jrnl_cat<-c("general", 
-         "general",
-         "general",
-         "general",
-         "tropical",
-         "general",
-         "tropical",
-         "general",
-         "tropical",
-         "tropical",
-         "tropical")
- 
-titles<-tibble(title,SO,jrnl_cat) 
-
-# EXCLUDE JOURNALS FROM ANALYSIS HERE
+## EXCLUDE JOURNALS FROM ANALYSIS HERE
+titles<-read_csv(here("bibliometrics","code_analysis","titles.csv"), col_names = TRUE)
 
 titles_analyzed<-titles %>% 
  filter(SO!="rbt") %>%
@@ -316,9 +138,9 @@ titles_analyzed<-titles %>%
   filter(SO!="evol") 
 
 
-system_bigrams <- as_tibble(system_bigrams) 
-
-system<-bind_rows(system,system_bigrams)
+# system_bigrams <- as_tibble(system_bigrams) 
+# 
+# system_list<-bind_rows(system,system_bigrams)
 
 
 
@@ -338,8 +160,8 @@ system<-bind_rows(system,system_bigrams)
 \bigskip
 
 \noindent This decision regarding my submission to one of our field's well-known journals is likely familiar to many members of the Association for Tropical Biology & Conservation (ATBC). All three reviews were positive, with none of the referees identifying significant shortcomings or requesting major changes. So why had the manuscript been rejected? My only clue was in the Editor's conclusion, from which I gathered they felt studies done _in_ the tropics were of limited relevance to researchers working _outside_ the tropics. That's for whom a specialized journal is published, after all -- a smaller community of subject-matter experts -- and the journal to which we had submitted our study sought to publish "broad conceptual advances".  In short, the Subject Editor was drawing a distinction between _Biology_ and _Tropical_ Biology, with the latter a specialized subdiscipline of the former.  
+   Sixty years on many of us find ourselves similarly frustrated. Field stations in the tropics remain underfunded [@cornerNeedDevelopmentTropical1946; @eppleyTropicalFieldStations2024]. Financial support for tropical research continues to decline [@chapmanNeedDevelopmentTropical1945; @sohmerNSFSupportBasic1980; @stegmannBrazilianPublicFunding2024]. And the study of tropical ecosystems -- which comprise the majority of the planet's biodiversity [@gastonGlobalPatternsBiodiversity2000], ~40% of its terrestrial surface area, and half the human population [@hoornwegPopulationPredictionsWorld2017] -- continues to be seen by many as a scientific specialization. My objective in this essay is not to review the historical origins [e.g., @chazdonFoundationsTropicalForest2001; @raby2017american] or scientific consequences of this generalization  [@zukTemperateAssumptionsHow2016; @molesNotionThatSpecies2016; @robinson1978tropical], nor is it to call (once again) for greater investment in tropical research [_e.g.,_ @macbrideProposedBiologicalLaboratory1903;  @chapmanNeedDevelopmentTropical1945; @janzenWhitherTropicalEcology1972; @janzenFutureTropicalEcology1986; @robinson1978tropical; @bawaParadiseMeetingChallenges2004; @buechnerContributionWorldProgram1967; @richardsProgrammeTropicalBiology1964]. Instead, I hope to assess the fundamental (and rarely questioned) assumption behind the conclusion reached by my manuscript's Editor: Is there really such a thing as _Tropical_ Biology?
    This limited view of tropical research is not new. In 1963, P. W. Richards felt it necessary to use his Presidential Address to the British Ecological Society to explain "what the Tropics can contribute to ecology", advocate for the tropics to be studied more intensively, and to encourage students to visit "the most [biologically] exciting part of the world" [@richardsWhatTropicsCan1963]. His reason for choosing this topic, while self-deprecating, was pointed - he was concerned that a overview of his own research or recent advances in tropical ecology "would probably bore the large part of my audience." [@richardsWhatTropicsCan1963]. That he felt doing so was necessary despite he and others having done so for decades [@huxleyEditorIntroduction1927;@chapmanNeedDevelopmentTropical1945; @richardsNeedDevelopmentTropical1946; @parkObservationsConcerningFuture1945] was surely frustrating.   
-   Sixty years on many of us find ourselves similarly frustrated. Field stations in the tropics remain underfunded [@cornerNeedDevelopmentTropical1946; @eppleyTropicalFieldStations2024]. Financial support for tropical research continues to decline [@chapmanNeedDevelopmentTropical1945; @sohmerNSFSupportBasic1980; @stegmannBrazilianPublicFunding2024]. And despite the tropics comprising the majority of the planet's biodiversity [@gastonGlobalPatternsBiodiversity2000], ~40% of its terrestrial surface area, and half the human population [@hoornwegPopulationPredictionsWorld2017], the study of tropical systems is still viewed by many as a specialization. My objective in this essay is not to review the historical origins [e.g., @chazdonFoundationsTropicalForest2001; @raby2017american] or consequences [@zukTemperateAssumptionsHow2016] of this generalization, the subsequent proposals to advance tropical research [@janzenWhitherTropicalEcology1972; @janzenFutureTropicalEcology1986; @robinson1978tropical; @bawaParadiseMeetingChallenges2004; @buechnerContributionWorldProgram1967; @richardsProgrammeTropicalBiology1964], or the ensuing and often contentious debates about latitudinal gradients in biological processes [@molesNotionThatSpecies2016; @robinson1978tropical]. Instead, I will try to address the long-standing and fundamental -- but to date inexplicably untested -- assumption underpinning the Editor's recommendation: Is there really such a thing as _Tropical_ Biology?
 
 ## 1. Why the answer is *'No'.*
 
@@ -485,7 +307,7 @@ top_kw<- kw %>%
   # mutate(rank_perc = min_rank(desc(n))) %>%
   # arrange(rank_perc,jrnl_cat,desc(pub_cat_2))
   arrange(desc(pub_cat_2),rank_perc) %>% 
-  mutate(system = if_else((final %in% system$value == TRUE), "Y", "N")) %>%
+  mutate(system = if_else((final %in% system_list$system == TRUE), "Y", "N")) %>%
   mutate(system = as.factor(system)) %>% 
   filter(rank_perc<=cutoff) 
 
@@ -664,13 +486,13 @@ Trop_bigrams<-Trop_bigrams %>%
 
 
 
-system<-bind_rows(system_bigrams,system)
+# system<-bind_rows(system_bigrams,system)
 
 
 rankings_pub<-bind_rows(Trop_bigrams,NonTrop_bigrams)
 
 rankings_pub <- rankings_pub %>%
-  mutate(system = if_else((bigram %in% system$value == TRUE), "Y", "N")) %>%
+  mutate(system = if_else((bigram %in% system_list$system == TRUE), "Y", "N")) %>%
   mutate(system = as.factor(system)) %>% 
   group_by(cat) %>% 
   mutate(rank_perc = rank(desc(perc), ties.method = "random")) %>% 
@@ -788,7 +610,7 @@ rankings_pub <- kw %>%
   # mutate(rank_perc = min_rank(desc(n))) %>%
   # arrange(rank_perc,jrnl_cat,desc(pub_cat_2))
   arrange(desc(pub_cat_2),rank_perc) %>% 
-  mutate(system = if_else((final %in% system$value == TRUE), "Y", "N")) %>%
+  mutate(system = if_else((final %in% system_list$system == TRUE), "Y", "N")) %>%
   mutate(system = as.factor(system)) %>% 
   filter(rank_perc<=5000)
 
@@ -922,7 +744,7 @@ pubs_per_pub_cat <- kw %>%
 
 # Top Keywords by pub cat
 rankings_pub <- kw %>%
-  mutate(system = if_else((final %in% system$value == TRUE), "Y", "N")) %>%
+  mutate(system = if_else((final %in% system_list$system == TRUE), "Y", "N")) %>%
   mutate(system = as.factor(system)) %>% 
   filter(system=="N") %>% 
   group_by(pub_cat_2, final) %>%
@@ -970,9 +792,9 @@ nontrop_kw <- plot_kw %>%
 
 
 tropical<-trop_kw %>% filter(rank_perc<=cutoff) %>% anti_join(in_both,by="final") %>% rename(rank_trop=rank_perc) %>% 
-  mutate(system_tropical = if_else((final %in% system$value == TRUE), "Y", "N")) 
+  mutate(system_tropical = if_else((final %in% system_list$system == TRUE), "Y", "N")) 
 not<-nontrop_kw %>% filter(rank_perc<=cutoff) %>% anti_join(in_both,by="final") %>% rename(rank_not=rank_perc) %>% 
-  mutate(system_general = if_else((final %in% system$value == TRUE), "Y", "N")) 
+  mutate(system_general = if_else((final %in% system_list$system == TRUE), "Y", "N")) 
 
 both<- inner_join(trop_kw,in_both,by="final") %>% 
   inner_join(nontrop_kw,in_both,by="final") %>% 
@@ -984,7 +806,7 @@ both<- inner_join(trop_kw,in_both,by="final") %>%
   filter(rank_perc_trop<=cutoff) %>% 
   filter(rank_perc_non<=cutoff) %>% 
   mutate(cat="both") %>% 
-mutate(system_both = if_else((final %in% system$value == TRUE), "Y", "N")) 
+mutate(system_both = if_else((final %in% system_list$system == TRUE), "Y", "N")) 
 
 
 df_table2<-bind_rows(tropical,not,both) %>% 
@@ -1045,21 +867,21 @@ df_table2 %>%
 
 ```
 
-```{r fig-org, fig.align="center", out.width = "100%", fig.cap='(A) Alternative ways in which researchers self-organize: scholarly societies focused on Conceptual Domains, Systemic Domains, or Methodological Domains. The Association for Tropical Biology transcends these three, as it has members that study a wide variety of systems using different conceptual approaches and tools.'}
-ggdraw() + draw_image('./manuscript/figures/slide1.png', scale = 1)
+```{r fig-org, fig.align="center", out.height = "90%",out.width = "100%", fig.cap='(A) Alternative ways in which researchers self-organize: scholarly societies focused on Conceptual Domains, Systemic Domains, or Methodological Domains. The Association for Tropical Biology transcends these three, as it has members that study a wide variety of systems using different conceptual approaches and tools.'}
+ggdraw() + draw_image('./manuscript/figures/slide1.png')
 ```
 
 
 \newpage
 
-```{r fig-temp, fig.align="center", out.width = "100%", fig.cap='The logo for a proposed new scholarly society for researchers specializing on temperate ecosystems.'}
-ggdraw() + draw_image("./manuscript/figures/slide2.png", scale = 1)
+```{r fig-temp, fig.align="center", out.height = "80%",out.width = "100%", fig.cap='The logo for a proposed new scholarly society for researchers specializing on temperate ecosystems.'}
+ggdraw() + draw_image("./manuscript/figures/slide2.png")
 ```
 
 \newpage
 
-```{r fig-pubs, fig.align="center", out.width = "100%", fig.cap='Alternative publication titles whose framing assumes the \'reference\' ecosystem is (A) the Temperate Zone (B) the Tropics.'}
-ggdraw() + draw_image("./manuscript/figures/slide3.png", scale = 1)
+```{r fig-pubs, fig.align="center", out.height = "100%",out.width = "100%", fig.cap='Alternative publication titles whose framing assumes the \'reference\' ecosystem is (A) the Temperate Zone (B) the Tropics.'}
+ggdraw() + draw_image("./manuscript/figures/slide3.png")
 ```
 \newpage
 

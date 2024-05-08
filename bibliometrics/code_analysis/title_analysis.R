@@ -161,71 +161,8 @@ unique(uncat$SO)
 
 # analysis - title words --------------------------------------------------
 
-  system <- c(
-    "mammal",
-    "usa",
-    "grassland",
-    "tropical forest",
-    "panama",
-    "costa rica",
-    "tropical rainforest",
-    "bci",
-    "bird",
-    "drosophila melanogaster",
-    "brazil",
-    "mexico",
-    "tropical dryforest",
-    "borneo",
-    "cerrado",
-    "ecuador",
-    "cloud forest",
-    "drosophila",
-    "drosophila melanogaster",
-    "ant",
-    "epiphyte",
-    "amazonia",
-    "secondary forest",
-    "tropic",
-    "chiroptera",
-    "rodent",
-    "colombia",
-    "atlantic forest",
-    "rainforest",
-    "puerto rico",
-    "savanna",
-    "africa",
-    "neotropic",
-    "amazon",
-    "usa",
-    "tanzania",
-    "malaysia",
-    "french guiana",
-    "hawaii",
-    "peru",
-    "australia",
-    "amphibian",
-    "lepidoptera",
-    "venezuela",
-    "andes",
-    "bats",
-    "formicidae",
-    "la selva",
-    "mangrove",
-    "india",
-    "primate",
-    "bolivia",
-    "anuran",
-    "madagascar",
-    "indonesia", 
-    "reptile",
-    "caribbean",
-    "kenya",
-    "ficus",
-    "hummingbird",
-    "african",
-    "pacific")
-  
-system <- as_tibble(system)
+system_list<-read_csv(here("bibliometrics","code_analysis","system.csv"), col_names = FALSE) %>% rename("system"="X1")
+
 # top title words --------------------------------------------------------
 
 
@@ -351,7 +288,7 @@ tw_trop
 rankings_tw<-bind_rows(tw_non,tw_trop)
 
 rankings_tw <- rankings_tw %>%
-  mutate(system = if_else((final %in% system$value == TRUE), "Y", "N")) %>%
+  mutate(system = if_else((final %in% system_list$system == TRUE), "Y", "N")) %>%
   mutate(system = as.factor(system)) %>% 
   group_by(cat) %>% 
   mutate(rank_perc = rank(desc(perc), ties.method = "random")) %>% 
@@ -716,78 +653,11 @@ Trop_bigrams<-Trop_bigrams %>%
 # NonTrop_bigrams$bigram
 # Trop_bigrams$bigram
 
-system_bigrams<-c(
-  "drosophila melanogaster",
-"north american",
-"salt marsh",
-"british isles" ,
-"north america",
-"drosophila pseudoobscura",
-"boreal forest",
-"tropical forest",
-"tropical rainforest",
-"dry forest",
-"national park", 
-"tropical dry",
-"atlantic forest", 
-"tropical tree",
-"puerto rico",
-"cloud forest",
-"coral reef",
-"tropical montane",
-"deciduous forest",
-"rainforest tree",
-"african savanna",
-"neotropical forest",
-"pacific coast",   
-"dung beetle",
-"veracruz mexico",
-"wet forest",  
-"amazonian forest",
-"lowland tropical",
-"french guiana",   
-"western ghats",   
-"brazilian atlantic",  
-"dry tropical",
-"lowland rainforest",  
-"evergreen forest",
-"baja california", 
-"cutting ant",
-"nicoya costarica",
-"ant plant",  
-"litter decomposition",
-"montane rainforest",
-"montane forest",
-"hymenoptera formicidae",
-"mangrove forest",
-"sea urchin",
-"california mexico",
-"dipterocarp forest",
-"central amazonia", 
-"chiapas mexico",  
-"eastern pacific", 
-"southeastern brazil",
-"neotropical rainforest",  
-"arbuscular mycorrhizal", 
-"lowland forest",  
-"tree community",
-"colombian caribbean", 
-"tropical wet",
-"bird community",
-"ghats india", 
-"golfo dulce",
-"park costarica",
-"south eastern"
-)
-# system_bigrams <- as_tibble(system_bigrams)
-
-
-system<-bind_rows(system_bigrams,system)
 
 rankings_pub<-bind_rows(Trop_bigrams,NonTrop_bigrams)
 
 rankings_pub <- rankings_pub %>%
-  mutate(system = if_else((bigram %in% system$value == TRUE), "Y", "N")) %>%
+  mutate(system = if_else((bigram %in% system_list$system == TRUE), "Y", "N")) %>%
   mutate(system = as.factor(system)) %>% 
   group_by(cat) %>% 
   mutate(rank_perc = rank(desc(perc), ties.method = "random")) %>% 
@@ -1295,64 +1165,6 @@ fourgrams_long<-bind_rows(GGfourgrams,TTfourgrams,GTfourgrams) %>%
 
 
 ####### figure
-
-
-system<-c(
-  "mammal",
-  "usa",
-  "grassland",
-  "tropical forest",
-  "panama",
-  "costa rica",
-  "tropical rainforest",
-  "bci",
-  "bird",
-  "drosophila melanogaster",
-  "drosophila",
-  "brazil",
-  "mexico",
-  "tropical dryforest",
-  "borneo",
-  "cerrado",
-  "ecuador",
-  "cloud forest",
-  "ant",
-  "epiphyte",
-  "amazonia",
-  "secondary forest",
-  "tropic",
-  "chiroptera",
-  "rodent",
-  "colombia",
-  "atlantic forest",
-  "rainforest",
-  "puerto rico",
-  "savanna",
-  "africa",
-  "neotropic",
-  "amazon",
-  "usa",
-  "tanzania",
-  "malaysia",
-  "french guiana",
-  "hawaii",
-  "peru",
-  "australia",
-  "amphibian",
-  "lepidoptera",
-  "lepidoptera",
-  "venezuela",
-  "andes",
-  "bats",
-  "formicidae",
-  "la selva",
-  "mangrove",
-  "primate",
-  "india"
-  )
-
-
-system<-as_tibble(system)
 # 
 # plot_data<-bigrams_long %>%
 #   mutate(cat=paste(jrnl_cat,pub_cat_2,sep="-")) %>% 
@@ -1696,47 +1508,9 @@ top_tw_byJrnl_avgRank<-top_tw_byJrnl %>%
   # plot_data<-avg_rank %>% mutate(cat=paste(jrnl_cat,pub_cat_2,sep="-")) %>% 
   #   filter(cat!="general-tropical") 
   
-  
-  system<-c(
-    "mammal",
-    "usa",
-    "grassland",
-    "tropical forest",
-    "panama",
-    "costa rica",
-    "tropical rainforest",
-    "bci",
-    "bird",
-    "drosophila melanogaster",
-    "brazil",
-    "mexico",
-    "tropical dryforest",
-    "borneo",
-    "cerrado",
-    "ecuador",
-    "cloud forest",
-    "ant",
-    "epiphyte",
-    "amazonia",
-    "secondary forest",
-    "tropic",
-    "chiroptera",
-    "rodent",
-    "colombia",
-    "atlantic forest",
-    "rainforest",
-    "puerto rico",
-    "savanna",
-    "africa",
-    "neotropic",
-    "amazon",
-    "usa",
-    "tanzania")
-  system<-as_tibble(system)
-  
   top_tw_jrnl_3_fig<-top_tw_jrnl_3 %>% 
     mutate(cat=paste(jrnl_cat,pub_cat_2,sep="-")) %>% 
-    mutate(system=if_else((final%in%system$value==TRUE), "Y","N")) %>% 
+    mutate(system=if_else((final%in%system_list$system==TRUE), "Y","N")) %>% 
     filter(rank_perc<=30)
   
   

@@ -260,49 +260,12 @@ avg_rank_wide <- avg_rank %>%
 ###
 # plot_data<-avg_rank %>% mutate(cat=paste(jrnl_cat,pub_cat_2,sep="-")) %>%
 #   filter(cat!="general-tropical")
-
-
-system <- c(
-  "mammal",
-  "usa",
-  "grassland",
-  "tropical forest",
-  "panama",
-  "costa rica",
-  "tropical rainforest",
-  "bci",
-  "bird",
-  "drosophila melanogaster",
-  "brazil",
-  "mexico",
-  "tropical dryforest",
-  "borneo",
-  "cerrado",
-  "ecuador",
-  "cloud forest",
-  "ant",
-  "epiphyte",
-  "amazonia",
-  "secondary forest",
-  "tropic",
-  "chiroptera",
-  "rodent",
-  "colombia",
-  "atlantic forest",
-  "rainforest",
-  "puerto rico",
-  "savanna",
-  "africa",
-  "neotropic",
-  "amazon",
-  "usa",
-  "tanzania"
-)
-system <- as_tibble(system)
+system_list<-read_csv(here("bibliometrics","code_analysis","system.csv"), col_names = FALSE) %>% 
+  rename("system"="X1")
 
 top_kw_jrnl_3_fig <- top_kw_jrnl_3 %>%
   mutate(cat = paste(jrnl_cat, pub_cat_2, sep = "-")) %>%
-  mutate(system = if_else((final %in% system$value == TRUE), "Y", "N")) %>%
+  mutate(system = if_else((final %in% system_list$system == TRUE), "Y", "N")) %>%
   filter(rank_perc <= 30) %>% 
   filter(cat != "general-tropical")
 
@@ -615,34 +578,8 @@ avg_rank %>%
 
 # KW20<-unique(top_kw_jrnl_2$final) %>% as_tibble()
 
-
-system <- c(
-  "mammal",
-  "usa",
-  "grassland",
-  "tropical forest",
-  "panama",
-  "costa rica",
-  "tropical rainforest",
-  "bci",
-  "bird",
-  "drosophila melanogaster",
-  "brazil",
-  "mexico",
-  "tropical dryforest",
-  "atlantic forest",
-  "rainforest",
-  "puerto rico",
-  "savanna",
-  "africa",
-  "neotropic",
-  "amazon",
-  "tanzania"
-)
-system <- as_tibble(system)
-
 top_kw_jrnl_2 <- top_kw_jrnl_2 %>%
-  mutate(system = if_else((final %in% system$value == TRUE), "Y", "N"))
+  mutate(system = if_else((final %in% systemList$system == TRUE), "Y", "N"))
 
 top_kw_jrnl_2 %>%
   filter(system == "Y") %>%
