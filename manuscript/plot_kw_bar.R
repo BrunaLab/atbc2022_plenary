@@ -161,7 +161,7 @@ barplot_words <- function(dataset, cutoff,min_x,max_x,breaks_vec) {
       axis.text.x = element_text(colour = "black", size = 8),
       axis.text.y = element_blank(),
       # axis.text.y = element_text(colour = "black", size = 10), # sets size and style of labels on axes
-      plot.margin = unit(c(.7, .2, 1, .2), "cm")
+      plot.margin = unit(c(1, 0.4, .5, .4), "cm")
     )
   
   kw_trop_bar
@@ -207,7 +207,7 @@ barplot_words <- function(dataset, cutoff,min_x,max_x,breaks_vec) {
       axis.text.x = element_text(colour = "black", size = 8),
       axis.text.y = element_blank(),
       # axis.text.y = element_text(colour = "black", size = 10), # sets size and style of labels on axes
-      plot.margin = unit(c(.7, .2, 1, .2), "cm")
+      plot.margin = unit(c(1, 0.4, .5, .4), "cm")
     )
   
   kw_notrop_bar
@@ -224,35 +224,3 @@ barplot_words <- function(dataset, cutoff,min_x,max_x,breaks_vec) {
 
 return(terms_fig)
 }
-
-
-# for KW
-breaks_vec<-seq(0, 6, by = .5)
-min_x<- -1.0
-max_x<-6
-dataset<-kw
-
-kw_fig<-barplot_words(kw,cutoff,min_x,max_x,breaks_vec)
-kw_fig
-ggsave("kw_fig.jpeg", 
-       path = "./manuscript/figures", 
-       dpi=700,
-       width = 10,
-       height = 7,
-       units = c("in")
-)
-
-# for TW
-breaks_vec<-seq(0, 25, by = 2.5)
-min_x<- -2.4
-max_x=25
-dataset=tw
-tw_fig<-barplot_words(tw,cutoff,min_x,max_x,breaks_vec)
-tw_fig
-ggsave("tw_fig.jpeg", 
-       path = "./manuscript/figures", 
-       dpi=700,
-       width = 10,
-       height = 7,
-       units = c("in")
-)

@@ -1,4 +1,4 @@
-
+barplot_words <- function() {
 library(tidyverse)
 # library(stopwords)
 # library(ngram)
@@ -245,7 +245,7 @@ update_geom_defaults("text", list(size = 2))
 # https://stackoverflow.com/questions/25061822/ggplot-geom-text-font-size-control
 
 breaks_vec<-seq(0, axis_max, by = .5)
-min_x<- -0.9
+min_x<- -1.3
 max_x<-axis_max
 
 
@@ -287,7 +287,7 @@ kw_trop_bar <- trop_term %>%   # This trick update the factor levels
     axis.text.x = element_text(colour = "black", size = 8),
     axis.text.y = element_blank(),
     # axis.text.y = element_text(colour = "black", size = 10), # sets size and style of labels on axes
-    plot.margin = unit(c(.7, .2, 1, .2), "cm")
+    plot.margin = unit(c(1, 0.4, .5, .4), "cm")
   )
 
 kw_trop_bar
@@ -333,7 +333,7 @@ kw_notrop_bar <- nontrop_term %>%   # This trick update the factor levels
     axis.text.x = element_text(colour = "black", size = 8),
     axis.text.y = element_blank(),
     # axis.text.y = element_text(colour = "black", size = 10), # sets size and style of labels on axes
-    plot.margin = unit(c(.7, .2, 1, .2), "cm")
+    plot.margin = unit(c(1, 0.4, .5, .4), "cm")
   )
 
 kw_notrop_bar
@@ -359,3 +359,4 @@ ggsave("bigram_fig.jpeg",
 )
 
 
+}

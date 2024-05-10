@@ -46,6 +46,7 @@ library(gridExtra)
 library(kableExtra)
 library(here)
 library(egg)
+library(ggpattern)
 # library(citr)
 ```
 
@@ -71,82 +72,132 @@ library(egg)
 
 # How many articles in each journal used in KW analysis
 kw_articles <- kw %>%
-  group_by(refID, title, PY, jrnl_cat, pub_cat_2) %>%
-  tally() %>%
-  arrange(jrnl_cat, title, PY) %>%
-  group_by(title, PY, jrnl_cat, pub_cat_2) %>%
-  tally() %>%
-  filter(PY >= start_yr) %>%
-  filter(PY <= end_yr) %>%
+  select(refID, title, jrnl_cat, pub_cat_2) %>%
+  distinct(refID,.keep_all = TRUE) %>% 
+  group_by(jrnl_cat,title,pub_cat_2) %>%
+  tally()  %>%
+  # arrange(jrnl_cat,pub_cat_2,title) %>%
+  # group_by(title, PY, jrnl_cat, pub_cat_2) %>%
+  # tally() %>%
+  # filter(PY >= start_yr) %>%
+  # filter(PY <= end_yr) %>%
   rename(`Article Category` = pub_cat_2) %>% 
+  ungroup() %>% 
   mutate(`Article Category` = fct_recode(`Article Category`,
     "Non-tropical" = "general",
     "Tropical" = "tropical"
-    )) 
+    )) %>% 
+  mutate(jrnl_cat = fct_recode(jrnl_cat,
+    "General" = "general",
+    "Tropical" = "tropical"
+    )) %>% 
+  rename("Journal"="title")
 
-kw_articles_plot <- ggplot(
-  kw_articles,
-  aes(PY,
-    n,
-    shape = `Article Category`,
-    color = `Article Category`
-  )
-) +
-  scale_shape_manual(values = c(1, 16)) +
-  scale_color_manual(values = c("darkblue", "darkgreen")) +
-  expand_limits(x = seq(1990, 2022, by = 5))+
-  geom_point()
-kw_articles_plot <- kw_articles_plot +
-  facet_wrap(vars(title),
-             nrow = 2,
-             scales="free_x") +
-  theme_bw() +
+
+bar_order<-kw_articles %>% 
+  group_by(Journal) %>% 
+  summarize(jrnl_total=sum(n))
+
+# kw_articles <- left_join(kw_articles, bar_order)
+
+# Stacked bar
+# ggplot(kw_articles, aes(fill=title, y=n, x=`Article Category`)) + 
+#     geom_bar(position="stack", stat="identity")
+
+
+# kw_articles$jrnl_cat <- factor(kw_articles$jrnl_cat, levels = unique(kw_articles$jrnl_cat[order(kw_articles$n)]))
+# 
+
+kw_articles$Journal <- factor(kw_articles$Journal, levels = unique(kw_articles$Journal[order(kw_articles$jrnl_cat)]))
+
+
+
+kw_articles_plot<-ggplot(kw_articles, 
+                         aes(fill=`Article Category`, 
+                             x=Journal,
+                             y=n, 
+                             )) + 
+    labs(y = "No. of Articles")+
+    geom_bar(position="stack", stat="identity") +
+    scale_y_continuous(expand = c(0, 0)) +
+    scale_fill_manual(values = c("darkblue", "darkseagreen")) +
+  theme_classic() +
   theme(
     # legend.position='top',
     legend.box.background = element_rect(color="black", size=1),
     # legend.title = element_blank(),
     # legend.key = element_rect(size = 30,color=alpha("transparent",0)),
     strip.text = element_text(size = 6, color = "black", face = "italic"),
-    axis.text.x = element_text(color = "black", size = 6),
-    axis.text.y = element_text(color = "black", size = 6, hjust = 0)
+    axis.text.x = element_text(color = "black", size = 6, angle=315, hjust = 0, face = "italic"),
+    axis.text.y = element_text(color = "black", size = 6, hjust = 0),
+    axis.title.x= element_blank()
   )
 # kw_articles_plot
 
-
-
-# How many articles in each publication category used in KW analysis
-
-kw_articles_by_pubcat <- kw %>%
-  group_by(refID, PY, pub_cat_2) %>%
-  tally() %>%
-  arrange(pub_cat_2, PY) %>%
-  group_by(PY, pub_cat_2) %>%
-  tally() %>%
-  filter(PY >= start_yr) %>%
-  filter(PY <= end_yr) %>%
-  rename(`Article Category` = pub_cat_2)
-
-kw_articles_plot_pubcat <- ggplot(
-  kw_articles_by_pubcat,
-  aes(PY,
-    n,
-    shape = `Article Category`,
-    color = `Article Category`
-  )
-) +
-  scale_shape_manual(values = c(1, 16)) +
-  scale_color_manual(values = c("darkblue", "darkgreen")) +
-  geom_point() +
-  theme_bw() +
-  theme(
-    # legend.position='top',
-    legend.box.background = element_rect(color="black", size=1),
-    # legend.title = element_blank(),
-    # legend.key = element_rect(size = 30,color=alpha("transparent",0)),
-    strip.text = element_text(size = 6, color = "black", face = "italic"),
-    axis.text.x = element_text(color = "black", size = 6),
-    axis.text.y = element_text(color = "black", size = 6, hjust = 0)
-  )
+# 
+# kw_articles_plot <- ggplot(
+#   kw_articles,
+#   aes(PY,
+#     n,
+#     shape = `Article Category`,
+#     color = `Article Category`
+#   )
+# ) +
+#   scale_shape_manual(values = c(1, 16)) +
+#   scale_color_manual(values = c("darkblue", "darkgreen")) +
+#   expand_limits(x = seq(1985, 2025, by = 5))+
+#   geom_point()
+# kw_articles_plot <- kw_articles_plot +
+#   facet_wrap(vars(title),
+#              nrow = 2,
+#              scales="free_x") +
+#   theme_bw() +
+#   theme(
+#     # legend.position='top',
+#     legend.box.background = element_rect(color="black", size=1),
+#     # legend.title = element_blank(),
+#     # legend.key = element_rect(size = 30,color=alpha("transparent",0)),
+#     strip.text = element_text(size = 6, color = "black", face = "italic"),
+#     axis.text.x = element_text(color = "black", size = 6),
+#     axis.text.y = element_text(color = "black", size = 6, hjust = 0)
+#   )
+# # kw_articles_plot
+# 
+# 
+# 
+# # How many articles in each publication category used in KW analysis
+# 
+# kw_articles_by_pubcat <- kw %>%
+#   group_by(refID, PY, pub_cat_2) %>%
+#   tally() %>%
+#   arrange(pub_cat_2, PY) %>%
+#   group_by(PY, pub_cat_2) %>%
+#   tally() %>%
+#   filter(PY >= start_yr) %>%
+#   filter(PY <= end_yr) %>%
+#   rename(`Article Category` = pub_cat_2)
+# 
+# kw_articles_plot_pubcat <- ggplot(
+#   kw_articles_by_pubcat,
+#   aes(PY,
+#     n,
+#     shape = `Article Category`,
+#     color = `Article Category`
+#   )
+# ) +
+#   scale_shape_manual(values = c(1, 16)) +
+#   scale_color_manual(values = c("darkblue", "darkgreen")) +
+#   geom_point() +
+#   theme_bw() +
+#   theme(
+#     # legend.position='top',
+#     legend.box.background = element_rect(color="black", size=1),
+#     # legend.title = element_blank(),
+#     # legend.key = element_rect(size = 30,color=alpha("transparent",0)),
+#     strip.text = element_text(size = 6, color = "black", face = "italic"),
+#     axis.text.x = element_text(color = "black", size = 6),
+#     axis.text.y = element_text(color = "black", size = 6, hjust = 0)
+#   )
 # kw_articles_plot_pubcat
 
 
@@ -163,75 +214,109 @@ tw_articles <- tw_all %>%
   filter(PY >= start_yr) %>%
   filter(PY <= end_yr) %>%
   rename(`Article Category` = pub_cat_2) %>% 
-    mutate(`Article Category` = fct_recode(`Article Category`,
+    ungroup() %>% 
+  mutate(`Article Category` = fct_recode(`Article Category`,
     "Non-tropical" = "general",
-    "Tropical" = "tropical")) 
+    "Tropical" = "tropical"
+    )) %>% 
+  mutate(jrnl_cat = fct_recode(jrnl_cat,
+    "General" = "general",
+    "Tropical" = "tropical"
+    )) %>% 
+  rename("Journal"="title")
 
 
-tw_articles_plot <- ggplot(
-  tw_articles,
-  aes(PY,
-    n,
-    shape = `Article Category`,
-    color = `Article Category`
-  )
-) +
-  scale_shape_manual(values = c(1, 16)) +
-  scale_color_manual(values = c("darkblue", "darkgreen")) +
-  geom_point() +
-  expand_limits(x = seq(1990, 2022, by = 5))+ 
-  guides(color = guide_legend(title = "Article Category"))
+tw_articles$Journal <- factor(tw_articles$Journal, levels = unique(tw_articles$Journal[order(tw_articles$jrnl_cat)]))
 
-tw_articles_plot <- tw_articles_plot +
-  facet_wrap(vars(title),
-             nrow=2)+
-  theme_bw() +
+
+
+tw_articles_plot<-ggplot(tw_articles, 
+                         aes(fill=`Article Category`, 
+                             x=Journal,
+                             y=n, 
+                             )) + 
+    labs(y = "No. of Articles")+
+    geom_bar(position="stack", stat="identity") +
+    scale_y_continuous(expand = c(0, 0)) +
+    scale_fill_manual(values = c("darkblue", "darkseagreen")) +
+  theme_classic() +
   theme(
     # legend.position='top',
     legend.box.background = element_rect(color="black", size=1),
     # legend.title = element_blank(),
     # legend.key = element_rect(size = 30,color=alpha("transparent",0)),
     strip.text = element_text(size = 6, color = "black", face = "italic"),
-    axis.text.x = element_text(color = "black", size = 6),
-    axis.text.y = element_text(color = "black", size = 6, hjust = 0)
+    axis.text.x = element_text(color = "black", size = 6, angle=315, hjust = 0, face = "italic"),
+    axis.text.y = element_text(color = "black", size = 6, hjust = 0),
+    axis.title.x= element_blank()
   )
+
+
+# 
+# tw_articles_plot <- ggplot(
+#   tw_articles,
+#   aes(PY,
+#     n,
+#     shape = `Article Category`,
+#     color = `Article Category`
+#   )
+# ) +
+#   scale_shape_manual(values = c(1, 16)) +
+#   scale_color_manual(values = c("darkblue", "darkgreen")) +
+#   geom_point() +
+#   expand_limits(x = seq(1985, 2025, by = 5))+ 
+#   guides(color = guide_legend(title = "Article Category"))
+# 
+# tw_articles_plot <- tw_articles_plot +
+#   facet_wrap(vars(title),
+#              nrow=2)+
+#   theme_bw() +
+#   theme(
+#     # legend.position='top',
+#     legend.box.background = element_rect(color="black", size=1),
+#     # legend.title = element_blank(),
+#     # legend.key = element_rect(size = 30,color=alpha("transparent",0)),
+#     strip.text = element_text(size = 6, color = "black", face = "italic"),
+#     axis.text.x = element_text(color = "black", size = 6),
+#     axis.text.y = element_text(color = "black", size = 6, hjust = 0)
+#   )
 # tw_articles_plot
 
 
 
 # How many articles in each pubcat used in TW analysis
 
-tw_articles_pubcat <- tw_all %>%
-  group_by(refID, PY, pub_cat_2) %>%
-  tally() %>%
-  arrange(pub_cat_2, PY) %>%
-  group_by(PY, pub_cat_2) %>%
-  tally() %>%
-  filter(PY >= start_yr) %>%
-  filter(PY <= end_yr) %>%
-  rename(`Article Category` = pub_cat_2)
-
-tw_articles_plot_pubcat <- ggplot(
-  tw_articles_pubcat,
-  aes(PY,
-    n,
-    shape = `Article Category`,
-    color = `Article Category`
-  )
-) +
-  scale_shape_manual(values = c(1, 16)) +
-  scale_color_manual(values = c("darkblue", "darkgreen")) +
-  geom_point() +
-  theme_bw() +
-  theme(
-    # legend.position='top',
-    legend.box.background = element_rect(color="black", size=1),
-    # legend.title = element_blank(),
-    # legend.key = element_rect(size = 30,color=alpha("transparent",0)),
-    strip.text = element_text(size = 6, color = "black"),
-    axis.text.x = element_text(color = "black", size = 6),
-    axis.text.y = element_text(color = "black", size = 6, hjust = 0)
-  )
+# tw_articles_pubcat <- tw_all %>%
+#   group_by(refID, PY, pub_cat_2) %>%
+#   tally() %>%
+#   arrange(pub_cat_2, PY) %>%
+#   group_by(PY, pub_cat_2) %>%
+#   tally() %>%
+#   filter(PY >= start_yr) %>%
+#   filter(PY <= end_yr) %>%
+#   rename(`Article Category` = pub_cat_2)
+# 
+# tw_articles_plot_pubcat <- ggplot(
+#   tw_articles_pubcat,
+#   aes(PY,
+#     n,
+#     shape = `Article Category`,
+#     color = `Article Category`
+#   )
+# ) +
+#   scale_shape_manual(values = c(1, 16)) +
+#   scale_color_manual(values = c("darkblue", "darkgreen")) +
+#   geom_point() +
+#   theme_bw() +
+#   theme(
+#     # legend.position='top',
+#     legend.box.background = element_rect(color="black", size=1),
+#     # legend.title = element_blank(),
+#     # legend.key = element_rect(size = 30,color=alpha("transparent",0)),
+#     strip.text = element_text(size = 6, color = "black"),
+#     axis.text.x = element_text(color = "black", size = 6),
+#     axis.text.y = element_text(color = "black", size = 6, hjust = 0)
+#   )
 # tw_articles_plot_pubcat
 ```
 
@@ -257,25 +342,56 @@ tw_articles_plot_pubcat <- ggplot(
 ```
 
 
-```{r keywords, fig.align="center", out.height = "85%",out.width = "85%",fig.cap='The top keywords from articles based on research conducted in (a) the tropics and (b) non-tropical regions and the percentage of articles in each category with those keywords. Keywords based reflecting taxonomy, study systems, and geographic locations are in bold.'} 
+```{r keywords, fig.align="center", out.height = "85%",out.width = "85%",fig.cap='The most common keywords from articles based on research conducted in (a) the tropics and (b) non-tropical regions. The rank of these words is based on the percentage of articles in each category that included them. Terms reflecting geography (e.g., \\textit{tropics, Peru, Southern}) are indicated in bold and with filled bars.'} 
 # knitr::include_graphics(here("manuscript","figures","plot1.jpeg"))
 # knitr::include_graphics("./manuscript/figures/plot1.jpeg")
+source(here("manuscript","plot_kw_bar.R"))
+breaks_vec<-seq(0, 6, by = .5)
+min_x<- -1.7
+max_x<-6
+kw_fig<-barplot_words(kw,cutoff,min_x,max_x,breaks_vec)
+
+ggsave("kw_fig.jpeg", 
+       path = "./manuscript/figures", 
+       dpi=700,
+       width = 10,
+       height = 7,
+       units = c("in")
+)
+
 ggdraw() + draw_image("./manuscript/figures/kw_fig.jpeg", scale = 1)
 ```
 
 \newpage 
 
-```{r titlewords, fig.align="center", out.height = "100%",out.width = "100%",fig.cap='The top individual title words from articles based on research conducted in (a) the tropics and (b) non-tropical regions and the percentage of articles in each category with those keywords. Title words based reflecting taxonomy, study systems, and geographic locations are in bold.'}
+```{r titlewords, fig.align="center", out.height = "100%",out.width = "100%",fig.cap='The most common words in the titles of articles based on research conducted in (a) the tropics and (b) non-tropical regions. The rank of these words is based on the percentage of article titles in each category that included those words. Terms reflecting geography (e.g., \\textit{tropics, Peru, Southern}) are indicated in bold and with filled bars.'}
 # knitr::include_graphics(here("manuscript","figures","plot1.jpeg"))
 # knitr::include_graphics("./manuscript/figures/plot1.jpeg")
+source(here("manuscript","plot_kw_bar.R"))
+# for TW
+breaks_vec<-seq(0, 25, by = 2.5)
+min_x<- -3.5
+max_x<-30
+tw_fig<-barplot_words(tw_all,cutoff,min_x,max_x,breaks_vec)
+
+ggsave("tw_fig.jpeg", 
+       path = "./manuscript/figures", 
+       dpi=700,
+       width = 10,
+       height = 7,
+       units = c("in")
+)
+
 ggdraw() + draw_image("./manuscript/figures/tw_fig.jpeg", scale = 1)
 ```
 
 \newpage
 
-```{r bigrams, fig.align="center", out.height = "100%",out.width = "100%",fig.cap='The top title bigrams from articles based on research conducted in (a) the tropics and (b) non-tropical regions and the percentage of articles in each category with those keywords. Bigrams reflecting taxonomy, study systems, and geographic locations are in bold.',echo = FALSE,message=FALSE,warning=FALSE}
+```{r bigrams, fig.align="center", out.height = "100%",out.width = "100%",fig.cap='The most bigrams in titles of articles based on research conducted in (a) the tropics and (b) non-tropical regions. The rank of these words is based on the percentage of article titles in each category that included those words. Bigrams reflecting geography (e.g., \\textit{tropics, Peru, Atlantic Forest}) are indicated in bold and with filled bars.', echo = FALSE,message=FALSE,warning=FALSE}
 # knitr::include_graphics(here("manuscript","figures","plot1.jpeg"))
 # knitr::include_graphics("./manuscript/figures/plot1.jpeg")
+source(here("manuscript","plot_bigrams_bar.R"))
+bigram_plot<-barplot_words()
 ggdraw() + draw_image("./manuscript/figures/bigram_fig.jpeg", scale = 1)
 ```
 
@@ -284,12 +400,12 @@ ggdraw() + draw_image("./manuscript/figures/bigram_fig.jpeg", scale = 1)
 \newpage
 ```
 
-```{r kwtime, fig.align="center", out.height = "90%",out.width = "90%",fig.cap='The number of articles per year per journal in each geographic category that were included in the analysis of keywords.',echo = FALSE,message=FALSE,warning=FALSE}
+```{r kwtime, fig.align="center", out.height = "100%",out.width = "100%",fig.cap='The number of articles from each journal and geographic category that were used in used the analysis of keywords.',echo = FALSE,message=FALSE,warning=FALSE}
 kw_articles_plot
 ```
 \newpage
 
-```{r twtime, fig.align="center", out.height = "90%",out.width = "90%",fig.cap='The number of articles per year per journal in each geographic category that were included in the analyses of title words and bigrams.',echo = FALSE,message=FALSE,warning=FALSE}
+```{r twtime, fig.align="center", out.height = "100%",out.width = "100%",fig.cap='The number of articles from each journal and geographic category that were used in the analysis of title words and title bigrams.',echo = FALSE,message=FALSE,warning=FALSE}
 tw_articles_plot
 ```
 
